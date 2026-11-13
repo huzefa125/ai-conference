@@ -31,7 +31,7 @@ type ButtonProps = VariantProps<typeof buttonVariants> & {
 } & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "className" | "children">;
 
 export function Button({ href, variant, size, className, children, ...props }: ButtonProps) {
-  const classes = cn(buttonVariants({ variant, size }), "rounded-sm", className);
+  const classes = cn(buttonVariants({ variant, size }), "rounded-md", className);
   if (href) {
     return (
       <Link href={href} className={classes} onClick={props.onClick as React.MouseEventHandler<HTMLAnchorElement> | undefined}>

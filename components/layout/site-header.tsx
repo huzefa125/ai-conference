@@ -49,7 +49,7 @@ export function SiteHeader() {
           </Button>
           <button
             type="button"
-            className="inline-flex size-11 items-center justify-center rounded-sm border border-border text-navy xl:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-md border border-border text-navy xl:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"

@@ -2,7 +2,7 @@ import {
   BrainCircuit, Dna, Cog, FlaskConical, Leaf, Pill, Globe2, Presentation, Mic, Users, Factory, Lightbulb,
 } from "lucide-react";
 
-/* ----- Statistics: SAMPLE PLACEHOLDERS. Replace with verified figures. ----- */
+/* Statistics (SAMPLE PLACEHOLDERS. Replace with verified figures) */
 export const stats = [
   { value: "00+", label: "Annual Conferences" },
   { value: "00,000+", label: "Global Participants" },
@@ -10,7 +10,7 @@ export const stats = [
   { value: "0,000+", label: "Academic Publications" },
 ];
 
-/* ----- Conferences: SAMPLE LISTINGS ----- */
+/* Conferences (SAMPLE LISTINGS) */
 export type Mode = "In-person" | "Virtual" | "Hybrid";
 export type Conference = {
   id: string;
@@ -28,7 +28,7 @@ export const conferences: Conference[] = [
     id: "ai-2027",
     title: "International Conference on Artificial Intelligence and Machine Learning",
     discipline: "Artificial Intelligence",
-    date: "14 – 16 March 2027",
+    date: "14 to 16 March 2027",
     location: "London, United Kingdom",
     mode: "In-person",
     description: "Sample description: advances in learning systems, responsible AI and applied intelligence across industries.",
@@ -38,7 +38,7 @@ export const conferences: Conference[] = [
     id: "life-2027",
     title: "Global Summit on Medical and Life Sciences",
     discipline: "Medical & Life Sciences",
-    date: "22 – 23 May 2027",
+    date: "22 to 23 May 2027",
     location: "Online",
     mode: "Virtual",
     description: "Sample description: translational medicine, genomics and clinical innovation presented by researchers worldwide.",
@@ -48,7 +48,7 @@ export const conferences: Conference[] = [
     id: "mat-2027",
     title: "World Congress on Chemistry and Advanced Materials",
     discipline: "Chemistry & Materials",
-    date: "09 – 11 September 2027",
+    date: "09 to 11 September 2027",
     location: "Singapore",
     mode: "Hybrid",
     description: "Sample description: functional materials, catalysis and sustainable chemistry from lab bench to industry.",
@@ -58,7 +58,7 @@ export const conferences: Conference[] = [
     id: "env-2027",
     title: "International Symposium on Environmental Sciences and Sustainability",
     discipline: "Environmental Sciences",
-    date: "18 – 19 November 2027",
+    date: "18 to 19 November 2027",
     location: "Dubai, United Arab Emirates",
     mode: "In-person",
     description: "Sample description: climate research, ecosystem resilience and policy-relevant environmental science.",
@@ -66,7 +66,7 @@ export const conferences: Conference[] = [
   },
 ];
 
-/* ----- Research areas ----- */
+/* Research areas */
 export const researchAreas = [
   { title: "Artificial Intelligence", description: "Machine learning, robotics, language models and the responsible use of intelligent systems.", icon: BrainCircuit },
   { title: "Medical and Life Sciences", description: "Genomics, clinical research, neuroscience and translational medicine.", icon: Dna },
@@ -76,7 +76,7 @@ export const researchAreas = [
   { title: "Pharmaceutical Research", description: "Drug discovery, formulation, pharmacology and regulatory science.", icon: Pill },
 ];
 
-/* ----- Why attend ----- */
+/* Why attend */
 export const benefits = [
   { title: "Global networking", description: "Meet peers from universities, institutes and laboratories across continents.", icon: Globe2 },
   { title: "Research presentations", description: "Share original findings in oral, poster and workshop formats.", icon: Presentation },
@@ -86,7 +86,7 @@ export const benefits = [
   { title: "Knowledge sharing", description: "Take home new methods, datasets and perspectives for your work.", icon: Lightbulb },
 ];
 
-/* ----- Speakers: SAMPLE PROFILES (fictional) ----- */
+/* Speakers (SAMPLE PROFILES (fictional)) */
 export const speakers = [
   { name: "Dr. Elena Marchetti", role: "Professor of Molecular Medicine", org: "Sample Institute of Life Sciences", focus: "Translational genomics", image: "/images/speaker-1.jpg" },
   { name: "Dr. Jonathan Reyes", role: "Director, Applied AI Laboratory", org: "Sample University of Technology", focus: "Machine learning systems", image: "/images/speaker-2.jpg" },
@@ -94,7 +94,7 @@ export const speakers = [
   { name: "Prof. Anders Lindqvist", role: "Chair of Environmental Science", org: "Sample Nordic Research Academy", focus: "Climate resilience", image: "/images/speaker-4.jpg" },
 ];
 
-/* ----- Gallery ----- */
+/* Gallery */
 export const gallery = [
   { src: "/images/hall.jpg", alt: "Delegates seated in a large international conference hall", caption: "International conference halls", className: "col-span-2 sm:row-span-2" },
   { src: "/images/keynote.jpg", alt: "Microphone in front of an audience at a keynote presentation", caption: "Keynote presentations", className: "" },

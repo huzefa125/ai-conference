@@ -22,7 +22,6 @@ export function Conferences() {
       <Container>
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
-            eyebrow="2027 Programme"
             title="Explore Upcoming Conferences"
             description="Discover opportunities to connect, collaborate and share your research with the global scientific community."
           />

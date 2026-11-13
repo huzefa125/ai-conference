@@ -10,7 +10,6 @@ export function Gallery() {
     <section id="gallery" className="bg-background py-14 sm:py-20 lg:py-28">
       <Container>
         <SectionHeading
-          eyebrow="Conference Experience"
           title="Inside Our Conferences"
           description="From plenary halls to small-group discussion, the moments that make a scientific meeting worthwhile."
         />

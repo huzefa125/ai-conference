@@ -6,7 +6,7 @@ export function AnnouncementBar() {
     <div className="bg-navy-deep text-white">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-3 gap-y-0.5 px-4 py-2 text-center text-xs sm:px-8 sm:text-[13px]">
         <p className="text-white/85">
-          Explore our upcoming international scientific conferences <span aria-hidden>–</span> 2027.
+          Explore our upcoming international scientific conferences in 2027.
         </p>
         <Link
           href="#conferences"

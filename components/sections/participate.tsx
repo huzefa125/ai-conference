@@ -16,7 +16,6 @@ export function Participate() {
       <Container>
         <SectionHeading
           align="center"
-          eyebrow="Get Involved"
           title="How to Participate"
           description="Four straightforward steps from first idea to published contribution."
         />

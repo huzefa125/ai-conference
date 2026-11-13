@@ -21,10 +21,6 @@ export function Newsletter() {
     <section id="contact" className="bg-accent py-14 sm:py-20 lg:py-24">
       <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p className="mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-blue">
-            <span className="h-px w-8 bg-blue" aria-hidden />
-            Newsletter
-          </p>
           <h2 className="font-serif text-3xl leading-[1.15] tracking-tight text-navy sm:text-4xl lg:text-[2.75rem]">
             Stay Connected With the Scientific Community
           </h2>
@@ -57,7 +53,7 @@ export function Newsletter() {
                   autoComplete="email"
                   aria-invalid={status === "error"}
                   aria-describedby="newsletter-hint"
-                  className="h-12 w-full rounded-sm border border-navy/25 bg-white px-4 text-navy placeholder:text-navy/45 focus:border-blue focus:outline-none"
+                  className="h-12 w-full rounded-md border border-input bg-white px-4 text-navy placeholder:text-navy/45 focus:border-blue focus:outline-none"
                 />
                 <Button type="submit" size="lg" className="sm:shrink-0">
                   Subscribe

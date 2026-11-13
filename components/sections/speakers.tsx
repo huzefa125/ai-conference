@@ -12,7 +12,6 @@ export function Speakers() {
       <Container>
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
-            eyebrow="Featured Speakers"
             title="Meet the Minds Shaping Tomorrow"
             description="Sample profiles shown for layout. Names, affiliations and photographs are illustrative placeholders."
           />

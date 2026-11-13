@@ -9,13 +9,12 @@ export function ResearchAreas() {
     <section id="disciplines" className="bg-surface py-14 sm:py-20 lg:py-28">
       <Container>
         <SectionHeading
-          eyebrow="Disciplines"
           title="Exploring Science Across Disciplines"
           description="Our conference programme spans the fields where research is moving fastest."
         />
         <Reveal>
           {/* Shared hairline borders give an editorial index feel rather than a wall of cards */}
-          <ul className="mt-10 sm:mt-14 grid border-l border-t border-border bg-background sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 sm:mt-14 grid border-l border-t border-border bg-card sm:grid-cols-2 lg:grid-cols-3">
             {researchAreas.map(({ title, description, icon: Icon }) => (
               <li key={title} className="border-b border-r border-border">
                 <a href="#conferences" className="group flex h-full flex-col p-8 transition-colors duration-300 hover:bg-navy">

@@ -13,7 +13,6 @@ export function WhyAttend() {
           <div className="lg:sticky lg:top-28">
             <SectionHeading
               tone="dark"
-              eyebrow="The Conference Experience"
               title="Why Attend Our Conferences?"
               description="Every programme is built around the exchanges that move research forward: presenting, questioning, and meeting the people who can help."
             />

@@ -12,7 +12,7 @@ const modeStyles: Record<Conference["mode"], string> = {
 /** Reusable event card. Future listing and archive pages can render this directly. */
 export function ConferenceCard({ conference }: { conference: Conference }) {
   return (
-    <article className="group flex h-full flex-col border border-border bg-background transition-shadow duration-300 hover:shadow-[0_20px_40px_-24px_rgba(15,23,42,0.45)]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-shadow duration-300 hover:shadow-[0_20px_40px_-24px_rgba(15,23,42,0.45)]">
       <div className="relative aspect-[16/9] overflow-hidden bg-navy">
         <Image
           src={conference.image}

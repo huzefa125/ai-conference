@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 
-export const viewport: Viewport = { colorScheme: "light", themeColor: "#0f172a" };
+export const viewport: Viewport = { colorScheme: "light", themeColor: "#29323d" };
 
 export const metadata: Metadata = {
   title: `${site.name} | International Scientific Conferences`,

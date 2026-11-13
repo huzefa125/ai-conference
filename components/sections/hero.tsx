@@ -19,15 +19,11 @@ export function Hero() {
       {/* Single directional navy treatment keeps text legible and the photo visible on the right */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(95deg,rgba(11,18,32,0.96)_0%,rgba(11,18,32,0.86)_42%,rgba(11,18,32,0.45)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(95deg,rgba(27,35,40,0.96)_0%,rgba(27,35,40,0.86)_42%,rgba(27,35,40,0.45)_100%)]"
       />
 
       <Container className="flex min-h-[560px] flex-col justify-between pb-0 pt-16 sm:pt-24 lg:min-h-[640px]">
         <div className="max-w-3xl pb-16 lg:pb-24">
-          <p className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-blue-light">
-            <span className="h-px w-10 bg-blue-light" aria-hidden />
-            International Scientific Conferences
-          </p>
           <h1 className="font-serif text-[2.1rem] leading-[1.1] tracking-tight min-[400px]:text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[4rem]">
             Advancing Science Through Global Collaboration
           </h1>

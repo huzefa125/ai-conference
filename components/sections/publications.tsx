@@ -26,14 +26,13 @@ export function Publications() {
               className="object-cover"
             />
             <div className="absolute bottom-0 left-0 bg-navy px-5 py-4 sm:px-6 sm:py-5">
-              <p className="text-base font-medium text-white sm:text-lg">Peer review. Proceedings. Permanent record.</p>
+              <p className="text-base font-medium text-white sm:text-lg">Peer reviewed work with a permanent record.</p>
             </div>
           </div>
         </Reveal>
 
         <Reveal className="order-1 lg:order-2 lg:col-span-6">
           <SectionHeading
-            eyebrow="Publications"
             title="Knowledge That Continues Beyond Conferences"
             description="Presented work is only the beginning. Our publishing programme gives research a lasting, citable home."
           />

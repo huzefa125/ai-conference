@@ -13,6 +13,7 @@ import { Publications } from "@/components/sections/publications";
 import { Newsletter } from "@/components/sections/newsletter";
 import { Participate } from "@/components/sections/participate";
 import { News } from "@/components/sections/news";
+import { Features } from "@/components/sections/features";
 import { Faq } from "@/components/sections/faq";
 import { CtaBanner } from "@/components/sections/cta-banner";
 
@@ -32,6 +33,7 @@ export default function Home() {
         <Participate />
         <Gallery />
         <Publications />
+        <Features />
         <News />
         <Faq />
         <CtaBanner />

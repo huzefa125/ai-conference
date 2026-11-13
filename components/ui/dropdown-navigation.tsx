@@ -106,7 +106,7 @@ export function DropdownNavigation({
                       animate={{ opacity: 1, y: 0 }}
                       exit={reduce ? undefined : { opacity: 0, y: 6 }}
                       transition={{ duration: 0.18, ease: "easeOut" }}
-                      className="w-max rounded-sm border border-border bg-white p-6 shadow-[0_24px_48px_-16px_rgba(15,23,42,0.25)]"
+                      className="w-max rounded-md border border-border bg-white p-6 shadow-[0_24px_48px_-16px_rgba(15,23,42,0.25)]"
                     >
                       <div className="flex gap-10">
                         {item.subMenus.map((sub) => (
@@ -124,7 +124,7 @@ export function DropdownNavigation({
                                       onClick={() => setOpenMenu(null)}
                                       className="group/item flex items-start gap-3"
                                     >
-                                      <span className="flex size-9 shrink-0 items-center justify-center rounded-sm border border-border text-navy transition-colors duration-300 group-hover/item:border-navy group-hover/item:bg-navy group-hover/item:text-white">
+                                      <span className="flex size-9 shrink-0 items-center justify-center rounded-md border border-border text-navy transition-colors duration-300 group-hover/item:border-navy group-hover/item:bg-navy group-hover/item:text-white">
                                         <Icon className="size-[18px]" aria-hidden />
                                       </span>
                                       <span className="leading-5">
@@ -157,7 +157,7 @@ function Pill({ reduce }: { reduce: boolean }) {
   return (
     <motion.span
       layoutId={reduce ? undefined : "nav-hover-pill"}
-      className="absolute inset-0 rounded-sm bg-accent"
+      className="absolute inset-0 rounded-md bg-accent"
       transition={{ type: "spring", stiffness: 500, damping: 40 }}
       aria-hidden
     />
