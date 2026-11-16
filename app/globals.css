@@ -1,73 +1,61 @@
 @import "tailwindcss";
 
 /*
-  Design tokens. Names follow the shadcn/ui convention so shadcn components
-  (and the dropdown navigation) work without modification.
+  Atlas Conferences & Events Theme
+  Configured from the exact preset:
+  - Primary: #2563EB (Royal Cobalt Blue) / Foreground: #FAF8F5 (Ivory)
+  - Secondary: #F4EFEA (Warm Sand/Cream) / Foreground: #0F172A (Deep Navy)
+  - Accent: #D4E5D9 (Soft Sage / Pistachio Mint) / Foreground: #143826 (Forest Slate)
+  - Background: #FAF8F5 / Foreground: #0F172A
+  - Card: #FFFFFF / Foreground: #0F172A
+  - Muted: #EFEBE5 / Foreground: #64748B
+  - Border: #DDE0E5
+  - Input: #DDE0E5
+  - Ring: #2563EB
 */
 :root {
-  /* Neutral + brand palette. Contrast-checked: --foreground on --background 15:1, --blue on white 5.2:1, --muted-foreground on white 4.8:1. */
+  --background: #faf8f5;
+  --foreground: #0f172a;
+
   --card: #ffffff;
-  --ring: #2f5bea;
-  --input: #d5dbe6;
-  --muted: #eef1f6;
-  --accent: #eef2fb;
-  --border: #e3e8f0;
-  --radius: 0.875rem;
-  --chart-1: #2f5bea;
-  --chart-2: #7c9bff;
-  --chart-3: #c7d2e6;
-  --chart-4: #dfe6f5;
-  --chart-5: #1e3fae;
+  --card-foreground: #0f172a;
+
   --popover: #ffffff;
-  --primary: #2f5bea;
-  --sidebar: #f4f6fa;
-  --secondary: #eef1f6;
-  --background: #f7f8fb;
-  --foreground: #0e1726;
-  --destructive: #c2261d;
-  --card-foreground: #0e1726;
-  --muted-foreground: #5a6577;
-  --accent-foreground: #0e1726;
-  --popover-foreground: #0e1726;
-  --primary-foreground: #ffffff;
-  --secondary-foreground: #2a3446;
-  --destructive-foreground: #ffffff;
+  --popover-foreground: #0f172a;
 
-  /* Site tokens */
-  --surface: #eef2f8;
-  --navy: #0e1726;
-  --navy-deep: #070d18;
-  --blue: #2f5bea;
-  --blue-light: #8fa9ff;
-  --violet: #7b5cff;
-  --cyan: #22c3e6;
+  --primary: #2563eb;
+  --primary-foreground: #faf8f5;
 
-  /* Elevation */
-  --shadow-card: 0 1px 2px rgba(14, 23, 38, 0.04), 0 8px 24px -12px rgba(14, 23, 38, 0.12);
-  --shadow-lift: 0 2px 4px rgba(14, 23, 38, 0.04), 0 24px 48px -20px rgba(14, 23, 38, 0.28);
-}
+  --secondary: #f4efea;
+  --secondary-foreground: #0f172a;
 
-/* Provided dark palette (no dark-mode toggle is wired up yet; the site is light-only) */
-.dark {
-  --card: #242526;
-  --ring: #5795d9;
-  --input: #4a4e52;
-  --muted: #191a1b;
-  --accent: #15171a;
-  --border: #383b3e;
-  --popover: #2e2f30;
-  --primary: #5795d9;
-  --secondary: #f5f8fa;
-  --background: #111111;
-  --foreground: #b6bbc3;
+  --muted: #efebe5;
+  --muted-foreground: #64748b;
+
+  --accent: #d4e5d9;
+  --accent-foreground: #143826;
+
   --destructive: #ef4444;
-  --card-foreground: #f5f7fa;
-  --muted-foreground: #a9b1b7;
-  --accent-foreground: #eef2f5;
-  --popover-foreground: #e2e4e5;
-  --primary-foreground: #ffffff;
-  --secondary-foreground: #2e2f30;
   --destructive-foreground: #ffffff;
+
+  --border: #dde0e5;
+  --input: #dde0e5;
+  --ring: #2563eb;
+
+  --radius: 0.875rem;
+
+  /* Custom Atlas Brand Tokens */
+  --atlas-blue: #2563eb;
+  --atlas-blue-dark: #1d4ed8;
+  --atlas-navy: #0f172a;
+  --atlas-cream: #faf8f5;
+  --atlas-sand: #f4efea;
+  --atlas-sage: #d4e5d9;
+  --atlas-sage-dark: #143826;
+  --atlas-border: #dde0e5;
+
+  --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.05), 0 10px 25px -5px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 20px 35px -10px rgba(37, 99, 235, 0.12);
 }
 
 @theme inline {
@@ -90,116 +78,55 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-surface: var(--surface);
-  --color-navy: var(--navy);
-  --color-navy-deep: var(--navy-deep);
-  --color-blue: var(--blue);
-  --color-blue-light: var(--blue-light);
-  --color-violet: var(--violet);
-  --color-cyan: var(--cyan);
-  --shadow-card: var(--shadow-card);
-  --shadow-lift: var(--shadow-lift);
-  --radius-xl: calc(var(--radius) + 2px);
-  --radius-2xl: calc(var(--radius) + 6px);
-  --radius-3xl: calc(var(--radius) + 14px);
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
-  /* Radix accordion open/close animations */
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
-  /* Marquee (set speed/gap with --duration / --gap on the element) */
-  --animate-marquee: marquee var(--duration) infinite linear;
-  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --animate-marquee: marquee 32s linear infinite;
   @keyframes marquee {
     from { transform: translateX(0); }
-    to { transform: translateX(calc(-100% - var(--gap))); }
-  }
-  @keyframes marquee-vertical {
-    from { transform: translateY(0); }
-    to { transform: translateY(calc(-100% - var(--gap))); }
-  }
-  @keyframes accordion-down {
-    from { height: 0; }
-    to { height: var(--radix-accordion-content-height); }
-  }
-  @keyframes accordion-up {
-    from { height: var(--radix-accordion-content-height); }
-    to { height: 0; }
+    to { transform: translateX(-50%); }
   }
 }
 
 html {
   color-scheme: light;
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-}
-
-/* Brand gradient text for one highlighted phrase per heading at most. */
-.text-gradient {
-  background: linear-gradient(100deg, var(--blue) 0%, var(--violet) 55%, var(--cyan) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Subtle dot grid for dark hero / band backgrounds. */
-.bg-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
-  background-size: 22px 22px;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  overflow-x: clip;
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
-  -webkit-tap-highlight-color: transparent;
 }
 
-button,
-a,
-input,
-select,
-textarea {
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.025em;
+}
+
+/* Glassmorphism tuned for warm cream background */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+.glass-nav {
+  background: rgba(250, 248, 245, 0.88);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+button, a, input, select, textarea {
   touch-action: manipulation;
-}
-
-[class*="overflow-x-auto"],
-[class*="overflow-y-auto"] {
-  -webkit-overflow-scrolling: touch;
 }
 
 :focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-  }
 }
