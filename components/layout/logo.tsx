@@ -14,7 +14,7 @@ export function Logo({ tone = "dark", className }: { tone?: "dark" | "light"; cl
           light ? "border-white/60 text-white" : "border-navy bg-navy text-white",
         )}
       >
-        M
+        A
         <span className="absolute -bottom-px -right-px size-2.5 bg-blue" />
       </span>
       <span className="leading-none">
