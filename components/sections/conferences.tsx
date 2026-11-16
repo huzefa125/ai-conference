@@ -18,20 +18,21 @@ export function Conferences() {
   const visible = active === ALL ? conferences : conferences.filter((c) => c.discipline === active);
 
   return (
-    <section id="conferences" className="bg-background py-14 sm:py-20 lg:py-28">
+    <section id="conferences" className="bg-white py-16 sm:py-20 lg:py-28">
       <Container>
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
-            title="Explore Upcoming Conferences"
-            description="Discover opportunities to connect, collaborate and share your research with the global scientific community."
+            eyebrow="2027 programme"
+            title="Upcoming conferences"
+            description="Six international meetings across six disciplines. Filter by field to find yours."
           />
-          <Button href="#" variant="outline" size="lg" className="hidden self-start lg:inline-flex lg:self-auto">
-            View All Conferences
+          <Button href="/conferences" variant="outline" size="lg" className="hidden self-start lg:inline-flex lg:self-auto">
+            View all conferences
             <ArrowRight aria-hidden />
           </Button>
         </div>
 
-        <div role="group" aria-label="Filter conferences by discipline" className="mt-10 flex flex-wrap gap-2 border-b border-border pb-6">
+        <div role="group" aria-label="Filter conferences by discipline" className="mt-10 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none]">
           {categories.map((cat) => {
             const isActive = cat === active;
             const count = cat === ALL ? conferences.length : conferences.filter((c) => c.discipline === cat).length;
@@ -42,20 +43,20 @@ export function Conferences() {
                 aria-pressed={isActive}
                 onClick={() => setActive(cat)}
                 className={cn(
-                  "inline-flex items-center gap-2 border px-4 py-2 text-sm font-medium transition-colors",
+                  "inline-flex h-10 shrink-0 items-center gap-2 rounded-full border px-4 text-sm font-medium transition-colors",
                   isActive
                     ? "border-navy bg-navy text-white"
-                    : "border-border text-navy/80 hover:border-navy hover:text-navy",
+                    : "border-border bg-white text-navy/80 hover:border-navy/40 hover:text-navy",
                 )}
               >
                 {cat}
-                <span className={cn("text-xs", isActive ? "text-white/70" : "text-muted-foreground")}>{count}</span>
+                <span className={cn("rounded-full px-1.5 text-xs tabular-nums", isActive ? "bg-white/15 text-white" : "bg-accent text-muted-foreground")}>{count}</span>
               </button>
             );
           })}
         </div>
 
-        <motion.ul layout className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4" aria-live="polite">
+        <motion.ul layout className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3" aria-live="polite">
           <AnimatePresence mode="popLayout">
             {visible.map((c) => (
               <motion.li
@@ -72,12 +73,9 @@ export function Conferences() {
           </AnimatePresence>
         </motion.ul>
 
-        <p className="mt-8 text-xs text-muted-foreground">
-          Sample listings with placeholder dates, venues and descriptions. Replace with confirmed event data.
-        </p>
 
-        <Button href="#" variant="outline" size="lg" className="mt-8 w-full lg:hidden">
-          View All Conferences
+        <Button href="/conferences" variant="outline" size="lg" className="mt-8 w-full lg:hidden">
+          View all conferences
           <ArrowRight aria-hidden />
         </Button>
       </Container>

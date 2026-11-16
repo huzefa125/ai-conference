@@ -106,15 +106,15 @@ export function DropdownNavigation({
                       animate={{ opacity: 1, y: 0 }}
                       exit={reduce ? undefined : { opacity: 0, y: 6 }}
                       transition={{ duration: 0.18, ease: "easeOut" }}
-                      className="w-max rounded-md border border-border bg-white p-6 shadow-[0_24px_48px_-16px_rgba(15,23,42,0.25)]"
+                      className="w-max rounded-3xl border border-border bg-white/95 p-3 shadow-lift backdrop-blur-xl"
                     >
-                      <div className="flex gap-10">
+                      <div className="flex gap-2">
                         {item.subMenus.map((sub) => (
-                          <div key={sub.title} className="min-w-[15rem]">
-                            <h3 className="mb-4 border-b border-border pb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-blue">
+                          <div key={sub.title} className="min-w-[16rem] rounded-2xl p-3 [&:not(:first-child)]:bg-background">
+                            <h3 className="mb-2 px-2 font-sans text-xs font-semibold tracking-normal text-muted-foreground">
                               {sub.title}
                             </h3>
-                            <ul className="space-y-4">
+                            <ul className="space-y-0.5">
                               {sub.items.map((sub_item) => {
                                 const Icon = sub_item.icon;
                                 return (
@@ -122,13 +122,13 @@ export function DropdownNavigation({
                                     <Link
                                       href={sub_item.href ?? "#"}
                                       onClick={() => setOpenMenu(null)}
-                                      className="group/item flex items-start gap-3"
+                                      className="group/item flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-accent"
                                     >
-                                      <span className="flex size-9 shrink-0 items-center justify-center rounded-md border border-border text-navy transition-colors duration-300 group-hover/item:border-navy group-hover/item:bg-navy group-hover/item:text-white">
+                                      <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-blue/10 text-blue transition-colors duration-300 group-hover/item:bg-blue group-hover/item:text-white">
                                         <Icon className="size-[18px]" aria-hidden />
                                       </span>
                                       <span className="leading-5">
-                                        <span className="block text-sm font-medium text-navy">{sub_item.label}</span>
+                                        <span className="block text-sm font-semibold text-navy">{sub_item.label}</span>
                                         <span className="block text-xs text-muted-foreground transition-colors group-hover/item:text-navy">
                                           {sub_item.description}
                                         </span>
@@ -157,7 +157,7 @@ function Pill({ reduce }: { reduce: boolean }) {
   return (
     <motion.span
       layoutId={reduce ? undefined : "nav-hover-pill"}
-      className="absolute inset-0 rounded-md bg-accent"
+      className="absolute inset-0 rounded-full bg-accent"
       transition={{ type: "spring", stiffness: 500, damping: 40 }}
       aria-hidden
     />

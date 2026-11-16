@@ -12,24 +12,26 @@ const steps = [
 
 export function Participate() {
   return (
-    <section id="participate" className="bg-surface py-14 sm:py-20 lg:py-28">
+    <section id="participate" className="bg-background py-16 sm:py-20 lg:py-28">
       <Container>
         <SectionHeading
           align="center"
-          title="How to Participate"
-          description="Four straightforward steps from first idea to published contribution."
+          eyebrow="How it works"
+          title="From abstract to published paper in four steps"
+          description="A clear path from your first submission to a citable record of your work."
         />
         <Reveal>
-          <ol className="relative mt-10 grid gap-6 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
-            {/* Connector line on desktop */}
-            <span aria-hidden className="absolute left-0 right-0 top-6 hidden h-px bg-border lg:block" />
+          <ol className="relative mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map(({ icon: Icon, title, text }, i) => (
-              <li key={title} className="relative lg:px-6 lg:first:pl-0 lg:last:pr-0">
-                <span className="relative z-10 flex size-12 items-center justify-center border border-navy bg-white text-navy">
-                  <Icon className="size-5" aria-hidden />
-                </span>
-                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-blue">Step {i + 1}</p>
-                <h3 className="mt-2 text-xl text-navy">{title}</h3>
+              <li key={title} className="relative rounded-2xl border border-border bg-card p-6 shadow-card">
+                <div className="flex items-center justify-between">
+                  <span className="flex size-12 items-center justify-center rounded-xl bg-blue/10 text-blue">
+                    <Icon className="size-5" aria-hidden />
+                  </span>
+                  <span aria-hidden className="font-display text-4xl font-extrabold text-navy/[0.07]">0{i + 1}</span>
+                </div>
+                <p className="mt-6 text-xs font-semibold text-blue">Step {i + 1}</p>
+                <h3 className="mt-1 text-lg font-bold text-navy">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
               </li>
             ))}

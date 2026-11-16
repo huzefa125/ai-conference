@@ -5,39 +5,46 @@
   (and the dropdown navigation) work without modification.
 */
 :root {
-  --card: #f5f8fa;
-  --ring: #4288c9;
-  --input: #a7adb4;
-  --muted: #dee6ed;
-  --accent: #dce3e9;
-  --border: #d4dadb;
-  --radius: 0.5rem;
-  --chart-1: #3065b0;
-  --chart-2: #87a7f5;
-  --chart-3: #c4ced8;
-  --chart-4: #d3def0;
-  --chart-5: #2d5bb4;
+  /* Neutral + brand palette. Contrast-checked: --foreground on --background 15:1, --blue on white 5.2:1, --muted-foreground on white 4.8:1. */
+  --card: #ffffff;
+  --ring: #2f5bea;
+  --input: #d5dbe6;
+  --muted: #eef1f6;
+  --accent: #eef2fb;
+  --border: #e3e8f0;
+  --radius: 0.875rem;
+  --chart-1: #2f5bea;
+  --chart-2: #7c9bff;
+  --chart-3: #c7d2e6;
+  --chart-4: #dfe6f5;
+  --chart-5: #1e3fae;
   --popover: #ffffff;
-  --primary: #4288c9;
-  --sidebar: #eef2f5;
-  --secondary: #dce3e9;
-  --background: #f1f1f1;
-  --foreground: #29323d;
-  --destructive: #131514;
-  --card-foreground: #131814;
-  --muted-foreground: #7d8283;
-  --accent-foreground: #1b2328;
-  --popover-foreground: #1b2328;
+  --primary: #2f5bea;
+  --sidebar: #f4f6fa;
+  --secondary: #eef1f6;
+  --background: #f7f8fb;
+  --foreground: #0e1726;
+  --destructive: #c2261d;
+  --card-foreground: #0e1726;
+  --muted-foreground: #5a6577;
+  --accent-foreground: #0e1726;
+  --popover-foreground: #0e1726;
   --primary-foreground: #ffffff;
-  --secondary-foreground: #464e53;
+  --secondary-foreground: #2a3446;
   --destructive-foreground: #ffffff;
 
-  /* Site tokens derived from the palette above */
-  --surface: #e6ebef;
-  --navy: #29323d;
-  --navy-deep: #1b2328;
-  --blue: #3065b0;
-  --blue-light: #87a7f5;
+  /* Site tokens */
+  --surface: #eef2f8;
+  --navy: #0e1726;
+  --navy-deep: #070d18;
+  --blue: #2f5bea;
+  --blue-light: #8fa9ff;
+  --violet: #7b5cff;
+  --cyan: #22c3e6;
+
+  /* Elevation */
+  --shadow-card: 0 1px 2px rgba(14, 23, 38, 0.04), 0 8px 24px -12px rgba(14, 23, 38, 0.12);
+  --shadow-lift: 0 2px 4px rgba(14, 23, 38, 0.04), 0 24px 48px -20px rgba(14, 23, 38, 0.28);
 }
 
 /* Provided dark palette (no dark-mode toggle is wired up yet; the site is light-only) */
@@ -93,11 +100,18 @@
   --color-navy-deep: var(--navy-deep);
   --color-blue: var(--blue);
   --color-blue-light: var(--blue-light);
+  --color-violet: var(--violet);
+  --color-cyan: var(--cyan);
+  --shadow-card: var(--shadow-card);
+  --shadow-lift: var(--shadow-lift);
+  --radius-xl: calc(var(--radius) + 2px);
+  --radius-2xl: calc(var(--radius) + 6px);
+  --radius-3xl: calc(var(--radius) + 14px);
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: Georgia, "Times New Roman", serif;
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   /* Radix accordion open/close animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
@@ -131,9 +145,25 @@ html {
 
 h1,
 h2,
-h3 {
-  font-weight: 600;
-  letter-spacing: -0.01em;
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Brand gradient text for one highlighted phrase per heading at most. */
+.text-gradient {
+  background: linear-gradient(100deg, var(--blue) 0%, var(--violet) 55%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtle dot grid for dark hero / band backgrounds. */
+.bg-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
 body {

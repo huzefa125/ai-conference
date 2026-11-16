@@ -13,11 +13,11 @@ export function CtaBanner() {
           <p className="mt-3 text-white/85">Join an upcoming conference as a speaker, poster presenter or delegate.</p>
         </div>
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-          <Button href="#" variant="light" size="lg">
+          <Button href="/become-a-speaker" variant="light" size="lg">
             Become a Speaker
             <ArrowRight aria-hidden />
           </Button>
-          <Button href="#" variant="outline-light" size="lg">
+          <Button href="/call-for-abstracts/submit" variant="outline-light" size="lg">
             Submit an Abstract
           </Button>
         </div>

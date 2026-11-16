@@ -34,8 +34,8 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b bg-white transition-shadow duration-300",
-        scrolled ? "border-border shadow-[0_8px_24px_-18px_rgba(15,23,42,0.4)]" : "border-transparent",
+        "sticky top-0 z-50 border-b transition-[background-color,box-shadow,border-color] duration-300",
+        scrolled ? "border-border/70 bg-white/80 shadow-[0_8px_30px_-20px_rgba(14,23,38,0.35)] backdrop-blur-xl" : "border-transparent bg-white",
       )}
     >
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-4 min-[400px]:px-5 sm:gap-6 sm:px-8 lg:px-10 2xl:max-w-[1440px]">
@@ -44,12 +44,12 @@ export function SiteHeader() {
         <DropdownNavigation navItems={NAV_ITEMS} className="hidden xl:block" />
 
         <div className="flex items-center gap-3">
-          <Button href="#conferences" size="md" className="hidden sm:inline-flex">
+          <Button href="/conferences" size="md" className="hidden sm:inline-flex">
             Upcoming Conferences
           </Button>
           <button
             type="button"
-            className="inline-flex size-11 items-center justify-center rounded-md border border-border text-navy xl:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-border text-navy xl:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -121,8 +121,8 @@ export function SiteHeader() {
               })}
             </ul>
             <div className="px-4 pb-10 pt-4 min-[400px]:px-5 sm:px-8">
-              <Button href="#conferences" size="lg" className="w-full" onClick={close}>
-                Upcoming Conferences
+              <Button href="/registration" size="lg" className="w-full" onClick={close}>
+                Register Now
               </Button>
             </div>
           </motion.div>

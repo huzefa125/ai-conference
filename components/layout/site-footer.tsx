@@ -3,26 +3,35 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Logo } from "./logo";
 import { site } from "@/lib/site";
+import { disciplines } from "@/lib/data";
 
 const columns = [
   {
     title: "Quick Links",
-    links: ["About Us", "Conferences", "Services", "Speakers", "Contact"],
-  },
-  {
-    title: "Conference Categories",
     links: [
-      "Artificial Intelligence",
-      "Medical & Life Sciences",
-      "Engineering & Technology",
-      "Chemistry & Materials",
-      "Environmental Sciences",
-      "Pharmaceutical Research",
+      { label: "About Us", href: "/about" },
+      { label: "Conferences", href: "/conferences" },
+      { label: "Registration", href: "/registration" },
+      { label: "Speakers", href: "/speakers" },
+      { label: "Sponsorship", href: "/sponsorship" },
+      { label: "News", href: "/news" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
+    title: "Conference Categories",
+    links: disciplines.map((d) => ({ label: d.name, href: `/conferences/category/${d.slug}` })),
+  },
+  {
     title: "Publications",
-    links: ["Journals", "Conference Proceedings", "Research Articles", "Author Guidelines"],
+    links: [
+      { label: "Journals", href: "/publications/journals" },
+      { label: "Conference Proceedings", href: "/publications/proceedings" },
+      { label: "Author Guidelines", href: "/publications/author-guidelines" },
+      { label: "Call for Abstracts", href: "/call-for-abstracts" },
+      { label: "Past Events", href: "/past-events" },
+    ],
   },
 ];
 
@@ -45,13 +54,14 @@ const socials = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-navy text-white">
+    <footer className="relative overflow-hidden bg-navy-deep text-white">
+      <div aria-hidden className="pointer-events-none absolute -right-40 -top-40 size-[30rem] rounded-full bg-blue/20 blur-[140px]" />
       <Container className="grid gap-12 py-14 sm:py-16 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Logo tone="light" />
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">
-            Placeholder introduction. An international organiser of scientific conferences, bringing researchers and
-            industry together to share knowledge across disciplines.
+            An international organiser of scientific conferences, bringing researchers and industry together to share
+            knowledge across six disciplines.
           </p>
           <ul className="mt-6 flex gap-2">
             {socials.map(({ label, icon: Icon }) => (
@@ -59,7 +69,7 @@ export function SiteFooter() {
                 <a
                   href="#"
                   aria-label={label}
-                  className="flex size-10 items-center justify-center border border-white/25 text-white/80 transition-colors hover:border-white hover:bg-white hover:text-navy"
+                  className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80 transition-colors hover:border-white hover:bg-white hover:text-navy"
                 >
                   <Icon className="size-4" aria-hidden />
                 </a>
@@ -71,12 +81,12 @@ export function SiteFooter() {
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:col-span-6">
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-light">{col.title}</h3>
+              <h3 className="text-sm font-semibold text-white">{col.title}</h3>
               <ul className="mt-5 space-y-3">
                 {col.links.map((l) => (
-                  <li key={l}>
-                    <Link href="#" className="text-sm text-white/75 transition-colors hover:text-white">
-                      {l}
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm text-white/60 transition-colors hover:text-white">
+                      {l.label}
                     </Link>
                   </li>
                 ))}
@@ -86,7 +96,7 @@ export function SiteFooter() {
         </div>
 
         <div className="lg:col-span-2">
-          <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-light">Contact</h3>
+          <h3 className="text-sm font-semibold text-white">Contact</h3>
           <ul className="mt-5 space-y-3 text-sm text-white/75">
             <li className="flex gap-2.5">
               <MapPin className="mt-0.5 size-4 shrink-0 text-blue-light" aria-hidden />
@@ -111,12 +121,12 @@ export function SiteFooter() {
           </p>
           <ul className="flex gap-6">
             <li>
-              <Link href="#" className="hover:text-white">
+              <Link href="/privacy" className="hover:text-white">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">
+              <Link href="/terms" className="hover:text-white">
                 Terms and Conditions
               </Link>
             </li>

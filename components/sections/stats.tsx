@@ -18,7 +18,7 @@ export function Stats() {
                   i > 0 ? "lg:border-l lg:border-border" : ""
                 } ${i === 0 ? "lg:pl-0" : ""}`}
               >
-                <dd className="font-serif text-3xl tracking-tight text-navy min-[400px]:text-4xl sm:text-5xl">{s.value}</dd>
+                <dd className="font-display text-3xl tracking-tight text-navy min-[400px]:text-4xl sm:text-5xl">{s.value}</dd>
                 <dt className="mt-2 text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground sm:text-sm sm:tracking-[0.12em]">
                   {s.label}
                 </dt>
@@ -27,7 +27,7 @@ export function Stats() {
           </dl>
           <div className="mt-12 border-t border-border pt-8">
             <p className="text-center text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-              Partner institutions and societies (placeholders)
+              Partner institutions and societies
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 text-center sm:grid-cols-3 lg:grid-cols-6">
               {["University Name", "Research Institute", "Science Society", "Academy of Sciences", "Medical Council", "Tech Foundation"].map((n) => (

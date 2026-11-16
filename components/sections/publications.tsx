@@ -47,7 +47,7 @@ export function Publications() {
               </li>
             ))}
           </ul>
-          <Button href="#" size="lg" className="mt-10">
+          <Button href="/publications" size="lg" className="mt-10">
             Discover Publications
             <ArrowRight aria-hidden />
           </Button>

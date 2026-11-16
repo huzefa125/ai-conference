@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Conference } from "@/lib/data";
@@ -37,7 +38,7 @@ export function ConferenceCard({ conference }: { conference: Conference }) {
 
       <div className="flex flex-1 flex-col p-6">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue">{conference.discipline}</p>
-        <h3 className="mt-3 font-serif text-xl leading-snug text-navy">{conference.title}</h3>
+        <h3 className="mt-3 font-display text-xl leading-snug text-navy">{conference.title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{conference.description}</p>
 
         <dl className="mt-5 space-y-2 border-t border-border pt-5 text-sm text-navy/85">
@@ -53,14 +54,14 @@ export function ConferenceCard({ conference }: { conference: Conference }) {
           </div>
         </dl>
 
-        <a
-          href="#"
+        <Link
+          href={`/conferences/${conference.id}`}
           className="mt-6 inline-flex items-center gap-1.5 pt-1 text-sm font-semibold text-navy transition-colors hover:text-blue"
         >
           View Conference Details
           <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
           <span className="sr-only"> for {conference.title}</span>
-        </a>
+        </Link>
       </div>
     </article>
   );

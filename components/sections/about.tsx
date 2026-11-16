@@ -59,7 +59,7 @@ export function About() {
             ))}
           </ul>
 
-          <Button href="#" className="mt-6">
+          <Button href="/about" className="mt-6">
             Discover Our Organization
             <ArrowRight aria-hidden />
           </Button>

@@ -18,10 +18,10 @@ export function Newsletter() {
   }
 
   return (
-    <section id="contact" className="bg-accent py-14 sm:py-20 lg:py-24">
+    <section id="newsletter" className="bg-accent py-14 sm:py-20 lg:py-24">
       <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <h2 className="font-serif text-3xl leading-[1.15] tracking-tight text-navy sm:text-4xl lg:text-[2.75rem]">
+          <h2 className="font-display text-3xl leading-[1.15] tracking-tight text-navy sm:text-4xl lg:text-[2.75rem]">
             Stay Connected With the Scientific Community
           </h2>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">

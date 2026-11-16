@@ -10,7 +10,7 @@ export function Logo({ tone = "dark", className }: { tone?: "dark" | "light"; cl
       <span
         aria-hidden
         className={cn(
-          "relative flex size-9 shrink-0 items-center sm:size-10 justify-center border font-serif text-xl font-semibold",
+          "relative flex size-9 shrink-0 items-center sm:size-10 justify-center border font-display text-xl font-semibold",
           light ? "border-white/60 text-white" : "border-navy bg-navy text-white",
         )}
       >
@@ -18,7 +18,7 @@ export function Logo({ tone = "dark", className }: { tone?: "dark" | "light"; cl
         <span className="absolute -bottom-px -right-px size-2.5 bg-blue" />
       </span>
       <span className="leading-none">
-        <span className={cn("block font-serif text-lg font-semibold tracking-tight sm:text-[1.35rem]", light ? "text-white" : "text-navy")}>
+        <span className={cn("block font-display text-lg font-semibold tracking-tight sm:text-[1.35rem]", light ? "text-white" : "text-navy")}>
           {site.name}
         </span>
         <span

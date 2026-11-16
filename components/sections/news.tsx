@@ -4,30 +4,27 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import Link from "next/link";
+import { posts } from "@/lib/content";
 
-const posts = [
-  { tag: "Conference Update", title: "Sample article: what to expect from this year’s keynote programme", date: "Sample date", image: "/images/keynote.jpg" },
-  { tag: "Research", title: "Sample article: preparing an abstract that stands out to reviewers", date: "Sample date", image: "/images/lab.jpg" },
-  { tag: "Publications", title: "Sample article: from conference paper to published proceedings", date: "Sample date", image: "/images/hall.jpg" },
-];
 
 export function News() {
   return (
-    <section id="news" className="bg-surface py-14 sm:py-20 lg:py-28">
+    <section id="news" className="bg-background py-16 sm:py-20 lg:py-28">
       <Container>
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-          <SectionHeading title="Latest From the Community" description="Placeholder articles shown to demonstrate the layout." />
-          <Button href="#" variant="outline" size="lg" className="self-start lg:self-auto">
-            View All Articles
+          <SectionHeading title="Latest news and guides" description="Conference updates, guides for authors and news from our research community." />
+          <Button href="/news" variant="outline" size="lg" className="self-start lg:self-auto">
+            All articles
             <ArrowRight aria-hidden />
           </Button>
         </div>
         <Reveal>
           <ul className="mt-10 grid gap-8 sm:mt-14 md:grid-cols-3">
-            {posts.map((p) => (
+            {posts.slice(0, 3).map((p) => (
               <li key={p.title}>
-                <a href="#" className="group block">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-navy">
+                <Link href={`/news/${p.slug}`} className="group block rounded-2xl">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-navy">
                     <Image
                       src={p.image}
                       alt=""
@@ -36,14 +33,15 @@ export function News() {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
-                  <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-blue">
-                    {p.tag} <span className="text-muted-foreground">| {p.date}</span>
+                  <p className="mt-5 flex items-center gap-2 text-xs">
+                    <span className="rounded-full bg-blue/10 px-2.5 py-1 font-semibold text-blue">{p.tag}</span>
+                    <span className="text-muted-foreground">{p.date}</span>
                   </p>
-                  <h3 className="mt-2 flex items-start justify-between gap-3 text-lg leading-snug text-navy group-hover:text-blue">
+                  <h3 className="mt-3 flex items-start justify-between gap-3 text-lg font-bold leading-snug text-navy transition-colors group-hover:text-blue">
                     {p.title}
                     <ArrowUpRight className="mt-1 size-5 shrink-0 opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
                   </h3>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
