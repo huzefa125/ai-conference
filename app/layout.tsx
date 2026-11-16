@@ -9,7 +9,12 @@ import { SiteFooter } from "@/components/layout/site-footer";
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 const jakarta = Plus_Jakarta_Sans({ variable: "--font-jakarta", subsets: ["latin"], weight: ["500", "600", "700", "800"], display: "swap" });
 
-export const viewport: Viewport = { colorScheme: "light", themeColor: "#0e1726" };
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "light",
+  themeColor: "#0e1726",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

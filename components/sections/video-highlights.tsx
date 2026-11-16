@@ -51,10 +51,10 @@ export function VideoHighlights() {
           <span id="video-heading" className="sr-only">
             Event highlights video
           </span>
-          <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-border pt-8">
+          <dl className="mt-10 grid grid-cols-3 gap-2 min-[400px]:gap-4 border-t border-border pt-8">
             {facts.map((f) => (
               <div key={f.label}>
-                <dd className="font-display text-2xl font-bold tracking-tight text-navy sm:text-3xl">{f.value}</dd>
+                <dd className="font-display text-xl min-[400px]:text-2xl font-bold tracking-tight text-navy sm:text-3xl">{f.value}</dd>
                 <dt className="mt-1 text-xs leading-snug text-muted-foreground sm:text-sm">{f.label}</dt>
               </div>
             ))}

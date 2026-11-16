@@ -57,13 +57,13 @@ export function SpeakerCutoutCard({ slug, name, subtitle, image, className }: Pr
         )}
       />
 
-      <div className="relative px-3 pt-5">
-        <p className="font-display text-sm font-bold sm:text-base">{name}</p>
-        <p className="mt-1 text-xs text-white/60 sm:text-sm">{subtitle}</p>
+      <div className="relative px-2.5 pt-3.5 sm:px-3 sm:pt-5">
+        <p className="font-display text-xs min-[360px]:text-sm font-bold sm:text-base">{name}</p>
+        <p className="mt-0.5 text-[11px] text-white/60 min-[360px]:text-xs sm:mt-1 sm:text-sm">{subtitle}</p>
       </div>
 
       {/* Reserved space under the portrait holds the Profile button, so it never covers the person */}
-      <div className="relative mt-4 flex-1 pb-16">
+      <div className="relative mt-2 flex-1 pb-14 sm:mt-4 sm:pb-16">
         <div className="relative size-full">
         {cut ? (
           <Image
@@ -86,7 +86,7 @@ export function SpeakerCutoutCard({ slug, name, subtitle, image, className }: Pr
         </div>
         <span
           className={cn(
-            "absolute inset-x-4 bottom-4 rounded-full bg-white py-2.5 text-sm font-semibold text-blue shadow-lg transition-all duration-300",
+            "absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4 rounded-full bg-white py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-blue shadow-lg transition-all duration-300",
             "translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100",
           )}
         >

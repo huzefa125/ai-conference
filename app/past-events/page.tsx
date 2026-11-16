@@ -35,14 +35,14 @@ export default function PastEventsPage() {
 
       <section aria-label="Highlights" className="relative z-10 -mt-10 sm:-mt-12">
         <Container>
-          <dl className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
             {highlights.map(({ icon: Icon, value, label }) => (
-              <div key={label} className="flex flex-col rounded-2xl border border-border bg-card p-5 shadow-card sm:p-6">
-                <span className="flex size-10 items-center justify-center rounded-xl bg-blue/10 text-blue">
-                  <Icon className="size-5" aria-hidden />
+              <div key={label} className="flex flex-col rounded-2xl border border-border bg-card p-3.5 min-[400px]:p-5 shadow-card sm:p-6">
+                <span className="flex size-9 min-[400px]:size-10 items-center justify-center rounded-xl bg-blue/10 text-blue">
+                  <Icon className="size-4 min-[400px]:size-5" aria-hidden />
                 </span>
-                <dt className="order-last mt-1 text-sm text-muted-foreground">{label}</dt>
-                <dd className="mt-5 font-display text-3xl font-extrabold tracking-[-0.03em] text-navy tabular-nums sm:text-4xl">{value}</dd>
+                <dt className="order-last mt-1 text-xs sm:text-sm text-muted-foreground">{label}</dt>
+                <dd className="mt-4 min-[400px]:mt-5 font-display text-2xl min-[400px]:text-3xl font-extrabold tracking-[-0.03em] text-navy tabular-nums sm:text-4xl">{value}</dd>
               </div>
             ))}
           </dl>

@@ -72,9 +72,9 @@ export function Countdown() {
             {units.map((u, i) => (
               <li
                 key={u.label}
-                className={"flex min-w-[4.25rem] flex-col items-center px-3 py-4 sm:min-w-[5.5rem] sm:px-5 " + (i > 0 ? "border-l border-border" : "")}
+                className={"flex min-w-0 flex-col items-center px-2 py-3 min-[380px]:px-3 sm:min-w-[5.5rem] sm:px-5 sm:py-4 " + (i > 0 ? "border-l border-border" : "")}
               >
-                <span className="font-serif text-3xl tabular-nums text-navy sm:text-4xl">
+                <span className="font-serif text-2xl tabular-nums text-navy min-[380px]:text-3xl sm:text-4xl">
                   {u.value === undefined ? "--" : String(u.value).padStart(2, "0")}
                 </span>
                 <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground sm:text-[11px]">

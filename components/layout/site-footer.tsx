@@ -78,9 +78,9 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:col-span-6">
-          {columns.map((col) => (
-            <nav key={col.title} aria-label={col.title}>
+        <div className="grid grid-cols-1 gap-y-10 min-[420px]:grid-cols-2 min-[420px]:gap-x-6 sm:grid-cols-3 lg:col-span-6">
+          {columns.map((col, idx) => (
+            <nav key={col.title} aria-label={col.title} className={idx === 2 ? "min-[420px]:col-span-2 sm:col-span-1" : undefined}>
               <h3 className="text-sm font-semibold text-white">{col.title}</h3>
               <ul className="mt-5 space-y-3">
                 {col.links.map((l) => (
@@ -100,15 +100,19 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-3 text-sm text-white/75">
             <li className="flex gap-2.5">
               <MapPin className="mt-0.5 size-4 shrink-0 text-blue-light" aria-hidden />
-              {site.address}
+              <span>{site.address}</span>
             </li>
             <li className="flex gap-2.5">
               <Mail className="mt-0.5 size-4 shrink-0 text-blue-light" aria-hidden />
-              {site.email}
+              <a href={`mailto:${site.email}`} className="break-all hover:text-white">
+                {site.email}
+              </a>
             </li>
             <li className="flex gap-2.5">
               <Phone className="mt-0.5 size-4 shrink-0 text-blue-light" aria-hidden />
-              {site.phone}
+              <a href={`tel:${site.phone.replace(/\s+/g, "")}`} className="hover:text-white">
+                {site.phone}
+              </a>
             </li>
           </ul>
         </div>

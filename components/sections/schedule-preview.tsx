@@ -72,7 +72,7 @@ export function SchedulePreview() {
 
         {/* Right: day tabs + timeline */}
         <div className="lg:col-span-7">
-          <div role="tablist" aria-label="Conference days" className="flex gap-8 overflow-x-auto border-b border-border sm:gap-14">
+          <div role="tablist" aria-label="Conference days" className="flex gap-6 overflow-x-auto border-b border-border [scrollbar-width:none] sm:gap-14">
             {days.map((d, i) => {
               const selected = i === active;
               return (
@@ -91,10 +91,10 @@ export function SchedulePreview() {
                   onKeyDown={(e) => onKeyDown(e, i)}
                   className="relative shrink-0 pb-3 text-left"
                 >
-                  <span className={cn("block font-display text-lg font-bold sm:text-xl", selected ? "text-navy" : "text-navy/35")}>
+                  <span className={cn("block font-display text-base font-bold sm:text-xl", selected ? "text-navy" : "text-navy/35")}>
                     Day {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className={cn("block text-sm", selected ? "text-muted-foreground" : "text-navy/30")}>{d.date}</span>
+                  <span className={cn("block text-xs sm:text-sm", selected ? "text-muted-foreground" : "text-navy/30")}>{d.date}</span>
                   <span
                     aria-hidden
                     className={cn("absolute inset-x-0 -bottom-px h-0.5 rounded-full transition-colors", selected ? "bg-blue" : "bg-transparent")}
@@ -115,13 +115,13 @@ export function SchedulePreview() {
                     onClick={() => setOpen(isOpen ? -1 : i)}
                     aria-expanded={note ? isOpen : undefined}
                     disabled={!note}
-                    className="grid w-full grid-cols-[5.5rem_1fr] items-baseline gap-4 rounded-xl px-3 py-3.5 text-left transition-colors enabled:hover:bg-surface disabled:cursor-default sm:grid-cols-[7rem_1fr]"
+                    className="flex w-full flex-col gap-1 rounded-xl px-3 py-3 text-left transition-colors enabled:hover:bg-surface disabled:cursor-default sm:grid sm:grid-cols-[7rem_1fr] sm:items-baseline sm:gap-4 sm:py-3.5"
                   >
                     <span className="text-xs font-bold uppercase tracking-wide text-muted-foreground">{s.time}</span>
                     <span className={cn("font-display text-base font-bold sm:text-lg", isOpen ? "text-blue" : "text-navy")}>{s.title}</span>
                   </button>
                   {isOpen && note && (
-                    <p className="ml-[6.5rem] max-w-lg px-3 pb-3 text-sm leading-relaxed text-muted-foreground sm:ml-[8rem]">{note}</p>
+                    <p className="px-3 pb-3 text-sm leading-relaxed text-muted-foreground sm:ml-[8rem] sm:max-w-lg">{note}</p>
                   )}
                 </li>
               );

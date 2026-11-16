@@ -61,7 +61,7 @@ export default function FrequentlyAskedQuestions({
           {description}{" "}
           <a
             href={`mailto:${supportEmail}`}
-            className="text-blue underline underline-offset-4 transition-opacity hover:opacity-80"
+            className="break-all text-blue underline underline-offset-4 transition-opacity hover:opacity-80"
           >
             {supportEmail}
           </a>

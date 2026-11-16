@@ -54,9 +54,9 @@ export default function AdvisoryBoardPage() {
           <Reveal delay={0.1} className="lg:col-span-5">
             <dl className="grid grid-cols-2 gap-3 sm:gap-4">
               {figures.map((s) => (
-                <div key={s.label} className="flex flex-col-reverse rounded-2xl border border-border bg-card p-5 shadow-card sm:p-6">
-                  <dt className="mt-1 text-sm text-muted-foreground">{s.label}</dt>
-                  <dd className="font-display text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">{s.value}</dd>
+                <div key={s.label} className="flex flex-col-reverse rounded-2xl border border-border bg-card p-3.5 min-[400px]:p-5 shadow-card sm:p-6">
+                  <dt className="mt-1 text-xs sm:text-sm text-muted-foreground">{s.label}</dt>
+                  <dd className="font-display text-2xl min-[400px]:text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">{s.value}</dd>
                 </div>
               ))}
             </dl>

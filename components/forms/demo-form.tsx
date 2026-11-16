@@ -72,7 +72,7 @@ export function DemoForm({
       {children}
       <div className="flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs text-muted-foreground">Demo form: submissions are not stored or sent.</p>
-        <Button type="submit" size="lg">
+        <Button type="submit" size="lg" className="w-full sm:w-auto">
           {submitLabel}
         </Button>
       </div>
@@ -95,7 +95,7 @@ export function FormSection({ title, description, children }: { title: string; d
 }
 
 const control =
-  "w-full rounded-md border border-input bg-white px-4 text-[15px] text-navy placeholder:text-navy/40 focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/20 user-invalid:border-red-600";
+  "w-full rounded-md border border-input bg-white px-4 text-base sm:text-[15px] text-navy placeholder:text-navy/40 focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/20 user-invalid:border-red-600";
 
 type Common = { label: string; name: string; required?: boolean; hint?: string; full?: boolean; className?: string };
 
@@ -227,11 +227,19 @@ export function RadioCards({ name, options, label, required }: { name: string; l
         {options.map((o) => (
           <label
             key={o.value}
-            className="relative flex cursor-pointer flex-col rounded-md border border-input bg-white p-4 transition-colors hover:border-navy has-[:checked]:border-blue has-[:checked]:bg-blue/5 has-[:checked]:ring-2 has-[:checked]:ring-blue/20"
+            className="group relative flex cursor-pointer items-start justify-between gap-3 rounded-xl border border-input bg-white p-3.5 sm:p-4 transition-colors hover:border-navy has-[:checked]:border-blue has-[:checked]:bg-blue/5 has-[:checked]:ring-2 has-[:checked]:ring-blue/20"
           >
             <input type="radio" name={name} value={o.value} required={required} className="sr-only" />
-            <span className="font-medium text-navy">{o.title}</span>
-            {o.description && <span className="mt-1 text-xs text-muted-foreground">{o.description}</span>}
+            <div className="flex flex-col">
+              <span className="font-semibold text-navy">{o.title}</span>
+              {o.description && <span className="mt-1 text-xs text-muted-foreground">{o.description}</span>}
+            </div>
+            <span
+              aria-hidden
+              className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full border border-input transition-colors group-hover:border-navy/60 group-has-[:checked]:border-blue group-has-[:checked]:bg-blue"
+            >
+              <span className="size-1.5 rounded-full bg-white opacity-0 transition-opacity group-has-[:checked]:opacity-100" />
+            </span>
           </label>
         ))}
       </div>

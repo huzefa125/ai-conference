@@ -24,8 +24,13 @@ export function SiteHeader() {
 
   React.useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
     };
   }, [mobileOpen]);
 
@@ -68,7 +73,7 @@ export function SiteHeader() {
             animate={{ opacity: 1, height: "calc(100dvh - 72px)" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-y-auto border-t border-border bg-white xl:hidden"
+            className="overflow-y-auto border-t border-border bg-white overscroll-contain xl:hidden"
           >
             <ul className="px-4 py-4 min-[400px]:px-5 sm:px-8">
               {NAV_ITEMS.map((item) => {
@@ -79,27 +84,27 @@ export function SiteHeader() {
                       <>
                         <button
                           type="button"
-                          className="flex w-full items-center justify-between py-4 text-left text-base font-medium text-navy"
+                          className="flex min-h-[48px] w-full items-center justify-between py-3.5 text-left text-base font-semibold text-navy active:text-blue"
                           aria-expanded={open}
                           onClick={() => setExpanded(open ? null : item.label)}
                         >
                           {item.label}
-                          <ChevronDown className={cn("size-4 transition-transform", open && "rotate-180")} aria-hidden />
+                          <ChevronDown className={cn("size-4 shrink-0 transition-transform duration-200", open && "rotate-180")} aria-hidden />
                         </button>
                         {open && (
-                          <div className="space-y-5 pb-5">
+                          <div className="space-y-4 pb-5 pl-2">
                             {item.subMenus.map((sub) => (
                               <div key={sub.title}>
-                                <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-blue">
+                                <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.16em] text-blue">
                                   {sub.title}
                                 </p>
-                                <ul className="space-y-1">
+                                <ul className="space-y-1 border-l-2 border-border/80 pl-3">
                                   {sub.items.map((s) => (
                                     <li key={s.label}>
                                       <Link
                                         href={s.href ?? "#"}
                                         onClick={close}
-                                        className="block py-2 text-[15px] text-muted-foreground hover:text-navy"
+                                        className="flex min-h-[40px] items-center py-1.5 text-[15px] text-muted-foreground transition-colors hover:text-navy active:text-blue"
                                       >
                                         {s.label}
                                       </Link>
@@ -112,7 +117,11 @@ export function SiteHeader() {
                         )}
                       </>
                     ) : (
-                      <Link href={item.link ?? "#"} onClick={close} className="block py-4 text-base font-medium text-navy">
+                      <Link
+                        href={item.link ?? "#"}
+                        onClick={close}
+                        className="flex min-h-[48px] items-center py-3.5 text-base font-semibold text-navy active:text-blue"
+                      >
                         {item.label}
                       </Link>
                     )}
@@ -120,7 +129,10 @@ export function SiteHeader() {
                 );
               })}
             </ul>
-            <div className="px-4 pb-10 pt-4 min-[400px]:px-5 sm:px-8">
+            <div className="flex flex-col gap-3 px-4 pb-12 pt-5 min-[400px]:px-5 sm:px-8">
+              <Button href="/conferences" variant="outline" size="lg" className="w-full sm:hidden" onClick={close}>
+                Upcoming Conferences
+              </Button>
               <Button href="/registration" size="lg" className="w-full" onClick={close}>
                 Register Now
               </Button>

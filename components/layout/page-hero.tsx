@@ -60,7 +60,7 @@ export function PageHero({
         )}
         <h1
           className={
-            "max-w-4xl text-balance font-serif text-[2rem] leading-[1.12] tracking-tight sm:text-5xl lg:text-[3.25rem] " +
+            "max-w-4xl text-balance font-serif text-[1.75rem] min-[400px]:text-[2rem] leading-[1.15] tracking-tight sm:text-5xl lg:text-[3.25rem] " +
             (eyebrow ? "mt-3" : "mt-8")
           }
         >

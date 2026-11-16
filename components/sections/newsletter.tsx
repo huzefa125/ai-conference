@@ -53,7 +53,7 @@ export function Newsletter() {
                   autoComplete="email"
                   aria-invalid={status === "error"}
                   aria-describedby="newsletter-hint"
-                  className="h-12 w-full rounded-md border border-input bg-white px-4 text-navy placeholder:text-navy/45 focus:border-blue focus:outline-none"
+                  className="h-12 w-full rounded-md border border-input bg-white px-4 text-base sm:text-[15px] text-navy placeholder:text-navy/45 focus:border-blue focus:outline-none"
                 />
                 <Button type="submit" size="lg" className="sm:shrink-0">
                   Subscribe

@@ -38,7 +38,7 @@ export function ProgrammeTabs({ days, idPrefix = "programme" }: { days: AgendaDa
       <div
         role="tablist"
         aria-label="Programme by day"
-        className="inline-flex max-w-full gap-1 overflow-x-auto rounded-full bg-white p-1.5 shadow-card ring-1 ring-inset ring-border [scrollbar-width:none]"
+        className="flex max-w-full gap-1 overflow-x-auto rounded-2xl bg-white p-1.5 shadow-card ring-1 ring-inset ring-border [scrollbar-width:none] sm:inline-flex sm:rounded-full"
       >
         {days.map((d, i) => {
           const selected = i === active;
@@ -57,11 +57,11 @@ export function ProgrammeTabs({ days, idPrefix = "programme" }: { days: AgendaDa
               onClick={() => setActive(i)}
               onKeyDown={onKeyDown}
               className={cn(
-                "shrink-0 rounded-full px-5 py-2 text-left transition-colors sm:px-6",
+                "shrink-0 rounded-xl px-4 py-2 text-left transition-colors sm:rounded-full sm:px-6",
                 selected ? "bg-navy text-white" : "text-navy/70 hover:bg-surface hover:text-navy",
               )}
             >
-              <span className="block font-display text-[15px] font-bold leading-tight">{d.day}</span>
+              <span className="block font-display text-sm sm:text-[15px] font-bold leading-tight">{d.day}</span>
               <span className={cn("block text-xs", selected ? "text-white/70" : "text-muted-foreground")}>{d.date}</span>
             </button>
           );
@@ -81,7 +81,7 @@ export function ProgrammeTabs({ days, idPrefix = "programme" }: { days: AgendaDa
           <ol className="divide-y divide-border overflow-hidden rounded-2xl border border-border bg-white shadow-card">
             {d.sessions.map((s) => (
               <li key={`${s.time}-${s.title}`} className={cn(
-                  "grid gap-2 px-5 py-5 transition-colors hover:bg-surface/50 sm:grid-cols-[6.5rem_1fr_auto] sm:items-center sm:gap-6 sm:px-6",
+                  "grid gap-2 px-4 py-4 transition-colors hover:bg-surface/50 sm:grid-cols-[6.5rem_1fr_auto] sm:items-center sm:gap-6 sm:px-6 sm:py-5",
                   s.type === "Break" && "bg-surface/60",
                 )}>
                 <p className="flex items-center gap-2 text-sm font-semibold tabular-nums text-navy">

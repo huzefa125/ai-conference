@@ -60,7 +60,7 @@ export function SpeakerDirectory({ speakers }: { speakers: Speaker[] }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by name, field, institution or country"
-            className="h-11 w-full rounded-md border border-input bg-white pl-10 pr-10 text-[15px] text-navy placeholder:text-navy/40 focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/20 [&::-webkit-search-cancel-button]:hidden"
+            className="h-11 w-full rounded-md border border-input bg-white pl-10 pr-10 text-base sm:text-[15px] text-navy placeholder:text-navy/40 focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/20 [&::-webkit-search-cancel-button]:hidden"
           />
           {query && (
             <button

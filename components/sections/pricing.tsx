@@ -33,8 +33,8 @@ const plans = [
 export function Pricing() {
   return (
     <section id="pricing" className="relative bg-white pt-16 sm:pt-20 lg:pt-28">
-      {/* Dark band behind the lower half of the cards */}
-      <div aria-hidden className="absolute inset-x-0 bottom-0 h-[52%] bg-navy-deep" />
+      {/* Dark band behind the lower half of the cards on desktop */}
+      <div aria-hidden className="hidden md:block absolute inset-x-0 bottom-0 h-[52%] bg-navy-deep" />
       <Container className="relative">
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
           <SectionHeading eyebrow="Pricing" title="Comprehensive Pricing Options" />
@@ -49,7 +49,7 @@ export function Pricing() {
             <li key={p.name} className="flex">
               <div
                 className={cn(
-                  "flex w-full flex-col rounded-3xl bg-white p-7 shadow-[0_24px_60px_-28px_rgba(7,13,24,0.35)] ring-1 ring-black/5 sm:p-8",
+                  "flex w-full flex-col rounded-3xl bg-white p-6 min-[400px]:p-7 shadow-[0_24px_60px_-28px_rgba(7,13,24,0.35)] ring-1 ring-black/5 sm:p-8",
                 )}
               >
                 <h3 className="font-display text-xl font-bold text-navy">{p.name}</h3>

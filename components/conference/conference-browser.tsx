@@ -11,7 +11,7 @@ const ALL = "All";
 const modes: Mode[] = ["In-person", "Virtual", "Hybrid"];
 
 const selectClass =
-  "h-12 w-full appearance-none rounded-xl border border-input bg-white bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2329323d%22 stroke-width=%222%22><path d=%22m6 9 6 6 6-6%22/></svg>')] bg-[length:16px] bg-[right_1rem_center] bg-no-repeat px-4 pr-10 text-[15px] text-navy transition hover:border-navy/30 focus:border-blue focus:outline-none focus:ring-4 focus:ring-blue/15";
+  "h-12 w-full appearance-none rounded-xl border border-input bg-white bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2329323d%22 stroke-width=%222%22><path d=%22m6 9 6 6 6-6%22/></svg>')] bg-[length:16px] bg-[right_1rem_center] bg-no-repeat px-4 pr-10 text-base sm:text-[15px] text-navy transition hover:border-navy/30 focus:border-blue focus:outline-none focus:ring-4 focus:ring-blue/15";
 
 /** Filterable listing of every conference: discipline, format and free-text search. */
 export function ConferenceBrowser({ initialMode, initialDiscipline }: { initialMode?: Mode; initialDiscipline?: string }) {
@@ -60,7 +60,7 @@ export function ConferenceBrowser({ initialMode, initialDiscipline }: { initialM
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Title, topic or city"
-              className="h-12 w-full rounded-full border border-input bg-surface/60 pl-11 pr-4 text-[15px] text-navy transition placeholder:text-navy/45 hover:border-navy/30 focus:border-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue/15"
+              className="h-12 w-full rounded-full border border-input bg-surface/60 pl-11 pr-4 text-base sm:text-[15px] text-navy transition placeholder:text-navy/45 hover:border-navy/30 focus:border-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue/15"
             />
           </div>
         </div>
@@ -79,7 +79,7 @@ export function ConferenceBrowser({ initialMode, initialDiscipline }: { initialM
         </div>
         <fieldset>
           <legend className="mb-2 block text-sm font-medium text-navy">Format</legend>
-          <div className="flex h-12 gap-1 rounded-full bg-surface p-1 ring-1 ring-inset ring-border">
+          <div className="flex h-12 gap-1 overflow-x-auto rounded-full bg-surface p-1 ring-1 ring-inset ring-border [scrollbar-width:none]">
             {[ALL, ...modes].map((m) => {
               const active = mode === m;
               return (
@@ -89,7 +89,7 @@ export function ConferenceBrowser({ initialMode, initialDiscipline }: { initialM
                   aria-pressed={active}
                   onClick={() => setMode(m)}
                   className={cn(
-                    "flex-1 rounded-full px-3 text-xs font-semibold transition-colors sm:px-4 sm:text-sm",
+                    "flex-1 shrink-0 rounded-full px-2.5 min-[380px]:px-3 text-[11px] min-[380px]:text-xs font-semibold transition-colors sm:px-4 sm:text-sm",
                     active ? "bg-navy text-white shadow-card" : "text-navy/70 hover:bg-white hover:text-navy",
                   )}
                 >

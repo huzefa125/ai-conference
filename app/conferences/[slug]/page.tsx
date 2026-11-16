@@ -358,21 +358,21 @@ export default async function ConferencePage(props: PageProps<"/conferences/[slu
             </Button>
           </div>
           <div className="h-fit overflow-hidden rounded-2xl border border-border bg-white shadow-card">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[420px] text-left text-sm">
+            <div className="overflow-x-auto [scrollbar-width:none]">
+              <table className="w-full min-w-[340px] sm:min-w-[420px] text-left text-sm">
                 <caption className="sr-only">Registration fees for {conference.shortTitle}</caption>
                 <thead className="bg-surface text-navy">
                   <tr>
-                    <th scope="col" className="px-5 py-4 font-semibold sm:px-6">
+                    <th scope="col" className="px-4 py-3.5 font-semibold sm:px-6 sm:py-4">
                       Category
                     </th>
-                    <th scope="col" className="px-5 py-4 font-semibold sm:px-6">
+                    <th scope="col" className="px-4 py-3.5 font-semibold sm:px-6 sm:py-4">
                       Early bird
                       <span className="block text-xs font-normal text-muted-foreground">
                         until {conference.deadlines.find((d) => /early bird/i.test(d.label))?.date ?? "early deadline"}
                       </span>
                     </th>
-                    <th scope="col" className="px-5 py-4 font-semibold sm:px-6">
+                    <th scope="col" className="px-4 py-3.5 font-semibold sm:px-6 sm:py-4">
                       Standard
                     </th>
                   </tr>
@@ -380,11 +380,11 @@ export default async function ConferencePage(props: PageProps<"/conferences/[slu
                 <tbody className="divide-y divide-border">
                   {conference.fees.map((f) => (
                     <tr key={f.category} className="transition-colors hover:bg-surface/60">
-                      <th scope="row" className="px-5 py-5 font-medium text-navy sm:px-6">
+                      <th scope="row" className="px-4 py-4 font-medium text-navy sm:px-6 sm:py-5">
                         {f.category}
                       </th>
-                      <td className="px-5 py-5 font-semibold text-blue tabular-nums sm:px-6">{f.early}</td>
-                      <td className="px-5 py-5 text-navy tabular-nums sm:px-6">{f.standard}</td>
+                      <td className="px-4 py-4 font-semibold text-blue tabular-nums sm:px-6 sm:py-5">{f.early}</td>
+                      <td className="px-4 py-4 text-navy tabular-nums sm:px-6 sm:py-5">{f.standard}</td>
                     </tr>
                   ))}
                 </tbody>

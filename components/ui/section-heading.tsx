@@ -41,7 +41,7 @@ export function SectionHeading({
       <h2
         className={cn(
           "text-balance font-display font-bold leading-[1.1] tracking-[-0.025em]",
-          size === "sm" ? "text-2xl sm:text-3xl lg:text-4xl" : "text-3xl sm:text-4xl lg:text-[2.75rem]",
+          size === "sm" ? "text-xl min-[400px]:text-2xl sm:text-3xl lg:text-4xl" : "text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-[2.75rem]",
           dark ? "text-white" : "text-navy",
         )}
       >
