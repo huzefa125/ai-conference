@@ -1,43 +1,14 @@
-import { Hero } from "@/components/sections/hero";
-import { Stats } from "@/components/sections/stats";
-import { About } from "@/components/sections/about";
-import { ResearchAreas } from "@/components/sections/research-areas";
-import { Conferences } from "@/components/sections/conferences";
-import { Speakers } from "@/components/sections/speakers";
-import { SchedulePreview } from "@/components/sections/schedule-preview";
-import { WhyAttend } from "@/components/sections/why-attend";
-import { Pricing } from "@/components/sections/pricing";
-import { VideoHighlights } from "@/components/sections/video-highlights";
-import { Testimonials } from "@/components/sections/testimonials";
-import { Awards } from "@/components/sections/awards";
-import { Venue } from "@/components/sections/venue";
-import { Publications } from "@/components/sections/publications";
-import { News } from "@/components/sections/news";
-import { Faq } from "@/components/sections/faq";
-import { CtaBanner } from "@/components/sections/cta-banner";
-import { Newsletter } from "@/components/sections/newsletter";
-
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <Stats />
-      <About />
-      <ResearchAreas />
-      <Conferences />
-      <Speakers />
-      <SchedulePreview />
-      <WhyAttend />
-      <Pricing />
-      <VideoHighlights />
-      <Testimonials />
-      <Awards />
-      <Venue />
-      <Publications />
-      <News />
-      <Faq />
-      <CtaBanner />
-      <Newsletter />
-    </>
+    <main className="flex min-h-screen flex-col items-center justify-center p-6 sm:p-12 text-center">
+      <div className="max-w-xl space-y-4">
+        <h1 className="text-3xl font-bold tracking-tight sm:text-5xl">
+          Welcome to your new project
+        </h1>
+        <p className="text-base text-muted-foreground sm:text-lg">
+          Ready to build from scratch. Edit <code className="rounded bg-muted px-1.5 py-0.5 text-sm font-mono">app/page.tsx</code> to get started.
+        </p>
+      </div>
+    </main>
   );
 }
