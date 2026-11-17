@@ -1,6 +1,7 @@
 import { MynaHero } from "@/components/ui/myna-hero";
 import Venue from "@/components/ui/venue";
 import WhyAttend from "@/components/ui/why-attend";
+import AboutDesk from "@/components/sections/about-desk";
 import HowItWorks from "@/components/sections/how-it-works";
 import FUIBentoGridDark from "@/components/ui/bento";
 import Speakers from "@/components/ui/speakers";
@@ -20,6 +21,7 @@ export default function Page() {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white">
       <MynaHero />
       <Venue id="about" />
+      <AboutDesk />
       <WhyAttend id="why" />
       <HowItWorks />
       <FUIBentoGridDark id="tracks" />
