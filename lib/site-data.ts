@@ -174,3 +174,12 @@ export const CFP = {
   href: "#contact",
   note: "Submission deadline to be announced.",
 };
+
+// Stock photos (Unsplash) as stand-ins. They are NOT from Atlas Global; replace with photos from your own events.
+export const EXPERIENCE = [
+  { id: "stage", url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1000&q=80&fit=crop", title: "Main stage", description: "Keynotes and panels" },
+  { id: "talks", url: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1000&q=80&fit=crop", title: "Live sessions", description: "Talks from practitioners" },
+  { id: "workshops", url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1000&q=80&fit=crop", title: "Workshops", description: "Hands-on studio time" },
+  { id: "network", url: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1000&q=80&fit=crop", title: "Networking", description: "Evenings with peers" },
+  { id: "hall", url: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1000&q=80&fit=crop", title: "The venue", description: "Three days in Hyderabad" },
+];
