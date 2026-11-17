@@ -14,7 +14,7 @@ export default function AboutDesk({ id = "overview" }: { id?: string }) {
         <div className="mx-auto max-w-5xl text-center">
           <ScrollRevealText
             segments={aboutDesk.segments}
-            className="text-xl font-medium leading-[1.6] tracking-tight text-foreground sm:text-3xl sm:leading-[1.6] xl:text-[2.25rem] xl:leading-[1.6]"
+            className="text-[1.35rem] font-medium leading-[1.7] tracking-tight text-foreground sm:text-3xl sm:leading-[1.6] xl:text-[2.25rem] xl:leading-[1.6]"
           />
         </div>
 

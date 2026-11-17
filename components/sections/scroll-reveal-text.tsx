@@ -5,7 +5,7 @@ import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } f
 import { cn } from "@/lib/utils";
 import type { RevealSegment } from "@/lib/about-desk-data";
 
-type Unit = { key: string; segment: RevealSegment; text: string };
+type Unit = { key: string; segment: RevealSegment; text: string; trail?: string };
 
 const TONES = {
   accent: "bg-primary/10 text-primary border border-primary/25",
@@ -15,13 +15,28 @@ const TONES = {
 } as const;
 
 function flatten(segments: RevealSegment[]): Unit[] {
-  return segments.flatMap((seg, si) => {
-    if ("pill" in seg || "bold" in seg) return [{ key: `${si}`, segment: seg, text: seg.text }];
-    return seg.text
+  const units: Unit[] = [];
+  segments.forEach((seg, si) => {
+    if ("pill" in seg || "bold" in seg) {
+      units.push({ key: `${si}`, segment: seg, text: seg.text });
+      return;
+    }
+    seg.text
       .split(" ")
       .filter(Boolean)
-      .map((w, wi) => ({ key: `${si}-${wi}`, segment: seg, text: w }));
+      .forEach((w, wi) => {
+        const prev = units[units.length - 1];
+        // glue leading punctuation (".", ",") to the previous pill so it never wraps alone
+        const m = wi === 0 && prev && "pill" in prev.segment ? w.match(/^([.,;:!?]+)(.*)$/) : null;
+        if (m) {
+          prev.trail = m[1];
+          if (m[2]) units.push({ key: `${si}-${wi}`, segment: seg, text: m[2] });
+          return;
+        }
+        units.push({ key: `${si}-${wi}`, segment: seg, text: w });
+      });
   });
+  return units;
 }
 
 function Word({ unit, progress, range, reduce }: { unit: Unit; progress: MotionValue<number>; range: [number, number]; reduce: boolean }) {
@@ -37,19 +52,25 @@ function Word({ unit, progress, range, reduce }: { unit: Unit; progress: MotionV
       </span>
     );
     return (
-      <motion.span style={style} className="my-0.5 inline-block">
+      <>
+      <motion.span style={style} className="my-1 inline-block whitespace-nowrap">
         {seg.iconPosition === "left" && icon}
-        <span className={cn("mx-0.5 inline-flex items-center rounded-full px-2.5 py-1 text-[0.78em] font-semibold leading-none align-middle sm:mx-1 sm:px-3 sm:text-[0.85em]", TONES[seg.pill])}>
+        <span className={cn("mx-0.5 inline-flex items-center rounded-full px-3 py-1.5 text-[0.82em] font-semibold leading-none align-middle sm:mx-1 sm:px-3.5 sm:py-1 sm:text-[0.85em]", TONES[seg.pill])}>
           {seg.text}
         </span>
-        {seg.iconPosition !== "left" && icon}{" "}
-      </motion.span>
+        {seg.iconPosition !== "left" && icon}{unit.trail}
+      </motion.span>{" "}
+      </>
     );
   }
   if ("bold" in seg) {
-    return <motion.span style={style} className="font-semibold text-foreground">{seg.text}{" "}</motion.span>;
+    return <><motion.span style={style} className="font-semibold text-foreground">{seg.text}</motion.span>{" "}</>;
   }
-  return <motion.span style={style}>{unit.text + " "}</motion.span>;
+  return (
+    <>
+      <motion.span style={style} className="whitespace-nowrap">{unit.text}</motion.span>{" "}
+    </>
+  );
 }
 
 export function ScrollRevealText({ segments, className }: { segments: RevealSegment[]; className?: string }) {
