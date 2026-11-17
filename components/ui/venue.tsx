@@ -68,7 +68,7 @@ export default function Venue({ id = "about", className = "" }: { id?: string; c
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={VENUE.image}
-              alt="San Francisco"
+              alt="Hyderabad"
               className="absolute inset-0 h-full w-full object-cover"
             />
           </motion.div>

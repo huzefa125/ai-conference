@@ -32,7 +32,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Atlas Conferences & Events | Global Innovation & Frontier Summit 2026",
   description:
-    "Join 1,000+ industry pioneers, founders, researchers, and capital allocators at the Atlas Global Innovation Summit. Live in San Francisco and streaming worldwide.",
+    "Join 1,000+ industry pioneers, founders, researchers, and capital allocators at the Atlas Global Innovation Summit. Live in Hyderabad, India and streaming worldwide.",
   icons: {
     icon: "/atlas-logo.png",
     apple: "/atlas-logo.png",

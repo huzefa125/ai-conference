@@ -99,7 +99,7 @@ export function Navbar({
                             Where Industry Leaders Architect Tomorrow
                           </h4>
                           <p className="text-muted-foreground text-xs font-mono mt-2 leading-relaxed">
-                            1,000+ technical founders, researchers, and capital allocators gathering in San Francisco & streaming live worldwide.
+                            1,000+ technical founders, researchers, and capital allocators gathering in Hyderabad, India & streaming live worldwide.
                           </p>
                         </div>
                         <div className="pt-4 border-t border-border/60 flex items-center justify-between text-[11px] font-mono text-primary font-semibold">

@@ -10,7 +10,7 @@ export default function CtaBanner({ id = "register" }: { id?: string }) {
         <div className="flex flex-col items-start justify-between gap-8 bg-primary px-6 py-10 text-primary-foreground shadow-[0_8px_40px_rgba(37,99,235,0.25)] sm:px-10 md:flex-row md:items-center md:py-12">
           <div className="max-w-xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-widest text-primary-foreground/70">
-              Nov 18–20, 2026 · San Francisco
+              Nov 18–20, 2026 · Hyderabad, India
             </p>
             <h2 className="mt-2 font-mono text-2xl font-bold tracking-tight sm:text-3xl text-balance">
               Join us at Atlas Global 2026.

@@ -21,7 +21,7 @@ export default function Travel({ id = "travel", className = "" }: { id?: string;
             PLAN YOUR TRIP
           </h2>
           <p className="mt-4 font-mono text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
-            Everything you need to get to San Francisco and settle in.
+            Everything you need to get to Hyderabad and settle in.
           </p>
         </div>
 

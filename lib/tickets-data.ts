@@ -31,7 +31,7 @@ export const TICKETS: Ticket[] = [
   {
     id: "full",
     name: "Full Access",
-    tagline: "Three days in San Francisco, every track.",
+    tagline: "Three days in Hyderabad, every track.",
     price: 699,
     priceNote: "per person",
     features: [

@@ -3,14 +3,14 @@
 
 export const VENUE = {
   eyebrow: "Atlas Global 2026",
-  title: "THREE DAYS IN SAN FRANCISCO",
+  title: "THREE DAYS IN HYDERABAD",
   intro:
     "Atlas Global brings founders, engineers, researchers and enterprise leaders together for three days of talks, workshops and working sessions on AI in production.",
   image:
     "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1400&q=80&fit=crop",
   details: [
     { label: "Dates", value: "Nov 18–20, 2026" },
-    { label: "City", value: "San Francisco, California" },
+    { label: "City", value: "Hyderabad, India" },
     { label: "Venue", value: "To be announced" },
     { label: "Format", value: "In person, with a live stream" },
   ],
@@ -55,7 +55,7 @@ export const WHY_ATTEND = [
   { icon: "Wrench", title: "Hands-on workshops", text: "Work through real problems in small studio sessions with a facilitator." },
   { icon: "Target", title: "Five focused tracks", text: "Pick the track for your role: research, engineering, infrastructure, product or strategy." },
   { icon: "Handshake", title: "Meet your peers", text: "Networking evenings and shared lunches with founders, engineers and executives." },
-  { icon: "Broadcast", title: "Attend from anywhere", text: "A live stream and recordings for people who cannot travel to San Francisco." },
+  { icon: "Broadcast", title: "Attend from anywhere", text: "A live stream and recordings for people who cannot travel to Hyderabad." },
   { icon: "Notebook", title: "Take it home", text: "Slides, resources and recordings so your team can revisit what mattered." },
 ];
 
@@ -72,7 +72,7 @@ export const GALLERY = [
 export const FAQS = [
   {
     q: "When and where is Atlas Global 2026?",
-    a: "November 18–20, 2026 in San Francisco. The exact venue will be announced soon.",
+    a: "November 18–20, 2026 in Hyderabad, India. The exact venue will be announced soon.",
   },
   {
     q: "Who is the conference for?",
@@ -98,7 +98,7 @@ export const FAQS = [
 
 export const FOOTER = {
   brand: "Atlas Conferences & Events",
-  blurb: "Atlas Global 2026. Nov 18–20, San Francisco.",
+  blurb: "Atlas Global 2026. Nov 18–20, Hyderabad, India.",
   email: "", // add a contact email to show it in the footer
   columns: [
     {
@@ -126,7 +126,7 @@ export const TRAVEL = [
   {
     icon: "AirplaneTilt",
     title: "Getting there",
-    text: "San Francisco is served by SFO, with Oakland (OAK) and San Jose (SJC) as nearby alternatives. BART and rideshare connect each to downtown.",
+    text: "Hyderabad is served by Rajiv Gandhi International Airport (HYD). Airport shuttle buses, the Hyderabad Metro and app-based cabs connect it to the city centre.",
   },
   {
     icon: "Bed",
