@@ -105,18 +105,18 @@ export const FOOTER = {
     {
       title: "Event",
       links: [
-        { label: "About", href: "#about" },
-        { label: "Tracks", href: "#tracks" },
-        { label: "Agenda", href: "#agenda" },
-        { label: "Speakers", href: "#speakers" },
+        { label: "About", href: "/about" },
+        { label: "Tracks", href: "/#tracks" },
+        { label: "Agenda", href: "/#agenda" },
+        { label: "Speakers", href: "/#speakers" },
       ],
     },
     {
       title: "Attend",
       links: [
-        { label: "Tickets", href: "#tickets" },
-        { label: "Sponsors", href: "#sponsors" },
-        { label: "FAQ", href: "#faq" },
+        { label: "Tickets", href: "/#tickets" },
+        { label: "Sponsors", href: "/#sponsors" },
+        { label: "FAQ", href: "/#faq" },
       ],
     },
     // PLACEHOLDER contact details: replace with the real ones before launch.
@@ -125,7 +125,8 @@ export const FOOTER = {
       links: [
         { label: "hello@atlas-global.example", href: "mailto:hello@atlas-global.example" },
         { label: "+91 00000 00000", href: "tel:+910000000000" },
-        { label: "Hyderabad, India", href: "#travel" },
+        { label: "Hyderabad, India", href: "/#travel" },
+        { label: "Contact us", href: "/contact" },
       ],
     },
   ],

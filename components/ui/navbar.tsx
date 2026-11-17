@@ -56,6 +56,7 @@ export function Navbar({
   className = "",
 }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const ctaHref = ctaButton.href ?? (ctaButton.onClick ? undefined : "/#tickets");
 
   return (
     <header className={`w-full ${className}`}>
@@ -108,13 +109,13 @@ export function Navbar({
                         </div>
                       </div>
                     </li>
-                    <ListItem href="#about" title="Summit Mission">
+                    <ListItem href="/about" title="Summit Mission">
                       High-signal, zero-fluff exploration of scalable enterprise AI and venture resilience.
                     </ListItem>
-                    <ListItem href="#solutions" title="Core Tracks">
+                    <ListItem href="/#solutions" title="Core Tracks">
                       Autonomous agent pipelines, foundation model economics, and sovereign compute.
                     </ListItem>
-                    <ListItem href="#highlights" title="Milestones & Bento">
+                    <ListItem href="/#highlights" title="Milestones & Bento">
                       Key stats: 1,000+ attendees, 60-min deep dives, and exclusive research dossiers.
                     </ListItem>
                   </ul>
@@ -128,16 +129,16 @@ export function Navbar({
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[420px] gap-2 p-4 md:w-[520px] md:grid-cols-2">
-                    <ListItem href="#agenda" title="Day 1: Macro Shifts">
+                    <ListItem href="/#agenda" title="Day 1: Macro Shifts">
                       Opening keynotes on global compute, sovereign AI, and foundational frontiers.
                     </ListItem>
-                    <ListItem href="#agenda" title="Day 2: Enterprise Autonomy">
+                    <ListItem href="/#agenda" title="Day 2: Enterprise Autonomy">
                       Deep dives into real-world autonomous agents and distributed consensus.
                     </ListItem>
-                    <ListItem href="#agenda" title="Day 3: Capital & Liquidity">
+                    <ListItem href="/#agenda" title="Day 3: Capital & Liquidity">
                       Venture allocation, risk parity models, and early-stage secondary markets.
                     </ListItem>
-                    <ListItem href="#agenda" title="Workshops & Hackrooms">
+                    <ListItem href="/#agenda" title="Workshops & Hackrooms">
                       Hands-on code masterclasses, architectural teardowns, and live deployments.
                     </ListItem>
                   </ul>
@@ -151,13 +152,13 @@ export function Navbar({
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[360px] gap-2 p-4">
-                    <ListItem href="#speakers" title="Dr. Michael Stein">
+                    <ListItem href="/#speakers" title="Dr. Michael Stein">
                       Founder & CEO, Atlas Foresight • Autonomous Systems Pioneer.
                     </ListItem>
-                    <ListItem href="#speakers" title="Dr. Sarah Cohen">
+                    <ListItem href="/#speakers" title="Dr. Sarah Cohen">
                       Head of Market Research, Synapse Labs • Cognitive Architectures.
                     </ListItem>
-                    <ListItem href="#speakers" title="Daniel Brooks">
+                    <ListItem href="/#speakers" title="Daniel Brooks">
                       Investment Strategist, Atlas Capital Partners • $1.2B Tech Allocator.
                     </ListItem>
                   </ul>
@@ -168,7 +169,7 @@ export function Navbar({
               <NavigationMenuItem>
                 <NavigationMenuLink
                   className={navigationMenuTriggerStyle()}
-                  render={<a href="#about" className="font-mono tracking-wider text-sm font-bold text-foreground hover:text-primary" />}
+                  render={<a href="/about" className="font-mono tracking-wider text-sm font-bold text-foreground hover:text-primary" />}
                 >
                   ABOUT
                 </NavigationMenuLink>
@@ -177,7 +178,7 @@ export function Navbar({
               <NavigationMenuItem>
                 <NavigationMenuLink
                   className={navigationMenuTriggerStyle()}
-                  render={<a href="#contact" className="font-mono tracking-wider text-sm font-bold text-foreground hover:text-primary" />}
+                  render={<a href="/contact" className="font-mono tracking-wider text-sm font-bold text-foreground hover:text-primary" />}
                 >
                   CONTACT
                 </NavigationMenuLink>
@@ -192,8 +193,8 @@ export function Navbar({
 
         {/* Action Button & Mobile Drawer */}
         <div className="flex items-center space-x-4">
-          {ctaButton.href ? (
-            <Link href={ctaButton.href}>
+          {ctaHref ? (
+            <Link href={ctaHref}>
               <Button
                 variant="default"
                 className={`rounded-none hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-mono shadow-[0_4px_14px_rgba(37,99,235,0.25)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] transition-all ${ctaButton.className || ""}`}
@@ -239,7 +240,7 @@ export function Navbar({
                     Conference Tracks
                   </div>
                   <a
-                    href="#about"
+                    href="/about"
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-mono text-foreground hover:bg-secondary transition-colors"
                   >
@@ -247,7 +248,7 @@ export function Navbar({
                     <span>Summit Overview</span>
                   </a>
                   <a
-                    href="#agenda"
+                    href="/#agenda"
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-mono text-foreground hover:bg-secondary transition-colors"
                   >
@@ -255,7 +256,7 @@ export function Navbar({
                     <span>Full 3-Day Program</span>
                   </a>
                   <a
-                    href="#speakers"
+                    href="/#speakers"
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-mono text-foreground hover:bg-secondary transition-colors"
                   >
@@ -263,7 +264,7 @@ export function Navbar({
                     <span>Featured Keynotes</span>
                   </a>
                   <a
-                    href="#highlights"
+                    href="/#highlights"
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-mono text-foreground hover:bg-secondary transition-colors"
                   >
@@ -271,7 +272,7 @@ export function Navbar({
                     <span>Summit Highlights</span>
                   </a>
                   <a
-                    href="#contact"
+                    href="/contact"
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-mono text-foreground hover:bg-secondary transition-colors"
                   >
