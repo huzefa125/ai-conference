@@ -22,7 +22,7 @@ export default function Tickets({
   subtitle = "Choose how you attend. Every pass includes the full program for your access level.",
 }: TicketsProps) {
   return (
-    <section id={id} className={clsx("w-full py-16 md:py-20", className)}>
+    <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
@@ -39,7 +39,7 @@ export default function Tickets({
           ))}
         </div>
 
-        <p className="mt-8 text-center font-mono text-xs text-muted-foreground">
+        <p className="mt-10 text-center font-mono text-xs text-muted-foreground lg:mt-14">
           Prices in USD. Taxes calculated at checkout.
         </p>
       </div>
@@ -55,42 +55,42 @@ function TicketCard({ ticket: t, index }: { ticket: Ticket; index: number }) {
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: index * 0.08 }}
       className={clsx(
-        "relative flex flex-col p-6 sm:p-7 bg-card border transition-all duration-300",
+        "relative flex flex-col border p-6 transition-all duration-300 sm:p-7",
         t.featured
-          ? "border-primary shadow-[var(--shadow-hover)] lg:-my-3 lg:py-9"
-          : "border-border shadow-[var(--shadow-subtle)] hover:border-primary/50"
+          ? "border-primary bg-foreground text-white shadow-[0_30px_60px_-24px_rgba(37,99,235,0.7)] lg:-my-5 lg:py-11 lg:scale-[1.03]"
+          : "border-border bg-card shadow-[var(--shadow-subtle)] hover:-translate-y-1 hover:border-primary/50"
       )}
     >
       {t.featured && (
-        <span className="absolute left-0 top-0 -translate-y-full bg-primary px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary-foreground">
+        <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-primary px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary-foreground">
           Most popular
         </span>
       )}
 
-      <h3 className="font-mono text-xl font-bold text-foreground">{t.name}</h3>
-      <p className="mt-1 font-mono text-sm text-muted-foreground">{t.tagline}</p>
+      <h3 className={clsx("font-mono text-xl font-bold", t.featured ? "text-white" : "text-foreground")}>{t.name}</h3>
+      <p className={clsx("mt-1 font-mono text-sm", t.featured ? "text-white/70" : "text-muted-foreground")}>{t.tagline}</p>
 
-      <div className="mt-6 flex items-baseline gap-2 border-b border-border pb-6">
+      <div className={clsx("mt-6 flex items-baseline gap-2 border-b pb-6", t.featured ? "border-white/15" : "border-border")}>
         {t.price !== null ? (
           <>
-            <span className="font-mono text-4xl font-bold tracking-tight text-foreground">
+            <span className={clsx("font-mono text-5xl font-bold tracking-tight", t.featured ? "text-white" : "text-foreground")}>
               ${t.price}
             </span>
-            <span className="font-mono text-xs text-muted-foreground">{t.priceNote}</span>
+            <span className={clsx("font-mono text-xs", t.featured ? "text-white/60" : "text-muted-foreground")}>{t.priceNote}</span>
           </>
         ) : (
           <>
-            <span className="font-mono text-3xl font-bold tracking-tight text-foreground">
+            <span className={clsx("font-mono text-3xl font-bold tracking-tight", t.featured ? "text-white" : "text-foreground")}>
               Custom
             </span>
-            <span className="font-mono text-xs text-muted-foreground">{t.priceNote}</span>
+            <span className={clsx("font-mono text-xs", t.featured ? "text-white/60" : "text-muted-foreground")}>{t.priceNote}</span>
           </>
         )}
       </div>
 
       <ul className="mt-6 flex-1 space-y-3">
         {t.features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 font-mono text-sm text-foreground/80">
+          <li key={f} className={clsx("flex items-start gap-2.5 font-mono text-sm", t.featured ? "text-white/90" : "text-foreground/80")}>
             <CheckIcon weight="bold" size={16} className="mt-0.5 shrink-0 text-primary" />
             <span>{f}</span>
           </li>

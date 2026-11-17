@@ -15,7 +15,7 @@ const ICONS: Record<string, React.ComponentType<IconProps>> = {
 
 export default function Sponsors({ id = "sponsors", className = "" }: { id?: string; className?: string }) {
   return (
-    <section id={id} className={clsx("w-full py-16 md:py-20", className)}>
+    <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
@@ -29,7 +29,7 @@ export default function Sponsors({ id = "sponsors", className = "" }: { id?: str
         <div className="mx-auto mt-12 max-w-5xl space-y-10">
           {SPONSORS.map((group, gi) => (
             <div key={group.tier}>
-              <p className="mb-4 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary">
+              <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-widest text-primary">
                 {group.tier}
               </p>
               <div
@@ -44,26 +44,26 @@ export default function Sponsors({ id = "sponsors", className = "" }: { id?: str
                     <div
                       key={`${group.tier}-${i}`}
                       className={clsx(
-                        "group flex items-center justify-center gap-2.5 border border-border bg-card px-4 text-muted-foreground transition-all duration-300 hover:border-primary/50 hover:text-foreground hover:shadow-[var(--shadow-hover)]",
-                        gi === 0 ? "h-28" : "h-20"
+                        "group flex items-center justify-center gap-3 border border-border bg-card px-4 text-foreground/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:text-foreground hover:shadow-[var(--shadow-hover)]",
+                        gi === 0 ? "h-36 sm:h-40" : "h-24 sm:h-28"
                       )}
                     >
                       {s.logo ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={s.logo} alt={s.name} className="max-h-10 w-auto object-contain grayscale transition group-hover:grayscale-0" />
+                        <img src={s.logo} alt={s.name} className="max-h-14 w-auto object-contain grayscale transition group-hover:grayscale-0" />
                       ) : (
                         <>
                           {Icon && (
                             <Icon
                               weight="duotone"
-                              size={gi === 0 ? 32 : 24}
-                              className="shrink-0 text-muted-foreground transition-colors group-hover:text-primary"
+                              size={gi === 0 ? 44 : 30}
+                              className="shrink-0 text-primary/70 transition-colors group-hover:text-primary"
                             />
                           )}
                           <span
                             className={clsx(
                               "font-mono font-bold tracking-tight",
-                              gi === 0 ? "text-lg" : "text-sm"
+                              gi === 0 ? "text-2xl" : "text-base"
                             )}
                           >
                             {s.name}

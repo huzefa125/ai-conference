@@ -14,7 +14,7 @@ export default function AboutDesk({ id = "overview" }: { id?: string }) {
         <div className="mx-auto max-w-5xl text-center">
           <ScrollRevealText
             segments={aboutDesk.segments}
-            className="text-lg font-medium leading-[1.6] tracking-tight text-foreground sm:text-2xl sm:leading-[1.6] xl:text-[1.75rem] xl:leading-[1.6]"
+            className="text-xl font-medium leading-[1.6] tracking-tight text-foreground sm:text-3xl sm:leading-[1.6] xl:text-[2.25rem] xl:leading-[1.6]"
           />
         </div>
 
@@ -27,12 +27,12 @@ export default function AboutDesk({ id = "overview" }: { id?: string }) {
                 className="flex flex-col items-center gap-2 rounded-xl border border-border/60 bg-card/70 p-5 shadow-[0_4px_20px_-10px_rgba(15,23,42,0.08)] backdrop-blur-xs transition-colors hover:border-border hover:bg-card"
               >
                 <div className="flex items-center justify-center gap-2.5">
-                  <span className="grid h-7 w-7 place-items-center rounded-lg bg-secondary text-foreground">
-                    <Icon className="h-4 w-4 text-primary" aria-hidden />
+                  <span className="grid h-9 w-9 place-items-center rounded-lg bg-secondary text-foreground">
+                    <Icon className="h-5 w-5 text-primary" aria-hidden />
                   </span>
-                  <h3 className="text-sm font-semibold tracking-tight text-foreground">{p.label}</h3>
+                  <h3 className="text-base font-semibold tracking-tight text-foreground sm:text-lg">{p.label}</h3>
                 </div>
-                <p className="text-center text-sm leading-relaxed text-muted-foreground sm:text-base">{p.detail}</p>
+                <p className="text-center text-base leading-relaxed text-muted-foreground sm:text-lg">{p.detail}</p>
               </div>
             );
           })}

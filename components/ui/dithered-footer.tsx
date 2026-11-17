@@ -136,7 +136,7 @@ export default function DitheredFooter({
         <div ref={fieldRef} className="df-field df-auto">
           <div className="df-dots" />
         </div>
-        <p className="df-mark pointer-events-none absolute -bottom-[0.05em] left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-center text-[clamp(3.5rem,15vw,10rem)] font-bold leading-[0.8] tracking-[-0.06em] text-background">
+        <p className="df-mark pointer-events-none absolute -bottom-[0.05em] left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-center text-[clamp(5rem,30vw,10rem)] sm:text-[clamp(3.5rem,15vw,10rem)] font-bold leading-[0.8] tracking-[-0.06em] text-background">
           {wordmark ?? brand}
         </p>
       </div>

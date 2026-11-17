@@ -86,14 +86,14 @@ export function HeroBanner({
   const lastTitleWord = hasRotating && titleWords.length > 0 ? titleWords[titleWords.length - 1] : null;
 
   return (
-    <section className={`py-16 md:py-24 ${className}`}>
+    <section className={`py-12 md:py-20 ${className}`}>
       <div className="flex flex-col items-center text-center">
         {/* Animated Headline Words with Rotating Completion Word */}
         <motion.h1
           initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
           animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative font-mono text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl max-w-5xl mx-auto leading-tight text-foreground tracking-tight"
+          className="relative font-mono text-[2.4rem] font-extrabold sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-7xl max-w-7xl mx-auto leading-[1.08] text-foreground tracking-tighter"
         >
           {leadingWords.map((text, index) => {
             const isHighlight = highlightWords.includes(text.toUpperCase());

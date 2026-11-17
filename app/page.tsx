@@ -13,8 +13,7 @@ import Travel from "@/components/ui/travel";
 import Sponsors from "@/components/ui/sponsors";
 import CtaBanner from "@/components/ui/cta-banner";
 import Faq from "@/components/ui/faq";
-import DitheredFooter from "@/components/ui/dithered-footer";
-import { FOOTER } from "@/lib/site-data";
+import SiteFooter from "@/components/sections/site-footer";
 
 export default function Page() {
   return (
@@ -34,7 +33,7 @@ export default function Page() {
       <Sponsors id="sponsors" />
       <CtaBanner id="register" />
       <Faq id="faq" />
-      <DitheredFooter id="contact" brand={FOOTER.brand} wordmark="Atlas" tagline={FOOTER.blurb} columns={FOOTER.columns} copyright={`© 2026 ${FOOTER.brand}`} />
+      <SiteFooter id="contact" />
     </div>
   );
 }

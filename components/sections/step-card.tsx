@@ -29,8 +29,8 @@ export function StepCard({ number, title, body, theme = "cream", colors, rotate 
       )}
     >
       <div
-        className="rounded-[25px] border border-border bg-card p-2 shadow-[0_12px_28px_-14px_rgba(15,23,42,0.35)] md:[transform:rotate(var(--rot))]"
-        style={{ ["--rot" as string]: `${rotate}deg` }}
+        className="rounded-[25px] border border-border bg-card p-2 shadow-[0_12px_28px_-14px_rgba(15,23,42,0.35)] [transform:rotate(var(--rot-m))] md:[transform:rotate(var(--rot))]"
+        style={{ ["--rot" as string]: `${rotate}deg`, ["--rot-m" as string]: `${rotate / 2}deg` }}
       >
         <span
           aria-hidden

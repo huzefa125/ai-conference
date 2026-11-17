@@ -7,7 +7,7 @@ export const VENUE = {
   intro:
     "Atlas Global brings founders, engineers, researchers and enterprise leaders together for three days of talks, workshops and working sessions on AI in production.",
   image:
-    "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1400&q=80&fit=crop",
+    "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1400&q=80&fit=crop",
   details: [
     { label: "Dates", value: "Nov 18–20, 2026" },
     { label: "City", value: "Hyderabad, India" },
@@ -67,6 +67,7 @@ export const GALLERY = [
   { src: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80&fit=crop", alt: "Networking", span: "" },
   { src: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80&fit=crop", alt: "Workshop", span: "" },
   { src: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1000&q=80&fit=crop", alt: "Main stage", span: "col-span-2" },
+  { src: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=1000&q=80&fit=crop", alt: "Speaker addressing the audience", span: "col-span-2" },
 ];
 
 export const FAQS = [
@@ -99,7 +100,7 @@ export const FAQS = [
 export const FOOTER = {
   brand: "Atlas Conferences & Events",
   blurb: "Atlas Global 2026. Nov 18–20, Hyderabad, India.",
-  email: "", // add a contact email to show it in the footer
+  email: "hello@atlas-global.example", // PLACEHOLDER: replace with the real contact email
   columns: [
     {
       title: "Event",
@@ -118,6 +119,27 @@ export const FOOTER = {
         { label: "FAQ", href: "#faq" },
       ],
     },
+    // PLACEHOLDER contact details: replace with the real ones before launch.
+    {
+      title: "Contact",
+      links: [
+        { label: "hello@atlas-global.example", href: "mailto:hello@atlas-global.example" },
+        { label: "+91 00000 00000", href: "tel:+910000000000" },
+        { label: "Hyderabad, India", href: "#travel" },
+      ],
+    },
+  ],
+  // PLACEHOLDER social and legal links: point these at the real pages.
+  socials: [
+    { label: "LinkedIn", href: "#" },
+    { label: "X", href: "#" },
+    { label: "YouTube", href: "#" },
+    { label: "Instagram", href: "#" },
+  ],
+  legal: [
+    { label: "Privacy policy", href: "#" },
+    { label: "Terms", href: "#" },
+    { label: "Code of conduct", href: "#" },
   ],
 };
 
