@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { clsx } from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { MapPinIcon, MicrophoneStageIcon } from "@phosphor-icons/react";
 import {
   AGENDA,
@@ -52,6 +52,28 @@ export default function Agenda({
   const sessions = day.sessions.filter(
     (s) => filter === "all" || !s.track || s.track === filter
   );
+
+  // Scroll-linked timeline: a dot travels down the rail and fills the line as you scroll the list.
+  const reduce = useReducedMotion();
+  const panelRef = React.useRef<HTMLDivElement>(null);
+  const [railH, setRailH] = React.useState(0);
+  const { scrollYProgress } = useScroll({ target: panelRef, offset: ["start 0.6", "end 0.6"] });
+  const dotTop = useTransform(scrollYProgress, (v) => `${Math.min(Math.max(v, 0), 1) * 100}%`);
+
+  React.useLayoutEffect(() => {
+    const panel = panelRef.current;
+    if (!panel) return;
+    const measure = () => {
+      const last = panel.querySelector("ul")?.lastElementChild as HTMLElement | null;
+      if (!last) return;
+      // first and last dots both sit 2.15rem into their rows, so the rail is exactly the last row's top offset
+      setRailH(last.offsetTop);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(panel);
+    return () => ro.disconnect();
+  }, [dayId, filter]);
 
   return (
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
@@ -127,8 +149,24 @@ export default function Agenda({
         <div
           id={`${id}-panel`}
           role="tabpanel"
-          className="mx-auto mt-8 max-w-4xl border border-border bg-card shadow-[var(--shadow-subtle)]"
+          ref={panelRef}
+          className="relative mx-auto mt-8 max-w-4xl border border-border bg-card shadow-[var(--shadow-subtle)]"
         >
+          {!reduce && railH > 0 && (
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-[1.15rem] top-[2.15rem] z-10 w-px sm:left-[1.65rem]"
+              style={{ height: railH }}
+            >
+              {/* filled part of the line */}
+              <motion.div className="absolute inset-x-0 top-0 w-px origin-top bg-primary" style={{ height: dotTop }} />
+              {/* the travelling dot */}
+              <motion.div
+                className="absolute left-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-card bg-primary shadow-[0_0_0_4px_rgba(37,99,235,0.25)]"
+                style={{ top: dotTop }}
+              />
+            </div>
+          )}
           <AnimatePresence mode="wait">
             <motion.ul
               key={`${dayId}-${filter}`}
@@ -138,8 +176,8 @@ export default function Agenda({
               transition={{ duration: 0.2 }}
               className="divide-y divide-border"
             >
-              {sessions.map((s) => (
-                <SessionRow key={`${s.time}-${s.title}`} session={s} />
+              {sessions.map((s, i) => (
+                <SessionRow key={`${s.time}-${s.title}`} session={s} first={i === 0} last={i === sessions.length - 1} />
               ))}
             </motion.ul>
           </AnimatePresence>
@@ -153,16 +191,34 @@ export default function Agenda({
   );
 }
 
-function SessionRow({ session: s }: { session: Session }) {
+function SessionRow({ session: s, first, last }: { session: Session; first: boolean; last: boolean }) {
   const isBreak = s.kind === "break";
 
   return (
     <li
       className={clsx(
-        "grid grid-cols-[4.75rem_1fr] gap-x-4 gap-y-1 border-l-4 px-4 py-5 sm:grid-cols-[7rem_1fr_auto] sm:px-6",
-        isBreak ? "border-l-border bg-secondary/60" : "border-l-primary/40 transition-colors hover:border-l-primary hover:bg-secondary/40"
+        "group relative grid grid-cols-[4.5rem_1fr] gap-x-4 gap-y-1 py-5 pl-11 pr-4 sm:grid-cols-[7rem_1fr_auto] sm:pl-14 sm:pr-6",
+        isBreak ? "bg-secondary/60" : "transition-colors hover:bg-secondary/40"
       )}
     >
+      {/* Timeline rail: a line through every row with a dot at the start time */}
+      <span
+        aria-hidden
+        className={clsx(
+          "absolute left-[1.15rem] w-px bg-primary/30 sm:left-[1.65rem]",
+          first ? "top-[2.15rem]" : "top-0",
+          last ? "h-[2.15rem]" : "bottom-0"
+        )}
+      />
+      <span
+        aria-hidden
+        className={clsx(
+          "absolute left-[0.8rem] top-[1.8rem] h-[0.7rem] w-[0.7rem] rounded-full transition-transform duration-200 group-hover:scale-125 sm:left-[1.3rem]",
+          isBreak
+            ? "border-2 border-muted-foreground/50 bg-card"
+            : "bg-primary ring-4 ring-primary/20"
+        )}
+      />
       {/* Time */}
       <div className="font-mono text-sm tabular-nums">
         <div className="text-base font-bold text-foreground">{s.time}</div>

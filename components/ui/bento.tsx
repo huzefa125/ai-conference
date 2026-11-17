@@ -170,7 +170,7 @@ export default function FUIBentoGridDark({
         </div>
 
         {/* 3 + 2 grid, fits within one screen on desktop */}
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-6">
+        <div className="-mx-4 mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6 [&::-webkit-scrollbar]:hidden">
           {tracks.map((track, i) => (
             <BentoCard
               key={track.title}
@@ -180,7 +180,7 @@ export default function FUIBentoGridDark({
               description={track.description}
               audience={track.audience}
               icon={track.icon}
-              className={track.colSpan}
+              className={clsx("w-[85%] shrink-0 snap-center sm:w-auto sm:shrink", track.colSpan)}
             />
           ))}
         </div>

@@ -4,9 +4,9 @@ import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import {
-  ChalkboardTeacherIcon, WrenchIcon, TargetIcon, HandshakeIcon, BroadcastIcon, NotebookIcon, type IconProps,
+  ChalkboardTeacherIcon, WrenchIcon, TargetIcon, HandshakeIcon, BroadcastIcon, NotebookIcon, ArrowRightIcon, type IconProps,
 } from "@phosphor-icons/react";
-import { WHY_ATTEND } from "@/lib/site-data";
+import { WHY_ATTEND, VENUE } from "@/lib/site-data";
 
 const ICONS: Record<string, React.ComponentType<IconProps>> = {
   ChalkboardTeacher: ChalkboardTeacherIcon, Wrench: WrenchIcon, Target: TargetIcon,
@@ -15,35 +15,65 @@ const ICONS: Record<string, React.ComponentType<IconProps>> = {
 
 export default function WhyAttend({ id = "why", className = "" }: { id?: string; className?: string }) {
   return (
-    <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
+    <section id={id} className={clsx("w-full py-12 md:py-20", className)}>
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
-            WHY ATTEND
-          </h2>
-          <p className="mt-4 font-mono text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
-            What you get from three days at Atlas Global.
-          </p>
-        </div>
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] lg:gap-16">
+          {/* Left: sticky intro */}
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">Why attend</span>
+            <h2 className="mt-3 font-mono text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              Six reasons to be in the room
+            </h2>
+            <p className="mt-4 max-w-md font-mono text-base leading-relaxed text-muted-foreground sm:text-lg">
+              What you get from three days at Atlas Global.
+            </p>
 
-        <div className="mt-12 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-          {WHY_ATTEND.map((item, i) => {
-            const Icon = ICONS[item.icon];
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.45, delay: (i % 3) * 0.07 }}
-                className="group bg-card p-6 transition-colors hover:bg-secondary/50 sm:p-8"
-              >
-                <Icon weight="duotone" size={32} className="text-primary" />
-                <h3 className="mt-5 font-mono text-lg font-bold text-foreground">{item.title}</h3>
-                <p className="mt-2 font-mono text-sm leading-relaxed text-muted-foreground">{item.text}</p>
-              </motion.div>
-            );
-          })}
+            <dl className="mt-8 grid max-w-md grid-cols-3 border border-border bg-card">
+              {VENUE.stats.map((s, i) => (
+                <div key={s.label} className={clsx("px-3 py-4 text-center", i > 0 && "border-l border-border")}>
+                  <dt className="font-mono text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{s.value}</dt>
+                  <dd className="mt-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary">{s.label}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <a
+              href="#tickets"
+              className="mt-8 inline-flex items-center gap-2 bg-primary px-6 py-3.5 font-mono text-sm font-medium text-primary-foreground shadow-[0_4px_20px_rgba(37,99,235,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(37,99,235,0.45)]"
+            >
+              Get your ticket
+              <ArrowRightIcon weight="bold" size={16} />
+            </a>
+          </div>
+
+          {/* Right: numbered list */}
+          <ol className="border-t border-border">
+            {WHY_ATTEND.map((item, i) => {
+              const Icon = ICONS[item.icon];
+              return (
+                <motion.li
+                  key={item.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.45, delay: (i % 3) * 0.06 }}
+                  className="group relative grid grid-cols-[2.75rem_1fr_auto] items-start gap-x-4 border-b border-border px-1 py-6 transition-colors hover:bg-secondary/60 sm:grid-cols-[4rem_1fr_auto] sm:gap-x-6 sm:px-4 sm:py-8"
+                >
+                  <span aria-hidden className="absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-primary transition-transform duration-300 group-hover:scale-y-100" />
+                  <span className="font-mono text-2xl font-bold tabular-nums text-foreground/25 transition-colors group-hover:text-primary sm:text-4xl">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-mono text-lg font-bold leading-snug text-foreground sm:text-xl">{item.title}</h3>
+                    <p className="mt-1.5 font-mono text-sm leading-relaxed text-muted-foreground sm:text-base">{item.text}</p>
+                  </div>
+                  <span className="grid h-10 w-10 place-items-center bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground sm:h-12 sm:w-12">
+                    <Icon weight="duotone" size={24} />
+                  </span>
+                </motion.li>
+              );
+            })}
+          </ol>
         </div>
       </div>
     </section>
