@@ -38,27 +38,23 @@ export function StickyFeatureSection({
           </p>
         </motion.div>
 
-        {/* Cards stick near the top and stack as you scroll */}
-        <div className="mx-auto w-full max-w-6xl">
+        {/* Desktop: split cards that stick and stack as you scroll */}
+        <div className="mx-auto hidden w-full max-w-6xl md:block">
           {features.map((f, i) => (
             <div
               key={f.title}
               className={clsx(
-                "mb-6 grid md:sticky grid-cols-1 items-center gap-6 border border-border p-6 shadow-[var(--shadow-subtle)] md:mb-14 md:grid-cols-2 md:gap-10 md:p-10",
+                "sticky mb-14 grid grid-cols-2 items-center gap-10 border border-border p-10 shadow-[var(--shadow-subtle)]",
                 f.bgColor,
               )}
-              style={{ top: `calc(5.5rem + ${i * 14}px)` }} // applies only where md:sticky is active
+              style={{ top: `calc(5.5rem + ${i * 14}px)` }}
             >
               <div className="flex flex-col justify-center">
-                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">
-                  {f.eyebrow}
-                </span>
-                <h3 className="mt-3 font-mono text-2xl font-bold leading-tight text-foreground md:text-3xl">
-                  {f.title}
-                </h3>
+                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{f.eyebrow}</span>
+                <h3 className="mt-3 font-mono text-3xl font-bold leading-tight text-foreground">{f.title}</h3>
                 <p className="mt-4 font-mono text-base leading-relaxed text-foreground/75">{f.description}</p>
               </div>
-              <div className={clsx(i % 2 === 1 && "md:order-first")}>
+              <div className={clsx(i % 2 === 1 && "order-first")}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={f.imageUrl}
@@ -68,6 +64,26 @@ export function StickyFeatureSection({
                 />
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Mobile: compact photo cards that also stick and stack as you scroll */}
+        <div className="md:hidden">
+          {features.map((f, i) => (
+            <article
+              key={f.title}
+              className="sticky relative isolate mb-5 flex min-h-[21rem] flex-col justify-end overflow-hidden border border-border bg-foreground shadow-[var(--shadow-subtle)]"
+              style={{ top: `calc(4.5rem + ${i * 12}px)` }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={f.imageUrl} alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+              <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-foreground via-foreground/75 to-foreground/10" />
+              <div className="p-5">
+                <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-[#93b4ff]">{f.eyebrow}</span>
+                <h3 className="mt-2 font-mono text-xl font-bold leading-tight text-white">{f.title}</h3>
+                <p className="mt-3 font-mono text-sm leading-relaxed text-white/85">{f.description}</p>
+              </div>
+            </article>
           ))}
         </div>
       </div>

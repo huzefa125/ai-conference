@@ -34,7 +34,7 @@ export default function Speakers({
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 2xl:gap-6">
+        <div className="-mx-4 mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4 2xl:gap-6 [&::-webkit-scrollbar]:hidden">
           {speakers.map((s, i) => (
             <SpeakerCard key={`${s.name}-${i}`} speaker={s} index={i} />
           ))}
@@ -55,7 +55,7 @@ function SpeakerCard({ speaker: s, index }: { speaker: Speaker; index: number })
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: (index % 4) * 0.07 }}
-      className="group flex flex-col border border-border bg-card shadow-[var(--shadow-subtle)] transition-all duration-300 hover:border-primary/50 hover:shadow-[var(--shadow-hover)]"
+      className="group flex w-[72%] shrink-0 snap-center flex-col md:w-auto md:shrink border border-border bg-card shadow-[var(--shadow-subtle)] transition-all duration-300 hover:border-primary/50 hover:shadow-[var(--shadow-hover)]"
     >
       {/* Photo */}
       <div className="relative aspect-[4/5] overflow-hidden bg-muted">
