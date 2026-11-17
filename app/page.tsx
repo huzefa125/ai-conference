@@ -7,6 +7,7 @@ import FUIBentoGridDark from "@/components/ui/bento";
 import Speakers from "@/components/ui/speakers";
 import CallForSpeakers from "@/components/ui/call-for-speakers";
 import Agenda from "@/components/ui/agenda";
+import StickyFeatureSection from "@/components/ui/sticky-scroll-cards-section";
 import Gallery from "@/components/ui/gallery";
 import Tickets from "@/components/ui/tickets";
 import Travel from "@/components/ui/travel";
@@ -27,6 +28,7 @@ export default function Page() {
       <Speakers id="speakers" />
       <CallForSpeakers id="cfp" />
       <Agenda id="agenda" />
+      <StickyFeatureSection />
       <Gallery id="gallery" />
       <Tickets id="tickets" />
       <Travel id="travel" />
