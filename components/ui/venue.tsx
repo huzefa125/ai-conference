@@ -10,7 +10,7 @@ const DETAIL_ICONS = [CalendarBlankIcon, MapPinIcon, BuildingsIcon, BroadcastIco
 
 export default function Venue({ id = "about", className = "" }: { id?: string; className?: string }) {
   return (
-    <section id={id} className={clsx("w-full py-16 md:py-20", className)}>
+    <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         <div className="grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Text + details */}

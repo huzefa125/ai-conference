@@ -8,7 +8,7 @@ import { FAQS } from "@/lib/site-data";
 
 export default function Faq({ id = "faq", className = "" }: { id?: string; className?: string }) {
   return (
-    <section id={id} className={clsx("w-full py-16 md:py-20", className)}>
+    <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">

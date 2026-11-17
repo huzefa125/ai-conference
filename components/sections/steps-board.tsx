@@ -26,7 +26,14 @@ export function StepsBoard() {
         <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background to-transparent" />
         <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background to-transparent" />
 
-        <div className="relative mx-auto max-w-[1000px] space-y-8 md:h-[820px] md:space-y-0">
+        <div className="relative mx-auto flex max-w-[1000px] flex-col gap-10 md:block md:h-[820px]">
+          <m.div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-6 left-1/2 w-0.5 -translate-x-1/2 opacity-50 md:hidden"
+            style={{ backgroundImage: "repeating-linear-gradient(to bottom, var(--primary) 0 8px, transparent 8px 14px)" }}
+            animate={reduce ? undefined : { backgroundPositionY: ["0px", "14px"] }}
+            transition={{ duration: 1.2, ease: "linear", repeat: Infinity }}
+          />
           <svg
             aria-hidden
             viewBox="0 0 1000 820"
@@ -52,7 +59,7 @@ export function StepsBoard() {
               key={step.number}
               {...step}
               rotate={POSITIONS[i].rotate}
-              className={`relative z-10 ${POSITIONS[i].className}`}
+              className={`relative z-10 w-[88%] ${i % 2 === 0 ? "self-start" : "self-end"} md:w-[300px] md:self-auto ${POSITIONS[i].className}`}
             />
           ))}
         </div>

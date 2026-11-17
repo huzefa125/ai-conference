@@ -157,7 +157,7 @@ export default function FUIBentoGridDark({
   tracks = DEFAULT_TRACKS,
 }: FUIBentoGridDarkProps) {
   return (
-    <section id={id} className={clsx("w-full py-16 md:py-20", className)}>
+    <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         {/* Header, centered like the hero */}
         <div className="mx-auto max-w-3xl text-center">

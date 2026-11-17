@@ -7,7 +7,7 @@ import { CFP } from "@/lib/site-data";
 
 export default function CallForSpeakers({ id = "cfp", className = "" }: { id?: string; className?: string }) {
   return (
-    <section id={id} className={clsx("w-full py-16 md:py-20", className)}>
+    <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         <div className="grid gap-10 border border-border bg-card p-6 shadow-[var(--shadow-subtle)] sm:p-10 lg:grid-cols-2 lg:gap-14">
           {/* Copy + CTA */}

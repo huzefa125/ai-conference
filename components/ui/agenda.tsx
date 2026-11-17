@@ -54,7 +54,7 @@ export default function Agenda({
   );
 
   return (
-    <section id={id} className={clsx("w-full py-16 md:py-20", className)}>
+    <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
@@ -146,7 +146,7 @@ export default function Agenda({
         </div>
 
         <p className="mx-auto mt-4 max-w-4xl text-center font-mono text-xs text-muted-foreground">
-          Times are Pacific. The program is subject to change.
+          Times are India Standard Time (IST). The program is subject to change.
         </p>
       </div>
     </section>
@@ -159,13 +159,13 @@ function SessionRow({ session: s }: { session: Session }) {
   return (
     <li
       className={clsx(
-        "grid grid-cols-[4.5rem_1fr] gap-x-4 gap-y-1 px-4 py-4 sm:grid-cols-[7rem_1fr_auto] sm:px-6",
-        isBreak ? "bg-secondary/60" : "transition-colors hover:bg-secondary/40"
+        "grid grid-cols-[4.75rem_1fr] gap-x-4 gap-y-1 border-l-4 px-4 py-5 sm:grid-cols-[7rem_1fr_auto] sm:px-6",
+        isBreak ? "border-l-border bg-secondary/60" : "border-l-primary/40 transition-colors hover:border-l-primary hover:bg-secondary/40"
       )}
     >
       {/* Time */}
       <div className="font-mono text-sm tabular-nums">
-        <div className="font-bold text-foreground">{s.time}</div>
+        <div className="text-base font-bold text-foreground">{s.time}</div>
         <div className="text-xs text-muted-foreground">{endTime(s.time, s.duration)}</div>
       </div>
 
@@ -181,7 +181,7 @@ function SessionRow({ session: s }: { session: Session }) {
             {KIND_LABEL[s.kind]}
           </span>
           {s.track && (
-            <span className="border border-border px-1.5 py-0.5 font-mono text-[11px] text-muted-foreground">
+            <span className="border border-border px-2 py-0.5 font-mono text-xs text-muted-foreground">
               {TRACK_LABELS[s.track]}
             </span>
           )}
@@ -189,7 +189,7 @@ function SessionRow({ session: s }: { session: Session }) {
 
         <h3
           className={clsx(
-            "mt-1 font-mono text-sm sm:text-base",
+            "mt-1.5 font-mono text-base leading-snug sm:text-lg",
             isBreak ? "font-medium text-muted-foreground" : "font-bold text-foreground"
           )}
         >
@@ -197,7 +197,7 @@ function SessionRow({ session: s }: { session: Session }) {
         </h3>
 
         {s.speaker && (
-          <p className="mt-1.5 flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
+          <p className="mt-2 flex items-center gap-1.5 font-mono text-sm text-muted-foreground">
             <MicrophoneStageIcon weight="duotone" size={16} className="shrink-0 text-primary" />
             {s.speaker}
           </p>
@@ -206,7 +206,7 @@ function SessionRow({ session: s }: { session: Session }) {
 
       {/* Room */}
       {s.room && (
-        <div className="col-start-2 flex items-center gap-1.5 font-mono text-xs text-muted-foreground sm:col-start-3 sm:self-start sm:justify-end">
+        <div className="col-start-2 flex items-center gap-1.5 font-mono text-sm text-muted-foreground sm:col-start-3 sm:self-start sm:justify-end">
           <MapPinIcon weight="duotone" size={16} className="shrink-0 text-primary" />
           {s.room}
         </div>
