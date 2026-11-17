@@ -1,43 +1,40 @@
-import { Hero } from "@/components/sections/hero";
-import { Stats } from "@/components/sections/stats";
-import { About } from "@/components/sections/about";
-import { ResearchAreas } from "@/components/sections/research-areas";
-import { Conferences } from "@/components/sections/conferences";
-import { Speakers } from "@/components/sections/speakers";
-import { SchedulePreview } from "@/components/sections/schedule-preview";
-import { WhyAttend } from "@/components/sections/why-attend";
-import { Pricing } from "@/components/sections/pricing";
-import { VideoHighlights } from "@/components/sections/video-highlights";
-import { Testimonials } from "@/components/sections/testimonials";
-import { Awards } from "@/components/sections/awards";
-import { Venue } from "@/components/sections/venue";
-import { Publications } from "@/components/sections/publications";
-import { News } from "@/components/sections/news";
-import { Faq } from "@/components/sections/faq";
-import { CtaBanner } from "@/components/sections/cta-banner";
-import { Newsletter } from "@/components/sections/newsletter";
+import { MynaHero } from "@/components/ui/myna-hero";
+import Venue from "@/components/ui/venue";
+import WhyAttend from "@/components/ui/why-attend";
+import AboutDesk from "@/components/sections/about-desk";
+import HowItWorks from "@/components/sections/how-it-works";
+import FUIBentoGridDark from "@/components/ui/bento";
+import Speakers from "@/components/ui/speakers";
+import CallForSpeakers from "@/components/ui/call-for-speakers";
+import Agenda from "@/components/ui/agenda";
+import Gallery from "@/components/ui/gallery";
+import Tickets from "@/components/ui/tickets";
+import Travel from "@/components/ui/travel";
+import Sponsors from "@/components/ui/sponsors";
+import CtaBanner from "@/components/ui/cta-banner";
+import Faq from "@/components/ui/faq";
+import DitheredFooter from "@/components/ui/dithered-footer";
+import { FOOTER } from "@/lib/site-data";
 
-export default function Home() {
+export default function Page() {
   return (
-    <>
-      <Hero />
-      <Stats />
-      <About />
-      <ResearchAreas />
-      <Conferences />
-      <Speakers />
-      <SchedulePreview />
-      <WhyAttend />
-      <Pricing />
-      <VideoHighlights />
-      <Testimonials />
-      <Awards />
-      <Venue />
-      <Publications />
-      <News />
-      <Faq />
-      <CtaBanner />
-      <Newsletter />
-    </>
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white">
+      <MynaHero />
+      <Venue id="about" />
+      <AboutDesk />
+      <WhyAttend id="why" />
+      <HowItWorks />
+      <FUIBentoGridDark id="tracks" />
+      <Speakers id="speakers" />
+      <CallForSpeakers id="cfp" />
+      <Agenda id="agenda" />
+      <Gallery id="gallery" />
+      <Tickets id="tickets" />
+      <Travel id="travel" />
+      <Sponsors id="sponsors" />
+      <CtaBanner id="register" />
+      <Faq id="faq" />
+      <DitheredFooter id="contact" brand={FOOTER.brand} wordmark="Atlas" tagline={FOOTER.blurb} columns={FOOTER.columns} copyright={`© 2026 ${FOOTER.brand}`} />
+    </div>
   );
 }

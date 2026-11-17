@@ -1,41 +1,53 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { site } from "@/lib/site";
-import { AnnouncementBar } from "@/components/layout/announcement-bar";
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
-const jakarta = Plus_Jakarta_Sans({ variable: "--font-jakarta", subsets: ["latin"], weight: ["500", "600", "700", "800"], display: "swap" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#FAF8F5",
   colorScheme: "light",
-  themeColor: "#0e1726",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  title: { default: `${site.name} | International Scientific Conferences`, template: `%s | ${site.name}` },
+  title: "Atlas Conferences & Events | Global Innovation & Frontier Summit 2026",
   description:
-    "Bringing together researchers, scientists, academicians and industry leaders to exchange knowledge, present discoveries and shape the future of scientific innovation.",
-  openGraph: {
-    title: `${site.name} | International Scientific Conferences`,
-    description: "Advancing science through global collaboration.",
-    type: "website",
+    "Join 1,000+ industry pioneers, founders, researchers, and capital allocators at the Atlas Global Innovation Summit. Live in Hyderabad, India and streaming worldwide.",
+  icons: {
+    icon: "/atlas-logo.png",
+    apple: "/atlas-logo.png",
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable}`}>
-      <body className="min-h-screen bg-background text-foreground">
-        <AnnouncementBar />
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+    <html lang="en" className={`${inter.variable} ${jakarta.variable} ${mono.variable} scroll-smooth`}>
+      <body className="min-h-screen bg-[#FAF8F5] text-[#0F172A] antialiased font-sans selection:bg-[#2563EB] selection:text-[#FAF8F5]">
+        {children}
       </body>
     </html>
   );
