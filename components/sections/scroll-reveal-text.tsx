@@ -40,8 +40,11 @@ function flatten(segments: RevealSegment[]): Unit[] {
 }
 
 function Word({ unit, progress, range, reduce }: { unit: Unit; progress: MotionValue<number>; range: [number, number]; reduce: boolean }) {
-  const opacity = useTransform(progress, range, [0.3, 1]);
-  const style = reduce ? undefined : { opacity };
+  // Each word fades in, rises and sharpens in its own slice of the scroll, so they arrive one by one.
+  const opacity = useTransform(progress, range, [0.12, 1]);
+  const y = useTransform(progress, range, [10, 0]);
+  const filter = useTransform(progress, range, ["blur(4px)", "blur(0px)"]);
+  const style = reduce ? undefined : { opacity, y, filter, display: "inline-block" as const };
   const seg = unit.segment;
 
   if ("pill" in seg) {

@@ -3,8 +3,9 @@
 import * as React from "react";
 import { CONTACT } from "@/lib/pages-data";
 
+// Underline-only fields: no box, just a bottom rule that turns blue on focus.
 const field =
-  "w-full border border-border bg-card px-4 py-3 font-mono text-base text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30";
+  "w-full rounded-none border-0 border-b border-foreground/30 bg-transparent px-0 py-3 font-mono text-base text-foreground placeholder:text-muted-foreground/80 transition-colors focus:border-primary focus:outline-none focus:ring-0";
 
 /**
  * There is no backend yet, so submitting opens the visitor's email app with the message
@@ -13,6 +14,13 @@ const field =
 export default function ContactForm() {
   const [errors, setErrors] = React.useState<Record<string, string>>({});
   const [sent, setSent] = React.useState(false);
+  const topicRef = React.useRef<HTMLSelectElement>(null);
+
+  // Preselect the topic when a link passes ?topic=...
+  React.useEffect(() => {
+    const t = new URLSearchParams(window.location.search).get("topic");
+    if (t && topicRef.current && CONTACT.topics.includes(t)) topicRef.current.value = t;
+  }, []);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -35,59 +43,53 @@ export default function ContactForm() {
     setSent(true);
   }
 
+  const err = (k: string) =>
+    errors[k] ? (
+      <p id={`${k}-err`} className="mt-1.5 font-mono text-xs text-destructive">
+        {errors[k]}
+      </p>
+    ) : null;
+
   return (
-    <form
-      onSubmit={onSubmit}
-      noValidate
-      className="space-y-5 border border-border bg-card p-6 shadow-[var(--shadow-subtle)] sm:p-8"
-    >
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="name" className="mb-2 block font-mono text-sm font-semibold text-foreground">
-            Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            autoComplete="name"
-            className={field}
-            placeholder="Your name"
-            aria-invalid={!!errors.name}
-            aria-describedby={errors.name ? "name-err" : undefined}
-          />
-          {errors.name && (
-            <p id="name-err" className="mt-1.5 font-mono text-xs text-destructive">
-              {errors.name}
-            </p>
-          )}
-        </div>
-        <div>
-          <label htmlFor="email" className="mb-2 block font-mono text-sm font-semibold text-foreground">
-            Email
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            className={field}
-            placeholder="you@company.com"
-            aria-invalid={!!errors.email}
-            aria-describedby={errors.email ? "email-err" : undefined}
-          />
-          {errors.email && (
-            <p id="email-err" className="mt-1.5 font-mono text-xs text-destructive">
-              {errors.email}
-            </p>
-          )}
-        </div>
+    <form onSubmit={onSubmit} noValidate className="space-y-6">
+      <div>
+        <label htmlFor="name" className="sr-only">
+          Name
+        </label>
+        <input
+          id="name"
+          name="name"
+          autoComplete="name"
+          className={field}
+          placeholder="Your name"
+          aria-invalid={!!errors.name}
+          aria-describedby={errors.name ? "name-err" : undefined}
+        />
+        {err("name")}
       </div>
 
       <div>
-        <label htmlFor="topic" className="mb-2 block font-mono text-sm font-semibold text-foreground">
+        <label htmlFor="email" className="sr-only">
+          Email
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          className={field}
+          placeholder="name@yourcompany.com"
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? "email-err" : undefined}
+        />
+        {err("email")}
+      </div>
+
+      <div>
+        <label htmlFor="topic" className="sr-only">
           What is it about?
         </label>
-        <select id="topic" name="topic" className={field} defaultValue={CONTACT.topics[0]}>
+        <select ref={topicRef} id="topic" name="topic" className={`${field} cursor-pointer`} defaultValue={CONTACT.topics[0]}>
           {CONTACT.topics.map((t) => (
             <option key={t} value={t}>
               {t}
@@ -97,31 +99,29 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-2 block font-mono text-sm font-semibold text-foreground">
+        <label htmlFor="message" className="sr-only">
           Message
         </label>
         <textarea
           id="message"
           name="message"
-          rows={6}
-          className={field}
-          placeholder="How can we help?"
+          rows={3}
+          className={`${field} resize-none`}
+          placeholder="Enter your message here..."
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-err" : undefined}
         />
-        {errors.message && (
-          <p id="message-err" className="mt-1.5 font-mono text-xs text-destructive">
-            {errors.message}
-          </p>
-        )}
+        {err("message")}
       </div>
 
-      <button
-        type="submit"
-        className="inline-flex w-full items-center justify-center bg-primary px-6 py-3.5 font-mono text-sm font-medium text-primary-foreground shadow-[0_4px_20px_rgba(37,99,235,0.3)] transition-all hover:bg-primary/90 sm:w-auto"
-      >
-        Send message
-      </button>
+      <div className="flex justify-end pt-4">
+        <button
+          type="submit"
+          className="inline-flex w-full items-center justify-center bg-foreground px-8 py-3.5 font-mono text-sm font-semibold text-background transition-colors hover:bg-primary sm:w-auto"
+        >
+          Submit form
+        </button>
+      </div>
 
       {sent && (
         <p role="status" className="font-mono text-sm text-muted-foreground">
