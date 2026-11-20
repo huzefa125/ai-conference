@@ -54,14 +54,14 @@ async function PostContent({ params }: { params: PageProps<"/blog/[slug]">["para
       <article className="w-full py-10 md:py-14">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl">
-            <Link href="/blog" className="group inline-flex items-center gap-1.5 font-mono text-sm text-muted-foreground hover:text-primary">
+            <Link href="/blog" className="group inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary">
               <ArrowLeftIcon size={14} className="transition-transform group-hover:-translate-x-0.5" />
               All posts
             </Link>
             <span className="mt-8 block font-mono text-xs font-semibold uppercase tracking-widest text-primary">{post.category}</span>
-            <h1 className="mt-3 font-mono text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl">{post.title}</h1>
-            <p className="mt-5 font-mono text-base leading-relaxed text-muted-foreground sm:text-lg">{post.excerpt}</p>
-            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 border-y border-border py-4 font-mono text-sm">
+            <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl">{post.title}</h1>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">{post.excerpt}</p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 border-y border-border py-4 text-sm">
               <span className="font-semibold text-foreground">{post.author.name}</span>
               <span className="text-muted-foreground">{post.author.role}</span>
               <span aria-hidden className="text-border">|</span>
@@ -77,7 +77,7 @@ async function PostContent({ params }: { params: PageProps<"/blog/[slug]">["para
 
           <div className="mx-auto mt-10 max-w-3xl space-y-6">
             {post.body.map((para) => (
-              <p key={para.slice(0, 40)} className="font-mono text-base leading-8 text-foreground/85">
+              <p key={para.slice(0, 40)} className="text-base leading-8 text-foreground/85">
                 {para}
               </p>
             ))}
@@ -87,7 +87,7 @@ async function PostContent({ params }: { params: PageProps<"/blog/[slug]">["para
 
       <section className="w-full border-t border-border py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <h2 className="mx-auto max-w-6xl font-mono text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">More posts</h2>
+          <h2 className="mx-auto max-w-6xl text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">More posts</h2>
           <div className="mx-auto mt-8 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {more.map((p) => (
               <BlogCard key={p.slug} post={p} />

@@ -19,10 +19,10 @@ export default function BlogPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">Blog</span>
-            <h1 className="mt-3 font-mono text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl">
+            <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl">
               News &amp; <span className="text-primary">insights</span>
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl font-mono text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Event news, speaker insights and practical tips for getting the most out of Atlas Global.
             </p>
           </div>
@@ -40,14 +40,14 @@ export default function BlogPage() {
               <span className="w-fit bg-primary px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary-foreground">
                 Latest · {featured.category}
               </span>
-              <h2 className="mt-5 font-mono text-2xl font-bold leading-snug text-foreground transition-colors group-hover:text-primary sm:text-3xl">
+              <h2 className="mt-5 text-2xl font-bold leading-snug text-foreground transition-colors group-hover:text-primary sm:text-3xl">
                 {featured.title}
               </h2>
-              <p className="mt-4 font-mono text-sm leading-relaxed text-muted-foreground sm:text-base">{featured.excerpt}</p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">{featured.excerpt}</p>
               <p className="mt-6 font-mono text-xs text-muted-foreground">
                 {featured.author.name} · {formatDate(featured.date)} · {featured.readTime}
               </p>
-              <span className="mt-6 inline-flex items-center gap-1.5 font-mono text-sm font-medium text-primary">
+              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
                 Read the post
                 <ArrowRightIcon size={14} className="transition-transform group-hover:translate-x-0.5" />
               </span>

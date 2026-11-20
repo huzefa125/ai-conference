@@ -53,7 +53,7 @@ export default function Team({
           <span className="mb-6 grid h-12 w-12 place-items-center bg-primary text-primary-foreground shadow-[0_4px_20px_rgba(37,99,235,0.3)]">
             <UsersThreeIcon weight="duotone" size={26} />
           </span>
-          <h2 className="relative font-mono text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="relative text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
             {title}
             <svg
               aria-hidden
@@ -72,7 +72,7 @@ export default function Team({
               />
             </svg>
           </h2>
-          <p className="mt-4 font-mono text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">{subtitle}</p>
+          <p className="mt-4 text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">{subtitle}</p>
         </div>
 
         {/* Marquee of framed portraits */}
@@ -101,7 +101,7 @@ export default function Team({
                 {/* Museum-style caption */}
                 <figcaption className="flex items-start justify-between gap-2 border-t-2 border-foreground px-1.5 pb-1 pt-3 mt-2.5">
                   <div className="min-w-0">
-                    <p className="font-mono text-base font-bold leading-snug text-foreground">{m.name}</p>
+                    <p className="text-base font-bold leading-snug text-foreground">{m.name}</p>
                     <p className="mt-0.5 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary">{m.role}</p>
                   </div>
                   {m.linkedin && (
@@ -122,15 +122,15 @@ export default function Team({
         {/* Note from the team */}
         {quote && (
           <figure className="container mx-auto mt-14 max-w-3xl px-4 text-center">
-            <span aria-hidden className="block font-mono text-6xl font-bold leading-none text-primary/30">“</span>
-            <blockquote className="-mt-2 font-mono text-lg font-medium leading-relaxed text-foreground md:text-xl">
+            <span aria-hidden className="block text-6xl font-bold leading-none text-primary/30">“</span>
+            <blockquote className="-mt-2 text-lg font-medium leading-relaxed text-foreground md:text-xl">
               {quote.text}
             </blockquote>
             <figcaption className="mt-8 flex flex-col items-center gap-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={quote.photo} alt="" className="h-14 w-14 rounded-full border-2 border-card object-cover shadow-[var(--shadow-subtle)]" />
               <span>
-                <span className="block font-mono text-sm font-bold text-foreground">{quote.name}</span>
+                <span className="block text-sm font-bold text-foreground">{quote.name}</span>
                 <span className="block font-mono text-xs uppercase tracking-widest text-muted-foreground">{quote.role}</span>
               </span>
             </figcaption>

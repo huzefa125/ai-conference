@@ -49,7 +49,7 @@ export default function TailwindImageAccordion({
           <a href="#tickets" className="absolute inset-0 z-10 flex flex-col justify-end p-4 text-white">
             <span
               className={clsx(
-                "font-mono text-lg font-bold md:truncate md:whitespace-nowrap md:opacity-0",
+                "text-lg font-bold md:truncate md:whitespace-nowrap md:opacity-0",
                 "md:translate-y-2 transition duration-200 ease-[cubic-bezier(.5,.85,.25,1.8)]",
                 "group-hover/article:translate-y-0 group-hover/article:opacity-100 group-hover/article:delay-300",
                 "group-focus-within/article:translate-y-0 group-focus-within/article:opacity-100 group-focus-within/article:delay-300",
@@ -59,7 +59,7 @@ export default function TailwindImageAccordion({
             </span>
             <span
               className={clsx(
-                "mt-0.5 font-mono text-sm text-white/85 md:truncate md:whitespace-nowrap md:opacity-0",
+                "mt-0.5 text-sm text-white/85 md:truncate md:whitespace-nowrap md:opacity-0",
                 "md:translate-y-2 transition duration-200 ease-[cubic-bezier(.5,.85,.25,1.8)]",
                 "group-hover/article:translate-y-0 group-hover/article:opacity-100 group-hover/article:delay-500",
                 "group-focus-within/article:translate-y-0 group-focus-within/article:opacity-100 group-focus-within/article:delay-500",

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Plug, Activity, Calendar } from "lucide-react";
+import { ArrowRight, Calendar, MapPin, Mic, Wrench, Users } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -30,27 +30,14 @@ export interface HeroBannerProps {
 }
 
 const DEFAULT_LABELS: HeroLabel[] = [
-  { icon: Sparkles, label: "Predictive Analytics" },
-  { icon: Plug, label: "Machine Learning" },
-  { icon: Activity, label: "Natural Language Processing" },
+  { icon: Mic, label: "Keynotes & talks" },
+  { icon: Wrench, label: "Hands-on workshops" },
+  { icon: Users, label: "Networking evenings" },
 ];
 
-const DEFAULT_TITLE_WORDS = [
-  "THE",
-  "AI",
-  "REVOLUTION",
-  "FOR",
-  "BUSINESS",
-];
+const DEFAULT_TITLE_WORDS = ["THE", "AI", "SUMMIT", "FOR"];
 
-const DEFAULT_ROTATING_WORDS = [
-  "INTELLIGENCE",
-  "SUCCESS",
-  "SMARTS",
-  "SCALE",
-  "GROWTH",
-  "INNOVATION",
-];
+const DEFAULT_ROTATING_WORDS = ["BUILDERS", "FOUNDERS", "ENGINEERS", "RESEARCHERS", "LEADERS"];
 
 const DEFAULT_HIGHLIGHT_WORDS = ["AI"];
 
@@ -58,10 +45,11 @@ export function HeroBanner({
   titleWords = DEFAULT_TITLE_WORDS,
   rotatingWords = DEFAULT_ROTATING_WORDS,
   highlightWords = DEFAULT_HIGHLIGHT_WORDS,
-  subtitle = "We empower businesses with cutting-edge AI solutions to transform data into actionable insights.",
+  subtitle = "Three days of practical talks, hands-on workshops and the people building AI. Live in Hyderabad and streamed worldwide.",
   labels = DEFAULT_LABELS,
   ctaButton = {
-    text: "GET STARTED",
+    text: "GET TICKETS",
+    href: "/#tickets",
   },
   secondaryButton = {
     text: "VIEW AGENDA",
@@ -88,12 +76,30 @@ export function HeroBanner({
   return (
     <section className={`py-12 md:py-20 ${className}`}>
       <div className="flex flex-col items-center text-center">
+        {/* Event line: name, dates and city up front so it reads as a conference */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border border-primary/30 bg-primary/[0.06] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-widest text-primary sm:text-sm"
+        >
+          <span>Atlas Global 2026</span>
+          <span aria-hidden className="text-primary/40">·</span>
+          <span className="inline-flex items-center gap-1.5">
+            <Calendar className="h-3.5 w-3.5" /> Nov 18–20
+          </span>
+          <span aria-hidden className="text-primary/40">·</span>
+          <span className="inline-flex items-center gap-1.5">
+            <MapPin className="h-3.5 w-3.5" /> Hyderabad
+          </span>
+        </motion.p>
+
         {/* Animated Headline Words with Rotating Completion Word */}
         <motion.h1
           initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
           animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative font-mono text-[2.4rem] font-extrabold sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-7xl max-w-7xl mx-auto leading-[1.08] text-foreground tracking-tighter"
+          className="relative text-[2.4rem] font-extrabold sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-7xl max-w-7xl mx-auto leading-[1.08] text-foreground tracking-tighter"
         >
           {leadingWords.map((text, index) => {
             const isHighlight = highlightWords.includes(text.toUpperCase());
@@ -161,7 +167,7 @@ export function HeroBanner({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="mx-auto mt-8 max-w-2xl text-lg sm:text-xl text-muted-foreground font-mono leading-relaxed"
+            className="mx-auto mt-8 max-w-2xl text-lg sm:text-xl text-muted-foreground leading-relaxed"
           >
             {subtitle}
           </motion.p>
@@ -192,7 +198,7 @@ export function HeroBanner({
                   className="flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-card border border-border shadow-xs hover:border-primary/50 transition-colors"
                 >
                   <Icon className="h-4 w-4 text-primary" />
-                  <span className="text-xs sm:text-sm font-mono font-medium text-foreground">
+                  <span className="text-sm font-medium text-foreground">
                     {feature.label}
                   </span>
                 </motion.div>
@@ -201,7 +207,7 @@ export function HeroBanner({
           </motion.div>
         )}
 
-        {/* Action Buttons: GET STARTED + 1 More Button Next to It */}
+        {/* Action buttons: Get tickets + View agenda */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -214,14 +220,14 @@ export function HeroBanner({
           }}
           className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
-          {/* Button 1: GET STARTED */}
+          {/* Button 1: Get tickets */}
           {ctaButton.href ? (
             <Link href={ctaButton.href} className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className={`w-full sm:w-auto cursor-pointer rounded-none bg-primary hover:bg-primary/90 text-primary-foreground font-mono px-8 py-6 text-base shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_28px_rgba(37,99,235,0.45)] transition-all ${ctaButton.className || ""}`}
+                className={`w-full sm:w-auto cursor-pointer rounded-none bg-primary hover:bg-primary/90 text-primary-foreground  px-8 py-6 text-base shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_28px_rgba(37,99,235,0.45)] transition-all ${ctaButton.className ||""}`}
               >
-                {ctaButton.text || "GET STARTED"}{" "}
+                {ctaButton.text || "GET TICKETS"}{" "}
                 <ArrowRight className="ml-1.5 w-4 h-4" />
               </Button>
             </Link>
@@ -229,9 +235,9 @@ export function HeroBanner({
             <Button
               size="lg"
               onClick={ctaButton.onClick}
-              className={`w-full sm:w-auto cursor-pointer rounded-none bg-primary hover:bg-primary/90 text-primary-foreground font-mono px-8 py-6 text-base shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_28px_rgba(37,99,235,0.45)] transition-all ${ctaButton.className || ""}`}
+              className={`w-full sm:w-auto cursor-pointer rounded-none bg-primary hover:bg-primary/90 text-primary-foreground  px-8 py-6 text-base shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_28px_rgba(37,99,235,0.45)] transition-all ${ctaButton.className ||""}`}
             >
-              {ctaButton.text || "GET STARTED"}{" "}
+              {ctaButton.text || "GET TICKETS"}{" "}
               <ArrowRight className="ml-1.5 w-4 h-4" />
             </Button>
           )}
@@ -243,7 +249,7 @@ export function HeroBanner({
                 <Button
                   size="lg"
                   variant="outline"
-                  className={`w-full sm:w-auto cursor-pointer rounded-none border-2 border-border bg-card/80 hover:bg-secondary text-foreground font-mono px-8 py-6 text-base transition-all hover:border-primary/50 shadow-xs ${secondaryButton.className || ""}`}
+                  className={`w-full sm:w-auto cursor-pointer rounded-none border-2 border-border bg-card/80 hover:bg-secondary text-foreground  px-8 py-6 text-base transition-all hover:border-primary/50 shadow-xs ${secondaryButton.className ||""}`}
                 >
                   <Calendar className="mr-2 w-4 h-4 text-primary" />
                   {secondaryButton.text || "VIEW AGENDA"}
@@ -254,7 +260,7 @@ export function HeroBanner({
                 size="lg"
                 variant="outline"
                 onClick={secondaryButton.onClick}
-                className={`w-full sm:w-auto cursor-pointer rounded-none border-2 border-border bg-card/80 hover:bg-secondary text-foreground font-mono px-8 py-6 text-base transition-all hover:border-primary/50 shadow-xs ${secondaryButton.className || ""}`}
+                className={`w-full sm:w-auto cursor-pointer rounded-none border-2 border-border bg-card/80 hover:bg-secondary text-foreground  px-8 py-6 text-base transition-all hover:border-primary/50 shadow-xs ${secondaryButton.className ||""}`}
               >
                 <Calendar className="mr-2 w-4 h-4 text-primary" />
                 {secondaryButton.text || "VIEW AGENDA"}

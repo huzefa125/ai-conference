@@ -82,9 +82,10 @@ export function MynaHero({
     subtitle: subtitle ?? bannerProps?.subtitle,
     labels: labels || bannerProps?.labels,
     ctaButton: {
-      text: ctaText || bannerProps?.ctaButton?.text,
+      text: ctaText || bannerProps?.ctaButton?.text || "GET TICKETS",
       onClick: onCtaClick || bannerProps?.ctaButton?.onClick,
-      href: bannerProps?.ctaButton?.href,
+      // Without a click handler the main button links to the tickets section.
+      href: bannerProps?.ctaButton?.href ?? (onCtaClick || bannerProps?.ctaButton?.onClick ? undefined : "/#tickets"),
     },
     secondaryButton: {
       text: secondaryCtaText || bannerProps?.secondaryButton?.text || "VIEW AGENDA",

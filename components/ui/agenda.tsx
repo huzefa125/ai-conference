@@ -79,10 +79,10 @@ export default function Agenda({
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
             {title}
           </h2>
-          <p className="mt-4 font-mono text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
+          <p className="mt-4 text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
             {subtitle}
           </p>
         </div>
@@ -103,7 +103,7 @@ export default function Agenda({
                 aria-controls={`${id}-panel`}
                 onClick={() => setDayId(d.id)}
                 className={clsx(
-                  "cursor-pointer px-3 py-3 text-left font-mono transition-colors sm:px-5",
+                  "cursor-pointer px-3 py-3 text-left transition-colors sm:px-5",
                   i > 0 && "border-l border-border",
                   active
                     ? "bg-primary text-primary-foreground"
@@ -245,7 +245,7 @@ function SessionRow({ session: s, first, last }: { session: Session; first: bool
 
         <h3
           className={clsx(
-            "mt-1.5 font-mono text-base leading-snug sm:text-lg",
+            "mt-1.5 text-base leading-snug sm:text-lg",
             isBreak ? "font-medium text-muted-foreground" : "font-bold text-foreground"
           )}
         >
@@ -253,7 +253,7 @@ function SessionRow({ session: s, first, last }: { session: Session; first: bool
         </h3>
 
         {s.speaker && (
-          <p className="mt-2 flex items-center gap-1.5 font-mono text-sm text-muted-foreground">
+          <p className="mt-2 flex items-center gap-1.5 text-sm text-muted-foreground">
             <MicrophoneStageIcon weight="duotone" size={16} className="shrink-0 text-primary" />
             {s.speaker}
           </p>
@@ -262,7 +262,7 @@ function SessionRow({ session: s, first, last }: { session: Session; first: bool
 
       {/* Room */}
       {s.room && (
-        <div className="col-start-2 flex items-center gap-1.5 font-mono text-sm text-muted-foreground sm:col-start-3 sm:self-start sm:justify-end">
+        <div className="col-start-2 flex items-center gap-1.5 text-sm text-muted-foreground sm:col-start-3 sm:self-start sm:justify-end">
           <MapPinIcon weight="duotone" size={16} className="shrink-0 text-primary" />
           {s.room}
         </div>

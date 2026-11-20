@@ -9,14 +9,14 @@ export default function Footer({ id = "contact" }: { id?: string }) {
       <div className="container mx-auto px-4 py-14">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
-            <p className="font-mono text-lg font-bold">{FOOTER.brand}</p>
-            <p className="mt-2 max-w-sm font-mono text-sm leading-relaxed text-white/60">
+            <p className="text-lg font-bold">{FOOTER.brand}</p>
+            <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/60">
               {FOOTER.blurb}
             </p>
             {FOOTER.email && (
               <a
                 href={`mailto:${FOOTER.email}`}
-                className="mt-4 inline-block font-mono text-sm text-white underline-offset-4 hover:underline"
+                className="mt-4 inline-block text-sm text-white underline-offset-4 hover:underline"
               >
                 {FOOTER.email}
               </a>
@@ -33,7 +33,7 @@ export default function Footer({ id = "contact" }: { id?: string }) {
                   <li key={l.label}>
                     <a
                       href={l.href}
-                      className="font-mono text-sm text-white/80 transition-colors hover:text-white"
+                      className="text-sm text-white/80 transition-colors hover:text-white"
                     >
                       {l.label}
                     </a>

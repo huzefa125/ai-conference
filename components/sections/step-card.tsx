@@ -47,7 +47,7 @@ export function StepCard({ number, title, body, theme = "cream", colors, rotate 
           }}
         />
         <div className={cn("flex flex-col items-center overflow-hidden rounded-[15px] border p-[18px] text-center", c.bg, c.border)}>
-          <span className={cn("mb-4 font-mono text-3xl font-semibold tracking-tight", c.text)}>{number}</span>
+          <span className={cn("mb-4 text-3xl font-semibold tracking-tight", c.text)}>{number}</span>
           <h3 className="mb-[10px] text-xl font-semibold leading-tight tracking-tight text-foreground">{title}</h3>
           <p className="text-sm leading-relaxed tracking-tight text-muted-foreground sm:text-base">{body}</p>
         </div>

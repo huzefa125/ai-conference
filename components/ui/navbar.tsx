@@ -58,7 +58,7 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-const topItem = "font-mono tracking-wider text-sm font-bold hover:text-primary";
+const topItem = "tracking-wider text-sm font-bold hover:text-primary";
 
 export function Navbar({
   logo = {
@@ -92,7 +92,7 @@ export function Navbar({
               sizes="(max-width: 768px) 240px, 320px"
             />
           </div>
-          {logo.title && <span className="font-mono text-xl sm:text-2xl font-bold">{logo.title}</span>}
+          {logo.title && <span className="text-xl sm:text-2xl font-bold">{logo.title}</span>}
         </Link>
 
         {/* Desktop navigation */}
@@ -136,7 +136,7 @@ export function Navbar({
                             <Sparkles className="h-3 w-3" />
                             <span>{FLAGSHIP.status}</span>
                           </div>
-                          <h4 className="font-mono text-base font-bold leading-snug text-foreground">{FLAGSHIP.name}</h4>
+                          <h4 className="text-base font-bold leading-snug text-foreground">{FLAGSHIP.name}</h4>
                           <p className="mt-2 font-mono text-xs leading-relaxed text-muted-foreground">{FLAGSHIP.summary}</p>
                         </div>
                         <div className="flex items-center justify-between border-t border-border/60 pt-4 font-mono text-[11px] font-semibold text-primary">
@@ -213,7 +213,7 @@ export function Navbar({
             <Link href={ctaHref}>
               <Button
                 variant="default"
-                className={`rounded-none hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-mono shadow-[0_4px_14px_rgba(37,99,235,0.25)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] transition-all ${ctaButton.className || ""}`}
+                className={`rounded-none hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground  shadow-[0_4px_14px_rgba(37,99,235,0.25)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] transition-all ${ctaButton.className ||""}`}
               >
                 {ctaButton.text || "GET TICKETS"} <ArrowRight className="ml-1 w-4 h-4" />
               </Button>
@@ -222,7 +222,7 @@ export function Navbar({
             <Button
               variant="default"
               onClick={ctaButton.onClick}
-              className={`rounded-none hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-mono shadow-[0_4px_14px_rgba(37,99,235,0.25)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] transition-all ${ctaButton.className || ""}`}
+              className={`rounded-none hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground  shadow-[0_4px_14px_rgba(37,99,235,0.25)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] transition-all ${ctaButton.className ||""}`}
             >
               {ctaButton.text || "GET TICKETS"} <ArrowRight className="ml-1 w-4 h-4" />
             </Button>
@@ -253,7 +253,7 @@ export function Navbar({
                         key={c.slug}
                         href={c.href}
                         onClick={close}
-                        className="flex items-start gap-2 rounded-lg px-3 py-2 font-mono text-sm text-foreground hover:bg-secondary"
+                        className="flex items-start gap-2 rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary"
                       >
                         <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
                         <span>
@@ -272,7 +272,7 @@ export function Navbar({
                         key={p.slug}
                         href={`/blog/${p.slug}`}
                         onClick={close}
-                        className="block rounded-lg px-3 py-2 font-mono text-sm text-foreground hover:bg-secondary"
+                        className="block rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary"
                       >
                         {p.title}
                       </Link>
@@ -287,7 +287,7 @@ export function Navbar({
                     <Link
                       href={ctaHref}
                       onClick={close}
-                      className="flex w-full items-center justify-center gap-2 bg-primary py-2.5 font-mono text-sm font-medium text-primary-foreground hover:bg-primary/90"
+                      className="flex w-full items-center justify-center gap-2 bg-primary py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90"
                     >
                       {ctaButton.text || "GET TICKETS"} <ArrowRight className="w-4 h-4" />
                     </Link>
@@ -297,7 +297,7 @@ export function Navbar({
                         close();
                         ctaButton.onClick?.();
                       }}
-                      className="w-full cursor-pointer rounded-none bg-primary hover:bg-primary/90 text-primary-foreground font-mono flex items-center justify-center gap-2"
+                      className="w-full cursor-pointer rounded-none bg-primary hover:bg-primary/90 text-primary-foreground flex items-center justify-center gap-2"
                     >
                       {ctaButton.text || "GET TICKETS"} <ArrowRight className="w-4 h-4" />
                     </Button>

@@ -61,7 +61,7 @@ export function FeaturesGrid({
             stiffness: 100,
             damping: 10,
           }}
-          className="text-center text-3xl sm:text-4xl font-mono font-bold mb-10 text-foreground"
+          className="text-center text-3xl sm:text-4xl font-bold mb-10 text-foreground"
         >
           {title}
         </motion.h2>
@@ -92,10 +92,10 @@ export function FeaturesGrid({
               <div className="mb-6 rounded-full bg-primary/10 border border-primary/20 p-4">
                 <Icon className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="mb-3 text-xl font-mono font-bold text-foreground">
+              <h3 className="mb-3 text-xl font-bold text-foreground">
                 {feature.label}
               </h3>
-              <p className="text-muted-foreground font-mono text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>

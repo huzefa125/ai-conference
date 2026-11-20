@@ -26,10 +26,10 @@ export default function Speakers({
     <section id={id} className={clsx("w-full py-16 md:py-20", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
             {title}
           </h2>
-          <p className="mt-4 font-mono text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
+          <p className="mt-4 text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
             {subtitle}
           </p>
         </div>
@@ -80,7 +80,7 @@ function SpeakerCard({ speaker: s, index }: { speaker: Speaker; index: number })
 
       {/* Details */}
       <div className="flex flex-1 flex-col p-4 sm:p-5">
-        <h3 className="font-mono text-sm font-bold leading-snug text-foreground sm:text-base">
+        <h3 className="text-sm font-bold leading-snug text-foreground sm:text-base">
           {s.name}
         </h3>
         <p className="mt-1 font-mono text-xs leading-relaxed text-muted-foreground">

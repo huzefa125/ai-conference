@@ -5,7 +5,7 @@ import { CONTACT } from "@/lib/pages-data";
 
 // Underline-only fields: no box, just a bottom rule that turns blue on focus.
 const field =
-  "w-full rounded-none border-0 border-b border-foreground/30 bg-transparent px-0 py-3 font-mono text-base text-foreground placeholder:text-muted-foreground/80 transition-colors focus:border-primary focus:outline-none focus:ring-0";
+  "w-full rounded-none border-0 border-b border-foreground/30 bg-transparent px-0 py-3 text-base text-foreground placeholder:text-muted-foreground/80 transition-colors focus:border-primary focus:outline-none focus:ring-0";
 
 /**
  * There is no backend yet, so submitting opens the visitor's email app with the message
@@ -117,14 +117,14 @@ export default function ContactForm() {
       <div className="flex justify-end pt-4">
         <button
           type="submit"
-          className="inline-flex w-full items-center justify-center bg-foreground px-8 py-3.5 font-mono text-sm font-semibold text-background transition-colors hover:bg-primary sm:w-auto"
+          className="inline-flex w-full items-center justify-center bg-foreground px-8 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-primary sm:w-auto"
         >
           Submit form
         </button>
       </div>
 
       {sent && (
-        <p role="status" className="font-mono text-sm text-muted-foreground">
+        <p role="status" className="text-sm text-muted-foreground">
           Your email app should open with the message ready to send. If it does not, write to{" "}
           <a className="text-primary underline underline-offset-4" href={`mailto:${CONTACT.email}`}>
             {CONTACT.email}
