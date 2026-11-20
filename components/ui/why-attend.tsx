@@ -21,17 +21,17 @@ export default function WhyAttend({ id = "why", className = "" }: { id?: string;
           {/* Left: sticky intro */}
           <div className="lg:sticky lg:top-28 lg:self-start">
             <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">Why attend</span>
-            <h2 className="mt-3 font-mono text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            <h2 className="mt-3 text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
               Six reasons to be in the room
             </h2>
-            <p className="mt-4 max-w-md font-mono text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
               What you get from three days at Atlas Global.
             </p>
 
             <dl className="mt-8 grid max-w-md grid-cols-3 border border-border bg-card">
               {VENUE.stats.map((s, i) => (
                 <div key={s.label} className={clsx("px-3 py-4 text-center", i > 0 && "border-l border-border")}>
-                  <dt className="font-mono text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{s.value}</dt>
+                  <dt className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{s.value}</dt>
                   <dd className="mt-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary">{s.label}</dd>
                 </div>
               ))}
@@ -39,7 +39,7 @@ export default function WhyAttend({ id = "why", className = "" }: { id?: string;
 
             <a
               href="#tickets"
-              className="mt-8 inline-flex items-center gap-2 bg-primary px-6 py-3.5 font-mono text-sm font-medium text-primary-foreground shadow-[0_4px_20px_rgba(37,99,235,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(37,99,235,0.45)]"
+              className="mt-8 inline-flex items-center gap-2 bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_4px_20px_rgba(37,99,235,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(37,99,235,0.45)]"
             >
               Get your ticket
               <ArrowRightIcon weight="bold" size={16} />
@@ -60,12 +60,12 @@ export default function WhyAttend({ id = "why", className = "" }: { id?: string;
                   className="group relative grid grid-cols-[2.75rem_1fr_auto] items-start gap-x-4 border-b border-border px-1 py-6 transition-colors hover:bg-secondary/60 sm:grid-cols-[4rem_1fr_auto] sm:gap-x-6 sm:px-4 sm:py-8"
                 >
                   <span aria-hidden className="absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-primary transition-transform duration-300 group-hover:scale-y-100" />
-                  <span className="font-mono text-2xl font-bold tabular-nums text-foreground/25 transition-colors group-hover:text-primary sm:text-4xl">
+                  <span className="text-2xl font-bold tabular-nums text-foreground/25 transition-colors group-hover:text-primary sm:text-4xl">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-mono text-lg font-bold leading-snug text-foreground sm:text-xl">{item.title}</h3>
-                    <p className="mt-1.5 font-mono text-sm leading-relaxed text-muted-foreground sm:text-base">{item.text}</p>
+                    <h3 className="text-lg font-bold leading-snug text-foreground sm:text-xl">{item.title}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground sm:text-base">{item.text}</p>
                   </div>
                   <span className="grid h-10 w-10 place-items-center bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground sm:h-12 sm:w-12">
                     <Icon weight="duotone" size={24} />

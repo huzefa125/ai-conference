@@ -31,10 +31,10 @@ const Blog = ({ id = "blog" }: { id?: string }) => {
             transition={{ duration: 0.8, delay: 0.1, ease: "easeInOut" }}
             className="mx-auto max-w-3xl text-center"
           >
-            <h2 className="font-mono text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
               Recent news
             </h2>
-            <p className="mt-4 font-mono text-base text-balance text-muted-foreground sm:text-lg">
+            <p className="mt-4 text-base text-balance text-muted-foreground sm:text-lg">
               Event news, speaker insights and practical tips for getting the most out of Atlas Global.
             </p>
           </motion.div>
@@ -65,10 +65,10 @@ const Blog = ({ id = "blog" }: { id?: string }) => {
                       </span>
                     </div>
                     <div className="flex flex-col gap-2">
-                      <p className="font-mono text-sm text-muted-foreground">
+                      <p className="text-sm text-muted-foreground">
                         {formatDate(post.date)} · {post.readTime}
                       </p>
-                      <p className="font-mono text-xl font-bold leading-snug text-foreground transition-colors group-hover:text-primary sm:text-2xl">
+                      <p className="text-xl font-bold leading-snug text-foreground transition-colors group-hover:text-primary sm:text-2xl">
                         {post.title}
                       </p>
                     </div>
@@ -81,7 +81,7 @@ const Blog = ({ id = "blog" }: { id?: string }) => {
           <div className="flex justify-center">
             <Link
               href="/blog"
-              className="group inline-flex items-center gap-2 border border-foreground px-5 py-2.5 font-mono text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background"
+              className="group inline-flex items-center gap-2 border border-foreground px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background"
             >
               View all posts
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

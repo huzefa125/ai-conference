@@ -121,7 +121,7 @@ export function BentoCard({
           <div className="flex h-12 w-12 items-center justify-center bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
             {Icon && <Icon weight="duotone" size={28} />}
           </div>
-          <span className="font-mono text-sm font-medium text-muted-foreground">
+          <span className="text-sm font-medium text-muted-foreground">
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>
@@ -130,11 +130,11 @@ export function BentoCard({
           {eyebrow}
         </p>
 
-        <h3 className="mt-1.5 font-mono text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+        <h3 className="mt-1.5 text-xl sm:text-2xl font-bold tracking-tight text-foreground">
           {title}
         </h3>
 
-        <p className="mt-3 font-mono text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
           {description}
         </p>
       </div>
@@ -161,10 +161,10 @@ export default function FUIBentoGridDark({
       <div className="container mx-auto px-4">
         {/* Header, centered like the hero */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
             {sectionTitle}
           </h2>
-          <p className="mt-4 font-mono text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
+          <p className="mt-4 text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
             {sectionSubtitle}
           </p>
         </div>

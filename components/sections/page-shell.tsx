@@ -20,10 +20,10 @@ export function PageHero({ eyebrow, title, text }: { eyebrow: string; title: str
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
           <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{eyebrow}</span>
-          <h1 className="mt-3 font-mono text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl">
+          <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl">
             {title}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-mono text-base leading-relaxed text-muted-foreground sm:text-lg">{text}</p>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">{text}</p>
         </div>
       </div>
     </section>

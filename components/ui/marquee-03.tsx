@@ -19,17 +19,17 @@ const ReviewCard = ({ profile, name, username, body }: Review) => {
           ) : (
             <span
               aria-hidden
-              className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary/10 font-mono text-sm font-bold text-primary"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary/10 text-sm font-bold text-primary"
             >
               {initials}
             </span>
           )}
           <div className="flex min-w-0 flex-col">
-            <p className="font-mono text-sm font-bold text-foreground">{name}</p>
+            <p className="text-sm font-bold text-foreground">{name}</p>
             <p className="font-mono text-xs text-muted-foreground">{username}</p>
           </div>
         </div>
-        <p className="font-mono text-sm leading-relaxed text-foreground/85">{body}</p>
+        <p className="text-sm leading-relaxed text-foreground/85">{body}</p>
       </CardContent>
     </Card>
   );
@@ -56,10 +56,10 @@ export default function TestimonialsMarquee({
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-mono text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
             {title}
           </h2>
-          <p className="mt-4 font-mono text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">
             {subtitle}
           </p>
         </div>

@@ -30,10 +30,10 @@ export function StickyFeatureSection({
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mx-auto mb-10 max-w-3xl text-center md:mb-14"
         >
-          <h2 className="font-mono text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
             {title}
           </h2>
-          <p className="mt-4 font-mono text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">
             {subtitle}
           </p>
         </motion.div>
@@ -51,8 +51,8 @@ export function StickyFeatureSection({
             >
               <div className="flex flex-col justify-center">
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{f.eyebrow}</span>
-                <h3 className="mt-3 font-mono text-3xl font-bold leading-tight text-foreground">{f.title}</h3>
-                <p className="mt-4 font-mono text-base leading-relaxed text-foreground/75">{f.description}</p>
+                <h3 className="mt-3 text-3xl font-bold leading-tight text-foreground">{f.title}</h3>
+                <p className="mt-4 text-base leading-relaxed text-foreground/75">{f.description}</p>
               </div>
               <div className={clsx(i % 2 === 1 && "order-first")}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -80,8 +80,8 @@ export function StickyFeatureSection({
               <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-foreground via-foreground/75 to-foreground/10" />
               <div className="p-5">
                 <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-[#93b4ff]">{f.eyebrow}</span>
-                <h3 className="mt-2 font-mono text-xl font-bold leading-tight text-white">{f.title}</h3>
-                <p className="mt-3 font-mono text-sm leading-relaxed text-white/85">{f.description}</p>
+                <h3 className="mt-2 text-xl font-bold leading-tight text-white">{f.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/85">{f.description}</p>
               </div>
             </article>
           ))}

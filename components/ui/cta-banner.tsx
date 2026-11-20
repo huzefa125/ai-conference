@@ -28,10 +28,10 @@ export default function CtaBanner({
             <p className="font-mono text-xs font-semibold uppercase tracking-widest text-primary-foreground/70">
               {eyebrow}
             </p>
-            <h2 className="mt-2 font-mono text-2xl font-bold tracking-tight sm:text-3xl text-balance">
+            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl text-balance">
               {title}
             </h2>
-            <p className="mt-3 font-mono text-sm leading-relaxed text-primary-foreground/80">
+            <p className="mt-3 text-sm leading-relaxed text-primary-foreground/80">
               {text}
             </p>
           </div>
@@ -39,14 +39,14 @@ export default function CtaBanner({
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <a
               href={primary.href}
-              className="inline-flex items-center justify-center gap-2 bg-card px-7 py-3.5 font-mono text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+              className="inline-flex items-center justify-center gap-2 bg-card px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
             >
               {primary.label}
               <ArrowRightIcon weight="bold" size={16} />
             </a>
             <a
               href={secondary.href}
-              className="inline-flex items-center justify-center border-2 border-primary-foreground/40 px-7 py-3.5 font-mono text-sm font-medium transition-colors hover:border-primary-foreground hover:bg-white/10"
+              className="inline-flex items-center justify-center border-2 border-primary-foreground/40 px-7 py-3.5 text-sm font-medium transition-colors hover:border-primary-foreground hover:bg-white/10"
             >
               {secondary.label}
             </a>

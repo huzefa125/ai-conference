@@ -25,10 +25,10 @@ export default function Tickets({
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
             {title}
           </h2>
-          <p className="mt-4 font-mono text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
+          <p className="mt-4 text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
             {subtitle}
           </p>
         </div>
@@ -67,20 +67,20 @@ function TicketCard({ ticket: t, index }: { ticket: Ticket; index: number }) {
         </span>
       )}
 
-      <h3 className={clsx("font-mono text-xl font-bold", t.featured ? "text-white" : "text-foreground")}>{t.name}</h3>
-      <p className={clsx("mt-1 font-mono text-sm", t.featured ? "text-white/70" : "text-muted-foreground")}>{t.tagline}</p>
+      <h3 className={clsx("text-xl font-bold", t.featured ? "text-white" : "text-foreground")}>{t.name}</h3>
+      <p className={clsx("mt-1 text-sm", t.featured ? "text-white/70" : "text-muted-foreground")}>{t.tagline}</p>
 
       <div className={clsx("mt-6 flex items-baseline gap-2 border-b pb-6", t.featured ? "border-white/15" : "border-border")}>
         {t.price !== null ? (
           <>
-            <span className={clsx("font-mono text-5xl font-bold tracking-tight", t.featured ? "text-white" : "text-foreground")}>
+            <span className={clsx("text-5xl font-bold tracking-tight", t.featured ? "text-white" : "text-foreground")}>
               ${t.price}
             </span>
             <span className={clsx("font-mono text-xs", t.featured ? "text-white/60" : "text-muted-foreground")}>{t.priceNote}</span>
           </>
         ) : (
           <>
-            <span className={clsx("font-mono text-3xl font-bold tracking-tight", t.featured ? "text-white" : "text-foreground")}>
+            <span className={clsx("text-3xl font-bold tracking-tight", t.featured ? "text-white" : "text-foreground")}>
               Custom
             </span>
             <span className={clsx("font-mono text-xs", t.featured ? "text-white/60" : "text-muted-foreground")}>{t.priceNote}</span>
@@ -90,7 +90,7 @@ function TicketCard({ ticket: t, index }: { ticket: Ticket; index: number }) {
 
       <ul className="mt-6 flex-1 space-y-3">
         {t.features.map((f) => (
-          <li key={f} className={clsx("flex items-start gap-2.5 font-mono text-sm", t.featured ? "text-white/90" : "text-foreground/80")}>
+          <li key={f} className={clsx("flex items-start gap-2.5 text-sm", t.featured ? "text-white/90" : "text-foreground/80")}>
             <CheckIcon weight="bold" size={16} className="mt-0.5 shrink-0 text-primary" />
             <span>{f}</span>
           </li>
@@ -100,7 +100,7 @@ function TicketCard({ ticket: t, index }: { ticket: Ticket; index: number }) {
       <a
         href={t.href}
         className={clsx(
-          "mt-8 inline-flex items-center justify-center gap-2 px-6 py-3.5 font-mono text-sm font-medium transition-all",
+          "mt-8 inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-medium transition-all",
           t.featured
             ? "bg-primary text-primary-foreground shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(37,99,235,0.45)]"
             : "border-2 border-border bg-card text-foreground hover:border-primary/50 hover:bg-secondary"

@@ -33,10 +33,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-5xl text-center">
             <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{hero.eyebrow}</span>
-            <h1 className="mt-4 font-mono text-[2.6rem] font-extrabold leading-[1.05] tracking-tighter text-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="mt-4 text-[2.6rem] font-extrabold leading-[1.05] tracking-tighter text-foreground sm:text-6xl lg:text-7xl">
               Where AI gets built, <span className="text-primary">not just discussed.</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl font-mono text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               {hero.text}
             </p>
           </div>
@@ -50,7 +50,7 @@ export default function AboutPage() {
             <dl className="relative z-10 mx-4 -mt-10 grid grid-cols-3 border border-border bg-card shadow-[0_20px_40px_-20px_rgba(15,23,42,0.35)] sm:mx-auto sm:-mt-14 sm:max-w-3xl">
               {VENUE.stats.map((s, i) => (
                 <div key={s.label} className={`px-3 py-5 text-center sm:py-7 ${i > 0 ? "border-l border-border" : ""}`}>
-                  <dt className="font-mono text-2xl font-bold tracking-tight text-foreground sm:text-4xl">{s.value}</dt>
+                  <dt className="text-2xl font-bold tracking-tight text-foreground sm:text-4xl">{s.value}</dt>
                   <dd className="mt-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary sm:text-xs">
                     {s.label}
                   </dd>
@@ -67,18 +67,18 @@ export default function AboutPage() {
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
             <div>
               <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">Our story</span>
-              <h2 className="mt-3 font-mono text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              <h2 className="mt-3 text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
                 {story.title}
               </h2>
               <div className="mt-6 border-l-4 border-primary pl-5">
                 <ScrollRevealText
                   segments={story.leadSegments}
-                  className="font-mono text-xl font-medium leading-[1.6] text-foreground sm:text-2xl sm:leading-[1.6]"
+                  className="text-xl font-medium leading-[1.6] text-foreground sm:text-2xl sm:leading-[1.6]"
                 />
               </div>
               <div className="mt-6 space-y-4">
                 {rest.map((p) => (
-                  <p key={p} className="font-mono text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  <p key={p} className="text-base leading-relaxed text-muted-foreground sm:text-lg">
                     {p}
                   </p>
                 ))}
@@ -103,7 +103,7 @@ export default function AboutPage() {
       <section className="w-full py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-6xl border border-primary/15 bg-primary/[0.04] px-6 py-12 sm:px-10 md:px-16 md:py-20">
-            <h2 className="text-center font-mono text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            <h2 className="text-center text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
               Our core{" "}
               <span className="underline decoration-primary decoration-4 underline-offset-[10px]">values</span>
             </h2>
@@ -111,8 +111,8 @@ export default function AboutPage() {
             <div className="mt-12 grid grid-cols-1 gap-x-16 gap-y-10 md:mt-16 md:grid-cols-2 md:gap-y-14">
               {values.map((v) => (
                 <div key={v.title}>
-                  <h3 className="font-mono text-xl font-bold text-foreground sm:text-2xl">{v.title}</h3>
-                  <p className="mt-3 font-mono text-sm leading-relaxed text-muted-foreground sm:text-base">{v.text}</p>
+                  <h3 className="text-xl font-bold text-foreground sm:text-2xl">{v.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">{v.text}</p>
                 </div>
               ))}
             </div>
@@ -127,10 +127,10 @@ export default function AboutPage() {
       <section className="w-full py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-mono text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
               {process.title}
             </h2>
-            <p className="mt-4 font-mono text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">
               Every talk on the agenda goes through the same three steps.
             </p>
           </div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
                   className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100"
                 />
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-4xl font-bold tracking-tight text-primary">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-4xl font-bold tracking-tight text-primary">{String(i + 1).padStart(2, "0")}</span>
                   {i < process.steps.length - 1 && (
                     <ArrowRightIcon
                       aria-hidden
@@ -153,17 +153,17 @@ export default function AboutPage() {
                     />
                   )}
                 </div>
-                <h3 className="mt-6 font-mono text-xl font-bold text-foreground">{s.label}</h3>
-                <p className="mt-2 font-mono text-sm leading-relaxed text-muted-foreground sm:text-base">{s.text}</p>
+                <h3 className="mt-6 text-xl font-bold text-foreground">{s.label}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">{s.text}</p>
               </li>
             ))}
           </ol>
 
           <div className="mx-auto mt-6 flex max-w-6xl flex-col items-start justify-between gap-4 border border-border bg-secondary/60 px-6 py-5 sm:flex-row sm:items-center">
-            <p className="font-mono text-sm text-foreground sm:text-base">Have something specific to teach? The call for speakers is open.</p>
+            <p className="text-sm text-foreground sm:text-base">Have something specific to teach? The call for speakers is open.</p>
             <Link
               href="/#cfp"
-              className="inline-flex shrink-0 items-center gap-2 bg-primary px-5 py-3 font-mono text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex shrink-0 items-center gap-2 bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
               Submit a proposal
               <ArrowRightIcon weight="bold" size={16} />
@@ -187,26 +187,26 @@ export default function AboutPage() {
                   Host city · 2026
                 </span>
                 <p className="mt-3 font-heading text-4xl font-extrabold tracking-tight sm:text-5xl">Hyderabad</p>
-                <p className="mt-1 font-mono text-sm text-white/75">{city.coords}</p>
+                <p className="mt-1 text-sm text-white/75">{city.coords}</p>
               </figcaption>
             </figure>
 
             {/* Title + reasons */}
             <div className="flex flex-col justify-center">
-              <h2 className="font-mono text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
                 Why <span className="underline decoration-primary decoration-4 underline-offset-[10px]">Hyderabad</span>
               </h2>
-              <p className="mt-6 font-mono text-base leading-relaxed text-muted-foreground">{city.text}</p>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground">{city.text}</p>
 
               <ol className="mt-8 border-t border-border">
                 {city.facts.map((f, i) => {
                   const Icon = CITY_ICONS[f.icon as keyof typeof CITY_ICONS];
                   return (
                     <li key={f.title} className="group flex gap-5 border-b border-border py-5">
-                      <span className="w-8 shrink-0 pt-0.5 font-mono text-sm font-bold text-primary">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="w-8 shrink-0 pt-0.5 text-sm font-bold text-primary">{String(i + 1).padStart(2, "0")}</span>
                       <div className="min-w-0 flex-1">
-                        <h3 className="font-mono text-lg font-bold text-foreground">{f.title}</h3>
-                        <p className="mt-1.5 font-mono text-sm leading-relaxed text-muted-foreground">{f.text}</p>
+                        <h3 className="text-lg font-bold text-foreground">{f.title}</h3>
+                        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
                       </div>
                       <Icon weight="duotone" size={26} className="hidden shrink-0 text-primary/40 transition-colors group-hover:text-primary sm:block" />
                     </li>

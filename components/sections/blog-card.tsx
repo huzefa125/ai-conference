@@ -25,11 +25,11 @@ export default function BlogCard({ post }: { post: BlogPost }) {
         <p className="font-mono text-xs text-muted-foreground">
           {formatDate(post.date)} · {post.readTime}
         </p>
-        <h3 className="mt-2 font-mono text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-primary">
+        <h3 className="mt-2 text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-primary">
           {post.title}
         </h3>
-        <p className="mt-2 line-clamp-3 font-mono text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
-        <span className="mt-auto inline-flex items-center gap-1.5 pt-5 font-mono text-sm font-medium text-primary">
+        <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
+        <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-primary">
           Read more
           <ArrowRightIcon size={14} className="transition-transform group-hover:translate-x-0.5" />
         </span>

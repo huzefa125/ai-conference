@@ -24,10 +24,10 @@ export default function Venue({ id = "about", className = "" }: { id?: string; c
             <p className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">
               {VENUE.eyebrow}
             </p>
-            <h2 className="mt-3 font-mono text-3xl sm:text-4xl font-bold tracking-tight text-foreground uppercase text-balance">
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-foreground uppercase text-balance">
               {VENUE.title}
             </h2>
-            <p className="mt-4 font-mono text-base leading-relaxed text-muted-foreground">
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               {VENUE.intro}
             </p>
 
@@ -49,7 +49,7 @@ export default function Venue({ id = "about", className = "" }: { id?: string; c
                       <dt className="font-mono text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
                         {d.label}
                       </dt>
-                      <dd className="mt-0.5 font-mono text-sm font-bold text-foreground">{d.value}</dd>
+                      <dd className="mt-0.5 text-sm font-bold text-foreground">{d.value}</dd>
                     </div>
                   </div>
                 );
@@ -78,7 +78,7 @@ export default function Venue({ id = "about", className = "" }: { id?: string; c
         <div id="highlights" className="mt-8 grid grid-cols-3 border border-border bg-card shadow-[var(--shadow-subtle)]">
           {VENUE.stats.map((s, i) => (
             <div key={s.label} className={clsx("px-3 py-6 text-center sm:py-8", i > 0 && "border-l border-border")}>
-              <div className="font-mono text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
+              <div className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
                 {s.value}
               </div>
               <div className="mt-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary sm:text-xs">

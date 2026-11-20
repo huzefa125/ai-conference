@@ -1,7 +1,7 @@
-import { MynaHero } from "@/components/ui/myna-hero";
-import Venue from "@/components/ui/venue";
+import { Navbar } from "@/components/ui/navbar";
+import AtlasHero from "@/components/ui/atlas-hero";
 import WhyAttend from "@/components/ui/why-attend";
-import AboutDesk from "@/components/sections/about-desk";
+import KeynoteIntro from "@/components/sections/keynote-intro";
 import HowItWorks from "@/components/sections/how-it-works";
 import FUIBentoGridDark from "@/components/ui/bento";
 import Speakers from "@/components/ui/speakers";
@@ -17,26 +17,41 @@ import CtaBanner from "@/components/ui/cta-banner";
 import Faq from "@/components/ui/faq";
 import Blog from "@/components/ui/blog-01";
 import SiteFooter from "@/components/sections/site-footer";
+import Tone from "@/components/sections/tone";
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white">
-      <MynaHero />
-      <Venue id="about" />
-      <AboutDesk />
-      <WhyAttend id="why" />
+      <div className="container mx-auto px-4">
+        <Navbar />
+      </div>
+      <AtlasHero />
+      <KeynoteIntro />
+      <Tone tone="white">
+        <WhyAttend id="why" />
+      </Tone>
       <HowItWorks />
-      <FUIBentoGridDark id="tracks" />
+      <Tone tone="dark">
+        <FUIBentoGridDark id="tracks" />
+      </Tone>
       <Speakers id="speakers" />
       <CallForSpeakers id="cfp" />
-      <Agenda id="agenda" />
+      <Tone tone="white">
+        <Agenda id="agenda" />
+      </Tone>
       <StickyFeatureSection />
       <Gallery id="gallery" />
-      <TestimonialsMarquee />
-      <Tickets id="tickets" />
+      <Tone tone="dark">
+        <TestimonialsMarquee />
+      </Tone>
+      <Tone tone="white">
+        <Tickets id="tickets" />
+      </Tone>
       <Travel id="travel" />
       <Sponsors id="sponsors" />
-      <Blog id="blog" />
+      <Tone tone="white">
+        <Blog id="blog" />
+      </Tone>
       <CtaBanner id="register" />
       <Faq id="faq" />
       <SiteFooter id="contact" />

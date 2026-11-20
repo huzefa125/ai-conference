@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 const SOCIAL_ICONS = { LinkedIn: LinkedinLogoIcon, X: XLogoIcon, YouTube: YoutubeLogoIcon, Instagram: InstagramLogoIcon } as const;
 
-const colLabel = "font-mono text-sm font-bold text-foreground";
-const colLine = "block font-mono text-sm leading-7 text-muted-foreground";
+const colLabel = "text-sm font-bold text-foreground";
+const colLine = "block text-sm leading-7 text-muted-foreground";
 
 export default function ContactPage() {
   const { hero, email, phone, address, hours } = CONTACT;
@@ -27,10 +27,10 @@ export default function ContactPage() {
             {/* Left: headline + socials */}
             <div className="flex flex-col">
               <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{hero.eyebrow}</span>
-              <h1 className="mt-4 font-mono text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
+              <h1 className="mt-4 text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
                 Let&rsquo;s build the future of AI, <span className="text-primary">together.</span>
               </h1>
-              <p className="mt-6 max-w-md font-mono text-base leading-relaxed text-muted-foreground">{hero.text}</p>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">{hero.text}</p>
 
               <div className="mt-10 lg:mt-auto">
                 <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Follow along</p>
