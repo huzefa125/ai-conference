@@ -3,7 +3,8 @@
 import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
-import { STICKY_FEATURES, type StickyFeature } from "@/lib/sticky-cards-data";
+import { type StickyFeature } from "@/lib/sticky-cards-data";
+import { useContent } from "@/components/content-provider";
 
 export interface StickyFeatureSectionProps {
   id?: string;
@@ -16,10 +17,12 @@ export interface StickyFeatureSectionProps {
 export function StickyFeatureSection({
   id = "days",
   className = "",
-  features = STICKY_FEATURES,
+  features: featuresProp,
   title = "YOUR THREE DAYS",
   subtitle = "From the main stage to the workshop floor, here is how the days run.",
 }: StickyFeatureSectionProps) {
+  const content = useContent();
+  const features = featuresProp ?? content.highlights;
   return (
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">

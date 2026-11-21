@@ -2,10 +2,11 @@
 
 import * as React from "react";
 import { clsx } from "clsx";
-import { EXPERIENCE } from "@/lib/site-data";
+import { useContent } from "@/components/content-provider";
 import TailwindImageAccordion from "@/components/ui/tailwind-image-accordion";
 
 export default function Gallery({ id = "gallery", className = "" }: { id?: string; className?: string }) {
+  const { experience: EXPERIENCE } = useContent();
   return (
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">

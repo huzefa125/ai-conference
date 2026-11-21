@@ -2,18 +2,12 @@
 
 import * as React from "react";
 import { clsx } from "clsx";
-import {
-  ArrowRightIcon, CloudIcon, AtomIcon, DnaIcon, SunHorizonIcon, PlanetIcon, FlaskIcon,
-  BirdIcon, GlobeHemisphereWestIcon, MountainsIcon, type IconProps,
-} from "@phosphor-icons/react";
-import { SPONSORS } from "@/lib/site-data";
-
-const ICONS: Record<string, React.ComponentType<IconProps>> = {
-  Cloud: CloudIcon, Atom: AtomIcon, Dna: DnaIcon, SunHorizon: SunHorizonIcon, Planet: PlanetIcon,
-  Flask: FlaskIcon, Bird: BirdIcon, GlobeHemisphereWest: GlobeHemisphereWestIcon, Mountains: MountainsIcon,
-};
+import { ArrowRightIcon } from "@phosphor-icons/react";
+import { iconFor } from "@/lib/icons";
+import { useContent } from "@/components/content-provider";
 
 export default function Sponsors({ id = "sponsors", className = "" }: { id?: string; className?: string }) {
+  const { sponsors: SPONSORS } = useContent();
   return (
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
@@ -39,7 +33,7 @@ export default function Sponsors({ id = "sponsors", className = "" }: { id?: str
                 )}
               >
                 {group.slots.map((s, i) => {
-                  const Icon = s.icon ? ICONS[s.icon] : undefined;
+                  const Icon = s.icon ? iconFor(s.icon) : undefined;
                   return (
                     <div
                       key={`${group.tier}-${i}`}

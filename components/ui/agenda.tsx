@@ -4,13 +4,8 @@ import * as React from "react";
 import { clsx } from "clsx";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { MapPinIcon, MicrophoneStageIcon } from "@phosphor-icons/react";
-import {
-  AGENDA,
-  TRACK_LABELS,
-  type AgendaDay,
-  type Session,
-  type TrackId,
-} from "@/lib/agenda-data";
+import { type AgendaDay, type Session, type TrackId } from "@/lib/agenda-data";
+import { useContent } from "@/components/content-provider";
 
 type Filter = "all" | TrackId;
 
@@ -39,10 +34,12 @@ export interface AgendaProps {
 export default function Agenda({
   id = "agenda",
   className = "",
-  days = AGENDA,
+  days: daysProp,
   title = "AGENDA",
   subtitle = "Three days, five tracks. Pick a day, then filter by the track you care about.",
 }: AgendaProps) {
+  const { agenda, trackLabels: TRACK_LABELS } = useContent();
+  const days = daysProp ?? agenda;
   const [dayId, setDayId] = React.useState(days[0].id);
   const [filter, setFilter] = React.useState<Filter>("all");
 
@@ -192,6 +189,7 @@ export default function Agenda({
 }
 
 function SessionRow({ session: s, first, last }: { session: Session; first: boolean; last: boolean }) {
+  const { trackLabels: TRACK_LABELS } = useContent();
   const isBreak = s.kind === "break";
 
   return (

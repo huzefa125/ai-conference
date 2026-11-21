@@ -147,7 +147,7 @@ export const FOOTER = {
 // SAMPLE DATA: travel details and call-for-speakers dates are placeholders. Confirm before launch.
 export const TRAVEL = [
   {
-    icon: "AirplaneTilt",
+    icon: "AirplaneLanding",
     title: "Getting there",
     text: "Hyderabad is served by Rajiv Gandhi International Airport (HYD). Airport shuttle buses, the Hyderabad Metro and app-based cabs connect it to the city centre.",
   },

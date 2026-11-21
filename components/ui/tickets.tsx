@@ -4,7 +4,8 @@ import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import { CheckIcon, ArrowRightIcon } from "@phosphor-icons/react";
-import { TICKETS, type Ticket } from "@/lib/tickets-data";
+import { type Ticket } from "@/lib/tickets-data";
+import { useContent } from "@/components/content-provider";
 
 export interface TicketsProps {
   id?: string;
@@ -17,10 +18,12 @@ export interface TicketsProps {
 export default function Tickets({
   id = "tickets",
   className = "",
-  tickets = TICKETS,
+  tickets: ticketsProp,
   title = "TICKETS",
   subtitle = "Choose how you attend. Every pass includes the full program for your access level.",
 }: TicketsProps) {
+  const content = useContent();
+  const tickets = ticketsProp ?? content.tickets;
   return (
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">

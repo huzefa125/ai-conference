@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { CONTACT } from "@/lib/pages-data";
+import { useContent } from "@/components/content-provider";
 
 // Underline-only fields: no box, just a bottom rule that turns blue on focus.
 const field =
@@ -12,6 +12,8 @@ const field =
  * pre-filled and addressed to the contact email. Swap `onSubmit` for an API call when one exists.
  */
 export default function ContactForm() {
+  const { contact: CONTACT } = useContent();
+  const topics = CONTACT.topics;
   const [errors, setErrors] = React.useState<Record<string, string>>({});
   const [sent, setSent] = React.useState(false);
   const topicRef = React.useRef<HTMLSelectElement>(null);
@@ -19,8 +21,8 @@ export default function ContactForm() {
   // Preselect the topic when a link passes ?topic=...
   React.useEffect(() => {
     const t = new URLSearchParams(window.location.search).get("topic");
-    if (t && topicRef.current && CONTACT.topics.includes(t)) topicRef.current.value = t;
-  }, []);
+    if (t && topicRef.current && topics.includes(t)) topicRef.current.value = t;
+  }, [topics]);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

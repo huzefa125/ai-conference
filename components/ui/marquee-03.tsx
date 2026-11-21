@@ -1,7 +1,8 @@
 import { clsx } from "clsx";
 import { Card, CardContent } from "@/components/ui/card";
 import { Marquee } from "@/components/ui/marquee-03-utils/marquee";
-import { REVIEWS, type Review } from "@/lib/testimonials-data";
+import { type Review } from "@/lib/testimonials-data";
+import { getContent } from "@/lib/content";
 
 const ReviewCard = ({ profile, name, username, body }: Review) => {
   const initials = name
@@ -43,13 +44,14 @@ export interface TestimonialsMarqueeProps {
   subtitle?: string;
 }
 
-export default function TestimonialsMarquee({
+export default async function TestimonialsMarquee({
   id = "reviews",
   className = "",
-  reviews = REVIEWS,
+  reviews: reviewsProp,
   title = "WHAT ATTENDEES SAY",
   subtitle = "Notes from the people who have been in the room.",
 }: TestimonialsMarqueeProps) {
+  const reviews = reviewsProp ?? (await getContent()).reviews;
   const column = (n: 1 | 2 | 3) => reviews.filter((_, i) => i % 3 === n - 1);
 
   return (

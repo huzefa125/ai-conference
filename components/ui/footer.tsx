@@ -1,9 +1,10 @@
 "use client";
 
 import * as React from "react";
-import { FOOTER } from "@/lib/site-data";
+import { useContent } from "@/components/content-provider";
 
 export default function Footer({ id = "contact" }: { id?: string }) {
+  const { footer: FOOTER } = useContent();
   return (
     <footer id={id} className="mt-16 bg-[var(--atlas-navy)] text-[var(--atlas-cream)]">
       <div className="container mx-auto px-4 py-14">

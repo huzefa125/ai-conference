@@ -3,9 +3,10 @@
 import * as React from "react";
 import { clsx } from "clsx";
 import { ArrowRightIcon } from "@phosphor-icons/react";
-import { CFP } from "@/lib/site-data";
+import { useContent } from "@/components/content-provider";
 
 export default function CallForSpeakers({ id = "cfp", className = "" }: { id?: string; className?: string }) {
+  const { cfp: CFP } = useContent();
   return (
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { InstagramLogoIcon, LinkedinLogoIcon, XLogoIcon, YoutubeLogoIcon } from "@phosphor-icons/react/ssr";
+import { GlobeIcon, InstagramLogoIcon, LinkedinLogoIcon, XLogoIcon, YoutubeLogoIcon } from "@phosphor-icons/react/ssr";
 import PageShell from "@/components/sections/page-shell";
 import ContactForm from "@/components/sections/contact-form";
 import Faq from "@/components/ui/faq";
-import { CONTACT } from "@/lib/pages-data";
-import { FOOTER } from "@/lib/site-data";
+import { getContent } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact | Atlas Global 2026",
@@ -16,7 +15,8 @@ const SOCIAL_ICONS = { LinkedIn: LinkedinLogoIcon, X: XLogoIcon, YouTube: Youtub
 const colLabel = "text-sm font-bold text-foreground";
 const colLine = "block text-sm leading-7 text-muted-foreground";
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const { contact: CONTACT, footer: FOOTER } = await getContent();
   const { hero, email, phone, address, hours } = CONTACT;
 
   return (
@@ -36,7 +36,7 @@ export default function ContactPage() {
                 <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Follow along</p>
                 <div className="mt-3 flex items-center gap-2">
                   {FOOTER.socials.map((s) => {
-                    const Icon = SOCIAL_ICONS[s.label as keyof typeof SOCIAL_ICONS];
+                    const Icon = SOCIAL_ICONS[s.label as keyof typeof SOCIAL_ICONS] ?? GlobeIcon;
                     return (
                       <a
                         key={s.label}

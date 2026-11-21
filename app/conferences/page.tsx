@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon, CalendarBlankIcon, MapPinIcon } from "@phosphor-icons/react/ssr";
 import PageShell from "@/components/sections/page-shell";
-import { CONFERENCES } from "@/lib/conferences-data";
+import { getContent } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   description: "Atlas Global 2026 in Hyderabad and the other conferences in the Atlas series.",
 };
 
-export default function ConferencesPage() {
-  const [flagship, ...others] = CONFERENCES;
+export default async function ConferencesPage() {
+  const [flagship, ...others] = (await getContent()).conferences;
 
   return (
     <PageShell>

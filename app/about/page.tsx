@@ -2,27 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRightIcon,
-  AirplaneTiltIcon,
-  BuildingsIcon,
-  CodeIcon,
-  ForkKnifeIcon,
   MapPinIcon,
 } from "@phosphor-icons/react/ssr";
 import PageShell from "@/components/sections/page-shell";
 import CtaBanner from "@/components/ui/cta-banner";
 import Team from "@/components/ui/team";
 import { ScrollRevealText } from "@/components/sections/scroll-reveal-text";
-import { ABOUT } from "@/lib/pages-data";
-import { VENUE } from "@/lib/site-data";
+import { getContent } from "@/lib/content";
+import { iconFor } from "@/lib/icons";
 
-const CITY_ICONS = { Code: CodeIcon, Buildings: BuildingsIcon, AirplaneTilt: AirplaneTiltIcon, ForkKnife: ForkKnifeIcon } as const;
 
 export const metadata: Metadata = {
   title: "About | Atlas Global 2026",
   description: "Why we run Atlas Global, what we stand for and how the programme is built.",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const { about: ABOUT, venue: VENUE } = await getContent();
   const { hero, story, values, team, process, city, cta } = ABOUT;
   const rest = story.paragraphs.slice(1);
 
@@ -200,7 +196,7 @@ export default function AboutPage() {
 
               <ol className="mt-8 border-t border-border">
                 {city.facts.map((f, i) => {
-                  const Icon = CITY_ICONS[f.icon as keyof typeof CITY_ICONS];
+                  const Icon = iconFor(f.icon);
                   return (
                     <li key={f.title} className="group flex gap-5 border-b border-border py-5">
                       <span className="w-8 shrink-0 pt-0.5 text-sm font-bold text-primary">{String(i + 1).padStart(2, "0")}</span>

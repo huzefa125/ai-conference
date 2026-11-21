@@ -4,9 +4,10 @@ import * as React from "react";
 import { clsx } from "clsx";
 import * as Accordion from "@radix-ui/react-accordion";
 import { PlusIcon } from "@phosphor-icons/react";
-import { FAQS } from "@/lib/site-data";
+import { useContent } from "@/components/content-provider";
 
 export default function Faq({ id = "faq", className = "" }: { id?: string; className?: string }) {
+  const { faqs: FAQS } = useContent();
   return (
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">

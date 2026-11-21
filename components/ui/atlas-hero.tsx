@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import { SPEAKERS } from "@/lib/speakers-data";
+import { useContent } from "@/components/content-provider";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -21,7 +21,6 @@ const SLIDES = [
 ];
 const SLIDE_MS = 5000;
 
-const AVATARS = SPEAKERS.filter((s) => s.photo).slice(0, 3);
 
 /* ------------------------------------------------------------------ */
 
@@ -103,7 +102,7 @@ function EventStatus() {
   }
 
   return (
-    <p className="mt-4 h-4 font-mono text-[10px] uppercase tracking-widest text-white/80">{content}</p>
+    <p className="mt-4 min-h-4 font-mono text-[10px] uppercase leading-relaxed tracking-widest text-white/80">{content}</p>
   );
 }
 
@@ -204,6 +203,7 @@ function Photo({ reduce }: { reduce: boolean }) {
 
 export default function AtlasHero() {
   const reduce = useReducedMotion() ?? false;
+  const AVATARS = useContent().speakers.filter((s) => s.photo).slice(0, 3);
   const rise = (delay: number) => ({
     initial: reduce ? false : { opacity: 0, y: 14 },
     animate: { opacity: 1, y: 0 },
@@ -216,7 +216,7 @@ export default function AtlasHero() {
       <div className="container mx-auto grid min-h-0 flex-1 gap-8 px-4 pb-8 pt-4 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pb-10">
         {/* Left: type */}
         <div className="flex min-h-0 flex-col justify-center">
-          <h1 className="font-heading text-[clamp(2.75rem,min(6.4vw,10.5vh),7.5rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.045em] text-foreground">
+          <h1 className="font-heading text-[clamp(2.6rem,11.5vw,5.75rem)] font-extrabold lg:text-[clamp(3rem,min(6.4vw,10.5vh),7.5rem)] uppercase leading-[0.92] tracking-[-0.045em] text-foreground">
             <Line delay={0.05} reduce={reduce}>Atlas</Line>
             <Line delay={0.15} reduce={reduce}>Global</Line>
             <Line delay={0.25} reduce={reduce}>
