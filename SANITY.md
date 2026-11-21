@@ -30,6 +30,32 @@ Content is read from Sanity **once, during `npm run build`**, and baked into sta
    Re-running it is safe: documents that already exist are left alone. Adding `-- --replace` overwrites them with the built-in content, which **discards edits made in the Studio**.
 5. **Rebuild** to put the imported content live (see "How publishing works" above).
 
+## Editing content from code (the seeder)
+
+If you prefer to keep content in the code, edit the data files and push them to Sanity:
+
+1. Edit the right file in `lib/`:
+   | File | Content |
+   | --- | --- |
+   | `speakers-data.ts` | Speakers |
+   | `agenda-data.ts` | Agenda days, sessions, track names |
+   | `tickets-data.ts` | Tickets |
+   | `blog-data.ts` | Blog posts |
+   | `conferences-data.ts` | Conferences |
+   | `testimonials-data.ts` | Testimonials |
+   | `sticky-cards-data.ts` | "Your three days" cards |
+   | `how-it-works-data.ts` | How it works |
+   | `pages-data.ts` | About and Contact pages |
+   | `site-data.ts` | Event details and stats, why attend, travel, call for speakers, sponsors, FAQs, experience photos, footer |
+2. Push it to Sanity: `npm run sanity:push`
+3. Rebuild and deploy so the live site updates (redeploy in Vercel, or commit and merge to `main`).
+
+**What `sanity:push` overwrites.** It replaces every document it manages with the content in the files, so edits made in the Studio to those documents are lost. Pick one place to edit, the files or the Studio, rather than mixing both.
+
+**What it leaves alone.** Documents created in the Studio that do not exist in the files (for example a new speaker added there) are not removed.
+
+`npm run sanity:seed` is the gentle version: it only creates documents that do not exist yet.
+
 ## What editors can change
 
 | In the Studio | Where it shows on the site |
