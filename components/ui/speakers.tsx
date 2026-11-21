@@ -4,8 +4,8 @@ import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import { UserIcon } from "@phosphor-icons/react";
-import { TRACK_LABELS } from "@/lib/agenda-data";
-import { SPEAKERS, type Speaker } from "@/lib/speakers-data";
+import { type Speaker } from "@/lib/speakers-data";
+import { useContent } from "@/components/content-provider";
 
 export interface SpeakersProps {
   id?: string;
@@ -18,10 +18,12 @@ export interface SpeakersProps {
 export default function Speakers({
   id = "speakers",
   className = "",
-  speakers = SPEAKERS,
+  speakers: speakersProp,
   title = "SPEAKERS",
   subtitle = "Researchers, engineers and operators who build and run AI in production.",
 }: SpeakersProps) {
+  const content = useContent();
+  const speakers = speakersProp ?? content.speakers;
   return (
     <section id={id} className={clsx("w-full py-16 md:py-20", className)}>
       <div className="container mx-auto px-4">
@@ -49,6 +51,7 @@ export default function Speakers({
 }
 
 function SpeakerCard({ speaker: s, index }: { speaker: Speaker; index: number }) {
+  const { trackLabels: TRACK_LABELS } = useContent();
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}

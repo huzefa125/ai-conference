@@ -18,8 +18,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu-1";
-import { CONFERENCES } from "@/lib/conferences-data";
-import { POSTS_BY_DATE } from "@/lib/blog-data";
+import { useContent } from "@/components/content-provider";
 import { cn } from "@/lib/utils";
 
 export interface NavItem {
@@ -48,10 +47,6 @@ export interface NavbarProps {
   className?: string;
 }
 
-const FLAGSHIP = CONFERENCES[0];
-const OTHER_EVENTS = CONFERENCES.slice(1);
-const LATEST_POSTS = POSTS_BY_DATE.slice(0, 3);
-
 /** Home is active only on "/"; other sections also stay active on their sub-pages (e.g. /blog/post). */
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -73,6 +68,10 @@ export function Navbar({
 }: NavbarProps) {
   const pathname = usePathname() ?? "/";
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { conferences: CONFERENCES, posts } = useContent();
+  const FLAGSHIP = CONFERENCES[0];
+  const OTHER_EVENTS = CONFERENCES.slice(1);
+  const LATEST_POSTS = posts.slice(0, 3);
   const ctaHref = ctaButton.href ?? (ctaButton.onClick ? undefined : "/#tickets");
   const color = (href: string) => (isActive(pathname, href) ? "text-primary" : "text-foreground");
   const close = () => setMobileOpen(false);

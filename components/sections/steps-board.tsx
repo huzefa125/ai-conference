@@ -1,7 +1,7 @@
 "use client";
 
 import { LazyMotion, domAnimation, m, useReducedMotion } from "motion/react";
-import { HOW_IT_WORKS } from "@/lib/how-it-works-data";
+import { useContent } from "@/components/content-provider";
 import { StepCard } from "./step-card";
 
 const POSITIONS = [
@@ -11,6 +11,7 @@ const POSITIONS = [
 ];
 
 export function StepsBoard() {
+  const { howItWorks: HOW_IT_WORKS } = useContent();
   const reduce = useReducedMotion();
   return (
     <LazyMotion features={domAnimation}>

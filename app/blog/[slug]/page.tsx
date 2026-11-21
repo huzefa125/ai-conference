@@ -5,15 +5,16 @@ import { notFound } from "next/navigation";
 import { ArrowLeftIcon } from "@phosphor-icons/react/ssr";
 import PageShell from "@/components/sections/page-shell";
 import BlogCard from "@/components/sections/blog-card";
-import { BLOG_POSTS, POSTS_BY_DATE, getPost, formatDate } from "@/lib/blog-data";
+import { formatDate } from "@/lib/blog-data";
+import { getContent, getPost } from "@/lib/content";
 
-export function generateStaticParams() {
-  return BLOG_POSTS.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  return (await getContent()).posts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata(props: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const { slug } = await props.params;
-  const post = getPost(slug);
+  const post = await getPost(slug);
   if (!post) return { title: "Post not found | Atlas Global 2026" };
   return { title: `${post.title} | Atlas Global 2026`, description: post.excerpt };
 }
@@ -44,10 +45,10 @@ function PostSkeleton() {
 
 async function PostContent({ params }: { params: PageProps<"/blog/[slug]">["params"] }) {
   const { slug } = await params;
-  const post = getPost(slug);
+  const post = await getPost(slug);
   if (!post) notFound();
 
-  const more = POSTS_BY_DATE.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const more = (await getContent()).posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
     <>

@@ -3,17 +3,12 @@
 import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
-import {
-  ChalkboardTeacherIcon, WrenchIcon, TargetIcon, HandshakeIcon, BroadcastIcon, NotebookIcon, ArrowRightIcon, type IconProps,
-} from "@phosphor-icons/react";
-import { WHY_ATTEND, VENUE } from "@/lib/site-data";
-
-const ICONS: Record<string, React.ComponentType<IconProps>> = {
-  ChalkboardTeacher: ChalkboardTeacherIcon, Wrench: WrenchIcon, Target: TargetIcon,
-  Handshake: HandshakeIcon, Broadcast: BroadcastIcon, Notebook: NotebookIcon,
-};
+import { ArrowRightIcon } from "@phosphor-icons/react";
+import { iconFor } from "@/lib/icons";
+import { useContent } from "@/components/content-provider";
 
 export default function WhyAttend({ id = "why", className = "" }: { id?: string; className?: string }) {
+  const { whyAttend: WHY_ATTEND, venue: VENUE } = useContent();
   return (
     <section id={id} className={clsx("w-full py-12 md:py-20", className)}>
       <div className="container mx-auto px-4">
@@ -49,7 +44,7 @@ export default function WhyAttend({ id = "why", className = "" }: { id?: string;
           {/* Right: numbered list */}
           <ol className="border-t border-border">
             {WHY_ATTEND.map((item, i) => {
-              const Icon = ICONS[item.icon];
+              const Icon = iconFor(item.icon);
               return (
                 <motion.li
                   key={item.title}

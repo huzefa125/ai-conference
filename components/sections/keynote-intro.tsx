@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { animate, motion, useInView, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import { VENUE } from "@/lib/site-data";
+import { useContent } from "@/components/content-provider";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -22,7 +22,7 @@ function Spark({ show, reduce }: { show: boolean; reduce: boolean }) {
     <motion.svg
       aria-hidden
       viewBox="-4 -4 108 108"
-      className="pointer-events-none absolute -right-4 top-1/2 h-60 w-60 -translate-y-1/2 sm:h-72 sm:w-72"
+      className="pointer-events-none absolute -right-10 top-1/2 h-52 w-52 -translate-y-1/2 sm:right-0 sm:h-64 sm:w-64 lg:-right-6 lg:h-72 lg:w-72"
       animate={reduce ? undefined : { rotate: 360 }}
       transition={{ duration: 60, ease: "linear", repeat: Infinity }}
     >
@@ -38,7 +38,7 @@ function Spark({ show, reduce }: { show: boolean; reduce: boolean }) {
           strokeWidth={0.6}
           strokeLinejoin="round"
           initial={reduce ? false : { pathLength: 0, fillOpacity: 0, strokeOpacity: 1 }}
-          animate={show ? { pathLength: 1, fillOpacity: 0.18, strokeOpacity: 0.35 } : undefined}
+          animate={show ? { pathLength: 1, fillOpacity: 0.11, strokeOpacity: 0.28 } : undefined}
           transition={{
             pathLength: { duration: 2, delay: 0.4, ease: EASE },
             fillOpacity: { duration: 0.9, delay: 1.9 },
@@ -78,6 +78,7 @@ function CountUp({ value, start, reduce }: { value: string; start: boolean; redu
 }
 
 export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
+  const { venue: VENUE } = useContent();
   const reduce = useReducedMotion() ?? false;
 
   // One observer on the whole section drives every entrance, so nothing hidden inside a mask can get stuck.
@@ -96,7 +97,7 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
   });
 
   return (
-    <section ref={sectionRef} id={id} className="relative w-full overflow-hidden py-16 sm:py-20 lg:py-28">
+    <section ref={sectionRef} id={id} className="relative w-full overflow-hidden py-12 sm:py-20 lg:py-28">
       <div className="container mx-auto grid items-center gap-10 px-4 lg:grid-cols-2 lg:gap-16">
         {/* Photo */}
         <motion.div
@@ -104,7 +105,7 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
           initial={reduce ? false : { clipPath: "inset(0% 100% 0% 0%)" }}
           animate={show ? { clipPath: "inset(0% 0% 0% 0%)" } : undefined}
           transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
-          className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--atlas-navy)]"
+          className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--atlas-navy)] lg:aspect-[4/3]"
         >
           <motion.div style={{ y: imageY }} className="absolute inset-x-0 -inset-y-[10%]">
             <Image
@@ -131,7 +132,7 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
             Keynote speakers
           </motion.p>
 
-          <h2 className="mt-4 font-heading text-[clamp(1.6rem,2.6vw,2.6rem)] font-extrabold uppercase leading-[1.18] tracking-tight text-foreground">
+          <h2 className="mt-4 text-balance font-heading text-[clamp(1.55rem,6.2vw,2.4rem)] font-extrabold uppercase leading-[1.18] tracking-tight text-foreground lg:text-[clamp(1.6rem,2.6vw,2.6rem)]">
             {WORDS.map((w, i) => (
               <span key={i} className="inline-block overflow-hidden pb-[0.08em] align-top">
                 <motion.span
@@ -169,16 +170,13 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
           {/* Stats over the spark */}
           <div className="relative mt-12 py-8 sm:mt-14">
             <Spark show={show} reduce={reduce} />
-            <dl className="relative flex flex-wrap gap-x-10 gap-y-6">
+            <dl className="relative flex items-end justify-between gap-4 sm:justify-start sm:gap-12 lg:gap-10 xl:gap-14">
               {VENUE.stats.map((s) => (
-                <div key={s.label} className="flex items-center gap-3">
-                  <dt className="sr-only">{s.label}</dt>
-                  <dd className="font-heading text-5xl font-extrabold leading-none tracking-tight text-primary sm:text-6xl">
+                <div key={s.label} className="flex flex-col-reverse gap-2">
+                  <dt className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground">{s.label}</dt>
+                  <dd className="font-heading text-[clamp(2.1rem,9vw,3.75rem)] font-extrabold leading-none tracking-tight text-primary lg:text-[clamp(2.5rem,4.2vw,3.75rem)]">
                     <CountUp value={s.value} start={show} reduce={reduce} />
                   </dd>
-                  <span aria-hidden className="font-heading text-sm font-bold leading-tight text-foreground">
-                    {s.label}
-                  </span>
                 </div>
               ))}
             </dl>

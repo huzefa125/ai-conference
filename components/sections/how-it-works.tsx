@@ -1,9 +1,9 @@
 import { ArrowRight } from "lucide-react";
-import { HOW_IT_WORKS } from "@/lib/how-it-works-data";
+import { getContent } from "@/lib/content";
 import { StepsBoard } from "./steps-board";
 
-export default function HowItWorks({ id = "how-it-works" }: { id?: string }) {
-  const { title, intro, cta } = HOW_IT_WORKS;
+export default async function HowItWorks({ id = "how-it-works" }: { id?: string }) {
+  const { title, intro, cta } = (await getContent()).howItWorks;
   return (
     <section id={id} className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-16">
       <div className="mx-auto max-w-2xl text-center">

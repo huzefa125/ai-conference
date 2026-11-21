@@ -3,15 +3,16 @@ import Link from "next/link";
 import { ArrowRightIcon } from "@phosphor-icons/react/ssr";
 import PageShell from "@/components/sections/page-shell";
 import BlogCard from "@/components/sections/blog-card";
-import { POSTS_BY_DATE, formatDate } from "@/lib/blog-data";
+import { formatDate } from "@/lib/blog-data";
+import { getContent } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Blog | Atlas Global 2026",
   description: "Event news, speaker insights and practical tips from the Atlas Global team.",
 };
 
-export default function BlogPage() {
-  const [featured, ...rest] = POSTS_BY_DATE;
+export default async function BlogPage() {
+  const [featured, ...rest] = (await getContent()).posts;
 
   return (
     <PageShell>

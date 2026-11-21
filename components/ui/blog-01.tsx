@@ -5,12 +5,14 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
-import { POSTS_BY_DATE, formatDate } from "@/lib/blog-data";
+import { useContent } from "@/components/content-provider";
+import { formatDate } from "@/lib/blog-data";
 
 const MotionLink = motion.create(Link);
 
 /** Home page "Recent news": latest three posts, the first one twice as wide. */
 const Blog = ({ id = "blog" }: { id?: string }) => {
+  const { posts: POSTS_BY_DATE } = useContent();
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
   const reduce = useReducedMotion();

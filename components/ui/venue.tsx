@@ -4,11 +4,12 @@ import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import { CalendarBlankIcon, MapPinIcon, BuildingsIcon, BroadcastIcon } from "@phosphor-icons/react";
-import { VENUE } from "@/lib/site-data";
+import { useContent } from "@/components/content-provider";
 
 const DETAIL_ICONS = [CalendarBlankIcon, MapPinIcon, BuildingsIcon, BroadcastIcon];
 
 export default function Venue({ id = "about", className = "" }: { id?: string; className?: string }) {
+  const { venue: VENUE } = useContent();
   return (
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">

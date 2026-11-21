@@ -117,12 +117,12 @@ export default function DitheredFooter({
           {tagline && <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">{tagline}</p>}
         </div>
         {columns.map((col) => (
-          <nav key={col.title} aria-label={col.title}>
+          <nav key={col.title} aria-label={col.title} className="min-w-0 last:col-span-2 md:last:col-span-1">
             <p className="text-sm font-medium">{col.title}</p>
             <ul className="mt-4 space-y-3">
               {col.links.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  <a href={l.href} className="break-words text-sm text-muted-foreground transition-colors hover:text-foreground">
                     {l.label}
                   </a>
                 </li>

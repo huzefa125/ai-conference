@@ -4,17 +4,12 @@ import * as React from "react";
 import Link from "next/link";
 import { clsx } from "clsx";
 import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { AirplaneTiltIcon, AirplaneLandingIcon, BedIcon, WheelchairIcon, type IconProps } from "@phosphor-icons/react";
+import { AirplaneTiltIcon } from "@phosphor-icons/react";
+import { iconFor } from "@/lib/icons";
 import { ArrowRight } from "lucide-react";
-import { TRAVEL } from "@/lib/site-data";
+import { useContent } from "@/components/content-provider";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-
-const ICONS: Record<string, React.ComponentType<IconProps>> = {
-  AirplaneTilt: AirplaneLandingIcon,
-  Bed: BedIcon,
-  Wheelchair: WheelchairIcon,
-};
 
 // Route stop labels, in the same order as TRAVEL.
 const STOPS = ["Land", "Check in", "Arrive ready"];
@@ -104,16 +99,16 @@ function BoardingPass({ reduce }: { reduce: boolean }) {
             </span>
           </div>
 
-          <div className="mt-8 grid grid-cols-[auto_1fr_auto] items-end gap-4 sm:gap-6">
+          <div className="mt-8 grid grid-cols-[auto_minmax(4.5rem,1fr)_auto] items-end gap-3 sm:gap-6">
             <div>
-              <p className="font-heading text-5xl font-extrabold leading-none tracking-tight sm:text-7xl">ANY</p>
+              <p className="font-heading text-[clamp(2.4rem,11vw,4.5rem)] font-extrabold leading-none tracking-tight">ANY</p>
               <p className="mt-2 font-mono text-[11px] uppercase tracking-widest text-white/60">Your city</p>
             </div>
             <div className="h-16 self-center sm:h-24">
               <FlightArc reduce={reduce} />
             </div>
             <div className="text-right">
-              <p className="font-heading text-5xl font-extrabold leading-none tracking-tight text-primary sm:text-7xl">HYD</p>
+              <p className="font-heading text-[clamp(2.4rem,11vw,4.5rem)] font-extrabold leading-none tracking-tight text-primary">HYD</p>
               <p className="mt-2 font-mono text-[11px] uppercase tracking-widest text-white/60">Hyderabad, India</p>
             </div>
           </div>
@@ -161,6 +156,7 @@ function BoardingPass({ reduce }: { reduce: boolean }) {
 
 /** The three travel tips as stops on a route that draws itself as you scroll. */
 function Route({ reduce }: { reduce: boolean }) {
+  const { travel: TRAVEL } = useContent();
   const ref = React.useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 85%", "end 55%"] });
   const progress = useTransform(scrollYProgress, [0, 1], [reduce ? 1 : 0, 1]);
@@ -198,7 +194,7 @@ function Route({ reduce }: { reduce: boolean }) {
 
       <ol className="grid gap-10 md:grid-cols-3 md:gap-8">
         {TRAVEL.map((t, i) => {
-          const Icon = ICONS[t.icon];
+          const Icon = iconFor(t.icon);
           const on = i < reached;
           return (
             <li key={t.title} className="relative pl-12 md:pl-0 md:text-center">
