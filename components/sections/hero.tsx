@@ -224,7 +224,7 @@ export default function AtlasHero() {
             reduce={reduce}
             delay={0.9}
             strength={1.5}
-            className="absolute -right-12 top-0 -z-10 h-44 w-44 sm:right-0 sm:h-60 sm:w-60 lg:right-2 lg:top-[6%] lg:h-64 lg:w-64 xl:h-80 xl:w-80"
+            className="absolute -right-12 top-8 -z-10 h-44 w-44 sm:right-0 sm:top-10 sm:h-60 sm:w-60 lg:-right-10 lg:top-auto lg:-bottom-[6%] lg:h-48 lg:w-48 xl:-right-12 xl:h-56 xl:w-56 2xl:-right-16 2xl:h-80 2xl:w-80"
           />
           <h1 className="font-heading text-[clamp(2.6rem,11.5vw,5.75rem)] font-extrabold lg:text-[clamp(3rem,min(6.4vw,10.5vh),7.5rem)] uppercase leading-[0.92] tracking-[-0.045em] text-foreground">
             <Line delay={0.05} reduce={reduce}>Atlas</Line>
