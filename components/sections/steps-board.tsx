@@ -1,7 +1,7 @@
 "use client";
 
 import { LazyMotion, domAnimation, m, useReducedMotion } from "motion/react";
-import { useContent } from "@/components/content-provider";
+import { useContent } from "@/components/providers/content-provider";
 import { StepCard } from "./step-card";
 
 const POSITIONS = [

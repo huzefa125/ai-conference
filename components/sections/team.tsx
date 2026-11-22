@@ -1,5 +1,5 @@
 import { LinkedinLogoIcon, UsersThreeIcon } from "@phosphor-icons/react/ssr";
-import { Marquee } from "@/components/ui/marquee-03-utils/marquee";
+import { Marquee } from "@/components/ui/marquee";
 
 export interface TeamMember {
   name: string;

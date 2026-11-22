@@ -1,15 +1,15 @@
-// The site's built-in content, assembled from the lib/*-data.ts files.
+// The site's built-in content, assembled from the lib/data/*.ts files.
 // It is the fallback whenever Sanity is not configured, unreachable, or a field is left empty.
-import { AGENDA, TRACK_LABELS } from "./agenda-data";
-import { POSTS_BY_DATE } from "./blog-data";
-import { CONFERENCES } from "./conferences-data";
-import { HOW_IT_WORKS } from "./how-it-works-data";
-import { ABOUT, CONTACT } from "./pages-data";
-import { CFP, EXPERIENCE, FAQS, FOOTER, SPONSORS, TRAVEL, VENUE, WHY_ATTEND } from "./site-data";
-import { SPEAKERS } from "./speakers-data";
-import { STICKY_FEATURES } from "./sticky-cards-data";
-import { REVIEWS } from "./testimonials-data";
-import { TICKETS } from "./tickets-data";
+import { AGENDA, TRACK_LABELS } from "./data/agenda";
+import { POSTS_BY_DATE } from "./data/blog";
+import { CONFERENCES } from "./data/conferences";
+import { HOW_IT_WORKS } from "./data/how-it-works";
+import { ABOUT, CONTACT } from "./data/pages";
+import { CFP, EXPERIENCE, FAQS, FOOTER, SPONSORS, TRAVEL, VENUE, WHY_ATTEND } from "./data/site";
+import { SPEAKERS } from "./data/speakers";
+import { STICKY_FEATURES } from "./data/sticky-cards";
+import { REVIEWS } from "./data/testimonials";
+import { TICKETS } from "./data/tickets";
 
 export const LOCAL_CONTENT = {
   venue: VENUE,

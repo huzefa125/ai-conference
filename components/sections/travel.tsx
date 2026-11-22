@@ -7,7 +7,7 @@ import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform 
 import { AirplaneTiltIcon } from "@phosphor-icons/react";
 import { iconFor } from "@/lib/icons";
 import { ArrowRight } from "lucide-react";
-import { useContent } from "@/components/content-provider";
+import { useContent } from "@/components/providers/content-provider";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 

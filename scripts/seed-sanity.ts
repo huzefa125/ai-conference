@@ -1,5 +1,5 @@
 /**
- * Copies the site's current content (lib/*-data.ts) into Sanity so editors start from what is live.
+ * Copies the site's current content (lib/data/*.ts) into Sanity so editors start from what is live.
  *
  *   npx sanity exec scripts/seed-sanity.ts --with-user-token
  *

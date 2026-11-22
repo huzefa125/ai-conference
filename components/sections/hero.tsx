@@ -5,7 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import { useContent } from "@/components/content-provider";
+import { useContent } from "@/components/providers/content-provider";
+import { CHATGPT_MARK } from "@/components/icons/brand-marks";
+import { AnimatedMark } from "@/components/icons/animated-mark";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -214,8 +216,15 @@ export default function AtlasHero() {
     // Fills exactly one screen under the navbar (~8.75rem) on desktop.
     <section className="flex flex-col lg:h-[calc(100svh-8.75rem)] lg:min-h-[560px]">
       <div className="container mx-auto grid min-h-0 flex-1 gap-8 px-4 pb-8 pt-4 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pb-10">
-        {/* Left: type */}
-        <div className="flex min-h-0 flex-col justify-center">
+        {/* Left: type, with the ChatGPT mark turning slowly behind it */}
+        <div className="relative isolate flex min-h-0 flex-col justify-center">
+          <AnimatedMark
+            mark={CHATGPT_MARK}
+            show
+            reduce={reduce}
+            delay={0.9}
+            className="absolute -right-14 top-2 -z-10 h-44 w-44 sm:-right-4 sm:h-60 sm:w-60 lg:-right-6 lg:top-auto lg:bottom-0 lg:h-60 lg:w-60 xl:h-64 xl:w-64"
+          />
           <h1 className="font-heading text-[clamp(2.6rem,11.5vw,5.75rem)] font-extrabold lg:text-[clamp(3rem,min(6.4vw,10.5vh),7.5rem)] uppercase leading-[0.92] tracking-[-0.045em] text-foreground">
             <Line delay={0.05} reduce={reduce}>Atlas</Line>
             <Line delay={0.15} reduce={reduce}>Global</Line>
@@ -282,7 +291,7 @@ export default function AtlasHero() {
         </div>
 
         {/* Right: photo fills the column height */}
-        <div className="h-[60vw] max-h-[480px] min-h-0 lg:h-full lg:max-h-none">
+        <div className="relative h-[60vw] max-h-[480px] min-h-0 lg:h-full lg:max-h-none">
           <Photo reduce={reduce} />
         </div>
       </div>

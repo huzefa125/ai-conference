@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@phosphor-icons/react/ssr";
-import PageShell from "@/components/sections/page-shell";
+import PageShell from "@/components/layout/page-shell";
 
 export const metadata: Metadata = {
   title: "Page not found | Atlas Global 2026",

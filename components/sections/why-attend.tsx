@@ -5,7 +5,7 @@ import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "@phosphor-icons/react";
 import { iconFor } from "@/lib/icons";
-import { useContent } from "@/components/content-provider";
+import { useContent } from "@/components/providers/content-provider";
 
 export default function WhyAttend({ id = "why", className = "" }: { id?: string; className?: string }) {
   const { whyAttend: WHY_ATTEND, venue: VENUE } = useContent();

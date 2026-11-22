@@ -1,8 +1,8 @@
 "use client";
 
 import { GlobeIcon, LinkedinLogoIcon, XLogoIcon, YoutubeLogoIcon, InstagramLogoIcon } from "@phosphor-icons/react";
-import DitheredFooter from "@/components/ui/dithered-footer";
-import { useContent } from "@/components/content-provider";
+import DitheredFooter from "@/components/layout/dithered-footer";
+import { useContent } from "@/components/providers/content-provider";
 
 const ICONS = { LinkedIn: LinkedinLogoIcon, X: XLogoIcon, YouTube: YoutubeLogoIcon, Instagram: InstagramLogoIcon } as const;
 

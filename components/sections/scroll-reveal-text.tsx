@@ -3,7 +3,18 @@
 import * as React from "react";
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
-import type { RevealSegment } from "@/lib/about-desk-data";
+/** One piece of the revealed sentence: plain text, a highlighted pill (optionally with an icon), or bold. */
+export type RevealSegment =
+  | { text: string }
+  | {
+      text: string;
+      pill: "accent" | "maroon" | "accent-solid" | "maroon-solid";
+      icon?: string;
+      iconAlt?: string;
+      iconPosition?: "left" | "right";
+      iconClassName?: string;
+    }
+  | { text: string; bold: true };
 
 type Unit = { key: string; segment: RevealSegment; text: string; trail?: string };
 

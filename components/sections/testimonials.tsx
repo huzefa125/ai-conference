@@ -1,7 +1,7 @@
 import { clsx } from "clsx";
 import { Card, CardContent } from "@/components/ui/card";
-import { Marquee } from "@/components/ui/marquee-03-utils/marquee";
-import { type Review } from "@/lib/testimonials-data";
+import { Marquee } from "@/components/ui/marquee";
+import { type Review } from "@/lib/data/testimonials";
 import { getContent } from "@/lib/content";
 
 const ReviewCard = ({ profile, name, username, body }: Review) => {

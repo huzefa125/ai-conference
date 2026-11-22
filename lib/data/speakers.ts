@@ -2,7 +2,7 @@
 // Add a photo by placing an image in /public/speakers and setting `photo`, e.g. "/speakers/jane-doe.jpg".
 // Cards with no photo show a neutral placeholder.
 
-import type { TrackId } from "@/lib/agenda-data";
+import type { TrackId } from "@/lib/data/agenda";
 
 export interface Speaker {
   name: string;

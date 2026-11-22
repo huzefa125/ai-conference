@@ -4,8 +4,8 @@ import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import { UserIcon } from "@phosphor-icons/react";
-import { type Speaker } from "@/lib/speakers-data";
-import { useContent } from "@/components/content-provider";
+import { type Speaker } from "@/lib/data/speakers";
+import { useContent } from "@/components/providers/content-provider";
 
 export interface SpeakersProps {
   id?: string;

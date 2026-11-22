@@ -4,8 +4,8 @@ import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import { CheckIcon, ArrowRightIcon } from "@phosphor-icons/react";
-import { type Ticket } from "@/lib/tickets-data";
-import { useContent } from "@/components/content-provider";
+import { type Ticket } from "@/lib/data/tickets";
+import { useContent } from "@/components/providers/content-provider";
 
 export interface TicketsProps {
   id?: string;

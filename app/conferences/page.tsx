@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon, CalendarBlankIcon, MapPinIcon } from "@phosphor-icons/react/ssr";
-import PageShell from "@/components/sections/page-shell";
+import PageShell from "@/components/layout/page-shell";
 import { getContent } from "@/lib/content";
 import { cn } from "@/lib/utils";
 

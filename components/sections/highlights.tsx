@@ -3,8 +3,8 @@
 import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
-import { type StickyFeature } from "@/lib/sticky-cards-data";
-import { useContent } from "@/components/content-provider";
+import { type StickyFeature } from "@/lib/data/sticky-cards";
+import { useContent } from "@/components/providers/content-provider";
 
 export interface StickyFeatureSectionProps {
   id?: string;

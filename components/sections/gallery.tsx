@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import { clsx } from "clsx";
-import { useContent } from "@/components/content-provider";
-import TailwindImageAccordion from "@/components/ui/tailwind-image-accordion";
+import { useContent } from "@/components/providers/content-provider";
+import TailwindImageAccordion from "@/components/sections/image-accordion";
 
 export default function Gallery({ id = "gallery", className = "" }: { id?: string; className?: string }) {
   const { experience: EXPERIENCE } = useContent();

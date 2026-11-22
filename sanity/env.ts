@@ -1,5 +1,5 @@
 // Sanity connection settings. Set these in .env.local (see .env.local.example).
-// Until a project ID is set, the site keeps using the local data in lib/*-data.ts.
+// Until a project ID is set, the site keeps using the local data in lib/data/*.ts.
 
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "";
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
