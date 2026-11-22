@@ -107,10 +107,13 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
                   transition={{ duration: 0.7, delay: 0.2 + i * 0.035, ease: EASE }}
                 >
                   {w === "AI" ? (
-                    <span className="inline-flex items-center gap-2 bg-primary py-0.5 pl-3 pr-1 text-white">
+                    <span className="inline-flex items-center gap-2.5 bg-primary py-1 pl-3 pr-1.5 text-white">
                       AI
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/bloub-default-cycle.gif" alt="" className="h-[1.1em] w-[1.1em] rounded-full bg-white object-cover" />
+                      {/* The gif has a wide white margin around the blob; zooming 1.6x crops it so the blob fills the circle. */}
+                      <span className="inline-block h-[1.3em] w-[1.3em] overflow-hidden rounded-full bg-[#0a0a0a]">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src="/bloub-default-cycle.gif" alt="" className="h-full w-full scale-[1.6] object-cover" />
+                      </span>
                     </span>
                   ) : (
                     w

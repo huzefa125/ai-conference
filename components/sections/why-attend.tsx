@@ -3,18 +3,24 @@
 import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
+import { useInView, useReducedMotion } from "motion/react";
 import { ArrowRightIcon } from "@phosphor-icons/react";
 import { iconFor } from "@/lib/icons";
 import { useContent } from "@/components/providers/content-provider";
+import { PERPLEXITY_MARK } from "@/components/icons/brand-marks";
+import { AnimatedMark } from "@/components/icons/animated-mark";
 
 export default function WhyAttend({ id = "why", className = "" }: { id?: string; className?: string }) {
   const { whyAttend: WHY_ATTEND, venue: VENUE } = useContent();
+  const reduce = useReducedMotion() ?? false;
+  const introRef = React.useRef<HTMLDivElement>(null);
+  const inView = useInView(introRef, { once: true, amount: 0.3 });
   return (
     <section id={id} className={clsx("w-full py-12 md:py-20", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] lg:gap-16">
           {/* Left: sticky intro */}
-          <div className="lg:sticky lg:top-28 lg:self-start">
+          <div ref={introRef} className="relative isolate lg:sticky lg:top-28 lg:self-start">
             <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">Why attend</span>
             <h2 className="mt-3 text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
               Six reasons to be in the room
@@ -39,6 +45,17 @@ export default function WhyAttend({ id = "why", className = "" }: { id?: string;
               Get your ticket
               <ArrowRightIcon weight="bold" size={16} />
             </a>
+
+            {/* Perplexity mark, styled like the Claude and ChatGPT marks. On desktop it sits under the
+                button and stays in view with the sticky column; on phones, small behind the heading. */}
+            <AnimatedMark
+              mark={PERPLEXITY_MARK}
+              show={inView || reduce}
+              reduce={reduce}
+              spinSeconds={90}
+              strength={1.4}
+              className="absolute -right-2 top-0 -z-10 h-28 w-28 sm:h-36 sm:w-36 lg:static lg:z-auto lg:mt-12 lg:block lg:h-56 lg:w-56"
+            />
           </div>
 
           {/* Right: numbered list */}
