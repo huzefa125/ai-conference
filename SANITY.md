@@ -1,6 +1,6 @@
 # Editing the site with Sanity
 
-All site content can be edited in Sanity Studio at **/studio**. Any field left empty in Sanity uses the built-in content in `lib/*-data.ts`, so nothing on the page goes blank.
+All site content can be edited in Sanity Studio at **/studio**. Any field left empty in Sanity uses the built-in content in `lib/data/*.ts`, so nothing on the page goes blank.
 
 ## How publishing works: the site is static
 
@@ -34,19 +34,19 @@ Content is read from Sanity **once, during `npm run build`**, and baked into sta
 
 If you prefer to keep content in the code, edit the data files and push them to Sanity:
 
-1. Edit the right file in `lib/`:
+1. Edit the right file in `lib/data/`:
    | File | Content |
    | --- | --- |
-   | `speakers-data.ts` | Speakers |
-   | `agenda-data.ts` | Agenda days, sessions, track names |
-   | `tickets-data.ts` | Tickets |
-   | `blog-data.ts` | Blog posts |
-   | `conferences-data.ts` | Conferences |
-   | `testimonials-data.ts` | Testimonials |
-   | `sticky-cards-data.ts` | "Your three days" cards |
-   | `how-it-works-data.ts` | How it works |
-   | `pages-data.ts` | About and Contact pages |
-   | `site-data.ts` | Event details and stats, why attend, travel, call for speakers, sponsors, FAQs, experience photos, footer |
+   | `speakers.ts` | Speakers |
+   | `agenda.ts` | Agenda days, sessions, track names |
+   | `tickets.ts` | Tickets |
+   | `blog.ts` | Blog posts |
+   | `conferences.ts` | Conferences |
+   | `testimonials.ts` | Testimonials |
+   | `sticky-cards.ts` | "Your three days" cards |
+   | `how-it-works.ts` | How it works |
+   | `pages.ts` | About and Contact pages |
+   | `site.ts` | Event details and stats, why attend, travel, call for speakers, sponsors, FAQs, experience photos, footer |
 2. Push it to Sanity: `npm run sanity:push`
 3. Rebuild and deploy so the live site updates (redeploy in Vercel, or commit and merge to `main`).
 

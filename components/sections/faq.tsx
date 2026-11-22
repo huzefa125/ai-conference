@@ -4,7 +4,7 @@ import * as React from "react";
 import { clsx } from "clsx";
 import * as Accordion from "@radix-ui/react-accordion";
 import { PlusIcon } from "@phosphor-icons/react";
-import { useContent } from "@/components/content-provider";
+import { useContent } from "@/components/providers/content-provider";
 
 export default function Faq({ id = "faq", className = "" }: { id?: string; className?: string }) {
   const { faqs: FAQS } = useContent();

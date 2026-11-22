@@ -17,8 +17,8 @@ import {
   NavigationMenuPositioner,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu-1";
-import { useContent } from "@/components/content-provider";
+} from "@/components/ui/navigation-menu";
+import { useContent } from "@/components/providers/content-provider";
 import { cn } from "@/lib/utils";
 
 export interface NavItem {

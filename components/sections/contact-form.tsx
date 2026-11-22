@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useContent } from "@/components/content-provider";
+import { useContent } from "@/components/providers/content-provider";
 
 // Underline-only fields: no box, just a bottom rule that turns blue on focus.
 const field =

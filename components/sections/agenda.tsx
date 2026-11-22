@@ -4,8 +4,8 @@ import * as React from "react";
 import { clsx } from "clsx";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { MapPinIcon, MicrophoneStageIcon } from "@phosphor-icons/react";
-import { type AgendaDay, type Session, type TrackId } from "@/lib/agenda-data";
-import { useContent } from "@/components/content-provider";
+import { type AgendaDay, type Session, type TrackId } from "@/lib/data/agenda";
+import { useContent } from "@/components/providers/content-provider";
 
 type Filter = "all" | TrackId;
 

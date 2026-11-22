@@ -4,7 +4,7 @@ import * as React from "react";
 import { clsx } from "clsx";
 import { ArrowRightIcon } from "@phosphor-icons/react";
 import { iconFor } from "@/lib/icons";
-import { useContent } from "@/components/content-provider";
+import { useContent } from "@/components/providers/content-provider";
 
 export default function Sponsors({ id = "sponsors", className = "" }: { id?: string; className?: string }) {
   const { sponsors: SPONSORS } = useContent();

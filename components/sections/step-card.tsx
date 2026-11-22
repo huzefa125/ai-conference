@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import type { StepTheme } from "@/lib/how-it-works-data";
+import type { StepTheme } from "@/lib/data/how-it-works";
 
 type Colors = { bg: string; text: string; border: string };
 

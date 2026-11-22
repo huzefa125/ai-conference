@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon } from "@phosphor-icons/react/ssr";
-import PageShell from "@/components/sections/page-shell";
+import PageShell from "@/components/layout/page-shell";
 import BlogCard from "@/components/sections/blog-card";
-import { formatDate } from "@/lib/blog-data";
+import { formatDate } from "@/lib/data/blog";
 import { getContent } from "@/lib/content";
 
 export const metadata: Metadata = {

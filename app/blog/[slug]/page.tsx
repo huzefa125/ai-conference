@@ -3,9 +3,9 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeftIcon } from "@phosphor-icons/react/ssr";
-import PageShell from "@/components/sections/page-shell";
+import PageShell from "@/components/layout/page-shell";
 import BlogCard from "@/components/sections/blog-card";
-import { formatDate } from "@/lib/blog-data";
+import { formatDate } from "@/lib/data/blog";
 import { getContent, getPost } from "@/lib/content";
 
 export async function generateStaticParams() {

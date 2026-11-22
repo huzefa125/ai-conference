@@ -4,9 +4,9 @@ import {
   ArrowRightIcon,
   MapPinIcon,
 } from "@phosphor-icons/react/ssr";
-import PageShell from "@/components/sections/page-shell";
-import CtaBanner from "@/components/ui/cta-banner";
-import Team from "@/components/ui/team";
+import PageShell from "@/components/layout/page-shell";
+import CtaBanner from "@/components/sections/cta-banner";
+import Team from "@/components/sections/team";
 import { ScrollRevealText } from "@/components/sections/scroll-reveal-text";
 import { getContent } from "@/lib/content";
 import { iconFor } from "@/lib/icons";

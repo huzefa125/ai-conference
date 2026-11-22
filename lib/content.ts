@@ -10,7 +10,7 @@ export type { SiteContent };
  * All site content, read from Sanity once during `next build` and baked into the static pages.
  * Production never refetches: publishing in Sanity changes the live site only after the next build.
  * In `next dev` it refreshes on reload so you can preview edits locally.
- * Falls back to the local data (lib/*-data.ts) field by field.
+ * Falls back to the local data (lib/data/*.ts) field by field.
  */
 export async function getContent(): Promise<SiteContent> {
   "use cache";

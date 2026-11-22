@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { getContent } from "@/lib/content";
-import { ContentProvider } from "@/components/content-provider";
+import { ContentProvider } from "@/components/providers/content-provider";
 
 // The whole site is static: every page is generated at build time, and the build fails
 // if anything would need to render per request.

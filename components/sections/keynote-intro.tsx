@@ -5,50 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { animate, motion, useInView, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import { useContent } from "@/components/content-provider";
+import { useContent } from "@/components/providers/content-provider";
+import { CLAUDE_MARK } from "@/components/icons/brand-marks";
+import { AnimatedMark } from "@/components/icons/animated-mark";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 // The statement, word by word. "AI" gets the animated blob gif beside it.
 const WORDS = "Every keynote comes from people running AI in production, not just talking about it.".split(" ");
 
-// Claude symbol (from Claude_AI_symbol.svg), recoloured to the brand blue.
-const CLAUDE_PATH =
-  "m19.6 66.5 19.7-11 .3-1-.3-.5h-1l-3.3-.2-11.2-.3L14 53l-9.5-.5-2.4-.5L0 49l.2-1.5 2-1.3 2.9.2 6.3.5 9.5.6 6.9.4L38 49.1h1.6l.2-.7-.5-.4-.4-.4L29 41l-10.6-7-5.6-4.1-3-2-1.5-2-.6-4.2 2.7-3 3.7.3.9.2 3.7 2.9 8 6.1L37 36l1.5 1.2.6-.4.1-.3-.7-1.1L33 25l-6-10.4-2.7-4.3-.7-2.6c-.3-1-.4-2-.4-3l3-4.2L28 0l4.2.6L33.8 2l2.6 6 4.1 9.3L47 29.9l2 3.8 1 3.4.3 1h.7v-.5l.5-7.2 1-8.7 1-11.2.3-3.2 1.6-3.8 3-2L61 2.6l2 2.9-.3 1.8-1.1 7.7L59 27.1l-1.5 8.2h.9l1-1.1 4.1-5.4 6.9-8.6 3-3.5L77 13l2.3-1.8h4.3l3.1 4.7-1.4 4.9-4.4 5.6-3.7 4.7-5.3 7.1-3.2 5.7.3.4h.7l12-2.6 6.4-1.1 7.6-1.3 3.5 1.6.4 1.6-1.4 3.4-8.2 2-9.6 2-14.3 3.3-.2.1.2.3 6.4.6 2.8.2h6.8l12.6 1 3.3 2 1.9 2.7-.3 2-5.1 2.6-6.8-1.6-16-3.8-5.4-1.3h-.8v.4l4.6 4.5 8.3 7.5L89 80.1l.5 2.4-1.3 2-1.4-.2-9.2-7-3.6-3-8-6.8h-.5v.7l1.8 2.7 9.8 14.7.5 4.5-.7 1.4-2.6 1-2.7-.6-5.8-8-6-9-4.7-8.2-.5.4-2.9 30.2-1.3 1.5-3 1.2-2.5-2-1.4-3 1.4-6.2 1.6-8 1.3-6.4 1.2-7.9.7-2.6v-.2H49L43 72l-9 12.3-7.2 7.6-1.7.7-3-1.5.3-2.8L24 86l10-12.8 6-7.9 4-4.6-.1-.5h-.3L17.2 77.4l-4.7.6-2-2 .2-3 1-1 8-5.5Z";
-
-/** Blue Claude symbol: outline draws in, fill floods in, then it turns slowly and breathes. */
-function Spark({ show, reduce }: { show: boolean; reduce: boolean }) {
-  return (
-    <motion.svg
-      aria-hidden
-      viewBox="-4 -4 108 108"
-      className="pointer-events-none absolute -right-10 top-1/2 h-52 w-52 -translate-y-1/2 sm:right-0 sm:h-64 sm:w-64 lg:-right-6 lg:h-72 lg:w-72"
-      animate={reduce ? undefined : { rotate: 360 }}
-      transition={{ duration: 60, ease: "linear", repeat: Infinity }}
-    >
-      <motion.g
-        style={{ transformOrigin: "50px 50px" }}
-        animate={reduce ? undefined : { scale: [1, 1.05, 1] }}
-        transition={{ duration: 4, ease: "easeInOut", repeat: Infinity }}
-      >
-        <motion.path
-          d={CLAUDE_PATH}
-          fill="var(--primary)"
-          stroke="var(--primary)"
-          strokeWidth={0.6}
-          strokeLinejoin="round"
-          initial={reduce ? false : { pathLength: 0, fillOpacity: 0, strokeOpacity: 1 }}
-          animate={show ? { pathLength: 1, fillOpacity: 0.11, strokeOpacity: 0.28 } : undefined}
-          transition={{
-            pathLength: { duration: 2, delay: 0.4, ease: EASE },
-            fillOpacity: { duration: 0.9, delay: 1.9 },
-            strokeOpacity: { duration: 0.9, delay: 1.9 },
-          }}
-        />
-      </motion.g>
-    </motion.svg>
-  );
-}
 
 /** Counts up to a value like "3", "5" or "1,000+" once `start` is true. */
 function CountUp({ value, start, reduce }: { value: string; start: boolean; reduce: boolean }) {
@@ -142,10 +107,13 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
                   transition={{ duration: 0.7, delay: 0.2 + i * 0.035, ease: EASE }}
                 >
                   {w === "AI" ? (
-                    <span className="inline-flex items-center gap-2 bg-primary py-0.5 pl-3 pr-1 text-white">
+                    <span className="inline-flex items-center gap-2.5 bg-primary py-1 pl-3 pr-1.5 text-white">
                       AI
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/bloub-default-cycle.gif" alt="" className="h-[1.1em] w-[1.1em] rounded-full bg-white object-cover" />
+                      {/* The gif has a wide white margin around the blob; zooming 1.6x crops it so the blob fills the circle. */}
+                      <span className="inline-block h-[1.3em] w-[1.3em] overflow-hidden rounded-full bg-[#0a0a0a]">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src="/bloub-default-cycle.gif" alt="" className="h-full w-full scale-[1.6] object-cover" />
+                      </span>
                     </span>
                   ) : (
                     w
@@ -169,7 +137,12 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
 
           {/* Stats over the spark */}
           <div className="relative mt-12 py-8 sm:mt-14">
-            <Spark show={show} reduce={reduce} />
+            <AnimatedMark
+              mark={CLAUDE_MARK}
+              show={show}
+              reduce={reduce}
+              className="absolute -right-10 top-1/2 h-52 w-52 -translate-y-1/2 sm:right-0 sm:h-64 sm:w-64 lg:-right-6 lg:h-72 lg:w-72"
+            />
             <dl className="relative flex items-end justify-between gap-4 sm:justify-start sm:gap-12 lg:gap-10 xl:gap-14">
               {VENUE.stats.map((s) => (
                 <div key={s.label} className="flex flex-col-reverse gap-2">

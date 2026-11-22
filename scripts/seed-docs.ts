@@ -1,14 +1,14 @@
 // The documents the seed script writes, built from the local data files. Pure, so it can be tested offline.
-import { AGENDA, TRACK_LABELS } from "../lib/agenda-data";
-import { BLOG_POSTS } from "../lib/blog-data";
-import { CONFERENCES } from "../lib/conferences-data";
-import { HOW_IT_WORKS } from "../lib/how-it-works-data";
-import { ABOUT, CONTACT } from "../lib/pages-data";
-import { CFP, EXPERIENCE, FAQS, FOOTER, SPONSORS, TRAVEL, VENUE, WHY_ATTEND } from "../lib/site-data";
-import { SPEAKERS } from "../lib/speakers-data";
-import { STICKY_FEATURES } from "../lib/sticky-cards-data";
-import { REVIEWS } from "../lib/testimonials-data";
-import { TICKETS } from "../lib/tickets-data";
+import { AGENDA, TRACK_LABELS } from "../lib/data/agenda";
+import { BLOG_POSTS } from "../lib/data/blog";
+import { CONFERENCES } from "../lib/data/conferences";
+import { HOW_IT_WORKS } from "../lib/data/how-it-works";
+import { ABOUT, CONTACT } from "../lib/data/pages";
+import { CFP, EXPERIENCE, FAQS, FOOTER, SPONSORS, TRAVEL, VENUE, WHY_ATTEND } from "../lib/data/site";
+import { SPEAKERS } from "../lib/data/speakers";
+import { STICKY_FEATURES } from "../lib/data/sticky-cards";
+import { REVIEWS } from "../lib/data/testimonials";
+import { TICKETS } from "../lib/data/tickets";
 
 export type Doc = { _id: string; _type: string; [k: string]: unknown };
 

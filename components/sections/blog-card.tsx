@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "@phosphor-icons/react/ssr";
-import { formatDate, type BlogPost } from "@/lib/blog-data";
+import { formatDate, type BlogPost } from "@/lib/data/blog";
 
 /** Post card used on the home page section and on /blog. */
 export default function BlogCard({ post }: { post: BlogPost }) {

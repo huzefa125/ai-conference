@@ -1,5 +1,5 @@
-import { Navbar } from "@/components/ui/navbar";
-import SiteFooter from "@/components/sections/site-footer";
+import { Navbar } from "@/components/layout/navbar";
+import SiteFooter from "@/components/layout/site-footer";
 
 /** Shared frame for inner pages: site header, page content, site footer. */
 export default function PageShell({ children }: { children: React.ReactNode }) {

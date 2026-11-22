@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { GlobeIcon, InstagramLogoIcon, LinkedinLogoIcon, XLogoIcon, YoutubeLogoIcon } from "@phosphor-icons/react/ssr";
-import PageShell from "@/components/sections/page-shell";
+import PageShell from "@/components/layout/page-shell";
 import ContactForm from "@/components/sections/contact-form";
-import Faq from "@/components/ui/faq";
+import Faq from "@/components/sections/faq";
 import { getContent } from "@/lib/content";
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 // Pure (no Next.js / network) so it can be tested with plain Node.
 import { LOCAL_CONTENT, type SiteContent } from "./content-local";
-import type { BlogPost } from "./blog-data";
+import type { BlogPost } from "./data/blog";
 
 // Image helper: prefer an uploaded asset, fall back to the external URL field.
 const img = (f: string) => `"${f}": coalesce(${f}.asset->url, ${f}Url)`;

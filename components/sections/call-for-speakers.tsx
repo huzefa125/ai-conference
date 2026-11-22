@@ -3,7 +3,7 @@
 import * as React from "react";
 import { clsx } from "clsx";
 import { ArrowRightIcon } from "@phosphor-icons/react";
-import { useContent } from "@/components/content-provider";
+import { useContent } from "@/components/providers/content-provider";
 
 export default function CallForSpeakers({ id = "cfp", className = "" }: { id?: string; className?: string }) {
   const { cfp: CFP } = useContent();

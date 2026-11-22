@@ -5,8 +5,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useContent } from "@/components/content-provider";
-import { formatDate } from "@/lib/blog-data";
+import { useContent } from "@/components/providers/content-provider";
+import { formatDate } from "@/lib/data/blog";
 
 const MotionLink = motion.create(Link);
 
