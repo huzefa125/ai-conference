@@ -5,6 +5,12 @@ export const ABOUT = {
   hero: {
     eyebrow: "About Atlas Global",
     title: "Where AI gets built, not just discussed.",
+    // Big uppercase headline, one entry per line; the last line is set in brand blue.
+    lines: ["Built for", "people who", "ship AI."],
+    // Written in by the animated pen under the headline.
+    note: "...and the ones who broke it first.",
+    caption: "The main hall",
+    link: { label: "Read our story", href: "#story" },
     text: "Atlas Global is a three-day summit for the people who ship AI: founders, engineers, researchers and enterprise leaders, together in Hyderabad.",
   },
   story: {
@@ -27,7 +33,12 @@ export const ABOUT = {
     banner: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1800&q=80&fit=crop",
     ctaImage: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1800&q=80&fit=crop",
   },
-  // Core values: shown as a two-column list on the About page.
+  // Core values: header copy, a handwritten aside, then a 3x2 grid on the About page.
+  valuesIntro: {
+    eyebrow: "What we stand for",
+    text: "The rules we use to pick speakers, plan sessions and run the three days. If a decision breaks one of these, we change the decision.",
+    note: "six promises, zero hype.",
+  },
   values: [
     { title: "Practitioners first", text: "Speakers are chosen for what they have built and run, not for the title on their badge. We would rather hear from the engineer who shipped it than the slide that announced it." },
     { title: "Honest about what works", text: "Every talk shows what worked, what failed and what it cost. No hype, and no sales pitches dressed up as keynotes." },
@@ -70,6 +81,31 @@ export const ABOUT = {
       { label: "Open call", text: "Practitioners submit a short proposal for one of the five tracks." },
       { label: "Committee review", text: "The programme committee reads every submission against the same criteria." },
       { label: "Curated tracks", text: "Accepted talks are grouped into tracks and scheduled across three days." },
+    ],
+  },
+  // Closing "passes" section: headline on the left, two ticket-shaped cards on the right.
+  passes: {
+    eyebrow: "Next summit",
+    titleLead: "Ship what's next",
+    titleMid: "at",
+    titleBrand: "Atlas",
+    titleTail: "Global",
+    text: "Three days of talks, workshops and the people building AI in production.",
+    cards: [
+      {
+        variant: "perforated" as const,
+        tag: "Teams of 5+",
+        title: "Bring your whole team",
+        text: "Group passes, one invoice and seats together for every session. Tell us how many are coming and we'll put an offer together.",
+        cta: { label: "Plan a group booking", href: "/contact?topic=Group%20or%20team%20booking" },
+      },
+      {
+        variant: "notched" as const,
+        tag: "Admit one",
+        title: "Get your ticket now",
+        text: "Talks, hands-on workshops, lunches and the evening sessions, plus recordings after the event.",
+        cta: { label: "Choose your pass", href: "/#tickets" },
+      },
     ],
   },
   cta: {

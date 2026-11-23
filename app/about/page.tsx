@@ -5,7 +5,9 @@ import {
   MapPinIcon,
 } from "@phosphor-icons/react/ssr";
 import PageShell from "@/components/layout/page-shell";
-import CtaBanner from "@/components/sections/cta-banner";
+import AboutHero from "@/components/sections/about-hero";
+import CoreValues from "@/components/sections/core-values";
+import TicketCta from "@/components/sections/ticket-cta";
 import Team from "@/components/sections/team";
 import { ScrollRevealText } from "@/components/sections/scroll-reveal-text";
 import { getContent } from "@/lib/content";
@@ -18,47 +20,29 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage() {
-  const { about: ABOUT, venue: VENUE } = await getContent();
-  const { hero, story, values, team, process, city, cta } = ABOUT;
+  const { about: ABOUT, venue: VENUE, tickets: TICKETS } = await getContent();
+  const { hero, story, values, team, process, city, passes } = ABOUT;
+  const detail = (label: string) => VENUE.details.find((d) => d.label === label)?.value ?? "";
+  const prices = TICKETS.map((t) => t.price).filter((p): p is number => typeof p === "number");
+  const fromPrice = prices.length ? `$${Math.min(...prices)}` : undefined;
   const rest = story.paragraphs.slice(1);
 
   return (
     <PageShell>
-      {/* Hero: big headline, then a wide photo with the stats floating over it */}
-      <section className="w-full pt-12 md:pt-20">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-5xl text-center">
-            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{hero.eyebrow}</span>
-            <h1 className="mt-4 text-[2.6rem] font-extrabold leading-[1.05] tracking-tighter text-foreground sm:text-6xl lg:text-7xl">
-              Where AI gets built, <span className="text-primary">not just discussed.</span>
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              {hero.text}
-            </p>
-          </div>
-
-          <div className="relative mx-auto mt-12 max-w-6xl">
-            <div className="relative aspect-[16/10] overflow-hidden border border-border bg-muted sm:aspect-[16/7]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={story.banner} alt="Atlas Global main hall" className="absolute inset-0 h-full w-full object-cover" />
-              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
-            </div>
-            <dl className="relative z-10 mx-4 -mt-10 grid grid-cols-3 border border-border bg-card shadow-[0_20px_40px_-20px_rgba(15,23,42,0.35)] sm:mx-auto sm:-mt-14 sm:max-w-3xl">
-              {VENUE.stats.map((s, i) => (
-                <div key={s.label} className={`px-3 py-5 text-center sm:py-7 ${i > 0 ? "border-l border-border" : ""}`}>
-                  <dt className="text-2xl font-bold tracking-tight text-foreground sm:text-4xl">{s.value}</dt>
-                  <dd className="mt-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary sm:text-xs">
-                    {s.label}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </section>
+      {/* Hero: same language as the home hero (uppercase type, blue block, full-height photo) */}
+      <AboutHero
+        eyebrow={hero.eyebrow}
+        lines={hero.lines}
+        note={hero.note}
+        text={hero.text}
+        stats={VENUE.stats}
+        image={story.banner}
+        caption={hero.caption}
+        link={hero.link}
+      />
 
       {/* Story */}
-      <section className="w-full py-14 md:py-24">
+      <section id="story" className="w-full scroll-mt-24 py-14 md:py-24">
         <div className="container mx-auto px-4">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
             <div>
@@ -95,26 +79,13 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Core values: soft panel, centred title, two-column list */}
-      <section className="w-full py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-6xl border border-primary/15 bg-primary/[0.04] px-6 py-12 sm:px-10 md:px-16 md:py-20">
-            <h2 className="text-center text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
-              Our core{" "}
-              <span className="underline decoration-primary decoration-4 underline-offset-[10px]">values</span>
-            </h2>
-
-            <div className="mt-12 grid grid-cols-1 gap-x-16 gap-y-10 md:mt-16 md:grid-cols-2 md:gap-y-14">
-              {values.map((v) => (
-                <div key={v.title}>
-                  <h3 className="text-xl font-bold text-foreground sm:text-2xl">{v.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">{v.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Core values: hand-circled title, pen-written aside, numbered grid */}
+      <CoreValues
+        eyebrow={ABOUT.valuesIntro.eyebrow}
+        intro={ABOUT.valuesIntro.text}
+        note={ABOUT.valuesIntro.note}
+        values={values}
+      />
 
       {/* Team: marquee of framed portraits */}
       <Team members={team} quote={ABOUT.teamQuote} />
@@ -214,13 +185,15 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* CTA: same banner as the home page */}
-      <CtaBanner
-        id="join"
-        title={cta.title}
-        text={cta.text}
-        primary={cta.primary}
-        secondary={cta.secondary}
+      {/* Closing CTA: headline + two ticket-shaped cards */}
+      <TicketCta
+        {...passes}
+        meta={[
+          { label: passes.eyebrow, value: detail("Dates") },
+          { label: "Where", value: detail("City") },
+          { label: "Format", value: detail("Format") },
+        ]}
+        fromPrice={fromPrice}
       />
     </PageShell>
   );
