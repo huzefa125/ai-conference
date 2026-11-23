@@ -17,6 +17,9 @@ import { cn } from "@/lib/utils";
 
 const INK = "var(--primary)";
 
+/** Caveat (loaded in app/layout.tsx) with handwriting fallbacks. Use for any handwritten text. */
+export const HAND_FONT = "font-[family-name:var(--font-caveat),'Segoe_Print','Bradley_Hand',cursive]";
+
 function useInk<T extends Element>() {
   const reduce = useReducedMotion() ?? false;
   const ref = React.useRef<T>(null);
@@ -96,7 +99,7 @@ export function Handwritten({
   const total = land + write + lift;
 
   return (
-    <span ref={ref} className={cn("relative inline-block font-hand font-semibold leading-none text-primary", className)}>
+    <span ref={ref} className={cn("relative inline-block font-semibold", HAND_FONT, " leading-none text-primary", className)}>
       <motion.span
         className="inline-block whitespace-nowrap px-[0.12em] py-[0.2em]"
         initial={reduce ? false : { clipPath: "inset(0 100% 0 0)" }}
@@ -154,7 +157,7 @@ export function HandCircle({ children, delay = 0, className }: { children: React
         aria-hidden
         viewBox="0 0 200 80"
         preserveAspectRatio="none"
-        className="pointer-events-none absolute -left-[10%] -top-[18%] h-[136%] w-[120%] overflow-visible"
+        className="pointer-events-none absolute -left-[6%] -top-[18%] h-[136%] w-[112%] overflow-visible"
       >
         <Stroke
           d="M34 14C84 0 168 2 192 30C212 60 124 78 62 72C12 66-2 42 20 22C40 6 96 2 128 8"

@@ -50,7 +50,7 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
 
   return (
     <section className="flex flex-col lg:h-[calc(100svh-8.75rem)] lg:min-h-[560px]">
-      <div className="container mx-auto grid min-h-0 flex-1 gap-8 px-4 pb-8 pt-4 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pb-10">
+      <div className="container mx-auto grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)] gap-8 px-4 pb-8 pt-4 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pb-10">
         {/* Left: type, with a faint brand mark behind it */}
         <div className="relative isolate flex min-h-0 flex-col justify-center">
           <AnimatedMark
@@ -59,14 +59,15 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
             reduce={reduce}
             delay={0.9}
             // Top right, in the space beside the headline: never behind the small copy.
-            className="absolute -right-10 top-0 -z-10 h-40 w-40 sm:right-0 sm:h-52 sm:w-52 lg:right-0 lg:top-[4%] lg:h-52 lg:w-52 xl:h-60 xl:w-60 2xl:h-72 2xl:w-72"
+            // Hidden on phones; from `sm` up it sits beside the headline.
+            className="absolute right-0 top-0 -z-10 hidden h-36 w-36 sm:right-0 sm:block sm:h-52 sm:w-52 lg:right-0 lg:top-[4%] lg:h-52 lg:w-52 xl:h-60 xl:w-60 2xl:h-72 2xl:w-72"
           />
 
           <motion.span {...rise(0)} className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">
             {eyebrow}
           </motion.span>
 
-          <h1 className="mt-4 font-heading text-[clamp(2.6rem,11.5vw,5.75rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.045em] text-foreground lg:text-[clamp(3rem,min(6vw,10vh),7rem)]">
+          <h1 className="mt-4 font-heading text-[clamp(2.1rem,11vw,5.75rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.045em] text-foreground lg:text-[clamp(3rem,min(6vw,10vh),7rem)]">
             {lines.map((l, i) => (
               <Line key={l} delay={0.05 + i * 0.1} reduce={reduce}>
                 <span className={i === lines.length - 1 ? "text-primary" : undefined}>{l}</span>
@@ -76,7 +77,7 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
 
           {/* Handwritten aside, written in by the pen after the headline lands */}
           <p className="mt-3 pl-1 sm:mt-4">
-            <Handwritten delay={1.15} underline className="-rotate-2 text-[1.4rem] sm:text-[2.1rem]">
+            <Handwritten delay={1.15} underline className="-rotate-2 text-[clamp(1.1rem,5.6vw,1.4rem)] sm:text-[2.1rem]">
               {note}
             </Handwritten>
           </p>
