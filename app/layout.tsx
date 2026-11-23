@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, JetBrains_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 import { getContent } from "@/lib/content";
 import { ContentProvider } from "@/components/providers/content-provider";
@@ -25,6 +25,14 @@ const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
+});
+
+// Handwritten notes in blue "ink" (components/ui/handwritten.tsx).
+const hand = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: "swap",
+  weight: ["500", "600", "700"],
 });
 
 export const viewport: Viewport = {
@@ -54,7 +62,7 @@ export default async function RootLayout({
   return (
     // suppressHydrationWarning: browser extensions add attributes (e.g. inline styles) to <html> before
     // React loads. It only covers this element's own attributes, not the page inside it.
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jakarta.variable} ${mono.variable} scroll-smooth`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jakarta.variable} ${mono.variable} ${hand.variable} scroll-smooth`}>
       <body className="min-h-screen bg-[#FAF8F5] text-[#0F172A] antialiased font-sans selection:bg-[#2563EB] selection:text-[#FAF8F5]">
         <ContentProvider value={content}>{children}</ContentProvider>
       </body>
