@@ -4,28 +4,28 @@
 export const ABOUT = {
   hero: {
     eyebrow: "About Atlas Global",
-    title: "Where AI gets built, not just discussed.",
+    title: "Where science gets done, not just presented.",
     // Big uppercase headline, one entry per line; the last line is set in brand blue.
-    lines: ["Built for", "people who", "ship AI."],
+    lines: ["Built for", "people who", "do science."],
     // Written in by the animated pen under the headline.
-    note: "...and the ones who broke it first.",
+    note: "...and the experiments that failed.",
     caption: "The main hall",
     link: { label: "Read our story", href: "#story" },
-    text: "Atlas Global is a three-day summit for the people who ship AI: founders, engineers, researchers and enterprise leaders, together in Hyderabad.",
+    text: "Atlas Global is a three-day summit for the people who do the research: scientists, lab and field teams, research engineers and the people who fund them, together in Hyderabad.",
   },
   story: {
     title: "Why we run Atlas Global",
     paragraphs: [
-      "Most AI events are about what might be possible. We wanted one about what is already working, and what broke along the way.",
-      "So every session at Atlas Global comes from someone running AI in production. Talks are specific, workshops are hands-on, and the evenings are designed so you actually meet the people you came to meet.",
-      "The summit is organised by Atlas Conferences & Events, with a programme committee that reads every speaker submission.",
+      "Most science conferences are a parade of polished results. We wanted one about what the data showed, and what didn't replicate along the way.",
+      "So every session at Atlas Global comes from someone doing the work: in the lab, in the field or at the analysis bench. Talks cover methods, data, what failed and what it cost, workshops are hands-on, and the evenings are designed so you actually meet the people you came to meet.",
+      "The summit is organised by Atlas Conferences & Events, with a programme committee that reads every talk proposal and poster abstract.",
     ],
     // Same word-by-word reveal as the home page statement; pills mark the key phrases.
     leadSegments: [
-      { text: "Most AI events are about what might be possible. We wanted one about" },
-      { text: "what already works", pill: "accent-solid" as const },
+      { text: "Most science conferences are a parade of polished results. We wanted one about" },
+      { text: "what the data showed", pill: "accent-solid" as const },
       { text: ", and" },
-      { text: "what broke", pill: "maroon-solid" as const },
+      { text: "what didn't replicate", pill: "maroon-solid" as const },
       { text: "along the way." },
     ],
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80&fit=crop",
@@ -36,16 +36,16 @@ export const ABOUT = {
   // Core values: header copy, a handwritten aside, then a 3x2 grid on the About page.
   valuesIntro: {
     eyebrow: "What we stand for",
-    text: "The rules we use to pick speakers, plan sessions and run the three days. If a decision breaks one of these, we change the decision.",
-    note: "six promises, zero hype.",
+    text: "The rules we use to pick speakers, review abstracts and run the three days. If a decision breaks one of these, we change the decision.",
+    note: "six promises, no spin.",
   },
   values: [
-    { title: "Practitioners first", text: "Speakers are chosen for what they have built and run, not for the title on their badge. We would rather hear from the engineer who shipped it than the slide that announced it." },
-    { title: "Honest about what works", text: "Every talk shows what worked, what failed and what it cost. No hype, and no sales pitches dressed up as keynotes." },
-    { title: "Built for conversation", text: "Small workshops, shared lunches and open evenings keep the three days conversational, so you leave with people to call, not just notes." },
-    { title: "Open to everyone", text: "Students, founders and enterprise teams sit in the same sessions. A good question matters more than seniority." },
+    { title: "Researchers first", text: "Speakers are chosen for the work they have done, not for the title on their badge. We would rather hear from the postdoc who ran the experiment than the press release that announced it." },
+    { title: "Methods, not just results", text: "Every talk shows how the work was done: the design, the data, what failed and what it cost. No spin, and no sales pitches dressed up as keynotes." },
+    { title: "Built for conversation", text: "Small workshops, poster sessions, shared lunches and open evenings keep the three days conversational, so you leave with collaborators, not just notes." },
+    { title: "Open across fields", text: "PhD students, principal investigators and industry scientists from every track sit in the same sessions. A good question matters more than seniority." },
     { title: "Respect for your time", text: "Sessions start on time, talks stay focused and every track is planned so you never sit through filler." },
-    { title: "Value that lasts", text: "Slides, resources and recordings are shared after the event, so your whole team benefits, not just the people who attended." },
+    { title: "Open by default", text: "Slides, posters, links to code and data, and recordings are shared after the event, so your whole group benefits, not just the people who attended." },
   ],
   // SAMPLE TEAM: fictional names with stock portraits (Unsplash). Replace with the real team and their photos.
   team: [
@@ -58,19 +58,19 @@ export const ABOUT = {
   ],
   // SAMPLE QUOTE from the (fictional) team above. Replace with a real one.
   teamQuote: {
-    text: "We build the event we always wanted to attend: specific talks, honest speakers and rooms where you can actually meet people.",
+    text: "We build the meeting we always wanted to attend: talks about how the work was really done, honest speakers and rooms where you can actually meet people.",
     name: "Arjun Varma",
     role: "Summit Director",
     photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop&crop=faces",
   },
   city: {
     title: "Why Hyderabad",
-    text: "We chose Hyderabad because the people building AI are already here. It is one of India's largest technology hubs, easy to reach and a great city to spend three days in.",
+    text: "We chose Hyderabad because a lot of the research is already happening here. The city has major universities, national research institutes and one of India's largest life-sciences clusters, and it is easy to reach and a great place to spend three days.",
     coords: "17.3850° N, 78.4867° E",
     image: "https://images.unsplash.com/photo-1657981630164-769503f3a9a8?w=1000&q=80&fit=crop",
     facts: [
-      { icon: "Code", title: "A tech capital", text: "HITEC City and the Financial District are home to engineering teams from global and Indian tech companies." },
-      { icon: "Buildings", title: "Builders nearby", text: "A deep pool of engineers, researchers and founders means the room is full of practitioners." },
+      { icon: "Flask", title: "A research city", text: "Universities and national institutes such as CCMB, NGRI and ICRISAT work across biology, geoscience and agriculture." },
+      { icon: "Dna", title: "Genome Valley", text: "A large biotech and pharma cluster on the edge of the city, with research labs and R&D teams close by." },
       { icon: "AirplaneTilt", title: "Easy to reach", text: "Rajiv Gandhi International Airport (HYD) has domestic and international connections." },
       { icon: "ForkKnife", title: "Worth the trip", text: "From the Charminar to Hyderabadi biryani, the evenings are part of the experience." },
     ],
@@ -78,39 +78,39 @@ export const ABOUT = {
   process: {
     title: "How the programme is built",
     steps: [
-      { label: "Open call", text: "Practitioners submit a short proposal for one of the five tracks." },
-      { label: "Committee review", text: "The programme committee reads every submission against the same criteria." },
-      { label: "Curated tracks", text: "Accepted talks are grouped into tracks and scheduled across three days." },
+      { label: "Open call", text: "Researchers submit a talk proposal or poster abstract for one of the five tracks." },
+      { label: "Committee review", text: "A programme committee drawn from each field reads every submission against the same criteria." },
+      { label: "Curated tracks", text: "Accepted talks and posters are grouped into tracks and scheduled across three days." },
     ],
   },
   // Closing "passes" section: headline on the left, two ticket-shaped cards on the right.
   passes: {
     eyebrow: "Next summit",
-    titleLead: "Ship what's next",
+    titleLead: "Share your work",
     titleMid: "at",
     titleBrand: "Atlas",
     titleTail: "Global",
-    text: "Three days of talks, workshops and the people building AI in production.",
+    text: "Three days of talks, workshops, posters and the people doing the research.",
     cards: [
       {
         variant: "perforated" as const,
         tag: "Teams of 5+",
-        title: "Bring your whole team",
-        text: "Group passes, one invoice and seats together for every session. Tell us how many are coming and we'll put an offer together.",
+        title: "Bring your whole lab",
+        text: "Group passes for labs and departments, one invoice and seats together for every session. Tell us how many are coming and we'll put an offer together.",
         cta: { label: "Plan a group booking", href: "/contact?topic=Group%20or%20team%20booking" },
       },
       {
         variant: "notched" as const,
         tag: "Admit one",
         title: "Get your ticket now",
-        text: "Talks, hands-on workshops, lunches and the evening sessions, plus recordings after the event.",
+        text: "Talks, hands-on workshops, poster sessions, lunches and the evenings, plus recordings after the event.",
         cta: { label: "Choose your pass", href: "/#tickets" },
       },
     ],
   },
   cta: {
     title: "Join us in Hyderabad",
-    text: "Three days of talks, workshops and the people building AI. Pick your pass and reserve your seat.",
+    text: "Three days of talks, workshops and the people doing the research. Pick your pass and reserve your seat.",
     primary: { label: "Get your ticket", href: "/#tickets" },
     secondary: { label: "Contact the team", href: "/contact" },
   },
@@ -120,19 +120,19 @@ export const CONTACT = {
   hero: {
     eyebrow: "Contact",
     title: "Get in touch",
-    text: "Questions about tickets, speaking, sponsorship or group bookings? Send us a note and the team will reply.",
+    text: "Questions about tickets, speaking, posters, sponsorship or group bookings? Send us a note and the team will reply.",
   },
   email: "hello@atlas-global.example",
   phone: "+91 00000 00000",
   address: ["Venue to be announced", "Hyderabad, India"],
   hours: "Mon to Fri, 10:00 to 18:00 IST",
-  topics: ["Tickets", "Group or team booking", "Speaking", "Sponsorship", "Press and media", "Something else"],
+  topics: ["Tickets", "Group or team booking", "Speaking", "Posters and abstracts", "Sponsorship", "Press and media", "Something else"],
   // Topic cards: "topic" must match one of `topics` so the form can preselect it.
   help: [
-    { icon: "Ticket", title: "Tickets and groups", text: "Passes, invoices and bookings for five or more people.", topic: "Group or team booking" },
-    { icon: "MicrophoneStage", title: "Speaking", text: "Questions about the call for speakers and your proposal.", topic: "Speaking" },
-    { icon: "Handshake", title: "Sponsorship", text: "Partner packages and how to get your team in the room.", topic: "Sponsorship" },
-    { icon: "Newspaper", title: "Press and media", text: "Press passes, interviews and media enquiries.", topic: "Press and media" },
+    { icon: "Ticket", title: "Tickets and groups", text: "Passes, invoices and bookings for labs and groups of five or more.", topic: "Group or team booking" },
+    { icon: "MicrophoneStage", title: "Speaking and posters", text: "Questions about the call for talks and posters, or your abstract.", topic: "Speaking" },
+    { icon: "Handshake", title: "Sponsorship", text: "Partner packages for institutes, funders and companies that support research.", topic: "Sponsorship" },
+    { icon: "Newspaper", title: "Press and media", text: "Press passes, interviews with speakers and media enquiries.", topic: "Press and media" },
   ],
   quick: [
     { label: "Become a sponsor", href: "/#sponsors" },

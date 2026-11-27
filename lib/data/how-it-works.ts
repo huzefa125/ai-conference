@@ -14,13 +14,13 @@ export const HOW_IT_WORKS = {
     {
       number: "02",
       title: "Confirm your details",
-      body: "Share your name, company, and email. We send your confirmation and your personal schedule right away.",
+      body: "Share your name, institution, and email. We send your confirmation and your personal schedule right away.",
       theme: "navy" as StepTheme,
     },
     {
       number: "03",
       title: "Arrive and connect",
-      body: "Show your QR code at the door, collect your badge, and meet the speakers and founders you came for.",
+      body: "Show your QR code at the door, collect your badge, and meet the researchers you came to talk to.",
       theme: "cream" as StepTheme,
     },
   ],

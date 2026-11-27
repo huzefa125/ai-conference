@@ -22,7 +22,7 @@ async function main() {
     else tx.createIfNotExists(d);
   }
   await tx.commit();
-  console.log("Done. Open /studio to edit.");
+  console.log("Done. Open the Studio to edit (npm run studio, or your <host>.sanity.studio address).");
 }
 
 main().catch((err) => {

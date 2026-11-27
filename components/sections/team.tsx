@@ -13,7 +13,6 @@ export interface TeamProps {
   title?: string;
   subtitle?: string;
   members: TeamMember[];
-  quote?: { text: string; name: string; role: string; photo: string };
 }
 
 /**
@@ -25,52 +24,17 @@ export default function Team({
   title = "The team",
   subtitle = "The people who plan the programme, the partners and your three days.",
   members,
-  quote,
 }: TeamProps) {
   return (
     <section id={id} className="relative w-full overflow-hidden py-12 md:py-20">
-      {/* Decorative stroke, bottom right */}
-      <svg
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 right-0 hidden text-border md:block"
-        fill="none"
-        height="154"
-        viewBox="0 0 460 154"
-        width="460"
-      >
-        <path
-          d="M-87.463 458.432C-102.118 348.092 -77.3418 238.841 -15.0744 188.274C57.4129 129.408 180.708 150.071 351.748 341.128C278.246 -374.233 633.954 380.602 548.123 42.7707"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="40"
-        />
-      </svg>
-
       <div className="relative z-10">
         {/* Heading */}
         <div className="container mx-auto mb-12 flex max-w-3xl flex-col items-center px-4 text-center">
           <span className="mb-6 grid h-12 w-12 place-items-center bg-primary text-primary-foreground shadow-[0_4px_20px_rgba(37,99,235,0.3)]">
             <UsersThreeIcon weight="duotone" size={26} />
           </span>
-          <h2 className="relative text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
             {title}
-            <svg
-              aria-hidden
-              className="absolute -right-10 -top-3 -z-10 w-20 text-primary/15 sm:w-24"
-              fill="none"
-              height="86"
-              viewBox="0 0 108 86"
-              width="108"
-            >
-              <path
-                d="M38.8484 16.236L15 43.5793L78.2688 15L18.1218 71L93 34.1172L70.2047 65.2739"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="28"
-              />
-            </svg>
           </h2>
           <p className="mt-4 text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">{subtitle}</p>
         </div>
@@ -119,23 +83,6 @@ export default function Team({
           </Marquee>
         </div>
 
-        {/* Note from the team */}
-        {quote && (
-          <figure className="container mx-auto mt-14 max-w-3xl px-4 text-center">
-            <span aria-hidden className="block text-6xl font-bold leading-none text-primary/30">“</span>
-            <blockquote className="-mt-2 text-lg font-medium leading-relaxed text-foreground md:text-xl">
-              {quote.text}
-            </blockquote>
-            <figcaption className="mt-8 flex flex-col items-center gap-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={quote.photo} alt="" className="h-14 w-14 rounded-full border-2 border-card object-cover shadow-[var(--shadow-subtle)]" />
-              <span>
-                <span className="block text-sm font-bold text-foreground">{quote.name}</span>
-                <span className="block font-mono text-xs uppercase tracking-widest text-muted-foreground">{quote.role}</span>
-              </span>
-            </figcaption>
-          </figure>
-        )}
       </div>
     </section>
   );

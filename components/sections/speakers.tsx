@@ -20,7 +20,7 @@ export default function Speakers({
   className = "",
   speakers: speakersProp,
   title = "SPEAKERS",
-  subtitle = "Researchers, engineers and operators who build and run AI in production.",
+  subtitle = "Researchers, lab leads and field scientists who share how the work was actually done.",
 }: SpeakersProps) {
   const content = useContent();
   const speakers = speakersProp ?? content.speakers;

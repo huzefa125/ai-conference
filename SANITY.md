@@ -1,6 +1,17 @@
 # Editing the site with Sanity
 
-All site content can be edited in Sanity Studio at **/studio**. Any field left empty in Sanity uses the built-in content in `lib/data/*.ts`, so nothing on the page goes blank.
+All site content can be edited in Sanity Studio. Any field left empty in Sanity uses the built-in content in `lib/data/*.ts`, so nothing on the page goes blank.
+
+## Where the Studio lives
+
+The Studio is **not part of the public site**: there is no `/studio` page on the website. It is hosted by Sanity instead.
+
+| Where | How |
+| --- | --- |
+| **Hosted (for editors)** | `https://<your-name>.sanity.studio`. Publish it with `npm run studio:deploy` (run `npx sanity login` first). The first deploy asks you to pick the name; to fix it in code, set `studioHost` in `sanity.cli.ts`. Redeploy after changing the schema or `sanity.config.ts`. |
+| **Local (for developers)** | `npm run studio` starts it at http://localhost:3333. |
+
+Editors sign in with their Sanity account. Invite them in sanity.io/manage → your project → **Members**.
 
 ## How publishing works: the site is static
 
@@ -20,8 +31,8 @@ Content is read from Sanity **once, during `npm run build`**, and baked into sta
 ## One-time setup
 
 1. **Create a project.** Go to [sanity.io/manage](https://www.sanity.io/manage) and create a free project. Choose the `production` dataset.
-2. **Connect it.** Copy `.env.local.example` to `.env.local` and set `NEXT_PUBLIC_SANITY_PROJECT_ID` to your project ID. Restart `npm run dev`. Set the same variables in your host's build environment.
-3. **Allow the Studio to talk to Sanity.** In sanity.io/manage → your project → **API → CORS origins**, add `http://localhost:3000` and your live domain, each with **Allow credentials** ticked.
+2. **Connect it.** Copy `.env.local.example` to `.env.local` and set your project ID twice: `NEXT_PUBLIC_SANITY_PROJECT_ID` (read by the website) and `SANITY_STUDIO_PROJECT_ID` (read by the Studio). Restart `npm run dev`. Set the `NEXT_PUBLIC_` variables in your host's build environment too.
+3. **Allow the local Studio to talk to Sanity.** In sanity.io/manage → your project → **API → CORS origins**, add `http://localhost:3333` with **Allow credentials** ticked. The hosted `*.sanity.studio` address is allowed automatically when you deploy it.
 4. **Import the current content**, so editors start from what is on the site today:
    ```bash
    npx sanity login
@@ -29,6 +40,7 @@ Content is read from Sanity **once, during `npm run build`**, and baked into sta
    ```
    Re-running it is safe: documents that already exist are left alone. Adding `-- --replace` overwrites them with the built-in content, which **discards edits made in the Studio**.
 5. **Rebuild** to put the imported content live (see "How publishing works" above).
+6. **Deploy the Studio** for editors: `npm run studio:deploy` (see "Where the Studio lives" above).
 
 ## Editing content from code (the seeder)
 
@@ -79,6 +91,7 @@ If you prefer to keep content in the code, edit the data files and push them to 
 ## Files
 
 - `sanity.config.ts`: Studio setup (sidebar, the three one-off pages)
+- `sanity.cli.ts`: Sanity CLI settings (project, dataset, hosted Studio name)
 - `sanity/schemaTypes/`: the editing forms
 - `lib/content-build.ts`: the query, and how Sanity content is merged with the built-in content
 - `lib/content.ts`: build-time fetch used by pages (`getContent()`)

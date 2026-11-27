@@ -23,7 +23,7 @@ export default async function ConferencesPage() {
               Our <span className="text-primary">events</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Practical AI conferences for the people building it. Start with our flagship in Hyderabad.
+              Practical science conferences for the people doing the research. Start with our flagship in Hyderabad.
             </p>
           </div>
 

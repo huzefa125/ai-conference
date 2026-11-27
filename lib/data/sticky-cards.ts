@@ -11,25 +11,25 @@ export interface StickyFeature {
 export const STICKY_FEATURES: StickyFeature[] = [
   {
     eyebrow: "Day 1",
-    title: "Keynotes on the main stage",
+    title: "Plenary talks from working researchers",
     description:
-      "Open with talks from the people running AI in production. Hear what worked, what broke, and what they would do differently.",
+      "Open with talks from the people doing the research. Hear how the study was designed, what the data showed, and what they would do differently.",
     imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1000&q=80&fit=crop",
     bgColor: "bg-[#e8effd]",
   },
   {
     eyebrow: "Day 2",
-    title: "Hands-on workshops",
+    title: "Workshops and lab sessions",
     description:
-      "Small studio sessions led by practitioners. Work through a real problem with a facilitator and leave with something you can use on Monday.",
+      "Small hands-on sessions led by researchers. Work through a real protocol, dataset or analysis and leave with something you can use back in the lab.",
     imageUrl: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1000&q=80&fit=crop",
     bgColor: "bg-accent",
   },
   {
-    eyebrow: "Every evening",
-    title: "Meet the builders",
+    eyebrow: "Lunchtimes and evenings",
+    title: "Posters and people",
     description:
-      "Networking evenings and shared lunches put you at the same table as founders, engineers and enterprise leaders in your field.",
+      "Poster sessions over lunch and open evenings put you at the same table as PhD students, postdocs, lab managers and PIs working on problems close to yours.",
     imageUrl: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1000&q=80&fit=crop",
     bgColor: "bg-secondary",
   },
@@ -37,7 +37,7 @@ export const STICKY_FEATURES: StickyFeature[] = [
     eyebrow: "Day 3 and after",
     title: "Take it all home",
     description:
-      "Slides, resources and session recordings are yours after the event, so your whole team can catch up on what they missed.",
+      "Slides, posters and session recordings are yours after the event, so the rest of your group can catch up on what they missed.",
     imageUrl: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1000&q=80&fit=crop",
     bgColor: "bg-muted",
   },

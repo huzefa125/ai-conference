@@ -88,7 +88,7 @@ export default async function AboutPage() {
       />
 
       {/* Team: marquee of framed portraits */}
-      <Team members={team} quote={ABOUT.teamQuote} />
+      <Team members={team} />
 
       {/* Process: bordered steps, same grid language as the rest of the site */}
       <section className="w-full py-12 md:py-16">

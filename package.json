@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "sanity:seed": "sanity exec scripts/seed-sanity.ts --with-user-token",
-    "sanity:push": "sanity exec scripts/seed-sanity.ts --with-user-token -- --replace"
+    "sanity:push": "sanity exec scripts/seed-sanity.ts --with-user-token -- --replace",
+    "studio": "sanity dev",
+    "studio:deploy": "sanity deploy"
   },
   "dependencies": {
     "@base-ui-components/react": "^1.0.0-rc.0",
@@ -21,6 +23,7 @@
     "@sanity/vision": "^6.24.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cobe": "^2.0.1",
     "framer-motion": "^14.14.0",
     "lucide-react": "^1.72.0",
     "motion": "^14.14.0",

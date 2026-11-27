@@ -4,11 +4,10 @@ import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import {
-  FlaskIcon,
-  CodeIcon,
-  StackIcon,
-  RocketLaunchIcon,
-  CompassToolIcon,
+  DnaIcon,
+  AtomIcon,
+  GlobeHemisphereWestIcon,
+  ChartLineIcon,
   UsersThreeIcon,
   type IconProps,
 } from "@phosphor-icons/react";
@@ -35,53 +34,53 @@ export interface FUIBentoGridDarkProps {
 
 const DEFAULT_TRACKS: BentoTrackItem[] = [
   {
-    id: "ai-frontiers",
-    eyebrow: "Research & Governance",
-    title: "AI Frontiers",
+    id: "life-sciences",
+    eyebrow: "Biology & Biomedicine",
+    title: "Life Sciences",
     description:
-      "Governance, ethics, societal impact and frontier research, including multimodal, agentic and world models.",
-    audience: "Researchers, policy leaders, senior strategists",
-    icon: FlaskIcon,
+      "Genomics, cell and molecular biology, ecology and plant science, with a focus on lab methods, reagents and results that replicate.",
+    audience: "Biologists, lab leads, postdocs and PhD researchers",
+    icon: DnaIcon,
     colSpan: "sm:col-span-1 lg:col-span-2",
   },
   {
-    id: "ai-builders",
-    eyebrow: "Systems & Engineering",
-    title: "AI Builders",
+    id: "physical-sciences",
+    eyebrow: "Physics, Chemistry & Materials",
+    title: "Physical Sciences",
     description:
-      "Shipping agentic and multi-LLM systems: toolchains, fine-tuning, retrieval and scaling patterns.",
-    audience: "Software engineers, architects, tech leads",
-    icon: CodeIcon,
+      "Experimental and theoretical work in physics, chemistry and materials: instruments, measurement, shared facilities and what broke along the way.",
+    audience: "Physicists, chemists, materials scientists, instrument specialists",
+    icon: AtomIcon,
     colSpan: "sm:col-span-1 lg:col-span-2",
   },
   {
-    id: "ai-stack",
-    eyebrow: "Infrastructure & MLOps",
-    title: "The AI Stack",
+    id: "earth-climate",
+    eyebrow: "Fieldwork & Observation",
+    title: "Earth & Climate",
     description:
-      "Model design and training, distributed inference, data and evaluation, accelerators and MLOps.",
-    audience: "ML researchers, ML/AI engineers, infrastructure teams",
-    icon: StackIcon,
+      "Climate, hydrology, oceans, soils and air quality: fieldwork, long-term monitoring, sensor networks and working with messy environmental records.",
+    audience: "Earth and environmental scientists, field researchers, monitoring teams",
+    icon: GlobeHemisphereWestIcon,
     colSpan: "sm:col-span-1 lg:col-span-2",
   },
   {
-    id: "applied-ai",
-    eyebrow: "Deployment & Product",
-    title: "Applied AI",
+    id: "data-methods",
+    eyebrow: "Statistics & Reproducibility",
+    title: "Data & Methods",
     description:
-      "How real deployments work: workflow automation, on-device intelligence, evaluation and case studies.",
-    audience: "Product managers, applied scientists, operations leaders",
-    icon: RocketLaunchIcon,
+      "Study design, statistics, research software and data management: the practical work of making results others can check and reuse.",
+    audience: "Statisticians, research software engineers, data stewards, method-minded researchers",
+    icon: ChartLineIcon,
     colSpan: "sm:col-span-1 lg:col-span-3",
   },
   {
-    id: "ai-strategy",
-    eyebrow: "Leadership & Adoption",
-    title: "AI Strategy",
+    id: "science-society",
+    eyebrow: "Funding, Policy & Open Science",
+    title: "Science & Society",
     description:
-      "Leading enterprise adoption: governance, risk management, capability building, ROI and culture change.",
-    audience: "Executives, strategists, transformation owners",
-    icon: CompassToolIcon,
+      "How research gets funded, published, shared and used: open data, peer review, research careers, policy advice and public engagement.",
+    audience: "Research leaders, funders, science policy staff, communicators",
+    icon: UsersThreeIcon,
     colSpan: "sm:col-span-2 lg:col-span-3",
   },
 ];
@@ -153,7 +152,7 @@ export default function FUIBentoGridDark({
   id = "tracks",
   className = "",
   sectionTitle = "TRACKS",
-  sectionSubtitle = "Five tracks for founders, engineers, researchers and enterprise leaders.",
+  sectionSubtitle = "Five tracks for researchers working at the bench, in the field and on the data.",
   tracks = DEFAULT_TRACKS,
 }: FUIBentoGridDarkProps) {
   return (
