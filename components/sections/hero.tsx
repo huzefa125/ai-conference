@@ -1,9 +1,8 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { useContent } from "@/components/providers/content-provider";
 import { HAND_FONT } from "@/components/ui/handwritten";
@@ -14,13 +13,10 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const EVENT_START = new Date("2026-11-18T09:00:00+05:30").getTime();
 const EVENT_END = new Date("2026-11-20T18:00:00+05:30").getTime();
 
-// Stock photos already in /public/images. Swap for photos from your own events.
-const SLIDES = [
-  { src: "/images/stage.jpg", caption: "Main stage" },
-  { src: "/images/panel.jpg", caption: "Working sessions" },
-  { src: "/images/lecture.jpg", caption: "The hall" },
-];
-const SLIDE_MS = 5000;
+// Hero video (muted, looping). Re-encode with: ffmpeg -i in.mp4 -an -c:v libx264 -crf 26 -movflags +faststart out.mp4
+const VIDEO_SRC = "/videos/hero-science.mp4";
+// A frame from the DNA part of the clip: shown while the video loads and, for reduced motion, instead of it.
+const VIDEO_POSTER = "/videos/hero-science-poster.jpg";
 
 
 /* ------------------------------------------------------------------ */
@@ -107,17 +103,23 @@ function EventStatus() {
   );
 }
 
-/** Photo column: wipes up on load, then cycles slides with a sideways wipe and a slow push-in. */
-function Photo({ reduce }: { reduce: boolean }) {
-  const [index, setIndex] = React.useState(0);
+/** Video column: wipes up on load, then plays the clip on a loop. Reduced motion keeps the still poster. */
+function HeroVideo({ reduce }: { reduce: boolean }) {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
 
+  // Started from code (not the autoPlay attribute) so reduced motion can keep it paused without a hydration mismatch.
   React.useEffect(() => {
-    if (reduce) return;
-    const id = window.setTimeout(() => setIndex((i) => (i + 1) % SLIDES.length), SLIDE_MS);
-    return () => window.clearTimeout(id);
-  }, [index, reduce]);
-
-  const slide = SLIDES[index];
+    const v = videoRef.current;
+    if (!v) return;
+    if (reduce) {
+      v.pause();
+      return;
+    }
+    v.muted = true;
+    v.play().catch(() => {
+      /* Autoplay blocked (e.g. data saver): the poster stays visible. */
+    });
+  }, [reduce]);
 
   return (
     <motion.div
@@ -126,75 +128,25 @@ function Photo({ reduce }: { reduce: boolean }) {
       animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
       transition={{ duration: 1.1, delay: 0.2, ease: EASE }}
     >
-      <AnimatePresence initial={false}>
-        <motion.div
-          key={slide.src}
-          className="absolute inset-0"
-          initial={{ clipPath: "inset(0% 0% 0% 100%)" }}
-          animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-          exit={{ opacity: 1 }}
-          transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
-        >
-          <motion.div
-            className="absolute inset-0"
-            initial={reduce ? false : { scale: 1.18 }}
-            animate={{ scale: 1.02 }}
-            transition={{ duration: SLIDE_MS / 1000 + 1.5, ease: "linear" }}
-          >
-            <Image
-              src={slide.src}
-              alt={slide.caption}
-              fill
-              priority={index === 0}
-              sizes="(min-width: 1024px) 48vw, 100vw"
-              className="object-cover"
-            />
-          </motion.div>
-        </motion.div>
-      </AnimatePresence>
+      <video
+        ref={videoRef}
+        aria-hidden
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster={VIDEO_POSTER}
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src={VIDEO_SRC} type="video/mp4" />
+      </video>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/55 to-transparent" />
 
-      {/* Caption + progress */}
-      <div className="absolute inset-x-5 bottom-5 text-white">
-        <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-widest">
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={slide.caption}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.3 }}
-            >
-              {slide.caption}
-            </motion.span>
-          </AnimatePresence>
-          <span className="tabular-nums text-white/70">
-            0{index + 1} / 0{SLIDES.length}
-          </span>
-        </div>
-        <div className="mt-3 grid grid-cols-3 gap-1.5">
-          {SLIDES.map((s, i) => (
-            <button
-              key={s.src}
-              type="button"
-              aria-label={`Show ${s.caption}`}
-              onClick={() => setIndex(i)}
-              className="relative h-[3px] cursor-pointer overflow-hidden bg-white/25"
-            >
-              {i < index && <span className="absolute inset-0 bg-white" />}
-              {i === index && (
-                <motion.span
-                  key={index}
-                  className="absolute inset-y-0 left-0 bg-white"
-                  initial={{ width: reduce ? "100%" : "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: SLIDE_MS / 1000, ease: "linear" }}
-                />
-              )}
-            </button>
-          ))}
-        </div>
+      {/* Caption */}
+      <div className="absolute inset-x-5 bottom-5 flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-white">
+        <span>Five fields · One room</span>
+        <span className="text-white/70">Hyderabad 2026</span>
       </div>
     </motion.div>
   );
@@ -282,9 +234,9 @@ export default function AtlasHero() {
           </div>
         </div>
 
-        {/* Right: photo fills the column height */}
+        {/* Right: video fills the column height */}
         <div className="relative h-[60vw] max-h-[480px] min-h-0 lg:h-full lg:max-h-none">
-          <Photo reduce={reduce} />
+          <HeroVideo reduce={reduce} />
         </div>
       </div>
     </section>
