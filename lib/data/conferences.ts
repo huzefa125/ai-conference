@@ -20,13 +20,13 @@ export const CONFERENCES: Conference[] = [
     city: "Hyderabad, India",
     dates: "Nov 18–20, 2026",
     status: "Flagship",
-    summary: "Three days of talks, workshops and the people building AI, in one of India's largest tech hubs.",
+    summary: "Three days of talks, lab sessions and poster sessions across five research tracks, led by the people doing the science.",
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80&fit=crop",
     href: "/",
   },
   {
     slug: "sample-event-one",
-    name: "SAMPLE: Atlas AI Summit",
+    name: "SAMPLE: Atlas Life Sciences Forum",
     city: "Bengaluru, India",
     dates: "Dates TBA",
     status: "Upcoming",
@@ -36,7 +36,7 @@ export const CONFERENCES: Conference[] = [
   },
   {
     slug: "sample-event-two",
-    name: "SAMPLE: Atlas Enterprise AI",
+    name: "SAMPLE: Atlas Earth & Climate Meeting",
     city: "Mumbai, India",
     dates: "Dates TBA",
     status: "Coming soon",
@@ -46,7 +46,7 @@ export const CONFERENCES: Conference[] = [
   },
   {
     slug: "sample-event-three",
-    name: "SAMPLE: Atlas GenAI Day",
+    name: "SAMPLE: Atlas Research Methods Day",
     city: "Ahmedabad, India",
     dates: "Dates TBA",
     status: "Coming soon",

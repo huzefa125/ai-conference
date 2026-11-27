@@ -4,6 +4,7 @@ import WhyAttend from "@/components/sections/why-attend";
 import KeynoteIntro from "@/components/sections/keynote-intro";
 import HowItWorks from "@/components/sections/how-it-works";
 import FUIBentoGridDark from "@/components/sections/tracks";
+import FieldsBeam from "@/components/sections/fields-beam";
 import Speakers from "@/components/sections/speakers";
 import CallForSpeakers from "@/components/sections/call-for-speakers";
 import Agenda from "@/components/sections/agenda";
@@ -34,6 +35,7 @@ export default function Page() {
       <Tone tone="dark">
         <FUIBentoGridDark id="tracks" />
       </Tone>
+      <FieldsBeam id="fields" />
       <Speakers id="speakers" />
       <CallForSpeakers id="cfp" />
       <Tone tone="white">

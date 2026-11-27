@@ -5,7 +5,7 @@ export const VENUE = {
   eyebrow: "Atlas Global 2026",
   title: "THREE DAYS IN HYDERABAD",
   intro:
-    "Atlas Global brings founders, engineers, researchers and enterprise leaders together for three days of talks, workshops and working sessions on AI in production.",
+    "Atlas Global brings researchers from the life sciences, physical sciences, earth and climate science, data and methods, and science and society together for three days of talks, workshops and poster sessions on how the work actually gets done.",
   image:
     "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1400&q=80&fit=crop",
   details: [
@@ -32,9 +32,9 @@ export const SPONSORS: { tier: string; slots: SponsorSlot[] }[] = [
   {
     tier: "Headline partners",
     slots: [
-      { name: "Nimbus Systems", icon: "Cloud" },
+      { name: "Nimbus Instruments", icon: "Cloud" },
       { name: "Quantora", icon: "Atom" },
-      { name: "Helix Data", icon: "Dna" },
+      { name: "Helix Biosciences", icon: "Dna" },
     ],
   },
   {
@@ -51,12 +51,12 @@ export const SPONSORS: { tier: string; slots: SponsorSlot[] }[] = [
 ];
 
 export const WHY_ATTEND = [
-  { icon: "ChalkboardTeacher", title: "Learn from practitioners", text: "Sessions led by people who run AI systems in production, not just talk about them." },
-  { icon: "Wrench", title: "Hands-on workshops", text: "Work through real problems in small studio sessions with a facilitator." },
-  { icon: "Target", title: "Five focused tracks", text: "Pick the track for your role: research, engineering, infrastructure, product or strategy." },
-  { icon: "Handshake", title: "Meet your peers", text: "Networking evenings and shared lunches with founders, engineers and executives." },
+  { icon: "ChalkboardTeacher", title: "Hear it from the bench", text: "Talks from the people who ran the experiments and the fieldwork: methods, data and what failed, not just the headline result." },
+  { icon: "Wrench", title: "Hands-on workshops", text: "Work through real methods problems, from study design to reproducible analysis, in small sessions with a facilitator." },
+  { icon: "Target", title: "Five focused tracks", text: "Life Sciences, Physical Sciences, Earth & Climate, Data & Methods, and Science & Society. Pick yours or move between them." },
+  { icon: "Users", title: "Meet collaborators", text: "Poster sessions, shared lunches and evenings with researchers from other labs, fields and countries." },
   { icon: "Broadcast", title: "Attend from anywhere", text: "A live stream and recordings for people who cannot travel to Hyderabad." },
-  { icon: "Notebook", title: "Take it home", text: "Slides, resources and recordings so your team can revisit what mattered." },
+  { icon: "Notebook", title: "Take it back to the lab", text: "Slides, posters, links to code and data, and recordings so your group can revisit what mattered." },
 ];
 
 // Stock photos (Unsplash) as stand-ins. They are NOT from Atlas Global; replace with photos from your own events.
@@ -77,7 +77,7 @@ export const FAQS = [
   },
   {
     q: "Who is the conference for?",
-    a: "Founders, engineers, researchers and enterprise leaders. Each of the five tracks lists the audience it is built for.",
+    a: "Researchers at every career stage, from PhD students to principal investigators, plus research engineers, lab managers, funders and science communicators. Each of the five tracks lists the audience it is built for.",
   },
   {
     q: "Can I attend online?",
@@ -89,11 +89,11 @@ export const FAQS = [
   },
   {
     q: "Do you offer group or company rates?",
-    a: "Yes. The Team pass covers groups of five or more. Contact us for volume pricing and invoicing.",
+    a: "Yes. The Team pass covers labs, departments and groups of five or more. Contact us for volume pricing and invoicing.",
   },
   {
-    q: "How do I become a speaker or sponsor?",
-    a: "Get in touch through the contact details below and tell us which you are interested in. We will reply with next steps.",
+    q: "How do I present a talk or poster, or become a sponsor?",
+    a: "Talks and posters go through the open call: send a short proposal or abstract for one of the five tracks. For sponsorship, get in touch through the contact details below and we will reply with next steps.",
   },
 ];
 
@@ -165,22 +165,22 @@ export const TRAVEL = [
 
 export const CFP = {
   title: "SPEAK AT ATLAS GLOBAL",
-  text: "We are looking for practitioners with something specific to teach. Pick a track, tell us what attendees will be able to do afterwards, and we will take it from there.",
+  text: "We are looking for researchers with work to share: a method, a dataset, a result that held up or one that didn't. Submit a talk proposal or a poster abstract, tell us what other researchers will take away, and we will take it from there.",
   steps: [
-    { label: "Submit", text: "Send a short proposal for one of the five tracks." },
-    { label: "Review", text: "The program committee reads every submission." },
-    { label: "Confirm", text: "Accepted speakers get a slot, a room and logistics support." },
+    { label: "Submit", text: "Send a talk proposal or poster abstract for one of the five tracks." },
+    { label: "Review", text: "The programme committee reads every submission." },
+    { label: "Confirm", text: "Accepted speakers get a slot and presenters a poster board, plus logistics support." },
   ],
-  cta: "Submit a proposal",
+  cta: "Submit an abstract",
   href: "#contact",
-  note: "Submission deadline to be announced.",
+  note: "Abstract deadline to be announced.",
 };
 
 // Stock photos (Unsplash) as stand-ins. They are NOT from Atlas Global; replace with photos from your own events.
 export const EXPERIENCE = [
   { id: "stage", url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1000&q=80&fit=crop", title: "Main stage", description: "Keynotes and panels" },
-  { id: "talks", url: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1000&q=80&fit=crop", title: "Live sessions", description: "Talks from practitioners" },
-  { id: "workshops", url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1000&q=80&fit=crop", title: "Workshops", description: "Hands-on studio time" },
+  { id: "talks", url: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1000&q=80&fit=crop", title: "Live sessions", description: "Talks from researchers" },
+  { id: "workshops", url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1000&q=80&fit=crop", title: "Workshops", description: "Hands-on methods sessions" },
   { id: "network", url: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1000&q=80&fit=crop", title: "Networking", description: "Evenings with peers" },
   { id: "hall", url: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1000&q=80&fit=crop", title: "The venue", description: "Three days in Hyderabad" },
 ];

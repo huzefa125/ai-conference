@@ -1,8 +1,8 @@
-import type { CSSProperties } from "react";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr";
+import { TICKET_SHAPES, type TicketShape } from "@/components/ui/ticket-shapes";
 
 type Card = {
-  variant: "perforated" | "notched";
+  variant: TicketShape;
   tag: string;
   title: string;
   text: string;
@@ -23,32 +23,8 @@ export interface TicketCtaProps {
   fromPrice?: string;
 }
 
-/* Ticket silhouettes cut with CSS masks, so no images are needed.
-   perforated: a column of round bites down both long edges.
-   notched:    a quarter-circle bite out of each corner, like an admission stub. */
-const bite = (at: string) => `radial-gradient(circle 9px at ${at}, #0000 96%, #000)`;
-const corner = (at: string) => `radial-gradient(circle 20px at ${at}, #0000 96%, #000)`;
-
-const SHAPES: Record<Card["variant"], CSSProperties> = {
-  perforated: {
-    mask: `${bite("0 50%")} 0 50% / 51% 26px repeat-y, ${bite("100% 50%")} 100% 50% / 51% 26px repeat-y`,
-    WebkitMask: `${bite("0 50%")} 0 50% / 51% 26px repeat-y, ${bite("100% 50%")} 100% 50% / 51% 26px repeat-y`,
-  },
-  notched: {
-    mask: [
-      `${corner("0 0")} top left / 51% 51% no-repeat`,
-      `${corner("100% 0")} top right / 51% 51% no-repeat`,
-      `${corner("0 100%")} bottom left / 51% 51% no-repeat`,
-      `${corner("100% 100%")} bottom right / 51% 51% no-repeat`,
-    ].join(", "),
-    WebkitMask: [
-      `${corner("0 0")} top left / 51% 51% no-repeat`,
-      `${corner("100% 0")} top right / 51% 51% no-repeat`,
-      `${corner("0 100%")} bottom left / 51% 51% no-repeat`,
-      `${corner("100% 100%")} bottom right / 51% 51% no-repeat`,
-    ].join(", "),
-  },
-};
+// Ticket silhouettes (perforated / notched) are shared with the home page tickets.
+const SHAPES = TICKET_SHAPES;
 
 export default function TicketCta({
   id = "join",

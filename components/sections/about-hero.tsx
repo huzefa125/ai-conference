@@ -4,8 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import { AnimatedMark } from "@/components/icons/animated-mark";
-import { CLAUDE_MARK } from "@/components/icons/brand-marks";
 import { Handwritten } from "@/components/ui/handwritten";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -50,23 +48,15 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
 
   return (
     <section className="flex flex-col lg:h-[calc(100svh-8.75rem)] lg:min-h-[560px]">
-      <div className="container mx-auto grid min-h-0 flex-1 gap-8 px-4 pb-8 pt-4 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pb-10">
-        {/* Left: type, with a faint brand mark behind it */}
+      <div className="container mx-auto grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)] gap-8 px-4 pb-8 pt-4 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pb-10">
+        {/* Left: type */}
         <div className="relative isolate flex min-h-0 flex-col justify-center">
-          <AnimatedMark
-            mark={CLAUDE_MARK}
-            show
-            reduce={reduce}
-            delay={0.9}
-            // Top right, in the space beside the headline: never behind the small copy.
-            className="absolute -right-10 top-0 -z-10 h-40 w-40 sm:right-0 sm:h-52 sm:w-52 lg:right-0 lg:top-[4%] lg:h-52 lg:w-52 xl:h-60 xl:w-60 2xl:h-72 2xl:w-72"
-          />
 
           <motion.span {...rise(0)} className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">
             {eyebrow}
           </motion.span>
 
-          <h1 className="mt-4 font-heading text-[clamp(2.6rem,11.5vw,5.75rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.045em] text-foreground lg:text-[clamp(3rem,min(6vw,10vh),7rem)]">
+          <h1 className="mt-4 font-heading text-[clamp(2.1rem,11vw,5.75rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.045em] text-foreground lg:text-[clamp(3rem,min(6vw,10vh),7rem)]">
             {lines.map((l, i) => (
               <Line key={l} delay={0.05 + i * 0.1} reduce={reduce}>
                 <span className={i === lines.length - 1 ? "text-primary" : undefined}>{l}</span>
@@ -76,12 +66,12 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
 
           {/* Handwritten aside, written in by the pen after the headline lands */}
           <p className="mt-3 pl-1 sm:mt-4">
-            <Handwritten delay={1.15} underline className="-rotate-2 text-[1.4rem] sm:text-[2.1rem]">
+            <Handwritten delay={1.15} underline className="-rotate-2 text-[clamp(1.1rem,5.6vw,1.4rem)] sm:text-[2.1rem]">
               {note}
             </Handwritten>
           </p>
 
-          <div className="mt-[clamp(1.25rem,4vh,3rem)] flex flex-col gap-6 sm:flex-row sm:items-stretch">
+          <div className="mt-[clamp(1.25rem,4vh,3rem)] flex flex-col gap-6 sm:flex-row sm:items-center">
             {/* Blue stats block */}
             <motion.dl
               initial={reduce ? false : { clipPath: "inset(0% 100% 0% 0%)" }}
@@ -91,7 +81,7 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
               className="grid shrink-0 grid-cols-3 bg-primary text-white sm:w-auto"
             >
               {stats.map((s, i) => (
-                <div key={s.label} className={`whitespace-nowrap px-5 py-4 ${i > 0 ? "border-l border-white/20" : ""}`}>
+                <div key={s.label} className={`whitespace-nowrap px-5 py-5 ${i > 0 ? "border-l border-white/20" : ""}`}>
                   <dt className="font-heading text-[1.7rem] font-bold leading-none tracking-tight">{s.value}</dt>
                   <dd className="mt-2 font-mono text-[10px] font-semibold uppercase tracking-widest text-white/80">{s.label}</dd>
                 </div>

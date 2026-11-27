@@ -44,9 +44,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Atlas Conferences & Events | Global Innovation & Frontier Summit 2026",
+  title: "Atlas Global Summit 2026 | Science & Research Conference, Hyderabad",
   description:
-    "Join 1,000+ industry pioneers, founders, researchers, and capital allocators at the Atlas Global Innovation Summit. Live in Hyderabad, India and streaming worldwide.",
+    "Join 1,000+ researchers and scientists at Atlas Global 2026: three days of talks, workshops and poster sessions across five research tracks. Live in Hyderabad, India and streaming worldwide.",
   icons: {
     icon: "/atlas-logo.png",
     apple: "/atlas-logo.png",

@@ -6,7 +6,9 @@ Next.js site for Atlas Global 2026, with content managed in Sanity. The site is 
 
 | Command | What it does |
 | --- | --- |
-| `npm run dev` | Local site at http://localhost:3000, Studio at /studio |
+| `npm run dev` | Local site at http://localhost:3000 |
+| `npm run studio` | Local Sanity Studio at http://localhost:3333 |
+| `npm run studio:deploy` | Publish the Studio to Sanity hosting (`<name>.sanity.studio`) |
 | `npm run build` | Production build (reads content from Sanity) |
 | `npm run lint` | Lint |
 | `npm run sanity:push` | Overwrite Sanity with the content in `lib/data/` |
@@ -15,7 +17,7 @@ Next.js site for Atlas Global 2026, with content managed in Sanity. The site is 
 ## Folder structure
 
 ```
-app/                     routes: home, about, blog, conferences, contact, studio
+app/                     routes: home, about, blog, conferences, contact (the Studio is hosted on Sanity, not here)
 components/
   sections/              page sections (hero, agenda, speakers, travel, tickets…)
   layout/                navbar, footers, page shell, background bands (tone)
@@ -34,4 +36,4 @@ public/                  logo, images, icons
 
 ## Environment
 
-Copy `.env.local.example` to `.env.local` and set the Sanity project ID. Without it, the site uses the content in `lib/data/`.
+Copy `.env.local.example` to `.env.local` and set the Sanity project ID (both the `NEXT_PUBLIC_` and `SANITY_STUDIO_` names). Without it, the site uses the content in `lib/data/`.

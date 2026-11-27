@@ -25,11 +25,11 @@ export const orderField = defineField({
 });
 
 export const TRACK_OPTIONS = [
-  { title: "AI Frontiers", value: "ai-frontiers" },
-  { title: "AI Builders", value: "ai-builders" },
-  { title: "The AI Stack", value: "ai-stack" },
-  { title: "Applied AI", value: "applied-ai" },
-  { title: "AI Strategy", value: "ai-strategy" },
+  { title: "Life Sciences", value: "life-sciences" },
+  { title: "Physical Sciences", value: "physical-sciences" },
+  { title: "Earth & Climate", value: "earth-climate" },
+  { title: "Data & Methods", value: "data-methods" },
+  { title: "Science & Society", value: "science-society" },
 ];
 
 /** Dropdown of the icons the site can render (see lib/icons.ts). */

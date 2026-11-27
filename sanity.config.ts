@@ -1,6 +1,5 @@
-"use client";
-
-// Sanity Studio config. The Studio is served by the Next.js app at /studio.
+// Sanity Studio config. The Studio is not part of the public site: it runs with the Sanity CLI,
+// locally with `npm run studio` and hosted on Sanity with `npm run studio:deploy` (<host>.sanity.studio).
 import { defineConfig } from "sanity";
 import { structureTool, type StructureResolver } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
@@ -28,7 +27,6 @@ const structure: StructureResolver = (S) =>
 export default defineConfig({
   name: "atlas",
   title: "Atlas Global",
-  basePath: "/studio",
   projectId: projectId || "missing-project-id",
   dataset,
   schema: {

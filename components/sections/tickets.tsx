@@ -3,9 +3,10 @@
 import * as React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
-import { CheckIcon, ArrowRightIcon } from "@phosphor-icons/react";
+import { CheckIcon, ArrowUpRightIcon } from "@phosphor-icons/react";
 import { type Ticket } from "@/lib/data/tickets";
 import { useContent } from "@/components/providers/content-provider";
+import { TICKET_SHAPES } from "@/components/ui/ticket-shapes";
 
 export interface TicketsProps {
   id?: string;
@@ -36,7 +37,7 @@ export default function Tickets({
           </p>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-md grid-cols-1 gap-y-14 lg:max-w-5xl lg:grid-cols-3 lg:gap-5">
+        <div className="mx-auto mt-14 grid max-w-md grid-cols-1 items-stretch gap-6 lg:mt-16 lg:max-w-6xl lg:grid-cols-3 lg:gap-5">
           {tickets.map((t, i) => (
             <TicketCard key={t.id} ticket={t} index={i} />
           ))}
@@ -50,68 +51,105 @@ export default function Tickets({
   );
 }
 
+/*
+ * Each pass is a paper ticket (same silhouettes as the About page passes):
+ * - featured: blue, perforated edges, raised a little on desktop
+ * - group (no fixed price): sage, notched corners
+ * - otherwise: white, notched corners
+ */
+const KINDS = {
+  plain: {
+    tag: "Admit one",
+    card: "bg-card text-foreground",
+    soft: "text-muted-foreground",
+    line: "border-foreground/15",
+    check: "text-primary",
+    button: "bg-foreground text-background hover:bg-foreground/85",
+  },
+  featured: {
+    tag: "Most popular",
+    card: "bg-primary text-primary-foreground",
+    soft: "text-primary-foreground/75",
+    line: "border-white/30",
+    check: "text-white",
+    button: "bg-card text-foreground hover:bg-secondary",
+  },
+  group: {
+    tag: "Teams of 5+",
+    card: "bg-accent text-accent-foreground",
+    soft: "text-accent-foreground/75",
+    line: "border-accent-foreground/25",
+    check: "text-accent-foreground",
+    button: "bg-foreground text-background hover:bg-foreground/85",
+  },
+} as const;
+
 function TicketCard({ ticket: t, index }: { ticket: Ticket; index: number }) {
+  const kind = t.featured ? KINDS.featured : t.price === null ? KINDS.group : KINDS.plain;
+
   return (
-    <motion.article
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: index * 0.08 }}
+      // The mask clips box-shadow, so the shadow lives on this wrapper as a drop-shadow.
       className={clsx(
-        "relative flex flex-col border p-6 transition-all duration-300 sm:p-7",
+        "h-full transition-transform duration-300 hover:-translate-y-1",
         t.featured
-          ? "border-primary bg-foreground text-white shadow-[0_30px_60px_-24px_rgba(37,99,235,0.7)] lg:-my-5 lg:py-11 lg:scale-[1.03]"
-          : "border-border bg-card shadow-[var(--shadow-subtle)] hover:-translate-y-1 hover:border-primary/50"
+          ? "drop-shadow-[0_22px_34px_rgba(37,99,235,0.35)] lg:-translate-y-3 lg:hover:-translate-y-4"
+          : "drop-shadow-[0_18px_28px_rgba(15,23,42,0.14)]",
       )}
     >
-      {t.featured && (
-        <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-primary px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary-foreground">
-          Most popular
-        </span>
-      )}
-
-      <h3 className={clsx("text-xl font-bold", t.featured ? "text-white" : "text-foreground")}>{t.name}</h3>
-      <p className={clsx("mt-1 text-sm", t.featured ? "text-white/70" : "text-muted-foreground")}>{t.tagline}</p>
-
-      <div className={clsx("mt-6 flex items-baseline gap-2 border-b pb-6", t.featured ? "border-white/15" : "border-border")}>
-        {t.price !== null ? (
-          <>
-            <span className={clsx("text-5xl font-bold tracking-tight", t.featured ? "text-white" : "text-foreground")}>
-              ${t.price}
-            </span>
-            <span className={clsx("font-mono text-xs", t.featured ? "text-white/60" : "text-muted-foreground")}>{t.priceNote}</span>
-          </>
-        ) : (
-          <>
-            <span className={clsx("text-3xl font-bold tracking-tight", t.featured ? "text-white" : "text-foreground")}>
-              Custom
-            </span>
-            <span className={clsx("font-mono text-xs", t.featured ? "text-white/60" : "text-muted-foreground")}>{t.priceNote}</span>
-          </>
-        )}
-      </div>
-
-      <ul className="mt-6 flex-1 space-y-3">
-        {t.features.map((f) => (
-          <li key={f} className={clsx("flex items-start gap-2.5 text-sm", t.featured ? "text-white/90" : "text-foreground/80")}>
-            <CheckIcon weight="bold" size={16} className="mt-0.5 shrink-0 text-primary" />
-            <span>{f}</span>
-          </li>
-        ))}
-      </ul>
-
-      <a
-        href={t.href}
-        className={clsx(
-          "mt-8 inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-medium transition-all",
-          t.featured
-            ? "bg-primary text-primary-foreground shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(37,99,235,0.45)]"
-            : "border-2 border-border bg-card text-foreground hover:border-primary/50 hover:bg-secondary"
-        )}
+      <article
+        style={t.featured ? TICKET_SHAPES.perforated : TICKET_SHAPES.notched}
+        className={clsx("flex h-full flex-col px-8 py-9 text-center sm:px-10", kind.card)}
       >
-        {t.cta}
-        <ArrowRightIcon weight="bold" size={16} />
-      </a>
-    </motion.article>
+        <span className={clsx("font-mono text-[11px] font-semibold uppercase tracking-widest", kind.soft)}>
+          {kind.tag}
+        </span>
+        <h3 className="mt-2 font-heading text-2xl font-bold tracking-tight sm:text-3xl">{t.name}</h3>
+        <p className={clsx("mx-auto mt-2 max-w-xs text-sm leading-relaxed", kind.soft)}>{t.tagline}</p>
+
+        {/* Tear line */}
+        <div aria-hidden className={clsx("my-6 border-t-2 border-dashed", kind.line)} />
+
+        <ul className="flex-1 space-y-3 text-left">
+          {t.features.map((f) => (
+            <li key={f} className="flex items-start gap-2.5 text-sm leading-relaxed">
+              <CheckIcon weight="bold" size={16} className={clsx("mt-0.5 shrink-0", kind.check)} />
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Stub: price + button */}
+        <div
+          className={clsx(
+            "mt-7 flex flex-wrap items-end justify-between gap-4 border-t-2 border-dashed pt-6 text-left",
+            kind.line,
+          )}
+        >
+          <p>
+            <span className={clsx("block font-mono text-[11px] font-semibold uppercase tracking-widest", kind.soft)}>
+              {t.priceNote}
+            </span>
+            <span className="font-heading text-4xl font-extrabold leading-none tracking-tight">
+              {t.price !== null ? `$${t.price}` : "Custom"}
+            </span>
+          </p>
+          <a
+            href={t.href}
+            className={clsx(
+              "inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold transition-colors",
+              kind.button,
+            )}
+          >
+            {t.cta}
+            <ArrowUpRightIcon weight="bold" size={14} />
+          </a>
+        </div>
+      </article>
+    </motion.div>
   );
 }

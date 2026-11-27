@@ -6,13 +6,12 @@ import Link from "next/link";
 import { animate, motion, useInView, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useContent } from "@/components/providers/content-provider";
-import { CLAUDE_MARK } from "@/components/icons/brand-marks";
-import { AnimatedMark } from "@/components/icons/animated-mark";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-// The statement, word by word. "AI" gets the animated blob gif beside it.
-const WORDS = "Every keynote comes from people running AI in production, not just talking about it.".split(" ");
+// The statement, word by word. PILL_WORD is set in a blue pill with the animated blob gif beside it.
+const WORDS = "Every keynote comes from people doing the research, not just presenting the results.".split(" ");
+const PILL_WORD = "research";
 
 
 /** Counts up to a value like "3", "5" or "1,000+" once `start` is true. */
@@ -106,15 +105,18 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
                   animate={show ? { y: "0%" } : undefined}
                   transition={{ duration: 0.7, delay: 0.2 + i * 0.035, ease: EASE }}
                 >
-                  {w === "AI" ? (
-                    <span className="inline-flex items-center gap-2.5 bg-primary py-1 pl-3 pr-1.5 text-white">
-                      AI
-                      {/* The gif has a wide white margin around the blob; zooming 1.6x crops it so the blob fills the circle. */}
-                      <span className="inline-block h-[1.3em] w-[1.3em] overflow-hidden rounded-full bg-[#0a0a0a]">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="/bloub-default-cycle.gif" alt="" className="h-full w-full scale-[1.6] object-cover" />
+                  {w.startsWith(PILL_WORD) ? (
+                    <>
+                      <span className="inline-flex items-center gap-2.5 bg-primary py-1 pl-3 pr-1.5 text-white">
+                        {PILL_WORD}
+                        {/* The gif has a wide white margin around the blob; zooming 1.6x crops it so the blob fills the circle. */}
+                        <span className="inline-block h-[1.3em] w-[1.3em] overflow-hidden rounded-full bg-[#0a0a0a]">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src="/bloub-default-cycle.gif" alt="" className="h-full w-full scale-[1.6] object-cover" />
+                        </span>
                       </span>
-                    </span>
+                      {w.slice(PILL_WORD.length)}
+                    </>
                   ) : (
                     w
                   )}
@@ -135,14 +137,8 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
             </Link>
           </motion.div>
 
-          {/* Stats over the spark */}
+          {/* Stats */}
           <div className="relative mt-12 py-8 sm:mt-14">
-            <AnimatedMark
-              mark={CLAUDE_MARK}
-              show={show}
-              reduce={reduce}
-              className="absolute -right-10 top-1/2 h-52 w-52 -translate-y-1/2 sm:right-0 sm:h-64 sm:w-64 lg:-right-6 lg:h-72 lg:w-72"
-            />
             <dl className="relative flex items-end justify-between gap-4 sm:justify-start sm:gap-12 lg:gap-10 xl:gap-14">
               {VENUE.stats.map((s) => (
                 <div key={s.label} className="flex flex-col-reverse gap-2">
