@@ -19,7 +19,7 @@ export function PageHero({ eyebrow, title, text }: { eyebrow: string; title: str
     <section className="w-full py-12 md:py-16">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{eyebrow}</span>
+          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">{eyebrow}</span>
           <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl">
             {title}
           </h1>

@@ -21,12 +21,12 @@ export default function CallForSpeakers({ id = "cfp", className = "" }: { id?: s
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               <a
                 href={CFP.href}
-                className="inline-flex items-center justify-center gap-2 bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_4px_20px_rgba(37,99,235,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(37,99,235,0.45)]"
+                className="inline-flex items-center justify-center gap-2 bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_4px_20px_rgba(0,82,255,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(0,82,255,0.45)]"
               >
                 {CFP.cta}
                 <ArrowRightIcon weight="bold" size={16} />
               </a>
-              <span className="font-mono text-xs text-muted-foreground">{CFP.note}</span>
+              <span className="font-mono text-sm text-muted-foreground">{CFP.note}</span>
             </div>
           </div>
 
@@ -34,7 +34,7 @@ export default function CallForSpeakers({ id = "cfp", className = "" }: { id?: s
           <ol className="divide-y divide-border border border-border">
             {CFP.steps.map((s, i) => (
               <li key={s.label} className="flex items-start gap-4 p-5">
-                <span className="text-2xl font-bold leading-none text-primary tabular-nums">
+                <span className="text-2xl font-bold leading-none text-tertiary-strong tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>

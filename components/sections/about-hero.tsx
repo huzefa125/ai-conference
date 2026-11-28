@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import { Handwritten } from "@/components/ui/handwritten";
+import { DisplayText } from "@/components/ui/display-text";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -12,7 +12,7 @@ export interface AboutHeroProps {
   eyebrow: string;
   /** Headline, one entry per line. The last line is set in brand blue. */
   lines: string[];
-  /** Short handwritten aside under the headline. */
+  /** Short accent line (display font) under the headline. */
   note: string;
   text: string;
   stats: { value: string; label: string }[];
@@ -52,7 +52,7 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
         {/* Left: type */}
         <div className="relative isolate flex min-h-0 flex-col justify-center">
 
-          <motion.span {...rise(0)} className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">
+          <motion.span {...rise(0)} className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">
             {eyebrow}
           </motion.span>
 
@@ -64,11 +64,11 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
             ))}
           </h1>
 
-          {/* Handwritten aside, written in by the pen after the headline lands */}
-          <p className="mt-3 pl-1 sm:mt-4">
-            <Handwritten delay={1.15} underline className="-rotate-2 text-[clamp(1.1rem,5.6vw,1.4rem)] sm:text-[2.1rem]">
+          {/* Accent line in the display font, after the headline lands */}
+          <p className="mt-3 sm:mt-4">
+            <DisplayText delay={1.0} className="text-[clamp(1.4rem,6.5vw,1.8rem)] sm:text-[2.4rem]">
               {note}
-            </Handwritten>
+            </DisplayText>
           </p>
 
           <div className="mt-[clamp(1.25rem,4vh,3rem)] flex flex-col gap-6 sm:flex-row sm:items-center">
@@ -83,7 +83,7 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
               {stats.map((s, i) => (
                 <div key={s.label} className={`whitespace-nowrap px-5 py-5 ${i > 0 ? "border-l border-white/20" : ""}`}>
                   <dt className="font-heading text-[1.7rem] font-bold leading-none tracking-tight">{s.value}</dt>
-                  <dd className="mt-2 font-mono text-[10px] font-semibold uppercase tracking-widest text-white/80">{s.label}</dd>
+                  <dd className="mt-2 font-mono text-[12px] font-semibold uppercase tracking-widest text-white/80">{s.label}</dd>
                 </div>
               ))}
             </motion.dl>
@@ -97,7 +97,7 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
                 <Link href={link.href} className="group inline-flex items-center gap-2 font-heading text-base font-bold text-foreground">
                   {link.label}
                   <ArrowUpRight
-                    className="h-5 w-5 text-primary transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+                    className="h-5 w-5 text-tertiary-strong transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
                     strokeWidth={2.5}
                   />
                 </Link>
@@ -123,7 +123,7 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
             <img src={image} alt={caption} className="absolute inset-0 h-full w-full object-cover" />
           </motion.div>
           <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/55 to-transparent" />
-          <figcaption className="absolute inset-x-5 bottom-5 flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-white">
+          <figcaption className="absolute inset-x-5 bottom-5 flex items-center justify-between font-mono text-[12px] uppercase tracking-widest text-white">
             <span>{caption}</span>
             <span className="text-white/70">Est. Hyderabad</span>
           </figcaption>

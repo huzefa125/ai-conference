@@ -51,7 +51,7 @@ function NavigationMenuTrigger({
     >
       {children}{' '}
       <ChevronDownIcon
-        className="relative top-[1px] ms-1.5 size-3.5 text-foreground/80 group-hover:text-primary transition duration-300 group-data-[popup-open]:rotate-180 group-data-[popup-open]:text-primary"
+        className="relative top-[1px] ms-1.5 size-3.5 text-foreground group-hover:text-primary transition duration-300 group-data-[popup-open]:rotate-180 group-data-[popup-open]:text-primary"
         aria-hidden="true"
       />
     </NavigationMenuPrimitive.Trigger>

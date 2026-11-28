@@ -1,61 +1,65 @@
 @import "tailwindcss";
 
 /*
-  Atlas Conferences & Events Theme
-  Configured from the exact preset:
-  - Primary: #2563EB (Royal Cobalt Blue) / Foreground: #FAF8F5 (Ivory)
-  - Secondary: #F4EFEA (Warm Sand/Cream) / Foreground: #0F172A (Deep Navy)
-  - Accent: #D4E5D9 (Soft Sage / Pistachio Mint) / Foreground: #143826 (Forest Slate)
-  - Background: #FAF8F5 / Foreground: #0F172A
-  - Card: #FFFFFF / Foreground: #0F172A
-  - Muted: #EFEBE5 / Foreground: #64748B
-  - Border: #DDE0E5
-  - Input: #DDE0E5
-  - Ring: #2563EB
+  Atlas Conferences & Events Theme: "Architectural Summit" palette.
+  Canvas      #FFFFFF  Crisp Gallery White (page background, cards)
+  Surface     #F6F8FB  Alabaster Slate (alternate section bands)
+  Ink         #0A0F1C  Deep Carbon Ink (text, headings)
+  Cobalt      #0052FF  Hyper Cobalt (primary accent: buttons, "2026", key words)
+  Cyan        #00B8D9  Signal Cyan (secondary accent: badges, dots, route lines, icon tiles, accent bars)
+  Obsidian    #070B14  Midnight Obsidian (dark blocks: testimonials, video frame, final CTA)
+  Hairline    #E2E8F0  1px borders
+  Cyan as small text on white uses --tertiary-ink, the same cyan deepened toward the ink so it stays
+  readable (#00B8D9 itself is too light for text on white). On dark blocks the pure cyan is used.
+  Red (--destructive) is only for form errors. Do not add other hues.
 */
 :root {
-  --background: #faf8f5;
-  --foreground: #0f172a;
+  --background: #ffffff;
+  --foreground: #0a0f1c;
 
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #0a0f1c;
 
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
+  --popover-foreground: #0a0f1c;
 
-  --primary: #2563eb;
-  --primary-foreground: #faf8f5;
+  --primary: #0052ff;
+  --primary-foreground: #ffffff;
 
-  --secondary: #f4efea;
-  --secondary-foreground: #0f172a;
+  --secondary: #f6f8fb;
+  --secondary-foreground: #0a0f1c;
 
-  --muted: #efebe5;
-  --muted-foreground: #64748b;
+  --muted: #f6f8fb;
+  --muted-foreground: #0a0f1c;
 
-  --accent: #d4e5d9;
-  --accent-foreground: #143826;
+  --accent: color-mix(in srgb, #0052ff 7%, #ffffff); /* faint cobalt tint: hovers, soft fills */
+  --accent-foreground: #0a0f1c;
+
+  /* Signal Cyan. --tertiary is the pure cyan (decoration, and anything on dark blocks);
+     --tertiary-ink / --tertiary-strong are the same cyan deepened toward the ink for text on white. */
+  --tertiary: #00b8d9;
+  --tertiary-ink: color-mix(in srgb, #00b8d9 64%, #0a0f1c);
+  --tertiary-strong: color-mix(in srgb, #00b8d9 64%, #0a0f1c);
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: #dde0e5;
-  --input: #dde0e5;
-  --ring: #2563eb;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0052ff;
 
   --radius: 0.875rem;
 
-  /* Custom Atlas Brand Tokens */
-  --atlas-blue: #2563eb;
-  --atlas-blue-dark: #1d4ed8;
-  --atlas-navy: #0f172a;
-  --atlas-cream: #faf8f5;
-  --atlas-sand: #f4efea;
-  --atlas-sage: #d4e5d9;
-  --atlas-sage-dark: #143826;
-  --atlas-border: #dde0e5;
+  /* Brand tokens */
+  --atlas-blue: #0052ff;
+  --atlas-cyan: #00b8d9;
+  --atlas-ink: #0a0f1c;
+  --atlas-navy: #070b14; /* Midnight Obsidian: dark blocks (name kept for existing classes) */
+  --atlas-surface: #f6f8fb;
+  --atlas-border: #e2e8f0;
 
-  --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.05), 0 10px 25px -5px rgba(15, 23, 42, 0.04);
-  --shadow-hover: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 20px 35px -10px rgba(37, 99, 235, 0.12);
+  --shadow-subtle: 0 1px 2px rgba(10, 15, 28, 0.04), 0 8px 24px -8px rgba(10, 15, 28, 0.06);
+  --shadow-hover: 0 4px 6px -1px rgba(10, 15, 28, 0.06), 0 20px 35px -10px rgba(0, 82, 255, 0.14);
 }
 
 @theme inline {
@@ -73,14 +77,29 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-ink: var(--tertiary-ink);
+  --color-tertiary-strong: var(--tertiary-strong);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* Readability type scale (raised from Tailwind's defaults): small text no longer drops below 13px,
+     body/UI text is 15–16px, card headings 19–22px. Section headings use text-3xl..5xl (up to 48px). */
+  --text-xs: 0.8125rem; /* 13px (was 12) */
+  --text-xs--line-height: 1.45;
+  --text-sm: 0.9375rem; /* 15px (was 14) */
+  --text-sm--line-height: 1.5;
+  --text-lg: 1.1875rem; /* 19px (was 18) */
+  --text-lg--line-height: 1.45;
+  --text-xl: 1.375rem; /* 22px (was 20) */
+  --text-xl--line-height: 1.35;
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Headings: the display font (Franie). Punctuation it lacks falls back to Plus Jakarta Sans. */
+  --font-heading: var(--font-display), var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --animate-marquee: marquee 32s linear infinite;
@@ -106,7 +125,12 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
+}
+
+/* Never fake bold or italic on the display font: only its real weights are used. */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-synthesis-weight: none;
 }
 
 /* Glassmorphism tuned for warm cream background */
@@ -117,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-nav {
-  background: rgba(250, 248, 245, 0.88);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
 }

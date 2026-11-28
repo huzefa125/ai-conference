@@ -100,17 +100,24 @@ export default function Agenda({
                 aria-controls={`${id}-panel`}
                 onClick={() => setDayId(d.id)}
                 className={clsx(
-                  "cursor-pointer px-3 py-3 text-left transition-colors sm:px-5",
+                  "relative isolate cursor-pointer px-3 py-3 text-left transition-colors duration-300 sm:px-5",
                   i > 0 && "border-l border-border",
-                  active
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-secondary"
+                  active ? "text-primary-foreground" : "text-foreground hover:bg-secondary"
                 )}
               >
-                <span className="block text-[11px] font-semibold uppercase tracking-widest opacity-80">
+                {/* The cobalt highlight slides between days (shared layout animation). */}
+                {active && (
+                  <motion.span
+                    layoutId={`${id}-day-highlight`}
+                    aria-hidden
+                    className="absolute inset-0 -z-10 bg-primary"
+                    transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 36 }}
+                  />
+                )}
+                <span className="block text-[12px] font-semibold uppercase tracking-widest opacity-80">
                   {d.label}
                 </span>
-                <span className="block text-xs font-bold sm:text-base">{d.date}</span>
+                <span className="block text-sm font-bold sm:text-base">{d.date}</span>
               </button>
             );
           })}
@@ -130,9 +137,9 @@ export default function Agenda({
                 onClick={() => setFilter(f)}
                 aria-pressed={active}
                 className={clsx(
-                  "cursor-pointer border px-3 py-1.5 font-mono text-xs font-medium transition-colors",
+                  "cursor-pointer border px-3 py-1.5 font-mono text-sm font-medium transition-colors",
                   active
-                    ? "border-primary bg-primary/10 text-primary"
+                    ? "border-primary bg-primary/10 text-tertiary-strong"
                     : "border-border bg-card text-muted-foreground hover:border-primary/50 hover:text-foreground"
                 )}
               >
@@ -159,7 +166,7 @@ export default function Agenda({
               <motion.div className="absolute inset-x-0 top-0 w-px origin-top bg-primary" style={{ height: dotTop }} />
               {/* the travelling dot */}
               <motion.div
-                className="absolute left-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-card bg-primary shadow-[0_0_0_4px_rgba(37,99,235,0.25)]"
+                className="absolute left-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-card bg-primary shadow-[0_0_0_4px_rgba(0,82,255,0.25)]"
                 style={{ top: dotTop }}
               />
             </div>
@@ -180,7 +187,7 @@ export default function Agenda({
           </AnimatePresence>
         </div>
 
-        <p className="mx-auto mt-4 max-w-4xl text-center font-mono text-xs text-muted-foreground">
+        <p className="mx-auto mt-4 max-w-4xl text-center font-mono text-sm text-muted-foreground">
           Times are India Standard Time (IST). The program is subject to change.
         </p>
       </div>
@@ -220,7 +227,7 @@ function SessionRow({ session: s, first, last }: { session: Session; first: bool
       {/* Time */}
       <div className="font-mono text-sm tabular-nums">
         <div className="text-base font-bold text-foreground">{s.time}</div>
-        <div className="text-xs text-muted-foreground">{endTime(s.time, s.duration)}</div>
+        <div className="text-sm text-muted-foreground">{endTime(s.time, s.duration)}</div>
       </div>
 
       {/* Title + speaker */}
@@ -228,14 +235,14 @@ function SessionRow({ session: s, first, last }: { session: Session; first: bool
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <span
             className={clsx(
-              "font-mono text-[11px] font-semibold uppercase tracking-widest",
-              isBreak ? "text-muted-foreground" : "text-primary"
+              "font-mono text-[12px] font-semibold uppercase tracking-widest",
+              isBreak ? "text-muted-foreground" : "text-tertiary-strong"
             )}
           >
             {KIND_LABEL[s.kind]}
           </span>
           {s.track && (
-            <span className="border border-border px-2 py-0.5 font-mono text-xs text-muted-foreground">
+            <span className="border border-border px-2 py-0.5 font-mono text-sm text-muted-foreground">
               {TRACK_LABELS[s.track]}
             </span>
           )}
@@ -252,7 +259,7 @@ function SessionRow({ session: s, first, last }: { session: Session; first: bool
 
         {s.speaker && (
           <p className="mt-2 flex items-center gap-1.5 text-sm text-muted-foreground">
-            <MicrophoneStageIcon weight="duotone" size={16} className="shrink-0 text-primary" />
+            <MicrophoneStageIcon weight="duotone" size={16} className="shrink-0 text-tertiary-strong" />
             {s.speaker}
           </p>
         )}
@@ -261,7 +268,7 @@ function SessionRow({ session: s, first, last }: { session: Session; first: bool
       {/* Room */}
       {s.room && (
         <div className="col-start-2 flex items-center gap-1.5 text-sm text-muted-foreground sm:col-start-3 sm:self-start sm:justify-end">
-          <MapPinIcon weight="duotone" size={16} className="shrink-0 text-primary" />
+          <MapPinIcon weight="duotone" size={16} className="shrink-0 text-tertiary-strong" />
           {s.room}
         </div>
       )}

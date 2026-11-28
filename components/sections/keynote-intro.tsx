@@ -83,7 +83,7 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
 
           {/* Session tag, from the Day 1 agenda */}
           <motion.div {...enter(0.9)} className="absolute bottom-0 left-0 bg-background px-5 py-4">
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+            <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-tertiary-ink">
               Day 1 · 09:30 · Main Hall
             </p>
             <p className="mt-1 font-heading text-base font-bold text-foreground">Opening keynote</p>
@@ -92,7 +92,7 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
 
         {/* Copy */}
         <div className="relative">
-          <motion.p {...enter(0.1)} className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+          <motion.p {...enter(0.1)} className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-tertiary-ink">
             Keynote speakers
           </motion.p>
 
@@ -110,7 +110,7 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
                       <span className="inline-flex items-center gap-2.5 bg-primary py-1 pl-3 pr-1.5 text-white">
                         {PILL_WORD}
                         {/* The gif has a wide white margin around the blob; zooming 1.6x crops it so the blob fills the circle. */}
-                        <span className="inline-block h-[1.3em] w-[1.3em] overflow-hidden rounded-full bg-[#0a0a0a]">
+                        <span className="inline-block h-[1.3em] w-[1.3em] overflow-hidden rounded-full bg-[var(--atlas-navy)]">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img src="/bloub-default-cycle.gif" alt="" className="h-full w-full scale-[1.6] object-cover" />
                         </span>
@@ -142,8 +142,8 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
             <dl className="relative flex items-end justify-between gap-4 sm:justify-start sm:gap-12 lg:gap-10 xl:gap-14">
               {VENUE.stats.map((s) => (
                 <div key={s.label} className="flex flex-col-reverse gap-2">
-                  <dt className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground">{s.label}</dt>
-                  <dd className="font-heading text-[clamp(2.1rem,9vw,3.75rem)] font-extrabold leading-none tracking-tight text-primary lg:text-[clamp(2.5rem,4.2vw,3.75rem)]">
+                  <dt className="font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-foreground">{s.label}</dt>
+                  <dd className="font-heading text-[clamp(2.1rem,9vw,3.75rem)] font-extrabold leading-none tracking-tight text-tertiary-strong lg:text-[clamp(2.5rem,4.2vw,3.75rem)]">
                     <CountUp value={s.value} start={show} reduce={reduce} />
                   </dd>
                 </div>

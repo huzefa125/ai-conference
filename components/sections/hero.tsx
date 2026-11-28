@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { useContent } from "@/components/providers/content-provider";
-import { HAND_FONT } from "@/components/ui/handwritten";
+import { DISPLAY_FONT } from "@/components/ui/display-font";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -43,7 +43,7 @@ function Digit({ value, delay, reduce }: { value: number; delay: number; reduce:
   return (
     <span className="inline-block h-[0.92em] overflow-hidden align-top">
       <motion.span
-        className="flex flex-col"
+        className="flex flex-col items-center tabular-nums"
         initial={reduce ? false : { y: 0 }}
         animate={{ y: `-${(reel.length - 1) * 0.92}em` }}
         transition={{ duration: 1.5, delay, ease: [0.65, 0, 0.15, 1] }}
@@ -99,7 +99,7 @@ function EventStatus() {
   }
 
   return (
-    <p className="mt-4 min-h-4 font-mono text-[10px] uppercase leading-relaxed tracking-widest text-white/80">{content}</p>
+    <p className="mt-4 min-h-4 font-mono text-[12px] uppercase leading-relaxed tracking-widest text-white/80">{content}</p>
   );
 }
 
@@ -144,7 +144,7 @@ function HeroVideo({ reduce }: { reduce: boolean }) {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/55 to-transparent" />
 
       {/* Caption */}
-      <div className="absolute inset-x-5 bottom-5 flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-white">
+      <div className="absolute inset-x-5 bottom-5 flex items-center justify-between font-mono text-[12px] uppercase tracking-widest text-white">
         <span>Five fields · One room</span>
         <span className="text-white/70">Hyderabad 2026</span>
       </div>
@@ -156,7 +156,17 @@ function HeroVideo({ reduce }: { reduce: boolean }) {
 
 export default function AtlasHero() {
   const reduce = useReducedMotion() ?? false;
-  const AVATARS = useContent().speakers.filter((s) => s.photo).slice(0, 3);
+  const { speakers, venue } = useContent();
+  const AVATARS = speakers.filter((s) => s.photo).slice(0, 3);
+  // Metadata strip under the hero, from the event details and stats in the site content.
+  const detail = (label: string) => venue.details.find((d) => d.label === label)?.value;
+  const capacity = venue.stats.find((s) => s.label === "Attendees")?.value;
+  const META = [
+    { label: "Dates", value: detail("Dates") ?? "To be announced" },
+    { label: "Venue", value: detail("City") ?? "To be announced" },
+    { label: "Capacity", value: capacity ? `${capacity} attendees` : "To be announced" },
+    { label: "Format", value: detail("Format") ?? "Hybrid" },
+  ];
   const rise = (delay: number) => ({
     initial: reduce ? false : { opacity: 0, y: 14 },
     animate: { opacity: 1, y: 0 },
@@ -169,13 +179,13 @@ export default function AtlasHero() {
       <div className="container mx-auto grid min-h-0 flex-1 gap-8 px-4 pb-8 pt-4 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pb-10">
         {/* Left: type */}
         <div className="relative isolate flex min-h-0 flex-col justify-center">
-          <h1 className="font-heading text-[clamp(2.6rem,11.5vw,5.75rem)] font-extrabold lg:text-[clamp(3rem,min(6.4vw,10.5vh),7.5rem)] uppercase leading-[0.92] tracking-[-0.045em] text-foreground">
+          <h1 className="font-heading text-[clamp(2.1rem,9.5vw,4.25rem)] font-extrabold lg:text-[clamp(2.6rem,min(4.6vw,8.2vh),5.5rem)] uppercase leading-[0.98] tracking-[-0.02em] text-foreground">
             <Line delay={0.05} reduce={reduce}>Atlas</Line>
             <Line delay={0.15} reduce={reduce}>Global</Line>
             <Line delay={0.25} reduce={reduce}>
               Summit{" "}
               <span className="text-primary" aria-label="2026">
-                <span aria-hidden className="inline-flex tracking-[-0.06em]">
+                <span aria-hidden className="inline-flex tracking-normal">
                   {[2, 0, 2, 6].map((d, i) => (
                     <Digit key={i} value={d} delay={0.45 + i * 0.1} reduce={reduce} />
                   ))}
@@ -192,14 +202,14 @@ export default function AtlasHero() {
               transition={{ duration: 0.8, delay: 0.7, ease: EASE }}
               className="flex shrink-0 flex-col justify-between bg-primary px-5 py-4 text-white sm:w-52"
             >
-              <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-white/80">18–20 Nov 2026</p>
+              <p className="font-mono text-[12px] font-semibold uppercase tracking-widest text-white/80">18–20 Nov 2026</p>
               <p className="mt-2 font-heading text-[1.7rem] font-bold leading-none tracking-tight">Hyderabad</p>
               <EventStatus />
             </motion.div>
 
             {/* Copy + speakers */}
             <div className="flex flex-col justify-between gap-4">
-              <motion.p {...rise(0.85)} className={`${HAND_FONT} max-w-sm -rotate-1 text-balance text-[1.45rem] font-semibold leading-[1.2] text-primary sm:text-[1.6rem]`}>
+              <motion.p {...rise(0.85)} className={`${DISPLAY_FONT} max-w-sm text-balance text-[1.2rem] font-semibold leading-[1.3] text-tertiary-strong sm:text-[1.35rem]`}>
                 Three days of practical talks, hands-on workshops and the people doing the research.
               </motion.p>
 
@@ -225,7 +235,7 @@ export default function AtlasHero() {
                     speakers
                   </span>
                   <ArrowUpRight
-                    className="h-6 w-6 text-primary transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+                    className="h-6 w-6 text-tertiary-strong transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
                     strokeWidth={2.5}
                   />
                 </Link>
@@ -238,6 +248,21 @@ export default function AtlasHero() {
         <div className="relative h-[60vw] max-h-[480px] min-h-0 lg:h-full lg:max-h-none">
           <HeroVideo reduce={reduce} />
         </div>
+      </div>
+
+      {/* Metadata strip: anchors the bottom of the hero */}
+      <div className="container mx-auto px-4 pb-6 lg:pb-8">
+        <motion.dl {...rise(1.1)} className="grid grid-cols-2 border-y border-border sm:grid-cols-4">
+          {META.map((m, i) => (
+            <div
+              key={m.label}
+              className={`py-4 sm:px-6 sm:first:pl-0 ${i % 2 === 1 ? "border-l border-border pl-4" : ""} ${i >= 2 ? "border-t border-border sm:border-t-0" : ""} ${i === 2 ? "sm:border-l" : ""}`}
+            >
+              <dt className="font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-tertiary-ink">{m.label}</dt>
+              <dd className="mt-1 font-heading text-sm font-semibold text-foreground sm:text-base">{m.value}</dd>
+            </div>
+          ))}
+        </motion.dl>
       </div>
     </section>
   );

@@ -5,7 +5,7 @@ import { useContent } from "@/components/providers/content-provider";
 
 // Underline-only fields: no box, just a bottom rule that turns blue on focus.
 const field =
-  "w-full rounded-none border-0 border-b border-foreground/30 bg-transparent px-0 py-3 text-base text-foreground placeholder:text-muted-foreground/80 transition-colors focus:border-primary focus:outline-none focus:ring-0";
+  "w-full rounded-none border-0 border-b border-border bg-transparent px-0 py-3 text-base text-foreground placeholder:text-muted-foreground/80 transition-colors focus:border-primary focus:outline-none focus:ring-0";
 
 /**
  * There is no backend yet, so submitting opens the visitor's email app with the message

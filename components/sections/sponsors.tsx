@@ -23,7 +23,7 @@ export default function Sponsors({ id = "sponsors", className = "" }: { id?: str
         <div className="mx-auto mt-12 max-w-5xl space-y-10">
           {SPONSORS.map((group, gi) => (
             <div key={group.tier}>
-              <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-widest text-primary">
+              <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">
                 {group.tier}
               </p>
               <div
@@ -38,7 +38,7 @@ export default function Sponsors({ id = "sponsors", className = "" }: { id?: str
                     <div
                       key={`${group.tier}-${i}`}
                       className={clsx(
-                        "group flex items-center justify-center gap-3 border border-border bg-card px-4 text-foreground/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:text-foreground hover:shadow-[var(--shadow-hover)]",
+                        "group flex items-center justify-center gap-3 border border-border bg-card px-4 text-foreground transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:text-foreground hover:shadow-[var(--shadow-hover)]",
                         gi === 0 ? "h-36 sm:h-40" : "h-24 sm:h-28"
                       )}
                     >
@@ -51,7 +51,7 @@ export default function Sponsors({ id = "sponsors", className = "" }: { id?: str
                             <Icon
                               weight="duotone"
                               size={gi === 0 ? 44 : 30}
-                              className="shrink-0 text-primary/70 transition-colors group-hover:text-primary"
+                              className="shrink-0 text-tertiary-strong/70 transition-colors group-hover:text-tertiary-strong"
                             />
                           )}
                           <span

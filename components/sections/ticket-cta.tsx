@@ -71,7 +71,7 @@ export default function TicketCta({
               return (
                 <div
                   key={c.title}
-                  className="drop-shadow-[0_18px_28px_rgba(15,23,42,0.14)] transition-transform duration-300 hover:-translate-y-1"
+                  className="drop-shadow-[0_18px_28px_rgba(10,15,28,0.14)] transition-transform duration-300 hover:-translate-y-1"
                 >
                   <article
                     style={SHAPES[c.variant]}
@@ -80,7 +80,7 @@ export default function TicketCta({
                     }`}
                   >
                     <span
-                      className={`font-mono text-[11px] font-semibold uppercase tracking-widest ${
+                      className={`font-mono text-[12px] font-semibold uppercase tracking-widest ${
                         perforated ? "text-primary-foreground/70" : "text-accent-foreground/70"
                       }`}
                     >
@@ -107,7 +107,7 @@ export default function TicketCta({
                       <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t-2 border-dashed border-accent-foreground/25 pt-6 sm:flex-row">
                         {fromPrice ? (
                           <p className="text-left">
-                            <span className="block font-mono text-[11px] font-semibold uppercase tracking-widest text-accent-foreground/70">
+                            <span className="block font-mono text-[12px] font-semibold uppercase tracking-widest text-accent-foreground/70">
                               Passes from
                             </span>
                             <span className="font-heading text-3xl font-extrabold tracking-tight">{fromPrice}</span>

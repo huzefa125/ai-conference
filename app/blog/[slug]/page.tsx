@@ -55,11 +55,11 @@ async function PostContent({ params }: { params: PageProps<"/blog/[slug]">["para
       <article className="w-full py-10 md:py-14">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl">
-            <Link href="/blog" className="group inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary">
+            <Link href="/blog" className="group inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-tertiary-strong">
               <ArrowLeftIcon size={14} className="transition-transform group-hover:-translate-x-0.5" />
               All posts
             </Link>
-            <span className="mt-8 block font-mono text-xs font-semibold uppercase tracking-widest text-primary">{post.category}</span>
+            <span className="mt-8 block font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">{post.category}</span>
             <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl">{post.title}</h1>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">{post.excerpt}</p>
             <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 border-y border-border py-4 text-sm">
@@ -78,7 +78,7 @@ async function PostContent({ params }: { params: PageProps<"/blog/[slug]">["para
 
           <div className="mx-auto mt-10 max-w-3xl space-y-6">
             {post.body.map((para) => (
-              <p key={para.slice(0, 40)} className="text-base leading-8 text-foreground/85">
+              <p key={para.slice(0, 40)} className="text-base leading-8 text-foreground">
                 {para}
               </p>
             ))}

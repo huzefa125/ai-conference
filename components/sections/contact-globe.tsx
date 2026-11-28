@@ -26,8 +26,10 @@ const ORIGINS: LatLon[] = [
   [-26.2041, 28.0473], // Johannesburg
 ];
 
-// Site blue (#2563eb) as 0–1 RGB, as cobe expects.
-const BLUE: [number, number, number] = [0.145, 0.388, 0.922];
+// Site blue (#0052ff) as 0–1 RGB, as cobe expects.
+const BLUE: [number, number, number] = [0, 0.322, 1];
+// Site cyan (#00b8d9) for the flight paths.
+const CYAN: [number, number, number] = [0, 0.722, 0.851];
 
 const MARKERS: Marker[] = [
   { location: HYDERABAD, size: 0.1, color: BLUE },
@@ -83,7 +85,7 @@ export default function ContactGlobe({ className }: { className?: string }) {
       glowColor: [0.9, 0.93, 1],
       markers: MARKERS,
       arcs: ARCS,
-      arcColor: BLUE,
+      arcColor: CYAN,
       arcWidth: 0.6,
       arcHeight: 0.28,
       markerElevation: 0.01,

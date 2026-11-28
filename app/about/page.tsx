@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   description: "Why we run Atlas Global, what we stand for and how the programme is built.",
 };
 
+// Sections hidden for now. Nothing is deleted: set back to `true` to show it again.
+const SHOW = {
+  passes: false, // "Share your work at Atlas Global" + the two ticket cards
+};
+
 export default async function AboutPage() {
   const { about: ABOUT, venue: VENUE, tickets: TICKETS } = await getContent();
   const { hero, story, values, team, process, city, passes } = ABOUT;
@@ -46,7 +51,7 @@ export default async function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
             <div>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">Our story</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">Our story</span>
               <h2 className="mt-3 text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
                 {story.title}
               </h2>
@@ -107,16 +112,16 @@ export default async function AboutPage() {
               <li key={s.label} className="group relative bg-card p-6 transition-colors hover:bg-secondary/50 sm:p-8">
                 <span
                   aria-hidden
-                  className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100"
+                  className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-tertiary transition-transform duration-300 group-hover:scale-x-100"
                 />
                 <div className="flex items-center justify-between">
-                  <span className="text-4xl font-bold tracking-tight text-primary">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-4xl font-bold tracking-tight text-tertiary-strong">{String(i + 1).padStart(2, "0")}</span>
                   {i < process.steps.length - 1 && (
                     <ArrowRightIcon
                       aria-hidden
                       weight="bold"
                       size={20}
-                      className="hidden text-muted-foreground/50 transition-colors group-hover:text-primary md:block"
+                      className="hidden text-muted-foreground/50 transition-colors group-hover:text-tertiary-strong md:block"
                     />
                   )}
                 </div>
@@ -149,7 +154,7 @@ export default async function AboutPage() {
               <img src={city.image} alt="Charminar, Hyderabad" className="absolute inset-0 h-full w-full object-cover" />
               <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-foreground/85 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
-                <span className="inline-flex items-center gap-1.5 bg-primary px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest">
+                <span className="inline-flex items-center gap-1.5 bg-primary px-2.5 py-1 font-mono text-[12px] font-semibold uppercase tracking-widest">
                   <MapPinIcon weight="fill" size={12} />
                   Host city · 2026
                 </span>
@@ -170,12 +175,12 @@ export default async function AboutPage() {
                   const Icon = iconFor(f.icon);
                   return (
                     <li key={f.title} className="group flex gap-5 border-b border-border py-5">
-                      <span className="w-8 shrink-0 pt-0.5 text-sm font-bold text-primary">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="w-8 shrink-0 pt-0.5 text-sm font-bold text-tertiary-strong">{String(i + 1).padStart(2, "0")}</span>
                       <div className="min-w-0 flex-1">
                         <h3 className="text-lg font-bold text-foreground">{f.title}</h3>
                         <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
                       </div>
-                      <Icon weight="duotone" size={26} className="hidden shrink-0 text-primary/40 transition-colors group-hover:text-primary sm:block" />
+                      <Icon weight="duotone" size={26} className="hidden shrink-0 text-tertiary-strong/40 transition-colors group-hover:text-tertiary-strong sm:block" />
                     </li>
                   );
                 })}
@@ -185,16 +190,18 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Closing CTA: headline + two ticket-shaped cards */}
-      <TicketCta
-        {...passes}
-        meta={[
-          { label: passes.eyebrow, value: detail("Dates") },
-          { label: "Where", value: detail("City") },
-          { label: "Format", value: detail("Format") },
-        ]}
-        fromPrice={fromPrice}
-      />
+      {/* Closing CTA: headline + two ticket-shaped cards (hidden for now, see SHOW above) */}
+      {SHOW.passes && (
+        <TicketCta
+          {...passes}
+          meta={[
+            { label: passes.eyebrow, value: detail("Dates") },
+            { label: "Where", value: detail("City") },
+            { label: "Format", value: detail("Format") },
+          ]}
+          fromPrice={fromPrice}
+        />
+      )}
     </PageShell>
   );
 }

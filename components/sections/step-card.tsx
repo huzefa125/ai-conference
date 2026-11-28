@@ -5,7 +5,7 @@ type Colors = { bg: string; text: string; border: string };
 
 const THEMES: Record<StepTheme, Colors> = {
   primary: { bg: "bg-primary/8", text: "text-primary", border: "border-primary/20" },
-  navy: { bg: "bg-foreground/6", text: "text-foreground", border: "border-foreground/15" },
+  navy: { bg: "bg-foreground/6", text: "text-foreground", border: "border-border" },
   cream: { bg: "bg-background", text: "text-foreground", border: "border-border" },
 };
 
@@ -29,7 +29,7 @@ export function StepCard({ number, title, body, theme = "cream", colors, rotate 
       )}
     >
       <div
-        className="rounded-[25px] border border-border bg-card p-2 shadow-[0_12px_28px_-14px_rgba(15,23,42,0.35)] [transform:rotate(var(--rot-m))] md:[transform:rotate(var(--rot))]"
+        className="rounded-[25px] border border-border bg-card p-2 shadow-[0_12px_28px_-14px_rgba(10,15,28,0.35)] [transform:rotate(var(--rot-m))] md:[transform:rotate(var(--rot))]"
         style={{ ["--rot" as string]: `${rotate}deg`, ["--rot-m" as string]: `${rotate / 2}deg` }}
       >
         <span

@@ -15,6 +15,10 @@ export type DitheredFooterProps = {
   copyright?: string;
   status?: { label: string; href: string } | null;
   accent?: string;
+  /** Logo shown above the brand name. */
+  logoSrc?: string;
+  /** Button under the tagline, e.g. contact. */
+  cta?: { label: string; href: string };
 };
 
 const DITHER_SVG =
@@ -77,6 +81,8 @@ export default function DitheredFooter({
   copyright,
   status = null,
   accent = "var(--primary)",
+  logoSrc,
+  cta,
 }: DitheredFooterProps) {
   const fieldRef = React.useRef<HTMLDivElement>(null);
   const frame = React.useRef(0);
@@ -112,13 +118,31 @@ export default function DitheredFooter({
       <style>{CSS}</style>
 
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-12 px-6 pb-16 pt-16 sm:gap-x-10 sm:px-8 md:grid-cols-[minmax(0,1.6fr)_repeat(3,minmax(0,1fr))]">
+        {/* Brand block: logo, name, tagline and a contact button */}
         <div className="col-span-2 md:col-span-1">
-          <a href={brandHref} className="text-base font-semibold tracking-tight">{brand}</a>
+          <a href={brandHref} className="inline-flex flex-col gap-3">
+            {logoSrc && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={logoSrc} alt="" className="h-14 w-auto self-start object-contain" />
+            )}
+            <span className="font-heading text-xl font-extrabold tracking-tight">{brand}</span>
+          </a>
           {tagline && <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">{tagline}</p>}
+          {cta && (
+            <a
+              href={cta.href}
+              className="mt-5 inline-flex items-center gap-2 bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              {cta.label}
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M5 12h14m-6-6 6 6-6 6" />
+              </svg>
+            </a>
+          )}
         </div>
         {columns.map((col) => (
           <nav key={col.title} aria-label={col.title} className="min-w-0 last:col-span-2 md:last:col-span-1">
-            <p className="text-sm font-medium">{col.title}</p>
+            <p className="font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">{col.title}</p>
             <ul className="mt-4 space-y-3">
               {col.links.map((l) => (
                 <li key={l.label}>
@@ -150,7 +174,7 @@ export default function DitheredFooter({
             ))}
             {status && (
               <a href={status.href} className="inline-flex items-center gap-2 transition-colors hover:text-foreground">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                <span className="h-1.5 w-1.5 rounded-full bg-tertiary" />
                 {status.label}
               </a>
             )}

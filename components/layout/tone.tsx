@@ -3,36 +3,45 @@ import type { CSSProperties, ReactNode } from "react";
 /**
  * Background "bands" for page rhythm. Instead of rewriting each section, this re-points the
  * theme tokens (background, card, text, border...) for everything inside, so existing
- * components that use bg-card / text-foreground / border-border pick up the new palette.
+ * components that use bg-card / text-foreground / border-border pick up the band's palette.
  *
- * - "white": a plain white band; cards switch to cream so they still stand apart.
- * - "dark":  a navy band; text turns light and cards become a slightly lighter navy.
+ * The page canvas is Crisp Gallery White (#FFFFFF). Bands alternate with it:
+ * - "white": an Alabaster Slate band (#F6F8FB) with white cards and hairline borders. (Name kept so
+ *   existing <Tone tone="white"> usages need no change.)
+ * - "dark":  a Midnight Obsidian block (#070B14); cards share the obsidian, outlined in a faint cyan line;
+ *   text is white, secondary text and accents are the pure Signal Cyan.
  */
+const COBALT = "#0052ff";
+const CYAN = "#00b8d9";
+const OBSIDIAN = "#070b14";
+
 const TONES: Record<"white" | "dark", CSSProperties> = {
   white: {
-    "--background": "#ffffff",
-    "--card": "#faf8f5",
-    "--secondary": "#f4efea",
-    "--border": "#e4e6ea",
+    "--background": "#f6f8fb",
+    "--card": "#ffffff",
+    "--secondary": "#ffffff",
+    "--muted": "#ffffff",
+    "--border": "#e2e8f0",
   } as CSSProperties,
   dark: {
-    "--background": "#0f172a",
-    "--foreground": "#f8fafc",
-    "--card": "#16213b",
-    "--card-foreground": "#f8fafc",
-    "--popover": "#16213b",
-    "--popover-foreground": "#f8fafc",
-    "--secondary": "#1e2a47",
-    "--secondary-foreground": "#f8fafc",
-    "--muted": "#1e2a47",
-    "--muted-foreground": "#a5b0c4",
-    "--accent": "#1e2a47",
-    "--accent-foreground": "#f8fafc",
-    "--border": "rgba(255,255,255,0.12)",
-    "--input": "rgba(255,255,255,0.16)",
-    "--primary": "#3b82f6",
-    "--shadow-subtle": "0 1px 2px rgba(0,0,0,0.3)",
-    "--shadow-hover": "0 12px 32px rgba(0,0,0,0.45)",
+    "--background": OBSIDIAN,
+    "--foreground": "#ffffff",
+    "--card": OBSIDIAN,
+    "--card-foreground": "#ffffff",
+    "--popover": OBSIDIAN,
+    "--popover-foreground": "#ffffff",
+    "--secondary": `color-mix(in srgb, ${COBALT} 14%, ${OBSIDIAN})`,
+    "--secondary-foreground": "#ffffff",
+    "--muted": `color-mix(in srgb, ${COBALT} 14%, ${OBSIDIAN})`,
+    "--muted-foreground": CYAN,
+    "--accent": `color-mix(in srgb, ${COBALT} 14%, ${OBSIDIAN})`,
+    "--accent-foreground": "#ffffff",
+    "--tertiary-ink": CYAN,
+    "--tertiary-strong": CYAN,
+    "--border": `color-mix(in srgb, ${CYAN} 32%, ${OBSIDIAN})`,
+    "--input": `color-mix(in srgb, ${CYAN} 32%, ${OBSIDIAN})`,
+    "--shadow-subtle": "none",
+    "--shadow-hover": "none",
     colorScheme: "dark",
   } as CSSProperties,
 };

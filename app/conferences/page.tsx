@@ -18,7 +18,7 @@ export default async function ConferencesPage() {
       <section className="w-full py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">Conferences</span>
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">Conferences</span>
             <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl">
               Our <span className="text-primary">events</span>
             </h1>
@@ -34,17 +34,17 @@ export default async function ConferencesPage() {
               <img src={flagship.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
             </div>
             <div className="flex flex-col justify-center p-6 sm:p-10">
-              <span className="w-fit bg-primary px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary-foreground">
+              <span className="w-fit bg-primary px-2.5 py-1 font-mono text-[12px] font-semibold uppercase tracking-widest text-primary-foreground">
                 {flagship.status}
               </span>
               <h2 className="mt-5 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{flagship.name}</h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">{flagship.summary}</p>
               <div className="mt-6 space-y-2 text-sm text-foreground">
                 <p className="flex items-center gap-2">
-                  <CalendarBlankIcon size={18} weight="duotone" className="text-primary" /> {flagship.dates}
+                  <CalendarBlankIcon size={18} weight="duotone" className="text-tertiary-strong" /> {flagship.dates}
                 </p>
                 <p className="flex items-center gap-2">
-                  <MapPinIcon size={18} weight="duotone" className="text-primary" /> {flagship.city}
+                  <MapPinIcon size={18} weight="duotone" className="text-tertiary-strong" /> {flagship.city}
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -68,7 +68,7 @@ export default async function ConferencesPage() {
                   <img src={c.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover grayscale-[30%]" />
                   <span
                     className={cn(
-                      "absolute left-3 top-3 px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest",
+                      "absolute left-3 top-3 px-2.5 py-1 font-mono text-[12px] font-semibold uppercase tracking-widest",
                       c.status === "Upcoming" ? "bg-primary text-primary-foreground" : "bg-card/95 text-foreground"
                     )}
                   >
@@ -78,11 +78,11 @@ export default async function ConferencesPage() {
                 <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <h3 className="text-lg font-bold text-foreground">{c.name}</h3>
                   <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
-                    <MapPinIcon size={15} weight="duotone" className="text-primary" /> {c.city}
+                    <MapPinIcon size={15} weight="duotone" className="text-tertiary-strong" /> {c.city}
                     <span aria-hidden>·</span> {c.dates}
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.summary}</p>
-                  <Link href="/contact" className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-primary hover:underline">
+                  <Link href="/contact" className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-tertiary-strong hover:underline">
                     Get notified <ArrowRightIcon size={14} />
                   </Link>
                 </div>

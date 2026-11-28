@@ -149,7 +149,7 @@ export const TRAVEL = [
   {
     icon: "AirplaneLanding",
     title: "Getting there",
-    text: "Hyderabad is served by Rajiv Gandhi International Airport (HYD). Airport shuttle buses, the Hyderabad Metro and app-based cabs connect it to the city centre.",
+    text: "Hyderabad is served by Rajiv Gandhi International Airport (HYD). App-based cabs and airport buses connect it to the city centre; the metro does not reach the airport yet.",
   },
   {
     icon: "Bed",
@@ -162,6 +162,59 @@ export const TRAVEL = [
     text: "Tell us about accessibility needs when you register. Visa invitation letters are available to registered attendees on request.",
   },
 ];
+
+// Practical travel facts under the route on the home page. Venue-dependent facts stay "with the venue
+// announcement" until the venue is confirmed: do not add distances or hotels before then.
+export const TRAVEL_FACTS = [
+  {
+    icon: "plane",
+    label: "Closest airport",
+    value: "Rajiv Gandhi International (HYD)",
+    note: "At Shamshabad, roughly 25–30 km from the city centre. Direct flights from the Gulf, Southeast Asia and Europe, plus most Indian cities.",
+  },
+  {
+    icon: "taxi",
+    label: "Airport to city",
+    value: "Cab or airport bus",
+    note: "App-based cabs and prepaid taxis wait outside arrivals; TGSRTC Pushpak airport buses run to major city areas. Allow 45–90 minutes by road.",
+  },
+  {
+    icon: "venue",
+    label: "Venue distance",
+    value: "With the venue announcement",
+    note: "Exact distance and travel time from the airport will be listed here once the venue is confirmed.",
+  },
+  {
+    icon: "hotel",
+    label: "Hotels nearby",
+    value: "Delegate rates coming",
+    note: "A block of rooms at a delegate rate near the venue will be published with the venue. We never book rooms through third-party agents.",
+  },
+  {
+    icon: "visa",
+    label: "International attendees",
+    value: "e-Visa + invitation letter",
+    note: "Many nationalities can apply for an Indian e-Visa online at indianvisaonline.gov.in. Registered attendees can request an invitation letter.",
+  },
+  {
+    icon: "clock",
+    label: "Time zone",
+    value: "IST, UTC+5:30",
+    note: "No daylight saving. Sessions run 09:00–18:00 local time.",
+  },
+  {
+    icon: "weather",
+    label: "Weather in November",
+    value: "Dry and mild",
+    note: "Typically around 16–29°C, with cool mornings and evenings. Bring a light layer for air-conditioned halls.",
+  },
+  {
+    icon: "money",
+    label: "Money and power",
+    value: "Indian rupee (INR) · 230V",
+    note: "Cards and UPI are widely accepted. Plugs are types C, D and M; bring an adapter.",
+  },
+] as const;
 
 export const CFP = {
   title: "SPEAK AT ATLAS GLOBAL",

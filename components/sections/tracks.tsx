@@ -117,7 +117,7 @@ export function BentoCard({
     >
       <div>
         <div className="flex items-start justify-between">
-          <div className="flex h-12 w-12 items-center justify-center bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+          <div className="flex h-12 w-12 items-center justify-center bg-tertiary/10 text-tertiary-strong transition-colors duration-300 group-hover:bg-tertiary-strong group-hover:text-white">
             {Icon && <Icon weight="duotone" size={28} />}
           </div>
           <span className="text-sm font-medium text-muted-foreground">
@@ -125,7 +125,7 @@ export function BentoCard({
           </span>
         </div>
 
-        <p className="mt-5 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary">
+        <p className="mt-5 font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">
           {eyebrow}
         </p>
 
@@ -139,8 +139,8 @@ export function BentoCard({
       </div>
 
       {audience && (
-        <div className="mt-5 flex items-start gap-2 border-t border-border pt-4 font-mono text-xs text-foreground/70">
-          <UsersThreeIcon weight="duotone" size={18} className="shrink-0 text-primary" />
+        <div className="mt-5 flex items-start gap-2 border-t border-border pt-4 font-mono text-xs text-foreground">
+          <UsersThreeIcon weight="duotone" size={18} className="shrink-0 text-tertiary-strong" />
           <span>{audience}</span>
         </div>
       )}

@@ -17,7 +17,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <span className="absolute left-3 top-3 bg-card/95 px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary">
+        <span className="absolute left-3 top-3 bg-card/95 px-2.5 py-1 font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">
           {post.category}
         </span>
       </div>
@@ -25,11 +25,11 @@ export default function BlogCard({ post }: { post: BlogPost }) {
         <p className="font-mono text-xs text-muted-foreground">
           {formatDate(post.date)} · {post.readTime}
         </p>
-        <h3 className="mt-2 text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-primary">
+        <h3 className="mt-2 text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-tertiary-strong">
           {post.title}
         </h3>
         <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
-        <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-primary">
+        <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-tertiary-strong">
           Read more
           <ArrowRightIcon size={14} className="transition-transform group-hover:translate-x-0.5" />
         </span>

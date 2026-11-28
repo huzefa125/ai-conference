@@ -19,7 +19,7 @@ export default async function BlogPage() {
       <section className="w-full py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">Blog</span>
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">Blog</span>
             <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl">
               News &amp; <span className="text-primary">insights</span>
             </h1>
@@ -38,17 +38,17 @@ export default async function BlogPage() {
               <img src={featured.image} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
             </div>
             <div className="flex flex-col justify-center p-6 sm:p-10">
-              <span className="w-fit bg-primary px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary-foreground">
+              <span className="w-fit bg-primary px-2.5 py-1 font-mono text-[12px] font-semibold uppercase tracking-widest text-primary-foreground">
                 Latest · {featured.category}
               </span>
-              <h2 className="mt-5 text-2xl font-bold leading-snug text-foreground transition-colors group-hover:text-primary sm:text-3xl">
+              <h2 className="mt-5 text-2xl font-bold leading-snug text-foreground transition-colors group-hover:text-tertiary-strong sm:text-3xl">
                 {featured.title}
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">{featured.excerpt}</p>
               <p className="mt-6 font-mono text-xs text-muted-foreground">
                 {featured.author.name} · {formatDate(featured.date)} · {featured.readTime}
               </p>
-              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-tertiary-strong">
                 Read the post
                 <ArrowRightIcon size={14} className="transition-transform group-hover:translate-x-0.5" />
               </span>

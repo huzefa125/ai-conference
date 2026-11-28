@@ -7,7 +7,7 @@ export const ABOUT = {
     title: "Where science gets done, not just presented.",
     // Big uppercase headline, one entry per line; the last line is set in brand blue.
     lines: ["Built for", "people who", "do science."],
-    // Written in by the animated pen under the headline.
+    // Accent line (display font) under the headline.
     note: "...and the experiments that failed.",
     caption: "The main hall",
     link: { label: "Read our story", href: "#story" },
@@ -33,7 +33,7 @@ export const ABOUT = {
     banner: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1800&q=80&fit=crop",
     ctaImage: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1800&q=80&fit=crop",
   },
-  // Core values: header copy, a handwritten aside, then a 3x2 grid on the About page.
+  // Core values: header copy, an accent line, then a 3x2 grid on the About page.
   valuesIntro: {
     eyebrow: "What we stand for",
     text: "The rules we use to pick speakers, review abstracts and run the three days. If a decision breaks one of these, we change the decision.",

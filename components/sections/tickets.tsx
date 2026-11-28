@@ -62,7 +62,7 @@ const KINDS = {
     tag: "Admit one",
     card: "bg-card text-foreground",
     soft: "text-muted-foreground",
-    line: "border-foreground/15",
+    line: "border-border",
     check: "text-primary",
     button: "bg-foreground text-background hover:bg-foreground/85",
   },
@@ -97,15 +97,15 @@ function TicketCard({ ticket: t, index }: { ticket: Ticket; index: number }) {
       className={clsx(
         "h-full transition-transform duration-300 hover:-translate-y-1",
         t.featured
-          ? "drop-shadow-[0_22px_34px_rgba(37,99,235,0.35)] lg:-translate-y-3 lg:hover:-translate-y-4"
-          : "drop-shadow-[0_18px_28px_rgba(15,23,42,0.14)]",
+          ? "drop-shadow-[0_22px_34px_rgba(0,82,255,0.35)] lg:-translate-y-3 lg:hover:-translate-y-4"
+          : "drop-shadow-[0_18px_28px_rgba(10,15,28,0.14)]",
       )}
     >
       <article
         style={t.featured ? TICKET_SHAPES.perforated : TICKET_SHAPES.notched}
         className={clsx("flex h-full flex-col px-8 py-9 text-center sm:px-10", kind.card)}
       >
-        <span className={clsx("font-mono text-[11px] font-semibold uppercase tracking-widest", kind.soft)}>
+        <span className={clsx("font-mono text-[12px] font-semibold uppercase tracking-widest", kind.soft)}>
           {kind.tag}
         </span>
         <h3 className="mt-2 font-heading text-2xl font-bold tracking-tight sm:text-3xl">{t.name}</h3>
@@ -131,7 +131,7 @@ function TicketCard({ ticket: t, index }: { ticket: Ticket; index: number }) {
           )}
         >
           <p>
-            <span className={clsx("block font-mono text-[11px] font-semibold uppercase tracking-widest", kind.soft)}>
+            <span className={clsx("block font-mono text-[12px] font-semibold uppercase tracking-widest", kind.soft)}>
               {t.priceNote}
             </span>
             <span className="font-heading text-4xl font-extrabold leading-none tracking-tight">

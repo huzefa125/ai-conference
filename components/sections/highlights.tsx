@@ -53,9 +53,9 @@ export function StickyFeatureSection({
               style={{ top: `calc(5.5rem + ${i * 14}px)` }}
             >
               <div className="flex flex-col justify-center">
-                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{f.eyebrow}</span>
+                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">{f.eyebrow}</span>
                 <h3 className="mt-3 text-3xl font-bold leading-tight text-foreground">{f.title}</h3>
-                <p className="mt-4 text-base leading-relaxed text-foreground/75">{f.description}</p>
+                <p className="mt-4 text-base leading-relaxed text-foreground">{f.description}</p>
               </div>
               <div className={clsx(i % 2 === 1 && "order-first")}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -82,7 +82,7 @@ export function StickyFeatureSection({
               <img src={f.imageUrl} alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover" />
               <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-foreground via-foreground/75 to-foreground/10" />
               <div className="p-5">
-                <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-[#93b4ff]">{f.eyebrow}</span>
+                <span className="font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary">{f.eyebrow}</span>
                 <h3 className="mt-2 text-xl font-bold leading-tight text-white">{f.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-white/85">{f.description}</p>
               </div>

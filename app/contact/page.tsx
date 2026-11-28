@@ -28,7 +28,7 @@ export default async function ContactPage() {
           <div className="mx-auto grid max-w-6xl gap-14 border border-primary/15 bg-primary/[0.04] px-6 py-12 sm:px-10 md:px-16 md:py-20 lg:grid-cols-2 lg:gap-20">
             {/* Left: headline + socials */}
             <div className="flex flex-col">
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{hero.eyebrow}</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">{hero.eyebrow}</span>
               <h1 className="mt-4 text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
                 Let&rsquo;s move science forward, <span className="text-primary">together.</span>
               </h1>
@@ -44,7 +44,7 @@ export default async function ContactPage() {
                         key={s.label}
                         href={s.href}
                         aria-label={s.label}
-                        className="grid h-10 w-10 place-items-center border border-foreground/15 text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                        className="grid h-10 w-10 place-items-center border border-border text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
                       >
                         <Icon weight="fill" size={18} />
                       </a>
@@ -60,10 +60,10 @@ export default async function ContactPage() {
                 <div>
                   <h2 className={colLabel}>Contact info</h2>
                   <div className="mt-3">
-                    <a href={`mailto:${email}`} className={`${colLine} break-words hover:text-primary`}>
+                    <a href={`mailto:${email}`} className={`${colLine} break-words hover:text-tertiary-strong`}>
                       {email}
                     </a>
-                    <a href={`tel:${phone.replace(/\s/g, "")}`} className={`${colLine} hover:text-primary`}>
+                    <a href={`tel:${phone.replace(/\s/g, "")}`} className={`${colLine} hover:text-tertiary-strong`}>
                       {phone}
                     </a>
                     <span className={colLine}>{hours}</span>
@@ -95,7 +95,7 @@ export default async function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16">
             <div>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">Find us</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">Find us</span>
               <h2 className="mt-3 font-heading text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
                 Hyderabad, <span className="text-primary">from anywhere.</span>
               </h2>
@@ -112,7 +112,7 @@ export default async function ContactPage() {
                   { label: "Questions", value: email },
                 ].map((d) => (
                   <div key={d.label} className="border-b border-border py-4 sm:odd:pr-6">
-                    <dt className="font-mono text-[11px] font-semibold uppercase tracking-widest text-primary">{d.label}</dt>
+                    <dt className="font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">{d.label}</dt>
                     <dd className="mt-1 break-words text-sm font-medium text-foreground">{d.value}</dd>
                   </div>
                 ))}

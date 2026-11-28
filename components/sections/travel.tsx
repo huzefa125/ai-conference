@@ -6,8 +6,20 @@ import { clsx } from "clsx";
 import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { AirplaneTiltIcon } from "@phosphor-icons/react";
 import { iconFor } from "@/lib/icons";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Banknote,
+  CarTaxiFront,
+  Clock,
+  CloudSun,
+  FileCheck2,
+  Hotel,
+  MapPinned,
+  PlaneLanding,
+  type LucideIcon,
+} from "lucide-react";
 import { useContent } from "@/components/providers/content-provider";
+import { TRAVEL_FACTS } from "@/lib/data/site";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -92,9 +104,9 @@ function BoardingPass({ reduce }: { reduce: boolean }) {
           }}
         />
         <div className="relative">
-          <div className="flex items-center justify-between font-mono text-[11px] font-semibold uppercase tracking-[0.2em]">
+          <div className="flex items-center justify-between font-mono text-[12px] font-semibold uppercase tracking-[0.2em]">
             <span className="text-white/70">Atlas Global 2026</span>
-            <span className="inline-flex items-center gap-2 text-primary">
+            <span className="inline-flex items-center gap-2 text-tertiary-strong">
               <AirplaneTiltIcon weight="fill" size={14} /> Boarding pass
             </span>
           </div>
@@ -102,21 +114,21 @@ function BoardingPass({ reduce }: { reduce: boolean }) {
           <div className="mt-8 grid grid-cols-[auto_minmax(4.5rem,1fr)_auto] items-end gap-3 sm:gap-6">
             <div>
               <p className="font-heading text-[clamp(2.4rem,11vw,4.5rem)] font-extrabold leading-none tracking-tight">ANY</p>
-              <p className="mt-2 font-mono text-[11px] uppercase tracking-widest text-white/60">Your city</p>
+              <p className="mt-2 font-mono text-[12px] uppercase tracking-widest text-white/60">Your city</p>
             </div>
             <div className="h-16 self-center sm:h-24">
               <FlightArc reduce={reduce} />
             </div>
             <div className="text-right">
               <p className="font-heading text-[clamp(2.4rem,11vw,4.5rem)] font-extrabold leading-none tracking-tight text-primary">HYD</p>
-              <p className="mt-2 font-mono text-[11px] uppercase tracking-widest text-white/60">Hyderabad, India</p>
+              <p className="mt-2 font-mono text-[12px] uppercase tracking-widest text-white/60">Hyderabad, India</p>
             </div>
           </div>
 
           <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-white/15 pt-6 sm:grid-cols-4">
             {FIELDS.map((f) => (
               <div key={f.label}>
-                <dt className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">{f.label}</dt>
+                <dt className="font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-white/50">{f.label}</dt>
                 <dd className="mt-1 font-heading text-base font-bold sm:text-lg">{f.value}</dd>
               </div>
             ))}
@@ -135,7 +147,7 @@ function BoardingPass({ reduce }: { reduce: boolean }) {
       {/* Tear-off stub: leans away on hover like it's about to be torn */}
       <div className="flex origin-top-left flex-col justify-between gap-6 bg-primary p-6 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:translate-x-2 md:group-hover:rotate-[2deg] sm:p-7">
         <div>
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">Admit one</p>
+          <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-white/70">Admit one</p>
           <p className="mt-2 font-heading text-4xl font-extrabold leading-none">HYD</p>
           <p className="mt-2 text-sm text-white/80">Seat: your pick of five tracks</p>
         </div>
@@ -174,7 +186,7 @@ function Route({ reduce }: { reduce: boolean }) {
       <div aria-hidden className="absolute left-[16.66%] right-[16.66%] top-[11px] hidden md:block">
         <div className="h-px w-full border-t-2 border-dashed border-border" />
         <motion.div style={{ scaleX: progress }} className="absolute inset-x-0 top-0 h-[2px] origin-left bg-primary" />
-        <motion.div style={{ left: planeX }} className="absolute -top-[11px] -translate-x-1/2 text-primary">
+        <motion.div style={{ left: planeX }} className="absolute -top-[11px] -translate-x-1/2 text-tertiary-strong">
           <span className="flex h-6 w-6 items-center justify-center bg-background">
             <AirplaneTiltIcon weight="fill" size={22} className="rotate-45" />
           </span>
@@ -185,7 +197,7 @@ function Route({ reduce }: { reduce: boolean }) {
       <div aria-hidden className="absolute bottom-6 left-[11px] top-3 md:hidden">
         <div className="h-full w-px border-l-2 border-dashed border-border" />
         <motion.div style={{ scaleY: progress }} className="absolute inset-y-0 left-0 w-[2px] origin-top bg-primary" />
-        <motion.div style={{ top: planeY }} className="absolute -left-[11px] -translate-y-1/2 text-primary">
+        <motion.div style={{ top: planeY }} className="absolute -left-[11px] -translate-y-1/2 text-tertiary-strong">
           <span className="flex h-6 w-6 items-center justify-center bg-background">
             <AirplaneTiltIcon weight="fill" size={20} className="rotate-[135deg]" />
           </span>
@@ -213,11 +225,11 @@ function Route({ reduce }: { reduce: boolean }) {
                   on ? "translate-y-0 opacity-100" : "translate-y-3 opacity-40",
                 )}
               >
-                <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-tertiary-ink">
                   Stop 0{i + 1} · {STOPS[i]}
                 </p>
                 <div className="mt-3 flex items-center gap-3 md:justify-center">
-                  <Icon weight="duotone" size={26} className="text-primary" />
+                  <Icon weight="duotone" size={26} className="text-tertiary-strong" />
                   <h3 className="font-heading text-xl font-bold text-foreground">{t.title}</h3>
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:mx-auto md:max-w-xs">{t.text}</p>
@@ -237,7 +249,7 @@ export default function Travel({ id = "travel", className = "" }: { id?: string;
       <div className="container mx-auto px-4">
         <div className="mb-10 flex flex-col justify-between gap-4 md:mb-14 md:flex-row md:items-end">
           <div>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-primary">Travel</p>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-tertiary-ink">Travel</p>
             <h2 className="mt-3 font-heading text-4xl font-extrabold uppercase tracking-tight text-foreground sm:text-5xl md:text-6xl">
               Plan your trip
             </h2>
@@ -249,7 +261,49 @@ export default function Travel({ id = "travel", className = "" }: { id?: string;
 
         <BoardingPass reduce={reduce} />
         <Route reduce={reduce} />
+        {/* Practical information: hidden for now. Set SHOW_PRACTICAL_INFO to true to show it again. */}
+        {SHOW_PRACTICAL_INFO && <PracticalInfo />}
       </div>
     </section>
+  );
+}
+
+const SHOW_PRACTICAL_INFO = false;
+
+const FACT_ICONS: Record<(typeof TRAVEL_FACTS)[number]["icon"], LucideIcon> = {
+  plane: PlaneLanding,
+  taxi: CarTaxiFront,
+  venue: MapPinned,
+  hotel: Hotel,
+  visa: FileCheck2,
+  clock: Clock,
+  weather: CloudSun,
+  money: Banknote,
+};
+
+/** Practical answers for planning the trip: airport, transfers, visas, hotels, time zone, weather, money. */
+function PracticalInfo() {
+  return (
+    <div className="mt-16 md:mt-20">
+      <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
+        <h3 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Practical information</h3>
+        <p className="text-sm text-muted-foreground">Venue details are added as soon as the venue is confirmed.</p>
+      </div>
+      <dl className="mt-6 grid grid-cols-1 border-l border-t border-border sm:grid-cols-2 lg:grid-cols-4">
+        {TRAVEL_FACTS.map((f) => {
+          const Icon = FACT_ICONS[f.icon];
+          return (
+            <div key={f.label} className="flex flex-col border-b border-r border-border bg-card p-5 sm:p-6">
+              <span className="grid h-10 w-10 place-items-center bg-tertiary/10 text-tertiary-strong">
+                <Icon aria-hidden className="h-5 w-5" />
+              </span>
+              <dt className="mt-4 font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">{f.label}</dt>
+              <dd className="mt-1.5 font-heading text-lg font-bold leading-snug text-foreground">{f.value}</dd>
+              <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.note}</dd>
+            </div>
+          );
+        })}
+      </dl>
+    </div>
   );
 }

@@ -20,6 +20,13 @@ import Blog from "@/components/sections/blog-preview";
 import SiteFooter from "@/components/layout/site-footer";
 import Tone from "@/components/layout/tone";
 
+// Sections hidden for now. Nothing is deleted: set one back to `true` to show it again.
+const SHOW = {
+  howItWorks: false, // "Three simple steps to your seat."
+  tracks: false, // TRACKS
+  tickets: false, // TICKETS
+};
+
 export default function Page() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white">
@@ -31,10 +38,12 @@ export default function Page() {
       <Tone tone="white">
         <WhyAttend id="why" />
       </Tone>
-      <HowItWorks />
-      <Tone tone="dark">
-        <FUIBentoGridDark id="tracks" />
-      </Tone>
+      {SHOW.howItWorks && <HowItWorks />}
+      {SHOW.tracks && (
+        <Tone tone="dark">
+          <FUIBentoGridDark id="tracks" />
+        </Tone>
+      )}
       <FieldsBeam id="fields" />
       <Speakers id="speakers" />
       <CallForSpeakers id="cfp" />
@@ -46,9 +55,11 @@ export default function Page() {
       <Tone tone="dark">
         <TestimonialsMarquee />
       </Tone>
-      <Tone tone="white">
-        <Tickets id="tickets" />
-      </Tone>
+      {SHOW.tickets && (
+        <Tone tone="white">
+          <Tickets id="tickets" />
+        </Tone>
+      )}
       <Travel id="travel" />
       <Sponsors id="sponsors" />
       <Tone tone="white">

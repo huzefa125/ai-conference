@@ -22,8 +22,8 @@ const BEAM = {
   pathColor: "var(--foreground)",
   pathOpacity: 0.12,
   pathWidth: 2,
-  gradientStartColor: "#2563eb",
-  gradientStopColor: "#06b6d4",
+  gradientStartColor: "#0052ff",
+  gradientStopColor: "#00b8d9",
 };
 
 function Node({
@@ -39,11 +39,11 @@ function Node({
     <div className="relative z-10 flex w-[4.75rem] flex-col items-center gap-1.5 sm:w-28">
       <div
         ref={ref}
-        className="grid size-12 place-items-center rounded-full border-2 border-border bg-card text-primary shadow-[0_6px_20px_-10px_rgba(15,23,42,0.45)] sm:size-14"
+        className="grid size-12 place-items-center rounded-full border-2 border-border bg-card text-tertiary-strong shadow-[0_6px_20px_-10px_rgba(10,15,28,0.45)] sm:size-14"
       >
         <Icon aria-hidden className="size-5 sm:size-6" strokeWidth={2} />
       </div>
-      <span className="text-center font-mono text-[9.5px] font-semibold uppercase leading-tight tracking-wider text-muted-foreground sm:text-[11px]">
+      <span className="text-center font-mono text-[12px] font-semibold uppercase leading-tight tracking-wider text-muted-foreground sm:text-[12px]">
         {label}
       </span>
     </div>
@@ -71,7 +71,7 @@ export default function FieldsBeam({ id = "fields" }: { id?: string }) {
     <section id={id} className="w-full py-14 md:py-20">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">One programme</span>
+          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">One programme</span>
           <h2 className="mt-3 font-heading text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Five fields. <span className="text-primary">One room.</span>
           </h2>
@@ -96,12 +96,12 @@ export default function FieldsBeam({ id = "fields" }: { id?: string }) {
           <div className="relative z-10 flex flex-col items-center justify-center gap-2">
             <div
               ref={hubRef}
-              className="grid size-20 place-items-center rounded-full border-2 border-primary bg-card p-3 shadow-[0_12px_36px_-12px_rgba(37,99,235,0.55)] sm:size-28 sm:p-4"
+              className="grid size-20 place-items-center rounded-full border-2 border-primary bg-card p-3 shadow-[0_12px_36px_-12px_rgba(0,82,255,0.55)] sm:size-28 sm:p-4"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/atlas-logo.png" alt="Atlas Global" className="h-full w-full object-contain" />
             </div>
-            <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-primary sm:text-xs">
+            <span className="font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink sm:text-xs">
               Atlas Global 2026
             </span>
           </div>

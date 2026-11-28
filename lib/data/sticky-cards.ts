@@ -15,7 +15,7 @@ export const STICKY_FEATURES: StickyFeature[] = [
     description:
       "Open with talks from the people doing the research. Hear how the study was designed, what the data showed, and what they would do differently.",
     imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1000&q=80&fit=crop",
-    bgColor: "bg-[#e8effd]",
+    bgColor: "bg-[#eef3ff]",
   },
   {
     eyebrow: "Day 2",

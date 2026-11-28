@@ -19,6 +19,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { useContent } from "@/components/providers/content-provider";
+import { PUBLISHED_CONFERENCES } from "@/lib/data/conference-pages";
 import { cn } from "@/lib/utils";
 
 export interface NavItem {
@@ -53,7 +54,8 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-const topItem = "tracking-wider text-sm font-bold hover:text-primary";
+const topItem = "tracking-wider text-sm font-bold hover:text-tertiary-strong";
+
 
 export function Navbar({
   logo = {
@@ -70,7 +72,6 @@ export function Navbar({
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { conferences: CONFERENCES, posts } = useContent();
   const FLAGSHIP = CONFERENCES[0];
-  const OTHER_EVENTS = CONFERENCES.slice(1);
   const LATEST_POSTS = posts.slice(0, 3);
   const ctaHref = ctaButton.href ?? (ctaButton.onClick ? undefined : "/#tickets");
   const color = (href: string) => (isActive(pathname, href) ? "text-primary" : "text-foreground");
@@ -119,6 +120,7 @@ export function Navbar({
               {/* Conferences dropdown */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger className={cn(topItem, color("/conferences"))}>CONFERENCES</NavigationMenuTrigger>
+                {/* Flagship card + the published conference pages (lib/data/conference-pages.ts PUBLISHED_SLUGS) */}
                 <NavigationMenuContent>
                   <ul className="grid gap-3 p-4 md:w-[480px] lg:w-[580px] lg:grid-cols-[.9fr_1fr]">
                     <li className="row-span-4">
@@ -131,14 +133,14 @@ export function Navbar({
                         }
                       >
                         <div>
-                          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-primary/15 px-2.5 py-1 font-mono text-[10px] font-bold uppercase text-primary">
+                          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-primary/15 px-2.5 py-1 font-mono text-[12px] font-bold uppercase text-primary">
                             <Sparkles className="h-3 w-3" />
                             <span>{FLAGSHIP.status}</span>
                           </div>
                           <h4 className="text-base font-bold leading-snug text-foreground">{FLAGSHIP.name}</h4>
                           <p className="mt-2 font-mono text-xs leading-relaxed text-muted-foreground">{FLAGSHIP.summary}</p>
                         </div>
-                        <div className="flex items-center justify-between border-t border-border/60 pt-4 font-mono text-[11px] font-semibold text-primary">
+                        <div className="flex items-center justify-between border-t border-border/60 pt-4 font-mono text-[12px] font-semibold text-primary">
                           <span>{FLAGSHIP.dates}</span>
                           <span className="flex items-center gap-1">
                             {FLAGSHIP.city.split(",")[0]} <ChevronRight className="h-3 w-3" />
@@ -146,9 +148,9 @@ export function Navbar({
                         </div>
                       </NavigationMenuLink>
                     </li>
-                    {OTHER_EVENTS.map((c) => (
-                      <ListItem key={c.slug} href={c.href} title={c.name}>
-                        {c.city} · {c.dates}
+                    {PUBLISHED_CONFERENCES.map((c) => (
+                      <ListItem key={c.slug} href={`/conferences/${c.slug}`} title={c.name}>
+                        {c.field} · Hybrid conference
                       </ListItem>
                     ))}
                     <li>
@@ -160,7 +162,7 @@ export function Navbar({
                           />
                         }
                       >
-                        All conferences <ArrowRight className="h-3.5 w-3.5 text-primary" />
+                        All conferences <ArrowRight className="h-3.5 w-3.5 text-tertiary-strong" />
                       </NavigationMenuLink>
                     </li>
                   </ul>
@@ -183,7 +185,7 @@ export function Navbar({
                           <Link href="/blog" className="flex flex-row items-center gap-1.5 rounded-lg p-3 font-mono text-xs font-bold text-primary hover:bg-accent" />
                         }
                       >
-                        All posts <ArrowRight className="h-3.5 w-3.5 text-primary" />
+                        All posts <ArrowRight className="h-3.5 w-3.5 text-tertiary-strong" />
                       </NavigationMenuLink>
                     </li>
                   </ul>
@@ -200,7 +202,7 @@ export function Navbar({
               </NavigationMenuItem>
             </NavigationMenuList>
 
-            <NavigationMenuPositioner>
+            <NavigationMenuPositioner className="z-50">
               <NavigationMenuPopup />
             </NavigationMenuPositioner>
           </NavigationMenu>
@@ -212,7 +214,7 @@ export function Navbar({
             <Link href={ctaHref}>
               <Button
                 variant="default"
-                className={`rounded-none hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground  shadow-[0_4px_14px_rgba(37,99,235,0.25)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] transition-all ${ctaButton.className ||""}`}
+                className={`rounded-none hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_4px_14px_rgba(0,82,255,0.25)] hover:shadow-[0_6px_20px_rgba(0,82,255,0.35)] transition-all ${ctaButton.className ||""}`}
               >
                 {ctaButton.text || "GET TICKETS"} <ArrowRight className="ml-1 w-4 h-4" />
               </Button>
@@ -221,7 +223,7 @@ export function Navbar({
             <Button
               variant="default"
               onClick={ctaButton.onClick}
-              className={`rounded-none hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground  shadow-[0_4px_14px_rgba(37,99,235,0.25)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] transition-all ${ctaButton.className ||""}`}
+              className={`rounded-none hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_4px_14px_rgba(0,82,255,0.25)] hover:shadow-[0_6px_20px_rgba(0,82,255,0.35)] transition-all ${ctaButton.className ||""}`}
             >
               {ctaButton.text || "GET TICKETS"} <ArrowRight className="ml-1 w-4 h-4" />
             </Button>
@@ -247,19 +249,20 @@ export function Navbar({
                   <MobileLink href="/about" label="About" active={isActive(pathname, "/about")} onClick={close} />
 
                   <MobileGroup label="Conferences" href="/conferences" active={isActive(pathname, "/conferences")} onClick={close}>
-                    {CONFERENCES.map((c) => (
+                    {[
+                      { key: FLAGSHIP.slug, href: FLAGSHIP.href, name: FLAGSHIP.name, sub: `${FLAGSHIP.city} · ${FLAGSHIP.dates}` },
+                      ...PUBLISHED_CONFERENCES.map((c) => ({ key: c.slug, href: `/conferences/${c.slug}`, name: c.name, sub: `${c.field} · Hybrid conference` })),
+                    ].map((c) => (
                       <Link
-                        key={c.slug}
+                        key={c.key}
                         href={c.href}
                         onClick={close}
                         className="flex items-start gap-2 rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary"
                       >
-                        <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                        <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-tertiary-strong" />
                         <span>
                           {c.name}
-                          <span className="block text-xs text-muted-foreground">
-                            {c.city} · {c.dates}
-                          </span>
+                          <span className="block text-xs text-muted-foreground">{c.sub}</span>
                         </span>
                       </Link>
                     ))}

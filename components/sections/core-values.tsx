@@ -1,13 +1,14 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { HAND_FONT, HandArrow, HandCircle, Handwritten } from "@/components/ui/handwritten";
+import { DISPLAY_FONT } from "@/components/ui/display-font";
+import { DisplayText } from "@/components/ui/display-text";
 
 export interface CoreValuesProps {
   id?: string;
   eyebrow: string;
   intro: string;
-  /** Handwritten aside next to the intro. */
+  /** Accent line (display font) next to the intro. */
   note: string;
   values: { title: string; text: string }[];
 }
@@ -23,27 +24,24 @@ export default function CoreValues({ id = "values", eyebrow, intro, note, values
     <section id={id} className="w-full py-14 md:py-20">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-6xl">
-          {/* Header: title left, intro + handwritten aside right */}
+          {/* Header: title left, intro + accent line right */}
           <div className="grid grid-cols-[minmax(0,1fr)] items-end gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16">
             <div className="min-w-0">
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{eyebrow}</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">{eyebrow}</span>
               <h2 className="mt-4 font-heading text-[clamp(2.2rem,9vw,4.5rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.04em] text-foreground">
                 Our core
                 <br />
-                <HandCircle delay={0.2} className="mt-2 px-1">
-                  values
-                </HandCircle>
+                <span className="text-primary">values</span>
               </h2>
             </div>
 
             <div className="min-w-0 lg:pb-3">
               <p className="max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">{intro}</p>
-              <div className="mt-4 flex items-start gap-1">
-                <HandArrow delay={1.1} className="mt-3 h-9 w-10 shrink-0 rotate-[8deg] sm:h-14 sm:w-16" />
-                <Handwritten delay={0.6} underline className="-rotate-2 text-[1.4rem] sm:text-[2.2rem]">
+              <p className="mt-4">
+                <DisplayText delay={0.3} className="text-[1.75rem] sm:text-[2.4rem]">
                   {note}
-                </Handwritten>
-              </div>
+                </DisplayText>
+              </p>
             </div>
           </div>
 
@@ -60,11 +58,11 @@ export default function CoreValues({ id = "values", eyebrow, intro, note, values
               >
                 <span
                   aria-hidden
-                  className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100"
+                  className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-tertiary transition-transform duration-300 group-hover:scale-x-100"
                 />
                 <span
                   aria-hidden
-                  className={`${HAND_FONT} inline-block -rotate-6 text-4xl font-bold leading-none text-primary transition-transform duration-300 group-hover:rotate-0 group-hover:scale-110 sm:text-5xl`}
+                  className={`${DISPLAY_FONT} inline-block text-5xl leading-none text-tertiary-strong transition-transform duration-300 group-hover:scale-110 sm:text-5xl`}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>

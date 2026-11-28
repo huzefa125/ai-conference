@@ -42,7 +42,7 @@ export default function Speakers({
           ))}
         </div>
 
-        <p className="mt-8 text-center font-mono text-xs text-muted-foreground">
+        <p className="mt-8 text-center font-mono text-sm text-muted-foreground">
           More speakers are added as they confirm.
         </p>
       </div>
@@ -58,7 +58,9 @@ function SpeakerCard({ speaker: s, index }: { speaker: Speaker; index: number })
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: (index % 4) * 0.07 }}
-      className="group flex w-[72%] shrink-0 snap-center flex-col md:w-auto md:shrink border border-border bg-card shadow-[var(--shadow-subtle)] transition-all duration-300 hover:border-primary/50 hover:shadow-[var(--shadow-hover)]"
+      // Hover/focus: the 1px border lifts to Hyper Cobalt, the card rises slightly, the portrait warms to colour.
+      tabIndex={0}
+      className="group flex w-[72%] shrink-0 snap-center flex-col outline-none md:w-auto md:shrink border border-border bg-card shadow-[var(--shadow-subtle)] transition-[border-color,box-shadow,translate] duration-300 hover:-translate-y-1 hover:border-primary focus-visible:-translate-y-1 focus-visible:border-primary focus-visible:shadow-[var(--shadow-hover)] hover:shadow-[var(--shadow-hover)]"
     >
       {/* Photo */}
       <div className="relative aspect-[4/5] overflow-hidden bg-muted">
@@ -67,7 +69,7 @@ function SpeakerCard({ speaker: s, index }: { speaker: Speaker; index: number })
           <img
             src={s.photo}
             alt={s.name}
-            className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+            className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0 group-focus-visible:scale-105 group-focus-visible:grayscale-0"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-muted-foreground/40">
@@ -75,7 +77,7 @@ function SpeakerCard({ speaker: s, index }: { speaker: Speaker; index: number })
           </div>
         )}
         {s.keynote && (
-          <span className="absolute left-0 top-3 bg-primary px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary-foreground">
+          <span className="absolute left-0 top-3 bg-primary px-2.5 py-1 font-mono text-[12px] font-semibold uppercase tracking-widest text-primary-foreground">
             Keynote
           </span>
         )}
@@ -83,14 +85,14 @@ function SpeakerCard({ speaker: s, index }: { speaker: Speaker; index: number })
 
       {/* Details */}
       <div className="flex flex-1 flex-col p-4 sm:p-5">
-        <h3 className="text-sm font-bold leading-snug text-foreground sm:text-base">
+        <h3 className="text-lg font-bold leading-snug text-foreground transition-colors duration-300 group-hover:text-primary group-focus-visible:text-primary sm:text-xl">
           {s.name}
         </h3>
-        <p className="mt-1 font-mono text-xs leading-relaxed text-muted-foreground">
+        <p className="mt-1 font-mono text-sm leading-relaxed text-muted-foreground">
           {s.role}, {s.company}
         </p>
         {s.track && (
-          <p className="mt-3 border-t border-border pt-3 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary">
+          <p className="mt-3 border-t border-border pt-3 font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">
             {TRACK_LABELS[s.track]}
           </p>
         )}

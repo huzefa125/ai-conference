@@ -13,7 +13,7 @@ export default function NotFound() {
       <section className="w-full py-24 md:py-32">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">Error 404</span>
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">Error 404</span>
             <h1 className="mt-3 text-4xl font-bold uppercase tracking-tight text-foreground sm:text-5xl">Page not found</h1>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               The page you are looking for does not exist or has moved.

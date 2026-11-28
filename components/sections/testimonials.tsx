@@ -20,17 +20,17 @@ const ReviewCard = ({ profile, name, username, body }: Review) => {
           ) : (
             <span
               aria-hidden
-              className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary/10 text-sm font-bold text-primary"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-tertiary/10 text-sm font-bold text-tertiary-strong"
             >
               {initials}
             </span>
           )}
           <div className="flex min-w-0 flex-col">
             <p className="text-sm font-bold text-foreground">{name}</p>
-            <p className="font-mono text-xs text-muted-foreground">{username}</p>
+            <p className="font-mono text-sm text-muted-foreground">{username}</p>
           </div>
         </div>
-        <p className="text-sm leading-relaxed text-foreground/85">{body}</p>
+        <p className="text-sm leading-relaxed text-foreground">{body}</p>
       </CardContent>
     </Card>
   );
@@ -66,7 +66,8 @@ export default async function TestimonialsMarquee({
           </p>
         </div>
 
-        <div className="relative mx-auto mt-10 flex h-[34rem] w-full max-w-6xl flex-row items-center justify-center overflow-hidden">
+        {/* Tight 13% fade at top and bottom via a mask (no colour overlay), so the middle rows stay 100% crisp. */}
+        <div className="relative mx-auto mt-10 flex h-[34rem] w-full max-w-6xl flex-row items-center justify-center overflow-hidden [-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_13%,#000_87%,transparent)] [mask-image:linear-gradient(to_bottom,transparent,#000_13%,#000_87%,transparent)]">
           <div className="flex h-full w-full flex-row items-center justify-center gap-4">
             {/* Mobile: one column with every review */}
             <Marquee pauseOnHover vertical className="flex h-full flex-1 [--duration:50s] sm:hidden">
@@ -91,8 +92,6 @@ export default async function TestimonialsMarquee({
               ))}
             </Marquee>
           </div>
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background" />
         </div>
       </div>
     </section>

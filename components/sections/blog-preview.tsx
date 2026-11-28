@@ -62,7 +62,7 @@ const Blog = ({ id = "blog" }: { id?: string }) => {
                         loading="lazy"
                         className="h-full w-full object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110"
                       />
-                      <span className="absolute left-3 top-3 bg-card/95 px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary">
+                      <span className="absolute left-3 top-3 bg-card/95 px-2.5 py-1 font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">
                         {post.category}
                       </span>
                     </div>
@@ -70,7 +70,7 @@ const Blog = ({ id = "blog" }: { id?: string }) => {
                       <p className="text-sm text-muted-foreground">
                         {formatDate(post.date)} · {post.readTime}
                       </p>
-                      <p className="text-xl font-bold leading-snug text-foreground transition-colors group-hover:text-primary sm:text-2xl">
+                      <p className="text-xl font-bold leading-snug text-foreground transition-colors group-hover:text-tertiary-strong sm:text-2xl">
                         {post.title}
                       </p>
                     </div>

@@ -30,7 +30,7 @@ export default function Team({
       <div className="relative z-10">
         {/* Heading */}
         <div className="container mx-auto mb-12 flex max-w-3xl flex-col items-center px-4 text-center">
-          <span className="mb-6 grid h-12 w-12 place-items-center bg-primary text-primary-foreground shadow-[0_4px_20px_rgba(37,99,235,0.3)]">
+          <span className="mb-6 grid h-12 w-12 place-items-center bg-primary text-primary-foreground shadow-[0_4px_20px_rgba(0,82,255,0.3)]">
             <UsersThreeIcon weight="duotone" size={26} />
           </span>
           <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
@@ -58,7 +58,7 @@ export default function Team({
                     loading="lazy"
                     className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
                   />
-                  <span className="absolute left-2 top-2 bg-card px-2 py-0.5 font-mono text-[11px] font-bold tracking-widest text-primary">
+                  <span className="absolute left-2 top-2 bg-card px-2 py-0.5 font-mono text-[12px] font-bold tracking-widest text-tertiary-strong">
                     No. {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -66,13 +66,13 @@ export default function Team({
                 <figcaption className="flex items-start justify-between gap-2 border-t-2 border-foreground px-1.5 pb-1 pt-3 mt-2.5">
                   <div className="min-w-0">
                     <p className="text-base font-bold leading-snug text-foreground">{m.name}</p>
-                    <p className="mt-0.5 font-mono text-[11px] font-semibold uppercase tracking-widest text-primary">{m.role}</p>
+                    <p className="mt-0.5 font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">{m.role}</p>
                   </div>
                   {m.linkedin && (
                     <a
                       href={m.linkedin}
                       aria-label={`${m.name} on LinkedIn`}
-                      className="grid h-8 w-8 shrink-0 place-items-center bg-primary/10 text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                      className="grid h-8 w-8 shrink-0 place-items-center bg-tertiary/10 text-tertiary-strong transition-colors hover:bg-tertiary-strong hover:text-white"
                     >
                       <LinkedinLogoIcon weight="fill" size={16} />
                     </a>

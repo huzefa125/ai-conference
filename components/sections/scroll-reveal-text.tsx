@@ -21,7 +21,7 @@ type Unit = { key: string; segment: RevealSegment; text: string; trail?: string 
 const TONES = {
   accent: "bg-primary/10 text-primary border border-primary/25",
   "accent-solid": "bg-primary text-white shadow-sm",
-  maroon: "bg-secondary text-foreground border border-foreground/20",
+  maroon: "bg-secondary text-foreground border border-border",
   "maroon-solid": "bg-foreground text-white shadow-sm",
 } as const;
 
