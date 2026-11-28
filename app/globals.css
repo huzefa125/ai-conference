@@ -26,10 +26,10 @@
   --primary: #0052ff;
   --primary-foreground: #ffffff;
 
-  --secondary: #f6f8fb;
+  --secondary: #f7f7f4; /* warm off-white (clean classic) */
   --secondary-foreground: #0a0f1c;
 
-  --muted: #f6f8fb;
+  --muted: #f7f7f4;
   --muted-foreground: #0a0f1c;
 
   --accent: color-mix(in srgb, #0052ff 7%, #ffffff); /* faint cobalt tint: hovers, soft fills */
@@ -44,19 +44,19 @@
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: #e2e8f0;
-  --input: #e2e8f0;
+  --border: rgba(10, 15, 28, 0.08); /* soft hairline */
+  --input: rgba(10, 15, 28, 0.12);
   --ring: #0052ff;
 
-  --radius: 0.875rem;
+  --radius: 1rem;
 
   /* Brand tokens */
   --atlas-blue: #0052ff;
   --atlas-cyan: #00b8d9;
   --atlas-ink: #0a0f1c;
   --atlas-navy: #070b14; /* Midnight Obsidian: dark blocks (name kept for existing classes) */
-  --atlas-surface: #f6f8fb;
-  --atlas-border: #e2e8f0;
+  --atlas-surface: #f7f7f4;
+  --atlas-border: rgba(10, 15, 28, 0.08);
 
   --shadow-subtle: 0 1px 2px rgba(10, 15, 28, 0.04), 0 8px 24px -8px rgba(10, 15, 28, 0.06);
   --shadow-hover: 0 4px 6px -1px rgba(10, 15, 28, 0.06), 0 20px 35px -10px rgba(0, 82, 255, 0.14);
@@ -98,8 +98,8 @@
   --text-xl--line-height: 1.35;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  /* Headings: the display font (Franie). Punctuation it lacks falls back to Plus Jakarta Sans. */
-  --font-heading: var(--font-display), var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Headings: Plus Jakarta Sans, sentence case, semibold (clean classic). Franie stays loaded but unused. */
+  --font-heading: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --animate-marquee: marquee 32s linear infinite;
@@ -125,7 +125,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  letter-spacing: 0;
+  letter-spacing: -0.035em;
 }
 
 /* Never fake bold or italic on the display font: only its real weights are used. */

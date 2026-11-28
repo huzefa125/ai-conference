@@ -52,7 +52,7 @@ export default async function AboutPage() {
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
             <div>
               <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">Our story</span>
-              <h2 className="mt-3 text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              <h2 className="mt-3 text-3xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
                 {story.title}
               </h2>
               <div className="mt-6 border-l-4 border-primary pl-5">
@@ -99,7 +99,7 @@ export default async function AboutPage() {
       <section className="w-full py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               {process.title}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">
@@ -107,7 +107,7 @@ export default async function AboutPage() {
             </p>
           </div>
 
-          <ol className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+          <ol className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-px border border-border bg-border md:grid-cols-3 rounded-2xl overflow-hidden">
             {process.steps.map((s, i) => (
               <li key={s.label} className="group relative bg-card p-6 transition-colors hover:bg-secondary/50 sm:p-8">
                 <span
@@ -135,7 +135,7 @@ export default async function AboutPage() {
             <p className="text-sm text-foreground sm:text-base">Have something specific to teach? The call for speakers is open.</p>
             <Link
               href="/#cfp"
-              className="inline-flex shrink-0 items-center gap-2 bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex shrink-0 items-center gap-2 bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 rounded-full"
             >
               Submit a proposal
               <ArrowRightIcon weight="bold" size={16} />
@@ -165,7 +165,7 @@ export default async function AboutPage() {
 
             {/* Title + reasons */}
             <div className="flex flex-col justify-center">
-              <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
                 Why <span className="underline decoration-primary decoration-4 underline-offset-[10px]">Hyderabad</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-muted-foreground">{city.text}</p>

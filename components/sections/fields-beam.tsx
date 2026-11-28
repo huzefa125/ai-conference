@@ -72,7 +72,7 @@ export default function FieldsBeam({ id = "fields" }: { id?: string }) {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">One programme</span>
-          <h2 className="mt-3 font-heading text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="mt-3 font-heading text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Five fields. <span className="text-primary">One room.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">

@@ -54,7 +54,7 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-const topItem = "tracking-wider text-sm font-bold hover:text-tertiary-strong";
+const topItem = "text-[15px] font-medium hover:text-tertiary-strong";
 
 
 export function Navbar({
@@ -64,7 +64,7 @@ export function Navbar({
     href: "/",
   },
   ctaButton = {
-    text: "GET TICKETS",
+    text: "Get tickets",
   },
   className = "",
 }: NavbarProps) {
@@ -104,7 +104,7 @@ export function Navbar({
                   className={navigationMenuTriggerStyle()}
                   render={<Link href="/" aria-current={isActive(pathname, "/") ? "page" : undefined} className={cn(topItem, color("/"))} />}
                 >
-                  HOME
+                  Home
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
@@ -113,13 +113,13 @@ export function Navbar({
                   className={navigationMenuTriggerStyle()}
                   render={<Link href="/about" aria-current={isActive(pathname, "/about") ? "page" : undefined} className={cn(topItem, color("/about"))} />}
                 >
-                  ABOUT
+                  About
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               {/* Conferences dropdown */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className={cn(topItem, color("/conferences"))}>CONFERENCES</NavigationMenuTrigger>
+                <NavigationMenuTrigger className={cn(topItem, color("/conferences"))}>Conferences</NavigationMenuTrigger>
                 {/* Flagship card + the published conference pages (lib/data/conference-pages.ts PUBLISHED_SLUGS) */}
                 <NavigationMenuContent>
                   <ul className="grid gap-3 p-4 md:w-[480px] lg:w-[580px] lg:grid-cols-[.9fr_1fr]">
@@ -171,7 +171,7 @@ export function Navbar({
 
               {/* Blog dropdown: latest posts */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className={cn(topItem, color("/blog"))}>BLOG</NavigationMenuTrigger>
+                <NavigationMenuTrigger className={cn(topItem, color("/blog"))}>Blog</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[380px] gap-1 p-4">
                     {LATEST_POSTS.map((p) => (
@@ -197,7 +197,7 @@ export function Navbar({
                   className={navigationMenuTriggerStyle()}
                   render={<Link href="/contact" aria-current={isActive(pathname, "/contact") ? "page" : undefined} className={cn(topItem, color("/contact"))} />}
                 >
-                  CONTACT
+                  Contact
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -214,18 +214,18 @@ export function Navbar({
             <Link href={ctaHref}>
               <Button
                 variant="default"
-                className={`rounded-none hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_4px_14px_rgba(0,82,255,0.25)] hover:shadow-[0_6px_20px_rgba(0,82,255,0.35)] transition-all ${ctaButton.className ||""}`}
+                className={`rounded-full hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_4px_14px_rgba(0,82,255,0.25)] hover:shadow-[0_6px_20px_rgba(0,82,255,0.35)] transition-all ${ctaButton.className ||""}`}
               >
-                {ctaButton.text || "GET TICKETS"} <ArrowRight className="ml-1 w-4 h-4" />
+                {ctaButton.text || "Get tickets"} <ArrowRight className="ml-1 w-4 h-4" />
               </Button>
             </Link>
           ) : (
             <Button
               variant="default"
               onClick={ctaButton.onClick}
-              className={`rounded-none hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_4px_14px_rgba(0,82,255,0.25)] hover:shadow-[0_6px_20px_rgba(0,82,255,0.35)] transition-all ${ctaButton.className ||""}`}
+              className={`rounded-full hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_4px_14px_rgba(0,82,255,0.25)] hover:shadow-[0_6px_20px_rgba(0,82,255,0.35)] transition-all ${ctaButton.className ||""}`}
             >
-              {ctaButton.text || "GET TICKETS"} <ArrowRight className="ml-1 w-4 h-4" />
+              {ctaButton.text || "Get tickets"} <ArrowRight className="ml-1 w-4 h-4" />
             </Button>
           )}
 
@@ -291,7 +291,7 @@ export function Navbar({
                       onClick={close}
                       className="flex w-full items-center justify-center gap-2 bg-primary py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90"
                     >
-                      {ctaButton.text || "GET TICKETS"} <ArrowRight className="w-4 h-4" />
+                      {ctaButton.text || "Get tickets"} <ArrowRight className="w-4 h-4" />
                     </Link>
                   ) : (
                     <Button
@@ -299,9 +299,9 @@ export function Navbar({
                         close();
                         ctaButton.onClick?.();
                       }}
-                      className="w-full cursor-pointer rounded-none bg-primary hover:bg-primary/90 text-primary-foreground flex items-center justify-center gap-2"
+                      className="w-full cursor-pointer rounded-full bg-primary hover:bg-primary/90 text-primary-foreground flex items-center justify-center gap-2"
                     >
-                      {ctaButton.text || "GET TICKETS"} <ArrowRight className="w-4 h-4" />
+                      {ctaButton.text || "Get tickets"} <ArrowRight className="w-4 h-4" />
                     </Button>
                   )}
                 </div>

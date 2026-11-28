@@ -28,7 +28,7 @@ export default async function ConferencesPage() {
           </div>
 
           {/* Flagship */}
-          <div id={flagship.slug} className="mx-auto mt-12 grid max-w-6xl scroll-mt-24 overflow-hidden border border-border bg-card shadow-[var(--shadow-subtle)] lg:grid-cols-2">
+          <div id={flagship.slug} className="mx-auto mt-12 grid max-w-6xl scroll-mt-24 overflow-hidden border border-border bg-card shadow-[var(--shadow-subtle)] lg:grid-cols-2 rounded-2xl">
             <div className="relative aspect-[16/10] bg-secondary lg:aspect-auto lg:min-h-[24rem]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={flagship.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
@@ -48,10 +48,10 @@ export default async function ConferencesPage() {
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/#tickets" className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
+                <Link href="/#tickets" className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 rounded-full">
                   Get tickets <ArrowRightIcon size={14} />
                 </Link>
-                <Link href="/#agenda" className="inline-flex items-center gap-2 border border-foreground px-5 py-3 text-sm font-semibold text-foreground hover:bg-foreground hover:text-background">
+                <Link href="/#agenda" className="inline-flex items-center gap-2 border border-foreground px-5 py-3 text-sm font-semibold text-foreground hover:bg-foreground hover:text-background rounded-full">
                   View agenda
                 </Link>
               </div>
@@ -59,10 +59,10 @@ export default async function ConferencesPage() {
           </div>
 
           {/* Other events */}
-          <h2 className="mx-auto mt-16 max-w-6xl text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">More conferences</h2>
+          <h2 className="mx-auto mt-16 max-w-6xl text-2xl font-bold tracking-tight text-foreground sm:text-3xl">More conferences</h2>
           <div className="mx-auto mt-6 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {others.map((c) => (
-              <div key={c.slug} id={c.slug} className="flex scroll-mt-24 flex-col overflow-hidden border border-border bg-card shadow-[var(--shadow-subtle)]">
+              <div key={c.slug} id={c.slug} className="flex scroll-mt-24 flex-col overflow-hidden border border-border bg-card shadow-[var(--shadow-subtle)] rounded-2xl">
                 <div className="relative aspect-[16/10] bg-secondary">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={c.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover grayscale-[30%]" />

@@ -7,7 +7,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex h-full flex-col overflow-hidden border border-border bg-card shadow-[var(--shadow-subtle)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-hover)]"
+      className="group flex h-full flex-col overflow-hidden border border-border bg-card shadow-[var(--shadow-subtle)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-hover)] rounded-2xl"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
         {/* eslint-disable-next-line @next/next/no-img-element */}

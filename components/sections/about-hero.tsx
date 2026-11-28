@@ -56,7 +56,7 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
             {eyebrow}
           </motion.span>
 
-          <h1 className="mt-4 font-heading text-[clamp(2.1rem,11vw,5.75rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.045em] text-foreground lg:text-[clamp(3rem,min(6vw,10vh),7rem)]">
+          <h1 className="mt-4 font-heading text-[clamp(1.9rem,9vw,3.9rem)] font-semibold leading-[0.98] tracking-[-0.02em] text-foreground lg:text-[clamp(2.4rem,min(4.2vw,7.6vh),4.9rem)]">
             {lines.map((l, i) => (
               <Line key={l} delay={0.05 + i * 0.1} reduce={reduce}>
                 <span className={i === lines.length - 1 ? "text-primary" : undefined}>{l}</span>
@@ -66,7 +66,7 @@ export default function AboutHero({ eyebrow, lines, note, text, stats, image, ca
 
           {/* Accent line in the display font, after the headline lands */}
           <p className="mt-3 sm:mt-4">
-            <DisplayText delay={1.0} className="text-[clamp(1.4rem,6.5vw,1.8rem)] sm:text-[2.4rem]">
+            <DisplayText delay={1.0} className="text-[1.15rem] font-semibold sm:text-[1.4rem]">
               {note}
             </DisplayText>
           </p>

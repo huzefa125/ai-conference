@@ -96,7 +96,7 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
             Keynote speakers
           </motion.p>
 
-          <h2 className="mt-4 text-balance font-heading text-[clamp(1.55rem,6.2vw,2.4rem)] font-extrabold uppercase leading-[1.18] tracking-tight text-foreground lg:text-[clamp(1.6rem,2.6vw,2.6rem)]">
+          <h2 className="mt-4 text-balance font-heading text-[clamp(1.3rem,5.3vw,2rem)] font-semibold leading-[1.2] tracking-tight text-foreground lg:text-[clamp(1.4rem,2.05vw,2.15rem)]">
             {WORDS.map((w, i) => (
               <span key={i} className="inline-block overflow-hidden pb-[0.08em] align-top">
                 <motion.span
@@ -129,7 +129,7 @@ export default function KeynoteIntro({ id = "overview" }: { id?: string }) {
           <motion.div {...enter(0.7)} className="mt-7">
             <Link
               href="/#speakers"
-              className="group relative inline-flex items-center gap-2 overflow-hidden bg-primary px-5 py-3 font-mono text-xs font-bold uppercase tracking-widest text-white"
+              className="group relative inline-flex items-center gap-2 overflow-hidden bg-primary px-5 py-3 font-mono text-xs font-bold uppercase tracking-widest text-white rounded-full"
             >
               <span className="absolute inset-0 -translate-x-full bg-[var(--atlas-navy)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0" />
               <span className="relative">Meet the speakers</span>

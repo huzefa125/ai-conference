@@ -28,7 +28,7 @@ export default function Speakers({
     <section id={id} className={clsx("w-full py-16 md:py-20", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground">
             {title}
           </h2>
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
@@ -60,7 +60,7 @@ function SpeakerCard({ speaker: s, index }: { speaker: Speaker; index: number })
       transition={{ duration: 0.45, delay: (index % 4) * 0.07 }}
       // Hover/focus: the 1px border lifts to Hyper Cobalt, the card rises slightly, the portrait warms to colour.
       tabIndex={0}
-      className="group flex w-[72%] shrink-0 snap-center flex-col outline-none md:w-auto md:shrink border border-border bg-card shadow-[var(--shadow-subtle)] transition-[border-color,box-shadow,translate] duration-300 hover:-translate-y-1 hover:border-primary focus-visible:-translate-y-1 focus-visible:border-primary focus-visible:shadow-[var(--shadow-hover)] hover:shadow-[var(--shadow-hover)]"
+      className="group flex w-[72%] shrink-0 snap-center flex-col outline-none md:w-auto md:shrink border border-border bg-card shadow-[var(--shadow-subtle)] transition-[border-color,box-shadow,translate] duration-300 hover:-translate-y-1 hover:border-primary focus-visible:-translate-y-1 focus-visible:border-primary focus-visible:shadow-[var(--shadow-hover)] hover:shadow-[var(--shadow-hover)] rounded-2xl"
     >
       {/* Photo */}
       <div className="relative aspect-[4/5] overflow-hidden bg-muted">

@@ -96,7 +96,7 @@ export default async function ContactPage() {
           <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16">
             <div>
               <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">Find us</span>
-              <h2 className="mt-3 font-heading text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              <h2 className="mt-3 font-heading text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
                 Hyderabad, <span className="text-primary">from anywhere.</span>
               </h2>
               <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -120,7 +120,7 @@ export default async function ContactPage() {
 
               <Link
                 href="/#travel"
-                className="mt-8 inline-flex items-center gap-2 bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                className="mt-8 inline-flex items-center gap-2 bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 rounded-full"
               >
                 Plan your trip
                 <ArrowRightIcon weight="bold" size={16} />

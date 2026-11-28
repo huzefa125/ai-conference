@@ -17,11 +17,11 @@ const OBSIDIAN = "#070b14";
 
 const TONES: Record<"white" | "dark", CSSProperties> = {
   white: {
-    "--background": "#f6f8fb",
+    "--background": "#f7f7f4",
     "--card": "#ffffff",
     "--secondary": "#ffffff",
     "--muted": "#ffffff",
-    "--border": "#e2e8f0",
+    "--border": "rgba(10, 15, 28, 0.08)",
   } as CSSProperties,
   dark: {
     "--background": OBSIDIAN,

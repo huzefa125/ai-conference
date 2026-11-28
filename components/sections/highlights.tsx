@@ -33,7 +33,7 @@ export function StickyFeatureSection({
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mx-auto mb-10 max-w-3xl text-center md:mb-14"
         >
-          <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             {title}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">

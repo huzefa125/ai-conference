@@ -119,7 +119,7 @@ export default function ContactForm() {
       <div className="flex justify-end pt-4">
         <button
           type="submit"
-          className="inline-flex w-full items-center justify-center bg-foreground px-8 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-primary sm:w-auto"
+          className="inline-flex w-full items-center justify-center bg-foreground px-8 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-primary sm:w-auto rounded-full"
         >
           Submit form
         </button>

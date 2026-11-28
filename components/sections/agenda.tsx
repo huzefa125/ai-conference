@@ -76,7 +76,7 @@ export default function Agenda({
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground">
             {title}
           </h2>
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
@@ -88,7 +88,7 @@ export default function Agenda({
         <div
           role="tablist"
           aria-label="Conference days"
-          className="mx-auto mt-10 grid max-w-2xl grid-cols-3 border border-border bg-card"
+          className="mx-auto mt-10 grid max-w-2xl grid-cols-3 border border-border bg-card rounded-2xl"
         >
           {days.map((d, i) => {
             const active = d.id === dayId;
@@ -154,7 +154,7 @@ export default function Agenda({
           id={`${id}-panel`}
           role="tabpanel"
           ref={panelRef}
-          className="relative mx-auto mt-8 max-w-4xl border border-border bg-card shadow-[var(--shadow-subtle)]"
+          className="relative mx-auto mt-8 max-w-4xl border border-border bg-card shadow-[var(--shadow-subtle)] rounded-2xl"
         >
           {!reduce && railH > 0 && (
             <div

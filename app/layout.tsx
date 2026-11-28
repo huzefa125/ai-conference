@@ -28,7 +28,7 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-// Display font (headings + accent lines): Franie by ThatThatType, Regular to Black. To change it, swap the files here.
+// Optional display font, currently unused: Franie by ThatThatType, Regular to Black. To change it, swap the files here.
 // These are the "Franie Test" trial files: check the licence (ThatThatType.com) before launch.
 // The files lack some punctuation (: ; ' " & ( ) /), which falls back to Plus Jakarta Sans (see --font-heading).
 const display = localFont({
@@ -41,6 +41,8 @@ const display = localFont({
   ],
   variable: "--font-display",
   display: "swap",
+  // Not used right now (headings use Plus Jakarta Sans), so do not preload the files.
+  preload: false,
 });
 
 // Serif headings for the academic conference pages (app/conferences/[slug]).

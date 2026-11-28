@@ -22,6 +22,7 @@ import {
 import PageShell from "@/components/layout/page-shell";
 import Tone from "@/components/layout/tone";
 import CtaBanner from "@/components/sections/cta-banner";
+import ScrollFaqAccordion from "@/components/ui/scroll-faq-accordion";
 import { WordsReveal } from "@/components/ui/words-reveal";
 import {
   PUBLISHED_CONFERENCES,
@@ -100,7 +101,7 @@ function SectionHead({ eyebrow, title, text }: { eyebrow: string; title: ReactNo
   return (
     <div className="max-w-3xl">
       <p className="font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">{eyebrow}</p>
-      <h2 className="mt-3 font-heading text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+      <h2 className="mt-3 font-heading text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
         {title}
       </h2>
       {text && <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">{text}</p>}
@@ -163,10 +164,10 @@ function Hero({ c, group, icon: Icon, concluded }: { c: ConferencePage; group: s
               </span>
             </div>
 
-            <h1 className="mt-6 font-heading text-[clamp(2.1rem,6.4vw,4.4rem)] font-extrabold uppercase leading-[0.98] tracking-[-0.035em] text-foreground">
+            <h1 className="mt-6 font-heading text-[clamp(1.8rem,5.2vw,3.25rem)] font-semibold leading-[1.02] tracking-[-0.02em] text-foreground">
               {c.name}
             </h1>
-            <p className={`${DISPLAY_FONT} mt-5 max-w-xl text-balance text-[1.8rem] leading-[1.1] sm:text-[2.1rem] text-tertiary-strong sm:text-[1.75rem]`}>
+            <p className={`${DISPLAY_FONT} mt-5 max-w-xl text-balance text-[1.15rem] font-semibold leading-[1.35] text-tertiary-strong sm:text-[1.35rem]`}>
               {c.tagline}
             </p>
 
@@ -227,7 +228,7 @@ function ConcludedBody({ c }: { c: ConferencePage }) {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <p className="font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">Edition recap</p>
-            <h2 className="mt-3 font-heading text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl">
+            <h2 className="mt-3 font-heading text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-4xl">
               Thank you for <span className="text-primary">joining us.</span>
             </h2>
             {/* Words rise in once when the section appears (always ends fully sharp) */}
@@ -297,7 +298,7 @@ function UpcomingBody({ c }: { c: ConferencePage }) {
             <SectionHead eyebrow="Who should attend" title="Built for your role" />
             <ul className="mt-10 flex flex-wrap gap-2.5">
               {c.whoShouldAttend.map((r) => (
-                <li key={r} className="border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground">
+                <li key={r} className="border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground rounded-2xl">
                   {r}
                 </li>
               ))}
@@ -310,7 +311,7 @@ function UpcomingBody({ c }: { c: ConferencePage }) {
       <section id="abstracts" className="w-full scroll-mt-24 py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHead eyebrow="Call for abstracts" title="Submit your abstract" text={ABSTRACTS.why} />
-          <ul className="mt-10 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3 rounded-2xl overflow-hidden">
             {ABSTRACTS.categories.map((r) => (
               <li key={r.category} className="bg-card p-6">
                 <p className="font-heading text-lg font-bold text-foreground">{r.category}</p>
@@ -329,7 +330,7 @@ function UpcomingBody({ c }: { c: ConferencePage }) {
         <section id="registration" className="w-full scroll-mt-24 py-16 md:py-20">
           <div className="container mx-auto px-4">
             <SectionHead eyebrow="Registration" title="Registration" text="Fees and deadlines are announced with the programme." />
-            <div className="mt-10 grid gap-px border border-border bg-border md:grid-cols-2">
+            <div className="mt-10 grid gap-px border border-border bg-border md:grid-cols-2 rounded-2xl overflow-hidden">
               {[
                 { title: "In person", items: REGISTRATION.inPerson },
                 { title: "Virtual", items: REGISTRATION.virtual },
@@ -357,19 +358,7 @@ function UpcomingBody({ c }: { c: ConferencePage }) {
       <section className="w-full py-16 md:py-20">
         <div className="container mx-auto px-4">
           <SectionHead eyebrow="Questions" title="FAQ" />
-          <div className="mt-10 max-w-3xl divide-y divide-border border-y border-border">
-            {FAQS.map((f) => (
-              <details key={f.q} className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-lg font-bold text-foreground [&::-webkit-details-marker]:hidden">
-                  {f.q}
-                  <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center border border-border transition-colors group-open:border-primary group-open:bg-primary group-open:text-primary-foreground">
-                    +
-                  </span>
-                </summary>
-                <p className="pb-5 pr-12 text-base leading-relaxed text-muted-foreground">{f.a}</p>
-              </details>
-            ))}
-          </div>
+          <ScrollFaqAccordion items={FAQS} className="mt-10 max-w-3xl" />
         </div>
       </section>
 
@@ -402,12 +391,12 @@ function TakePart() {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">Next edition</p>
-          <h2 className="mt-3 font-heading text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="mt-3 font-heading text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Be part of the <span className="text-primary">next one.</span>
           </h2>
           <span aria-hidden className="mx-auto mt-6 block h-1 w-14 bg-tertiary" />
         </div>
-        <ul className="mt-12 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+        <ul className="mt-12 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3 rounded-2xl overflow-hidden">
           {ways.map(({ icon: WIcon, title, text, cta, href }) => (
             <li key={title} className="group relative flex flex-col bg-card p-7 text-center sm:p-9">
               <span aria-hidden className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-tertiary transition-transform duration-300 group-hover:scale-x-100" />
@@ -439,7 +428,7 @@ function RelatedConferences({ current }: { current: string }) {
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <p className="font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">Explore more</p>
-            <h2 id="related-heading" className="mt-3 font-heading text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl">
+            <h2 id="related-heading" className="mt-3 font-heading text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-4xl">
               Other conferences
             </h2>
           </div>
@@ -456,7 +445,7 @@ function RelatedConferences({ current }: { current: string }) {
               <li key={o.slug}>
                 <Link
                   href={`/conferences/${o.slug}`}
-                  className="group flex h-full flex-col border border-border bg-card p-6 transition-[border-color,translate,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[var(--shadow-hover)] sm:p-8"
+                  className="group flex h-full flex-col border border-border bg-card p-6 transition-[border-color,translate,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[var(--shadow-hover)] sm:p-8 rounded-2xl"
                 >
                   <div className="flex items-center justify-between gap-3">
                     <span className="inline-flex items-center gap-2 font-mono text-[12px] font-semibold uppercase tracking-widest text-tertiary-ink">
@@ -496,7 +485,7 @@ function Programme({ c, eyebrow, title }: { c: ConferencePage; eyebrow: string; 
     <section id="programme" className="w-full scroll-mt-24 py-16 md:py-20">
       <div className="container mx-auto px-4">
         <SectionHead eyebrow={eyebrow} title={title} />
-        <ol className="mt-10 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-10 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3 rounded-2xl overflow-hidden">
           {c.sessions.map((s, i) => (
             <li key={s.title} className="group relative flex gap-4 bg-card p-6">
               <span aria-hidden className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-tertiary transition-transform duration-300 group-hover:scale-x-100" />

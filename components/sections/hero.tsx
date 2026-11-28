@@ -179,7 +179,7 @@ export default function AtlasHero() {
       <div className="container mx-auto grid min-h-0 flex-1 gap-8 px-4 pb-8 pt-4 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pb-10">
         {/* Left: type */}
         <div className="relative isolate flex min-h-0 flex-col justify-center">
-          <h1 className="font-heading text-[clamp(2.1rem,9.5vw,4.25rem)] font-extrabold lg:text-[clamp(2.6rem,min(4.6vw,8.2vh),5.5rem)] uppercase leading-[0.98] tracking-[-0.02em] text-foreground">
+          <h1 className="font-heading text-[clamp(2.1rem,9.5vw,4.25rem)] font-semibold lg:text-[clamp(2.6rem,min(4.6vw,8.2vh),5.5rem)] leading-[0.98] tracking-[-0.02em] text-foreground">
             <Line delay={0.05} reduce={reduce}>Atlas</Line>
             <Line delay={0.15} reduce={reduce}>Global</Line>
             <Line delay={0.25} reduce={reduce}>

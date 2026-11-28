@@ -12,7 +12,7 @@ export default function Sponsors({ id = "sponsors", className = "" }: { id?: str
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground">
             SPONSORS
           </h2>
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-balance text-muted-foreground">
@@ -75,7 +75,7 @@ export default function Sponsors({ id = "sponsors", className = "" }: { id?: str
         <div className="mt-10 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 border-2 border-border bg-card px-6 py-3.5 text-sm font-medium text-foreground transition-all hover:border-primary/50 hover:bg-secondary"
+            className="inline-flex items-center gap-2 border-2 border-border bg-card px-6 py-3.5 text-sm font-medium text-foreground transition-all hover:border-primary/50 hover:bg-secondary rounded-full"
           >
             Become a sponsor
             <ArrowRightIcon weight="bold" size={16} />

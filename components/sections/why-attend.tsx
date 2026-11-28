@@ -16,14 +16,14 @@ export default function WhyAttend({ id = "why", className = "" }: { id?: string;
           {/* Left: sticky intro */}
           <div className="relative isolate lg:sticky lg:top-28 lg:self-start">
             <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">Why attend</span>
-            <h2 className="mt-3 text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            <h2 className="mt-3 text-3xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
               Six reasons to be in the room
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
               What you get from three days at Atlas Global.
             </p>
 
-            <dl className="mt-8 grid max-w-md grid-cols-3 border border-border bg-card">
+            <dl className="mt-8 grid max-w-md grid-cols-3 border border-border bg-card rounded-2xl">
               {VENUE.stats.map((s, i) => (
                 <div key={s.label} className={clsx("px-3 py-4 text-center", i > 0 && "border-l border-border")}>
                   <dt className="text-2xl font-bold tracking-tight text-tertiary-strong sm:text-3xl">{s.value}</dt>
@@ -34,7 +34,7 @@ export default function WhyAttend({ id = "why", className = "" }: { id?: string;
 
             <a
               href="#tickets"
-              className="mt-8 inline-flex items-center gap-2 bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_4px_20px_rgba(0,82,255,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(0,82,255,0.45)]"
+              className="mt-8 inline-flex items-center gap-2 bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_4px_20px_rgba(0,82,255,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(0,82,255,0.45)] rounded-full"
             >
               Get your ticket
               <ArrowRightIcon weight="bold" size={16} />

@@ -28,7 +28,7 @@ export default function CoreValues({ id = "values", eyebrow, intro, note, values
           <div className="grid grid-cols-[minmax(0,1fr)] items-end gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16">
             <div className="min-w-0">
               <span className="font-mono text-xs font-semibold uppercase tracking-widest text-tertiary-ink">{eyebrow}</span>
-              <h2 className="mt-4 font-heading text-[clamp(2.2rem,9vw,4.5rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.04em] text-foreground">
+              <h2 className="mt-4 font-heading text-[clamp(2.2rem,9vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-foreground">
                 Our core
                 <br />
                 <span className="text-primary">values</span>
@@ -38,7 +38,7 @@ export default function CoreValues({ id = "values", eyebrow, intro, note, values
             <div className="min-w-0 lg:pb-3">
               <p className="max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">{intro}</p>
               <p className="mt-4">
-                <DisplayText delay={0.3} className="text-[1.75rem] sm:text-[2.4rem]">
+                <DisplayText delay={0.3} className="text-[1.2rem] font-semibold sm:text-[1.5rem]">
                   {note}
                 </DisplayText>
               </p>
@@ -46,7 +46,7 @@ export default function CoreValues({ id = "values", eyebrow, intro, note, values
           </div>
 
           {/* Values grid: shared borders via gap-px on a border-coloured background */}
-          <ol className="mt-10 grid grid-cols-1 gap-px border border-border bg-border md:mt-14 md:grid-cols-2 lg:grid-cols-3">
+          <ol className="mt-10 grid grid-cols-1 gap-px border border-border bg-border md:mt-14 md:grid-cols-2 lg:grid-cols-3 rounded-2xl overflow-hidden">
             {values.map((v, i) => (
               <motion.li
                 key={v.title}

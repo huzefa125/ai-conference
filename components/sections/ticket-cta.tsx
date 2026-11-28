@@ -56,7 +56,7 @@ export default function TicketCta({
               ))}
             </dl>
 
-            <h2 className="mt-8 font-heading text-[2.6rem] font-extrabold leading-[1.02] tracking-tighter text-foreground sm:text-6xl lg:text-[4.25rem]">
+            <h2 className="mt-8 font-heading text-[2.6rem] font-semibold leading-[1.02] tracking-tighter text-foreground sm:text-6xl lg:text-[4.25rem]">
               <em className="italic">{titleLead}</em> {titleMid}
               <br />
               <span className="text-primary">{titleBrand}</span> <em className="italic">{titleTail}</em>
@@ -98,7 +98,7 @@ export default function TicketCta({
                     {perforated ? (
                       <a
                         href={c.cta.href}
-                        className="mt-6 inline-flex items-center gap-2 bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
+                        className="mt-6 inline-flex items-center gap-2 bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary rounded-full"
                       >
                         {c.cta.label}
                         <ArrowUpRightIcon weight="bold" size={14} />
@@ -117,7 +117,7 @@ export default function TicketCta({
                         )}
                         <a
                           href={c.cta.href}
-                          className="inline-flex items-center gap-2 bg-foreground px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-foreground/85"
+                          className="inline-flex items-center gap-2 bg-foreground px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-foreground/85 rounded-full"
                         >
                           {c.cta.label}
                           <ArrowUpRightIcon weight="bold" size={14} />

@@ -31,7 +31,7 @@ export default async function BlogPage() {
           {/* Featured (latest) post */}
           <Link
             href={`/blog/${featured.slug}`}
-            className="group mx-auto mt-12 grid max-w-6xl overflow-hidden border border-border bg-card shadow-[var(--shadow-subtle)] transition-all duration-300 hover:border-primary/40 hover:shadow-[var(--shadow-hover)] lg:grid-cols-2"
+            className="group mx-auto mt-12 grid max-w-6xl overflow-hidden border border-border bg-card shadow-[var(--shadow-subtle)] transition-all duration-300 hover:border-primary/40 hover:shadow-[var(--shadow-hover)] lg:grid-cols-2 rounded-2xl"
           >
             <div className="relative aspect-[16/10] overflow-hidden bg-secondary lg:aspect-auto lg:min-h-[22rem]">
               {/* eslint-disable-next-line @next/next/no-img-element */}

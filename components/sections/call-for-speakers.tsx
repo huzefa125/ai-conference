@@ -10,10 +10,10 @@ export default function CallForSpeakers({ id = "cfp", className = "" }: { id?: s
   return (
     <section id={id} className={clsx("w-full py-12 md:py-16", className)}>
       <div className="container mx-auto px-4">
-        <div className="grid gap-10 border border-border bg-card p-6 shadow-[var(--shadow-subtle)] sm:p-10 lg:grid-cols-2 lg:gap-14">
+        <div className="grid gap-10 border border-border bg-card p-6 shadow-[var(--shadow-subtle)] sm:p-10 lg:grid-cols-2 lg:gap-14 rounded-2xl">
           {/* Copy + CTA */}
           <div className="flex flex-col justify-center">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground uppercase text-balance">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance">
               {CFP.title}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">{CFP.text}</p>
@@ -21,7 +21,7 @@ export default function CallForSpeakers({ id = "cfp", className = "" }: { id?: s
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               <a
                 href={CFP.href}
-                className="inline-flex items-center justify-center gap-2 bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_4px_20px_rgba(0,82,255,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(0,82,255,0.45)]"
+                className="inline-flex items-center justify-center gap-2 bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_4px_20px_rgba(0,82,255,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(0,82,255,0.45)] rounded-full"
               >
                 {CFP.cta}
                 <ArrowRightIcon weight="bold" size={16} />

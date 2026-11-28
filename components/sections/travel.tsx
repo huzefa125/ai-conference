@@ -250,7 +250,7 @@ export default function Travel({ id = "travel", className = "" }: { id?: string;
         <div className="mb-10 flex flex-col justify-between gap-4 md:mb-14 md:flex-row md:items-end">
           <div>
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-tertiary-ink">Travel</p>
-            <h2 className="mt-3 font-heading text-4xl font-extrabold uppercase tracking-tight text-foreground sm:text-5xl md:text-6xl">
+            <h2 className="mt-3 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl">
               Plan your trip
             </h2>
           </div>
@@ -293,7 +293,7 @@ function PracticalInfo() {
         {TRAVEL_FACTS.map((f) => {
           const Icon = FACT_ICONS[f.icon];
           return (
-            <div key={f.label} className="flex flex-col border-b border-r border-border bg-card p-5 sm:p-6">
+            <div key={f.label} className="flex flex-col border-b border-r border-border bg-card p-5 sm:p-6 rounded-2xl">
               <span className="grid h-10 w-10 place-items-center bg-tertiary/10 text-tertiary-strong">
                 <Icon aria-hidden className="h-5 w-5" />
               </span>

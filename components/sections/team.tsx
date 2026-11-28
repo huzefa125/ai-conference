@@ -33,7 +33,7 @@ export default function Team({
           <span className="mb-6 grid h-12 w-12 place-items-center bg-primary text-primary-foreground shadow-[0_4px_20px_rgba(0,82,255,0.3)]">
             <UsersThreeIcon weight="duotone" size={26} />
           </span>
-          <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             {title}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">{subtitle}</p>
@@ -48,7 +48,7 @@ export default function Team({
             {members.map((m, i) => (
               <figure
                 key={m.name}
-                className="group w-60 shrink-0 border border-border bg-card p-2.5 shadow-[var(--shadow-subtle)] transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[var(--shadow-hover)] sm:w-64"
+                className="group w-60 shrink-0 border border-border bg-card p-2.5 shadow-[var(--shadow-subtle)] transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[var(--shadow-hover)] sm:w-64 rounded-2xl"
               >
                 <div className="relative aspect-[4/5] overflow-hidden bg-muted">
                   {/* eslint-disable-next-line @next/next/no-img-element */}

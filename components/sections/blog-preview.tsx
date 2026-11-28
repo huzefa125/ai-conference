@@ -33,7 +33,7 @@ const Blog = ({ id = "blog" }: { id?: string }) => {
             transition={{ duration: 0.8, delay: 0.1, ease: "easeInOut" }}
             className="mx-auto max-w-3xl text-center"
           >
-            <h2 className="text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               Recent news
             </h2>
             <p className="mt-4 text-base text-balance text-muted-foreground sm:text-lg">
@@ -83,7 +83,7 @@ const Blog = ({ id = "blog" }: { id?: string }) => {
           <div className="flex justify-center">
             <Link
               href="/blog"
-              className="group inline-flex items-center gap-2 border border-foreground px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background"
+              className="group inline-flex items-center gap-2 border border-foreground px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background rounded-full"
             >
               View all posts
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

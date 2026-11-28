@@ -88,7 +88,7 @@ async function PostContent({ params }: { params: PageProps<"/blog/[slug]">["para
 
       <section className="w-full border-t border-border py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <h2 className="mx-auto max-w-6xl text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">More posts</h2>
+          <h2 className="mx-auto max-w-6xl text-2xl font-bold tracking-tight text-foreground sm:text-3xl">More posts</h2>
           <div className="mx-auto mt-8 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {more.map((p) => (
               <BlogCard key={p.slug} post={p} />
